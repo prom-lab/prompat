@@ -208,6 +208,44 @@
                 stats: { uses: 25122 },
                 badge: "شخصية "
             },
+
+
+             {
+                id: 18,
+                title: " محجبة فى الشاطئ",
+                category: "بنات",  
+                image: "girl18.jpg",
+                description: "  فتاة بحجاب  ",
+                prompt: "photorealistic and sun-drenched portrait of a young woman with hijab like uploaded photo captured mid-stride as she walks along a serene beach. creating a sense of natural, effortless movement as she looks off to the side. Attire & Style: She is dressed in a stylishly casual and layered outfit: a lightweight, open beige or tan linen shirt worn over a simple white tank top, paired with classic high-waisted blue jeans. Her accessories are minimal and chic, including dark sunglasses and a delicate necklace. Setting & Atmosphere: The setting is a beautiful, natural coastline with the soft, out-of-focus waves of the ocean and a rocky shoreline visible in the background. The scene is bathed in warm, bright sunlight, creating a slightly hazy, dreamlike atmosphere. The mood is carefree, contemplative, and has a candid, in-the-moment feel. Keywords for Style & Quality: Style: Candid Lifestyle Photography, Coastal Aesthetic, Golden Hour, Serene, Windswept, Sun- kissed, Film Look, Natural Beauty. Quality: Masterpiece, 8K Resolution, Photorealistic, Hyper-detailed, Professional Photography, Sharp Focus on the subject. Technique: Shot on a 50mm lens, f/2.8, Natural Sunlight, Warm Cinematic Color Grading, Subtle Film Grain, Shallow Depth of Field.",
+                stats: { uses: 781112 },
+                badge: "شخصية "
+            },
+
+
+              {
+                id: 19,
+                title: "  خلف سيارة  ",
+                category: "بنات",  
+                image: "girl19.jpg",
+                description: " فتاة مع سيارة   ",
+                prompt: "Using the uploaded picture face without altering or enhancing it: create a picture of a hijabi girl posing with a sports car at night. The photo is taken from a high angle, as if the camera is held far above and pointed downwards. The girl is standing in front of a dark gray sports car, leaning back against its hood while tilting her head up. Her eyes are wide open, looking directly at the camera with a calm, confident expression, exactly like the original face, 100%. Her arms are slightly spread to her sides, with her hands resting naturally on the car. She is wearing a simple black hijab, a modest black long-sleeved top, and loose-fitting gray jeans. The car's headlights are on, casting a bright glow on the plain concrete ground, creating strong light-and-shadow contrast. The background gives the impression of an empty parking lot or underground garage, with a moody nighttime atmosphere.",
+                stats: { uses: 44202 },
+                badge: "شخصية "
+            },
+
+
+
+              {
+                id: 20,
+                title: "  امام مراية ",
+                category: "بنات",  
+                image: "girl20.jpg",
+                description: " فتاة بمرءاء   ",
+                prompt: "Create a hyper-realistic 8K editorial style portrait of a hijabi girl, inspired by the reference photo. She is posing in front of an oval vintage mirror with a golden frame. She is wearing her hijab, styled elegantly to match the fashion- forward atmosphere. Her makeup is dramatic, with winged eyeliner and glossy lips. One hand is raised, with her fingers gently touching her lips or chin in a graceful, thoughtful gesture. The scene is illuminated with vibrant blue LED lights, casting a luminous glow on her face and reflecting softly in the mirror, creating a mysterious and fantasy-like atmosphere. The rest of the room is mostly in shadow, with subtle hints of blue light highlighting the surroundings and adding depth to the composition. Focus on sharp details and cinematic composition: realistic skin textures, high contrast lighting, strong reflections in the mirror. The overall style should resemble a high-fashion editorial photoshoot with a moody, artistic, and modern LED- inspired vibe in black and blue tones.",
+                stats: { uses: 44202 },
+                badge: "شخصية "
+            },
+          
           
           
           
