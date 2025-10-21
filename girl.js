@@ -247,6 +247,85 @@
             },
           
           
+
+            
+              {
+                id: 21,
+                title: "  مع كرة قمرية ",
+                category: "بنات",  
+                image: "girl21.jpg",
+                description: " فتاة وقمر   ",
+                prompt: "A hyper-realistic cinematic portrait of a graceful hijabi woman holding a glowing full moon lamp close to her face with both hands. Replace the woman's face with my own, keeping the same gentle expression and closed eyes. She wears an elegant lace dress with delicate embroidery and soft transparent sleeves, and a beautifully styled silk hijab in warm ivory tones that blends naturally with the ambient lighting. The moon emits a soft pink-orange glow that illuminates her hands and face, surrounded by a dreamy atmosphere with dim warm lights in the background. The lighting is cinematic, with a magical, emotional, and ethereal mood. Ultra-realistic 8K quality, artistic photography, fine skin texture, realistic fabric details, masterpiece aesthetic.",
+                stats: { uses: 95222 },
+                badge: "شخصية "
+            },
+
+
+            {
+                id: 22,
+                title: "  مع  اسد ابيض  ",
+                category: "بنات",  
+                image: "girl22.jpg",
+                description: " فتاة واسد   ",
+                prompt: "A hyper-realistic cinematic portrait of a majestic white lion walking beside a stylish hijabi woman on a surreal shore made of luminous white pearls. Replace the woman's face with my own, keeping the same body posture, direction, and elegant attitude. She wears a luxurious pearl-embellished outfit with a shimmering coat reflecting soft sunlight, and a matching silk hijab that flows naturally with the breeze, designed in harmony with the pearly tones of the scene. The lion is powerful and royal, pure white with silky fur glowing under natural daylight. The ground is covered with glowing pearls reflecting the blue sky and calm sea. The atmosphere feels divine, elegant, and surreal - symbolizing purity, power, and grace. Ultra-realistic 8K quality, cinematic lighting, fine pearl reflections, artistic composition, masterpiece. Don't change my face details",
+                stats: { uses: 950222 },
+                badge: "شخصية "
+            },
+
+
+
+             {
+                id: 23,
+                title: "  مع  اسد   ",
+                category: "بنات",  
+                image: "girl23.jpg",
+                description: " فتاة واسد   ",
+                prompt: "A hyper-realistic cinematic portrait of a majestic scene featuring a woman gently leaning her face against a powerful white lion. Replace the woman with my own face, maintaining the same camera angle, composition, and lighting. The woman wears a luxurious, beaded pink gown and a matching hijab fully adorned with pearls and sparkling crystals, with intricate embroidery shimmering softly under diffused daylight. The crown-like headpiece features large pearls and delicate pink gems. Her makeup is soft and elegant with natural freckles and matte pink lips. The lion's fur is creamy beige with subtle pink reflections, its expression calm and noble. The background is softly blurred with a neutral tone, creating a royal, ethereal atmosphere. Ultra-realistic, 8K quality, cinematic lighting, perfect focus, natural skin texture, artistic composition, masterpiece aesthetic",
+                stats: { uses: 95227 },
+                badge: "شخصية "
+            },
+
+
+
+              {
+                id: 24,
+                title: "  مع  ارنب   ",
+                category: "بنات",  
+                image: "girl24.jpg",
+                description: " فتاة ارنب   ",
+                prompt: "A hyper-realistic cinematic portrait of a stylish hijabi woman sitting beside a giant grey rabbit. Replace the woman's face with my own, keeping the same pose, expression, and camera angle. She wears a soft pastel hijab that harmonizes with the fluffy light blue coat, covering her hair elegantly. Her outfit remains the same luxurious textured blue coat, accessorized with large round orange-tinted sunglasses and a pearl necklace. She holds a glass of fresh carrot juice with a carrot inside it. The rabbit is large, soft, and realistic with detailed fur texture, sitting calmly beside her. The background is pastel blue with cinematic lighting, soft shadows, and warm highlights. The overall mood is modern, elegant, and surreal - high-end fashion editorial style. Ultra-realistic 8K quality, natural skin texture, depth of field, masterpiece photography.",
+                stats: { uses: 745 },
+                badge: "شخصية "
+            },
+
+
+
+
+               {
+                id: 25,
+                title: "  مع  روبوت مستقبلى    ",
+                category: "بنات",  
+                image: "girl25.jpg",
+                description: " فتاة روبوت   ",
+                prompt: "Create an ultra-realistic 3D selfie in 9:16 vertical aspect ratio from the attached photo of the man (use the provided image for accurate facial features) with a T-800-style robot. The photo should look like a typical iPhone selfie-slightly uneven framing, camera angle of view, slight distortion from the front camera, natural skin texture, daylight in the background, an apocalyptic scene with other T-800-style robots, subtle motion blur from hand movements, and authentic depth of field from the iPhone's front camera. Maintain a high level of realism and detail, but with the casual, unpolished look of a real phone photo rather than a professional DSLR. 9:16 aspect ratio don't remove my hijab",
+                stats: { uses: 75045 },
+                badge: "شخصية "
+            },
+          
+
+
+
+              {
+                id: 26,
+                title: "  هكر مظلمة    ",
+                category: "بنات",  
+                image: "girl26.jpg",
+                description: " فتاة هكر   ",
+                prompt: "A portrait using my face, depicted as a hacker in a dark, rainy urban environment, strongly in the style of Mr. Robot. The subject is wearing a large hooded sweatshirt, covering the entire head but leaving the face visible, looking at the camera, with a computer screen reflecting a soft green code onto their face. The lighting is dramatic and low-contrast, with only the monitor light and some blurred streetlights in the background. There is a sense of isolation and paranoia. The image has a grainy, almost cinematic aesthetic, reminiscent of modern noir films, with a focus on technology and surveillance. Don't remove my hijab and make it matched to the outfit",
+                stats: { uses: 841020 },
+                badge: "شخصية "
+            },
+          
           
           
           
