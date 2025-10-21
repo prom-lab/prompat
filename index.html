@@ -323,10 +323,26 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         margin-bottom: 20px;
         transition: transform 0.3s;
+        position: relative;
     }
 
     .feed-item:hover {
         transform: translateY(-5px);
+    }
+
+    /* علامة جديدة على الكروت */
+    .new-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--secondary);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 2;
+        box-shadow: 0 3px 10px rgba(255, 101, 132, 0.3);
     }
 
     .feed-header {
@@ -754,8 +770,8 @@
         box-shadow: 0 12px 25px rgba(142, 68, 173, 0.4);
     }
 
-    /* المفضلة */
-    .favorites-section {
+    /* قسم تعلم كيف تصنع صورتك */
+    .tutorial-section {
         padding: 80px 0;
         background: white;
         border-radius: 30px;
@@ -763,14 +779,29 @@
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
 
-    .favorites-grid {
+    .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 50px;
+        color: var(--dark);
+        font-weight: 800;
+    }
+
+    .section-title span {
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .tutorial-steps {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 30px;
         margin-top: 50px;
     }
 
-    .favorite-card {
+    .tutorial-step {
         background: white;
         border-radius: 20px;
         overflow: hidden;
@@ -779,29 +810,88 @@
         border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .favorite-card:hover {
+    .tutorial-step:hover {
         transform: translateY(-10px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
-    .favorite-card-image {
+    .tutorial-step-image {
         width: 100%;
-        height: 220px;
+        height: 200px;
         object-fit: cover;
     }
 
-    .favorite-card-content {
+    .tutorial-step-content {
         padding: 25px;
     }
 
-    .favorite-card-title {
+    .tutorial-step-title {
         font-size: 1.3rem;
         font-weight: 700;
         margin-bottom: 12px;
         color: var(--dark);
     }
 
-    .favorite-card-category {
+    .tutorial-step-description {
+        color: var(--gray);
+        line-height: 1.6;
+    }
+
+    /* قسم المفضلة - سلايدر */
+    .favorites-section {
+        padding: 80px 0;
+        background: white;
+        border-radius: 30px;
+        margin: 60px 0;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .favorites-slider {
+        position: relative;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+
+    .favorites-track {
+        display: flex;
+        transition: transform 0.5s ease;
+        gap: 30px;
+        padding: 10px;
+    }
+
+    .favorite-slide {
+        min-width: 320px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .favorite-slide:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .favorite-slide-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .favorite-slide-content {
+        padding: 25px;
+    }
+
+    .favorite-slide-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: var(--dark);
+    }
+
+    .favorite-slide-category {
         display: inline-block;
         background: rgba(108, 99, 255, 0.1);
         padding: 5px 15px;
@@ -812,13 +902,13 @@
         margin-bottom: 15px;
     }
 
-    .favorite-card-actions {
+    .favorite-slide-actions {
         display: flex;
         gap: 12px;
         margin-top: 20px;
     }
 
-    .favorite-card-btn {
+    .favorite-slide-btn {
         flex: 1;
         padding: 10px 15px;
         border: none;
@@ -854,6 +944,42 @@
         transform: translateY(-2px);
     }
 
+    .slider-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .slider-btn {
+        background: var(--light);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: var(--primary);
+        font-size: 1.2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .slider-btn:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+    }
+
+    .slider-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+    }
+
     .empty-favorites {
         text-align: center;
         padding: 80px 20px;
@@ -869,6 +995,72 @@
     .empty-favorites p {
         font-size: 1.3rem;
         margin-bottom: 20px;
+    }
+
+    /* قسم تحذير بخصوص الصور على Gemini */
+    .warning-section {
+        padding: 80px 0;
+        background: white;
+        border-radius: 30px;
+        margin: 60px 0;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .warning-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .warning-icon {
+        font-size: 4rem;
+        color: var(--secondary);
+        margin-bottom: 30px;
+    }
+
+    .warning-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--dark);
+    }
+
+    .warning-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--gray);
+        margin-bottom: 30px;
+    }
+
+    .warning-steps {
+        text-align: right;
+        margin: 40px 0;
+    }
+
+    .warning-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: var(--light);
+        border-radius: 15px;
+    }
+
+    .warning-step-number {
+        background: var(--primary);
+        color: white;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        flex-shrink: 0;
+    }
+
+    .warning-step-text {
+        text-align: right;
     }
 
     /* قسم الإعلانات */
@@ -959,11 +1151,18 @@
         color: var(--primary);
     }
 
-    /* زر العودة للأعلى */
-    .scroll-to-top {
+    /* أزرار التنقل */
+    .navigation-buttons {
         position: fixed;
         bottom: 30px;
         left: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 999;
+    }
+
+    .scroll-to-top, .scroll-to-bottom {
         width: 60px;
         height: 60px;
         background: var(--gradient);
@@ -977,29 +1176,28 @@
         font-size: 1.3rem;
         box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
         transition: all 0.3s ease;
-        z-index: 999;
         opacity: 0;
         transform: translateY(20px);
     }
 
-    .scroll-to-top.show {
+    .scroll-to-top.show, .scroll-to-bottom.show {
         display: flex;
         opacity: 1;
         transform: translateY(0);
     }
 
-    .scroll-to-top:hover {
+    .scroll-to-top:hover, .scroll-to-bottom:hover {
         background: var(--gradient-dark);
         transform: translateY(-5px);
         box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
     }
 
-    .scroll-to-top:active {
+    .scroll-to-top:active, .scroll-to-bottom:active {
         transform: translateY(-2px);
     }
 
     /* تأثير النبض */
-    .scroll-to-top.pulse {
+    .scroll-to-top.pulse, .scroll-to-bottom.pulse {
         animation: pulse 2s infinite;
     }
 
@@ -1409,6 +1607,25 @@
             padding: 14px 28px;
             font-size: 1rem;
         }
+
+        .tutorial-steps {
+            grid-template-columns: 1fr;
+        }
+
+        .favorite-slide {
+            min-width: 280px;
+        }
+
+        .navigation-buttons {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .scroll-to-top, .scroll-to-bottom {
+            width: 50px;
+            height: 50px;
+            font-size: 1.1rem;
+        }
     }
 
     @media (max-width: 480px) {
@@ -1455,12 +1672,16 @@
             justify-content: center;
         }
         
-        .scroll-to-top {
-            width: 50px;
-            height: 50px;
-            bottom: 20px;
-            left: 20px;
-            font-size: 1.1rem;
+        .favorite-slide {
+            min-width: 250px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .warning-title {
+            font-size: 1.5rem;
         }
     }
 
@@ -1491,6 +1712,10 @@
         .container {
             padding: 0 15px;
         }
+
+        .favorite-slide {
+            min-width: 220px;
+        }
     }
 </style>
 </head>
@@ -1505,10 +1730,11 @@
                 <span>Gemini Prompts</span>
             </a>
             
-            <div class="nav-actions">
+            <div class="nav-actions">  <a href="rewerd.html">
                 <button class="user-menu-btn" id="userMenuBtn">
-                    <i class="fas fa-user"></i>
+                   <i class="fas fa-user"></i>
                 </button>
+                 </a>
             </div>
         </div>
     </nav>
@@ -1584,17 +1810,102 @@
             <!-- سيتم إضافة البطاقات ديناميكياً -->
         </div>
     </section>
+
+    <!-- قسم تعلم كيف تصنع صورتك -->
+    <section class="tutorial-section">
+        <div class="container">
+            <h2 class="section-title">تعلم كيف <span>تصنع صورتك</span></h2>
+            <div class="tutorial-steps">
+                <div class="tutorial-step">
+                    <img src="https://via.placeholder.com/400x200/6C63FF/FFFFFF?text=الخطوة+الأولى" alt="الخطوة الأولى" class="tutorial-step-image">
+                    <div class="tutorial-step-content">
+                        <h3 class="tutorial-step-title">اختيار الصورة المناسبة</h3>
+                        <p class="tutorial-step-description">اختر صورة عالية الجودة وواضحة لتحصل على أفضل نتيجة. تجنب الصور الضبابية أو المنخفضة الجودة.</p>
+                    </div>
+                </div>
+                <div class="tutorial-step">
+                    <img src="https://via.placeholder.com/400x200/36D1DC/FFFFFF?text=الخطوة+الثانية" alt="الخطوة الثانية" class="tutorial-step-image">
+                    <div class="tutorial-step-content">
+                        <h3 class="tutorial-step-title">نسخ البرومبت المناسب</h3>
+                        <p class="tutorial-step-description">اختر البرومبت الذي يناسب صورتك من مكتبتنا المتنوعة، ثم انسخه بالضغط على زر النسخ.</p>
+                    </div>
+                </div>
+                <div class="tutorial-step">
+                    <img src="https://via.placeholder.com/400x200/FF6584/FFFFFF?text=الخطوة+الثالثة" alt="الخطوة الثالثة" class="tutorial-step-image">
+                    <div class="tutorial-step-content">
+                        <h3 class="tutorial-step-title">استخدام Gemini</h3>
+                        <p class="tutorial-step-description">اذهب إلى موقع Gemini والصق البرومبت الذي نسخته، ثم ارفع صورتك لتحصل على النتيجة المذهلة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- قسم المفضلة -->
     <section class="favorites-section">
         <div class="container">
             <h2 class="section-title">الصور <span>المفضلة</span></h2>
-            <div class="favorites-grid" id="favoritesGrid">
-                <!-- سيتم إضافة العناصر المفضلة هنا -->
+            <div class="favorites-slider">
+                <div class="favorites-track" id="favoritesTrack">
+                    <!-- سيتم إضافة العناصر المفضلة هنا -->
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevSlide">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <button class="slider-btn" id="nextSlide">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                </div>
             </div>
             <div class="empty-favorites hidden" id="emptyFavorites">
                 <i class="far fa-folder-open"></i>
                 <p>لا توجد عناصر في المفضلة بعد</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم تحذير بخصوص الصور على Gemini -->
+    <section class="warning-section">
+        <div class="container">
+            <div class="warning-content">
+                <div class="warning-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h2 class="warning-title">تنبيه هام بخصوص الصور على Gemini</h2>
+                <p class="warning-text">
+                    عند استخدامك لموقع Gemini، قد يتم حفظ الصور التي ترفعها على خوادم جوجل. 
+                    ننصحك بحذف الصور بعد استخدامها للحفاظ على خصوصيتك.
+                </p>
+                
+                <div class="warning-steps">
+                    <div class="warning-step">
+                        <div class="warning-step-number">1</div>
+                        <div class="warning-step-text">
+                            <h3>احذف الصور بعد الانتهاء</h3>
+                            <p>بعد الحصول على النتيجة المرجوة، تأكد من حذف الصورة من حسابك على Gemini.</p>
+                        </div>
+                    </div>
+                    <div class="warning-step">
+                        <div class="warning-step-number">2</div>
+                        <div class="warning-step-text">
+                            <h3>لا ترفع صوراً شخصية حساسة</h3>
+                            <p>تجنب رفع صور تحتوي على معلومات شخصية أو صور عائلية حساسة.</p>
+                        </div>
+                    </div>
+                    <div class="warning-step">
+                        <div class="warning-step-number">3</div>
+                        <div class="warning-step-text">
+                            <h3>راجع سياسة الخصوصية</h3>
+                            <p>اقرأ سياسة الخصوصية وشروط الاستخدام لموقع Gemini لفهم كيفية استخدام بياناتك.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="contact-admin-btn" id="moreInfoBtn">
+                    <i class="fas fa-info-circle"></i>
+                    المزيد من المعلومات
+                </button>
             </div>
         </div>
     </section>
@@ -1654,10 +1965,15 @@
         </div>
     </div>
 
-    <!-- زر العودة للأعلى -->
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- أزرار التنقل -->
+    <div class="navigation-buttons">
+        <button class="scroll-to-top" id="scrollToTop">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="scroll-to-bottom" id="scrollToBottom">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
     
     <!-- الفوتر -->
     <footer>
@@ -1672,35 +1988,18 @@
                     </button>
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>روابط سريعة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">الرئيسية</a></li>
-                        <li><a href="#">المفضلة</a></li>
-                        <li><a href="#">بنين</a></li>
-                        <li><a href="#">بنات</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>الدعم</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">الأسئلة الشائعة</a></li>
-                        <li><a href="#">سياسة الخصوصية</a></li>
-                        <li><a href="#">شروط الاستخدام</a></li>
-                        <li><a href="#">الإبلاغ عن مشكلة</a></li>
-                    </ul>
-                </div>
+               
             </div>
             
             <div class="copyright">
-                <p>جميع الحقوق محفوظة &copy; 2025 Gemini Prompts - M0S7A5E</p>
+                <p>جميع الحقوق محفوظة &copy; 2024 Gemini Prompts - M0S7A5E</p>
             </div>
         </div>
     </footer>
@@ -1805,6 +2104,9 @@ let currentUser = null;
 let currentFilter = 'all';
 let allCards = [];
 let userFavorites = new Set();
+let viewedCards = new Set();
+let currentSlide = 0;
+let slidesPerView = 3;
 
 // إنشاء حساب تلقائي للمستخدم
 function createAnonymousUser() {
@@ -1838,6 +2140,7 @@ function loadUser() {
     }
     
     loadFavoritesFromLocalStorage();
+    loadViewedCardsFromLocalStorage();
     updateUserUI();
 }
 
@@ -1849,9 +2152,22 @@ function loadFavoritesFromLocalStorage() {
     }
 }
 
+// تحميل الكروت التي تم مشاهدتها
+function loadViewedCardsFromLocalStorage() {
+    const savedViewed = localStorage.getItem(`viewed_${currentUser.uid}`);
+    if (savedViewed) {
+        viewedCards = new Set(JSON.parse(savedViewed));
+    }
+}
+
 // حفظ المفضلة في localStorage
 function saveFavoritesToLocalStorage() {
     localStorage.setItem(`favorites_${currentUser.uid}`, JSON.stringify([...userFavorites]));
+}
+
+// حفظ الكروت التي تم مشاهدتها
+function saveViewedCardsToLocalStorage() {
+    localStorage.setItem(`viewed_${currentUser.uid}`, JSON.stringify([...viewedCards]));
 }
 
 // دالة لتنسيق الأرقام (مثال: 44202 → 44.2K)
@@ -1878,6 +2194,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     loadAndDisplayCards();
     loadUserFavorites();
+    updateSlidesPerView();
 });
 
 // إعداد مستمعات الأحداث
@@ -1918,6 +2235,13 @@ function setupEventListeners() {
     contactAdminBtn.addEventListener('click', function() {
         window.open('https://t.me/M0S7A5E', '_blank');
         showNotification('جاري فتح Telegram للتواصل مع المسؤولين!');
+    });
+
+    // زر المزيد من المعلومات
+    const moreInfoBtn = document.getElementById('moreInfoBtn');
+    moreInfoBtn.addEventListener('click', function() {
+        window.open('https://support.google.com/gemini/answer/13594961?hl=ar', '_blank');
+        showNotification('جاري فتح صفحة المساعدة!');
     });
 
     // نافذة المشاركة
@@ -1965,6 +2289,105 @@ function setupEventListeners() {
             }
         });
     }
+
+    // سلايدر المفضلة
+    const prevSlideBtn = document.getElementById('prevSlide');
+    const nextSlideBtn = document.getElementById('nextSlide');
+    
+    prevSlideBtn.addEventListener('click', function() {
+        navigateSlider('prev');
+    });
+    
+    nextSlideBtn.addEventListener('click', function() {
+        navigateSlider('next');
+    });
+
+    // تحديث عدد الشرائح المعروضة عند تغيير حجم النافذة
+    window.addEventListener('resize', function() {
+        updateSlidesPerView();
+        updateSliderPosition();
+    });
+
+    // أزرار التنقل
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollToBottomBtn = document.getElementById('scrollToBottom');
+    
+    scrollToTopBtn.addEventListener('click', function() {
+        scrollToTop();
+    });
+    
+    scrollToBottomBtn.addEventListener('click', function() {
+        scrollToBottom();
+    });
+
+    // التحكم في ظهور أزرار التنقل
+    window.addEventListener('scroll', function() {
+        toggleNavigationButtons();
+    });
+}
+
+// تحديث عدد الشرائح المعروضة بناءً على حجم الشاشة
+function updateSlidesPerView() {
+    const width = window.innerWidth;
+    
+    if (width < 480) {
+        slidesPerView = 1;
+    } else if (width < 768) {
+        slidesPerView = 2;
+    } else {
+        slidesPerView = 3;
+    }
+}
+
+// التحكم في ظهور أزرار التنقل
+function toggleNavigationButtons() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    const scrollToBottomBtn = document.getElementById('scrollToBottom');
+    const scrollPosition = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    
+    // زر الصعود للأعلى يظهر عندما يتم التمرير لأسفل
+    if (scrollPosition > 300) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+    
+    // زر النزول للأسفل يظهر عندما لا يكون المستخدم في أسفل الصفحة
+    if (scrollPosition + windowHeight < documentHeight - 100) {
+        scrollToBottomBtn.classList.add('show');
+    } else {
+        scrollToBottomBtn.classList.remove('show');
+    }
+}
+
+// التمرير إلى الأعلى
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    scrollToTopBtn.classList.add('pulse');
+    setTimeout(() => {
+        scrollToTopBtn.classList.remove('pulse');
+    }, 1000);
+}
+
+// التمرير إلى الأسفل
+function scrollToBottom() {
+    window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth'
+    });
+    
+    const scrollToBottomBtn = document.getElementById('scrollToBottom');
+    scrollToBottomBtn.classList.add('pulse');
+    setTimeout(() => {
+        scrollToBottomBtn.classList.remove('pulse');
+    }, 1000);
 }
 
 // تحميل وعرض البطاقات
@@ -2026,6 +2449,7 @@ function createFeedItem(card) {
     feedItem.setAttribute('data-category', card.category);
     
     const isFavorite = userFavorites.has(card.id.toString());
+    const isViewed = viewedCards.has(card.id.toString());
     const favoriteIcon = isFavorite ? 'fas fa-heart' : 'far fa-heart';
     const favoriteClass = isFavorite ? 'favorite active' : 'favorite';
     
@@ -2033,6 +2457,7 @@ function createFeedItem(card) {
     const usageCount = card.stats?.uses || 0;
     
     feedItem.innerHTML = `
+        ${!isViewed ? '<div class="new-badge">جديد</div>' : ''}
         <img src="${card.image}" alt="${card.title}" class="feed-image" onerror="this.src='https://via.placeholder.com/600x600/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
         <div class="instagram-actions">
             <div class="action-group">
@@ -2080,6 +2505,18 @@ function createFeedItem(card) {
     });
     
     viewPromptBtn.addEventListener('click', function() {
+        // إضافة البطاقة إلى قائمة المشاهدات
+        if (!viewedCards.has(card.id.toString())) {
+            viewedCards.add(card.id.toString());
+            saveViewedCardsToLocalStorage();
+            
+            // إزالة علامة "جديد"
+            const newBadge = feedItem.querySelector('.new-badge');
+            if (newBadge) {
+                newBadge.remove();
+            }
+        }
+        
         openPromptModal(card.title, card.prompt);
     });
     
@@ -2233,54 +2670,62 @@ function updateFavoriteButton(button, isFavorite) {
 
 // تحميل المفضلة للمستخدم
 function loadUserFavorites() {
-    const favoritesGrid = document.getElementById('favoritesGrid');
+    const favoritesTrack = document.getElementById('favoritesTrack');
     const emptyFavorites = document.getElementById('emptyFavorites');
+    const prevSlideBtn = document.getElementById('prevSlide');
+    const nextSlideBtn = document.getElementById('nextSlide');
     
-    favoritesGrid.innerHTML = '';
+    favoritesTrack.innerHTML = '';
     
     if (userFavorites.size === 0) {
         emptyFavorites.classList.remove('hidden');
-        favoritesGrid.classList.add('hidden');
+        favoritesTrack.classList.add('hidden');
+        prevSlideBtn.disabled = true;
+        nextSlideBtn.disabled = true;
         return;
     }
     
     emptyFavorites.classList.add('hidden');
-    favoritesGrid.classList.remove('hidden');
+    favoritesTrack.classList.remove('hidden');
     
     userFavorites.forEach(cardId => {
         const card = allCards.find(c => c.id.toString() === cardId);
         if (card) {
-            const favoriteElement = createFavoriteElement(card);
-            favoritesGrid.appendChild(favoriteElement);
+            const favoriteElement = createFavoriteSlide(card);
+            favoritesTrack.appendChild(favoriteElement);
         }
     });
+    
+    currentSlide = 0;
+    updateSliderPosition();
+    updateSliderButtons();
 }
 
-// إنشاء عنصر المفضلة
-function createFavoriteElement(favorite) {
+// إنشاء شريحة المفضلة
+function createFavoriteSlide(favorite) {
     const element = document.createElement('div');
-    element.className = 'favorite-card';
+    element.className = 'favorite-slide';
     element.setAttribute('data-id', favorite.id);
     
     // استخدام بيانات الاستخدام من ملف الصور
     const usageCount = favorite.stats?.uses || 0;
     
     element.innerHTML = `
-        <img src="${favorite.image || 'https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=Prompt'}" alt="${favorite.title}" class="favorite-card-image" onerror="this.src='https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=${encodeURIComponent(favorite.title)}'">
-        <div class="favorite-card-content">
-            <h3 class="favorite-card-title">${favorite.title}</h3>
-            <div class="favorite-card-category">${favorite.category || 'عام'}</div>
+        <img src="${favorite.image || 'https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=Prompt'}" alt="${favorite.title}" class="favorite-slide-image" onerror="this.src='https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=${encodeURIComponent(favorite.title)}'">
+        <div class="favorite-slide-content">
+            <h3 class="favorite-slide-title">${favorite.title}</h3>
+            <div class="favorite-slide-category">${favorite.category || 'عام'}</div>
             <div class="user-count">
                 <i class="fas fa-users"></i>
                 <span>${formatNumber(usageCount)} مستخدم</span>
             </div>
-            <p class="favorite-card-description">${favorite.description || ''}</p>
-            <div class="favorite-card-actions">
-                <button class="favorite-card-btn favorite-copy-btn" data-prompt="${favorite.prompt}">
+            <p class="favorite-slide-description">${favorite.description || ''}</p>
+            <div class="favorite-slide-actions">
+                <button class="favorite-slide-btn favorite-copy-btn" data-prompt="${favorite.prompt}">
                     <i class="far fa-copy"></i>
                     <span>نسخ البرومبت</span>
                 </button>
-                <button class="favorite-card-btn favorite-remove-btn" data-id="${favorite.id}">
+                <button class="favorite-slide-btn favorite-remove-btn" data-id="${favorite.id}">
                     <i class="far fa-trash-alt"></i>
                     <span>إزالة</span>
                 </button>
@@ -2319,11 +2764,14 @@ function removeFromFavorites(favoriteId, element) {
     
     updateAllFavoriteButtons();
     
-    const favoritesGrid = document.getElementById('favoritesGrid');
-    if (favoritesGrid.children.length === 0) {
+    const favoritesTrack = document.getElementById('favoritesTrack');
+    if (favoritesTrack.children.length === 0) {
         const emptyFavorites = document.getElementById('emptyFavorites');
         emptyFavorites.classList.remove('hidden');
-        favoritesGrid.classList.add('hidden');
+        favoritesTrack.classList.add('hidden');
+    } else {
+        updateSliderPosition();
+        updateSliderButtons();
     }
 }
 
@@ -2335,6 +2783,44 @@ function updateAllFavoriteButtons() {
         const isFavorite = userFavorites.has(cardId);
         updateFavoriteButton(button, isFavorite);
     });
+}
+
+// التنقل في السلايدر
+function navigateSlider(direction) {
+    const favoritesTrack = document.getElementById('favoritesTrack');
+    const slides = favoritesTrack.children;
+    const totalSlides = slides.length;
+    
+    if (direction === 'next') {
+        currentSlide = Math.min(currentSlide + 1, Math.max(0, totalSlides - slidesPerView));
+    } else {
+        currentSlide = Math.max(currentSlide - 1, 0);
+    }
+    
+    updateSliderPosition();
+    updateSliderButtons();
+}
+
+// تحديث موضع السلايدر
+function updateSliderPosition() {
+    const favoritesTrack = document.getElementById('favoritesTrack');
+    const slideWidth = favoritesTrack.children[0]?.offsetWidth + 30; // العرض + الهوامش
+    
+    if (slideWidth) {
+        favoritesTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+    }
+}
+
+// تحديث أزرار السلايدر
+function updateSliderButtons() {
+    const favoritesTrack = document.getElementById('favoritesTrack');
+    const slides = favoritesTrack.children;
+    const totalSlides = slides.length;
+    const prevSlideBtn = document.getElementById('prevSlide');
+    const nextSlideBtn = document.getElementById('nextSlide');
+    
+    prevSlideBtn.disabled = currentSlide === 0;
+    nextSlideBtn.disabled = currentSlide >= Math.max(0, totalSlides - slidesPerView);
 }
 
 // إظهار الإشعارات
@@ -2453,60 +2939,6 @@ class AdPopupManager {
     }
 }
 
-// إدارة زر العودة للأعلى
-class ScrollToTop {
-    constructor() {
-        this.button = document.getElementById('scrollToTop');
-        this.scrollThreshold = 300;
-        this.init();
-    }
-    
-    init() {
-        window.addEventListener('scroll', () => this.toggleButton());
-        this.button.addEventListener('click', () => this.scrollToTop());
-        this.toggleButton();
-    }
-    
-    toggleButton() {
-        if (window.pageYOffset > this.scrollThreshold) {
-            this.showButton();
-        } else {
-            this.hideButton();
-        }
-    }
-    
-    showButton() {
-        this.button.classList.add('show');
-        
-        if (!this.button.classList.contains('pulse')) {
-            this.button.classList.add('pulse');
-            setTimeout(() => {
-                this.button.classList.remove('pulse');
-            }, 3000);
-        }
-    }
-    
-    hideButton() {
-        this.button.classList.remove('show');
-    }
-    
-    scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-        
-        this.button.classList.add('pulse');
-        setTimeout(() => {
-            this.button.classList.remove('pulse');
-        }, 1000);
-    }
-    
-    scrollTop() {
-        this.scrollToTop();
-    }
-}
-
 // التهيئة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
     // تهيئة مدير الإعلانات
@@ -2514,21 +2946,9 @@ document.addEventListener('DOMContentLoaded', function() {
         window.adPopupManager = new AdPopupManager();
     }, 1000);
 
-    // تهيئة زر العودة للأعلى
-    window.scrollToTop = new ScrollToTop();
+    // التحقق من ظهور أزرار التنقل
+    toggleNavigationButtons();
 });
-
-// يمكنك أيضاً استدعاء هذه الدالة من أي مكان
-function scrollToTop() {
-    if (window.scrollToTop) {
-        window.scrollToTop.scrollTop();
-    } else {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-}
 
 // دالة لعرض الإعلان يدوياً إذا أردت
 function showAdPopup() {
@@ -2546,7 +2966,7 @@ function resetAdPopup() {
     </script>
 
     <!-- ملفات البيانات -->
-    <script src="boy.js"></script>
-    <script src="girl.js"></script>
+ <script src="boy.js"></script>
+ <script src="girl.js"></script>
 </body>
 </html>
