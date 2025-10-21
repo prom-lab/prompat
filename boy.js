@@ -150,6 +150,35 @@
 
 
 
+            
+              {
+                id: 12,
+                title: " بورتريه وسط شاشات",
+                category: "بنين", 
+                image: "boy12.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "MOODY URBAN PORTRAIT OF ME STANDING AGAINST STACKEDVINTAGE CRT TVS AND OLD ELECTRONICS ON A WORN WOODEN FLOOR. I WEAR AN OVERSIZED WHITET-SHIRT AND LOOSE DARK PANTS, HANDS IN POCKETS, RELAXED POSTURE. CINEMATICTOP LIGHTING WITH DEEP SHADOWS AND RICHTEXTURE. SHOT ON 35MM, F/2.8, ISO 400, 1/125S. APPLY FUJI CLASSIC CHROME PRESET WITH WARM HIGHLIGHTS, STRONG CONTRAST, SLIGHT DESATURATION, LIGHT FILM GRAIN, AND SOFTVIGNETTE FOR A NOSTALGIC, NON- BLUETONE LOOK.",
+                stats: {  uses: 78222 },
+                badge: "شخصية"
+
+            }, 
+
+
+
+            {
+                id: 13,
+                title: " على هاتف ",
+                category: "بنين", 
+                image: "boy13.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A stylish photo of me (uploaded photo as reference) as young male model with messy comma hair stands on a giant iPhone 16 screen showing a Spotify playlist (uploaded photos). He wears 2025 AirPods Max, an oversized white shirt, black shorts, and adidas samba. The top-down angle highlights the scale of the phone. The vibe is sleek, modern, and minimal.",
+                stats: {  uses: 95855 },
+                badge: "شخصية"
+
+            }, 
+
+
+
 
 
 
