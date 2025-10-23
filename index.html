@@ -106,7 +106,7 @@
         gap: 15px;
     }
     
-    /* زر المستخدم المحسن */
+    /* زر المستخدم */
     .user-menu-btn {
         background: var(--light);
         border: none;
@@ -131,8 +131,432 @@
         box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
     }
 
+    /* زر البحث */
+    .search-btn {
+        background: var(--light);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: var(--primary);
+        font-size: 1.2rem;
+        position: relative;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .search-btn:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+    }
+
+    /* زر الهدية */
+    .gift-btn {
+        background: var(--light);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        color: var(--secondary);
+        font-size: 1.2rem;
+        position: relative;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .gift-btn:hover {
+        background: var(--secondary);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 101, 132, 0.4);
+    }
+
+    /* قسم الهيرو الجديد */
+    .hero-section {
+        background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%236C63FF" fill-opacity="0.05" points="0,1000 1000,0 1000,1000"/></svg>');
+        background-size: cover;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        padding: 80px 20px;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        line-height: 1.6;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        opacity: 0.8;
+        line-height: 1.7;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .hero-stat {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent);
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero-btn {
+        padding: 16px 32px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        font-size: 1.1rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .hero-btn:hover::before {
+        left: 100%;
+    }
+
+    .btn-primary {
+        background: var(--gradient);
+        color: white;
+        border-color: var(--primary-light);
+    }
+
+    .btn-primary:hover {
+        background: var(--gradient-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
+    }
+
+    .btn-secondary {
+        background: transparent;
+        color: white;
+        border-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+    }
+
+    /* باقي الأنماط تبقى كما هي */
+    /* ... */
+
+    /* نافذة البحث */
+    .search-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        backdrop-filter: blur(10px);
+    }
+
+    .search-modal-content {
+        background: white;
+        width: 100%;
+        max-width: 600px;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+        from { 
+            opacity: 0; 
+            transform: scale(0.8) translateY(20px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: scale(1) translateY(0); 
+        }
+    }
+
+    .search-modal-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        text-align: center;
+        color: var(--dark);
+        font-weight: 700;
+        padding: 0 10px;
+    }
+
+    .search-input-container {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 15px 50px 15px 20px;
+        border: 2px solid var(--light);
+        border-radius: 15px;
+        font-size: 1rem;
+        transition: all 0.3s;
+        background: var(--light);
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray);
+    }
+
+    .search-results {
+        margin-top: 20px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .search-result-item {
+        background: white;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .search-result-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+    }
+
+    .search-result-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .search-result-content {
+        flex: 1;
+    }
+
+    .search-result-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: var(--dark);
+    }
+
+    .search-result-description {
+        font-size: 0.9rem;
+        color: var(--gray);
+    }
+
+    .close-search-modal {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--light);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s;
+        color: var(--dark);
+        border: none;
+    }
+
+    .close-search-modal:hover {
+        background: var(--primary);
+        color: white;
+        transform: rotate(90deg);
+    }
+
+    /* الكلام العائم للهدايا */
+    .floating-text {
+        position: fixed;
+        z-index: 10000;
+        pointer-events: none;
+        animation: floatUp 3s ease-in-out forwards;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--secondary);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0) scale(0.8);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) scale(1);
+            opacity: 0;
+        }
+    }
+
+    /* نظام الفلترة الجديد */
+    .hashtags-filter-section {
+        background: white;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 80px;
+        z-index: 99;
+    }
+
+    .hashtags-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+        padding: 10px 0;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .hashtags-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hashtag-btn {
+        padding: 10px 20px;
+        border-radius: 25px;
+        border: 2px solid var(--light);
+        background: white;
+        color: var(--dark);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    .hashtag-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+    }
+
+    .hashtag-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+    }
+
+    /* باقي الأنماط تبقى كما هي */
+    /* ... */
+
     /* نافذة الإعلان المنبثقة */
     .ad-popup-overlay {
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -140,23 +564,9 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(5px);
-        display: none;
         justify-content: center;
         align-items: center;
         z-index: 10000;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .ad-popup-overlay.active {
-        display: flex;
-        opacity: 1;
-        animation: fadeIn 0.3s ease;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
     }
 
     .ad-popup-container {
@@ -167,13 +577,6 @@
         width: 90%;
         max-height: 90vh;
         overflow: hidden;
-        transform: scale(0.9);
-        animation: popIn 0.3s ease 0.1s forwards;
-    }
-
-    @keyframes popIn {
-        from { transform: scale(0.9); }
-        to { transform: scale(1); }
     }
 
     .ad-popup-header {
@@ -214,12 +617,6 @@
         transform: rotate(90deg);
     }
 
-    .ad-close-btn:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        transform: none;
-    }
-
     .ad-popup-content {
         padding: 30px 25px;
         display: flex;
@@ -246,26 +643,6 @@
         color: var(--gray);
         font-size: 0.9rem;
         margin-bottom: 10px;
-    }
-
-    .ad-timer {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: var(--primary);
-        color: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        margin: 0 auto;
-        animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
     }
 
     /* قسم الفلاتر */
@@ -513,17 +890,6 @@
         max-height: 90vh;
         overflow-y: auto;
         animation: modalSlideIn 0.3s ease;
-    }
-
-    @keyframes modalSlideIn {
-        from { 
-            opacity: 0; 
-            transform: scale(0.8) translateY(20px); 
-        }
-        to { 
-            opacity: 1; 
-            transform: scale(1) translateY(0); 
-        }
     }
 
     .share-modal-title {
@@ -1338,178 +1704,42 @@
         box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
     }
 
-    /* قسم الهيرو */
-    .hero {
-        background-color: var(--dark);
-        border-bottom-right-radius: 15vw;
-        position: relative;
-        min-height: 100vh;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .hero:before {
-        content: "";
-        background-color: var(--dark);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 15vw;
-        height: 15vw;
-        z-index: 2;
-    }
-
-    .hero:after {
-        content: "";
-        background-color: var(--light);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 15vw;
-        height: 15vw;
-        border-top-left-radius: 15vw;
-        z-index: 3;
-    }
-
-    .video-wrap {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        border-bottom-right-radius: 15vw;
-        pointer-events: none;
-    }
-
-    #video-bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        min-width: 100%;
-        background-position: center center;
-        background-size: cover;
-        object-fit: cover;
-        transform: rotate(180deg);
-    }
-
-    .gradient-overlay {
-        bottom: 0;
-        height: 50%;
-        background: linear-gradient(to bottom, rgba(33,33,33,0) 0%, rgba(33,33,33,1) 50%);
-        z-index: 1;
-        border-bottom-right-radius: 15vw;
-        pointer-events: none;
-    }
-
-    .hero .content {
-        z-index: 2;
-        max-width: 900px;
-        padding: 0 20px;
-    }
-
-    .hero-title {
-        font-size: 4.5rem;
-        line-height: 1.1;
-        font-weight: 900;
-        margin-bottom: 1.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 2rem;
-        display: block;
-        margin-top: 0.5rem;
-        opacity: 0.9;
-    }
-
-    .hero-description {
-        font-size: 1.3rem;
-        line-height: 1.6;
-        opacity: 0.8;
-        margin-bottom: 3rem;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        display: flex;
-        gap: 20px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .hero-btn {
-        padding: 16px 32px;
-        border-radius: 50px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: 2px solid transparent;
-        font-size: 1.1rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-        transition: left 0.5s;
-    }
-
-    .hero-btn:hover::before {
-        left: 100%;
-    }
-
-    .btn-explore {
-        background: var(--primary);
-        color: white;
-        border-color: var(--primary-light);
-    }
-
-    .btn-explore:hover {
-        background: var(--primary-light);
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
-    }
-
-    .btn-favorites {
-        background: transparent;
-        color: white;
-        border-color: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(10px);
-    }
-
-    .btn-favorites:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
-    }
-
-    .blend {
-        mix-blend-mode: difference !important;
-        color: white;
-        position: relative;
-        z-index: 2;
-    }
-
-    .hidden {
-        display: none !important;
-    }
-
     /* ==================== */
     /* تحسينات التجاوب للشاشات الصغيرة */
     /* ==================== */
 
     @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+        
+        .hero-description {
+            font-size: 1rem;
+        }
+        
+        .hero-stats {
+            gap: 20px;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+        }
+        
+        .hero-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-btn {
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+        }
+
         .filter-container {
             gap: 10px;
         }
@@ -1583,7 +1813,8 @@
             min-width: 120px;
         }
         
-        .close-modal, .close-share-modal {
+        .close-modal, 
+        .close-share-modal {
             width: 35px;
             height: 35px;
             font-size: 1rem;
@@ -1591,23 +1822,6 @@
             left: 15px;
         }
         
-        .hero-title {
-            font-size: 2.8rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.4rem;
-        }
-        
-        .hero-description {
-            font-size: 1.1rem;
-        }
-        
-        .hero-btn {
-            padding: 14px 28px;
-            font-size: 1rem;
-        }
-
         .tutorial-steps {
             grid-template-columns: 1fr;
         }
@@ -1626,9 +1840,27 @@
             height: 50px;
             font-size: 1.1rem;
         }
+
+        .hashtag-btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        .search-modal-content {
+            padding: 20px;
+            margin: 10px;
+        }
     }
 
     @media (max-width: 480px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
+        
         .share-options {
             grid-template-columns: 1fr;
         }
@@ -1649,29 +1881,6 @@
             padding: 20px 15px;
         }
         
-        .hero-title {
-            font-size: 2.2rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-        }
-        
-        .hero-description {
-            font-size: 1rem;
-        }
-        
-        .hero-buttons {
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .hero-btn {
-            width: 100%;
-            max-width: 280px;
-            justify-content: center;
-        }
-        
         .favorite-slide {
             min-width: 250px;
         }
@@ -1682,6 +1891,15 @@
 
         .warning-title {
             font-size: 1.5rem;
+        }
+
+        .hashtags-container {
+            padding: 5px 0;
+        }
+
+        .hashtag-btn {
+            padding: 6px 12px;
+            font-size: 0.8rem;
         }
     }
 
@@ -1706,7 +1924,7 @@
         }
         
         .hero-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
         
         .container {
@@ -1716,6 +1934,10 @@
         .favorite-slide {
             min-width: 220px;
         }
+    }
+
+    .hidden {
+        display: none !important;
     }
 </style>
 </head>
@@ -1727,74 +1949,72 @@
                 <div class="logo-icon">
                     <i class="fas fa-gem"></i>
                 </div>
-                <span>Gemini Prompts</span>
+                <span id="siteTitle">Gemini Prompts</span>
             </a>
             
-            <div class="nav-actions">  <a href="rewerd.html">
-                <button class="user-menu-btn" id="userMenuBtn">
-                   <i class="fas fa-user"></i>
+            <div class="nav-actions">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
                 </button>
-                 </a>
+                <a href="rewerd.html">
+                    <button class="gift-btn" id="giftBtn">
+                        <i class="fas fa-gift"></i>
+                    </button>
+                </a>
+                <!-- زر المستخدم البسيط -->
+                <button class="user-menu-btn" id="userMenuBtn">
+                    <i class="fas fa-user"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- قسم الهيرو -->
-    <section class="hero d-flex align-items-center justify-content-center">
-        <div class="video-wrap">
-            <video autoplay="" playsinline="" loop="" muted="" id="video-bg">
-                <source src="https://assets.codepen.io/319606/tactus-waves-hero-sm.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="position-absolute w-100 gradient-overlay"></div>
-        <div class="content position-relative text-center">
-            <h1 class="hero-title blend">
-                Gemini Prompts
-                <br>
-                <span class="hero-subtitle">منصة الإبداع الرقمي</span>
-            </h1>
-            <p class="hero-description blend">
-                حوّل صورك إلى تحف فنية مع برومبتات Gemini المميزة
-                <br>
-                مكتبة كاملة من الصور يتم تحديثها يوميا 
-            </p>
-            <div class="hero-buttons">
-                <button class="hero-btn btn-explore" id="exploreHeroBtn">
-                    <i class="fas fa-compass"></i>
-                    ابدأ الاستكشاف
-                </button>
-                <button class="hero-btn btn-favorites" id="favoritesHeroBtn">
-                    <i class="fas fa-heart"></i>
-                    المفضلة
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم الإعلان -->
-    <section class="ads-section">
+    <!-- قسم الهيرو الجديد -->
+    <section class="hero-section">
         <div class="container">
-            <div class="ad-card">
-                <div class="ad-card-badge">إعلان</div>
-                <div class="ad-content-wrapper">
-                    <!-- المحتوى الإعلاني -->
-                    <div class="ad-script-container">
-                        <script type="text/javascript">
-                            atOptions = {
-                                'key' : '3b58d672a3bd6bed95336b3305cfab56',
-                                'format' : 'iframe',
-                                'height' : 50,
-                                'width' : 320,
-                                'params' : {}
-                            };
-                        </script>
-                        <script type="text/javascript" src="//www.highperformanceformat.com/3b58d672a3bd6bed95336b3305cfab56/invoke.js"></script>
+            <div class="hero-content">
+                <h1 class="hero-title">اكتشف عالم الصور الإبداعية</h1>
+                <p class="hero-subtitle">أفضل برومبتات Gemini لتحويل صورك إلى أعمال فنية مذهلة</p>
+                <p class="hero-description">منصة عربية متخصصة في تقديم برومبتات إبداعية لتحويل الصور العادية إلى محتوى مذهل يناسب منصات التواصل الاجتماعي</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="stat-number" id="usersCount">10K+</span>
+                        <span class="stat-label">مستخدم نشط</span>
                     </div>
+                    <div class="hero-stat">
+                        <span class="stat-number" id="promptsCount">500+</span>
+                        <span class="stat-label">برومبت متميز</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="stat-number" id="imagesCount">5K+</span>
+                        <span class="stat-label">صورة منشأة</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <button class="hero-btn btn-primary" id="exploreHeroBtn">
+                        <i class="fas fa-compass"></i>
+                        استكشف البرومبتات
+                    </button>
+                    <button class="hero-btn btn-secondary" id="learnHeroBtn">
+                        <i class="fas fa-graduation-cap"></i>
+                        تعلم كيفية الاستخدام
+                    </button>
                 </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- قسم الهشتاجات -->
+    <section class="hashtags-filter-section">
+        <div class="container">
+            <div class="hashtags-container" id="hashtagsContainer">
+                <!-- سيتم إضافة الهاشتاجات ديناميكياً -->
+            </div>
+        </div>
+    </section>
+
     <!-- قسم الفلاتر -->
     <section class="filter-section">
         <div class="container filter-container">
@@ -1817,24 +2037,38 @@
             <h2 class="section-title">تعلم كيف <span>تصنع صورتك</span></h2>
             <div class="tutorial-steps">
                 <div class="tutorial-step">
-                    <img src="https://via.placeholder.com/400x200/6C63FF/FFFFFF?text=الخطوة+الأولى" alt="الخطوة الأولى" class="tutorial-step-image">
+                    <img src="step1.PNG" alt="الخطوة الأولى" class="tutorial-step-image">
                     <div class="tutorial-step-content">
                         <h3 class="tutorial-step-title">اختيار الصورة المناسبة</h3>
-                        <p class="tutorial-step-description">اختر صورة عالية الجودة وواضحة لتحصل على أفضل نتيجة. تجنب الصور الضبابية أو المنخفضة الجودة.</p>
+                        <p class="tutorial-step-description">اختار الصورة التى تريدها من الموقع الخاص بنا  ثم اضغط على علامة العين لروية البرومبت الخاص به</p>
                     </div>
                 </div>
                 <div class="tutorial-step">
-                    <img src="https://via.placeholder.com/400x200/36D1DC/FFFFFF?text=الخطوة+الثانية" alt="الخطوة الثانية" class="tutorial-step-image">
+                    <img src="step2.PNG" alt="الخطوة الثانية" class="tutorial-step-image">
                     <div class="tutorial-step-content">
                         <h3 class="tutorial-step-title">نسخ البرومبت المناسب</h3>
-                        <p class="tutorial-step-description">اختر البرومبت الذي يناسب صورتك من مكتبتنا المتنوعة، ثم انسخه بالضغط على زر النسخ.</p>
+                        <p class="tutorial-step-description">بعد الضغط على علامة العين سيظهر زرين واحد نسخ البومبت كما موضح فى السهم الازرق اضغط عليه 
+                            والثانى للانتقال الى جمناى لعمل الصورة تاكد اولا من نسخك للبرومبت بنجاح ثم انتقل الى جمناى
+                        </p>
                     </div>
                 </div>
                 <div class="tutorial-step">
-                    <img src="https://via.placeholder.com/400x200/FF6584/FFFFFF?text=الخطوة+الثالثة" alt="الخطوة الثالثة" class="tutorial-step-image">
+                    <img src="step3.PNG" alt="الخطوة الثالثة" class="tutorial-step-image">
                     <div class="tutorial-step-content">
                         <h3 class="tutorial-step-title">استخدام Gemini</h3>
-                        <p class="tutorial-step-description">اذهب إلى موقع Gemini والصق البرومبت الذي نسخته، ثم ارفع صورتك لتحصل على النتيجة المذهلة.</p>
+                        <p class="tutorial-step-description">بعد دخولك الى جمناى الصق البرومبت الذى نسخته فى مكان الادخال كما موضح فى السهم وثم بعد ذالك اختر صورتك من خلال الضغط على علامة + الموضحة فى السهم 
+                            الاحمر واختر صورتك التى تريد انشاء الصورة مثلها تاكد من ان وجهك ظاهر بوضوح 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tutorial-step">
+                    <img src="step4.PNG" alt="الخطوة الرابعة" class="tutorial-step-image">
+                    <div class="tutorial-step-content">
+                        <h3 class="tutorial-step-title">انشاء الصورة  </h3>
+                        <p class="tutorial-step-description">بعد اختيار صورتك اضغط على علامة الادوات بجانب ال+ لااضافة التخصيص واختر منها صور بااستخدام imagen
+                            ومن ثم اضغط ارسال ومبروك عليك الصورة 
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1934,6 +2168,25 @@
         </div>
     </section>
 
+    <!-- نافذة البحث -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <div class="close-search-modal" id="closeSearchModal">✕</div>
+            <h2 class="search-modal-title">البحث عن الصور</h2>
+            
+            <div class="search-input-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="ابحث عن وصف الصورة...">
+                <div class="search-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+            
+            <div class="search-results" id="searchResults">
+                <!-- سيتم عرض نتائج البحث هنا -->
+            </div>
+        </div>
+    </div>
+
     <!-- نافذة الإعلان المنبثقة -->
     <div class="ad-popup-overlay" id="adPopup">
         <div class="ad-popup-container">
@@ -1991,11 +2244,8 @@
                         <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-
                     </div>
                 </div>
-                
-               
             </div>
             
             <div class="copyright">
@@ -2082,891 +2332,1129 @@
     <!-- إشعار النسخ -->
     <div class="notification" id="notification">تم نسخ البرومبت بنجاح!</div>
 
-    <script>
-
-        // تهيئة Firebase مع الإعدادات الجديدة
-const firebaseConfig = {
-    apiKey: "AIzaSyCffrRr-wYBeiAf7GML6Xs3kQg-14mLFhQ",
-    authDomain: "prompat-76c51.firebaseapp.com",
-    projectId: "prompat-76c51",
-    storageBucket: "prompat-76c51.firebasestorage.app",
-    messagingSenderId: "663109200073",
-    appId: "1:663109200073:web:9da9a15649a88028b68518",
-    measurementId: "G-HKL1XTBX6H"
-};
-
-// تهيئة Firebase
-firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-
-// متغيرات التطبيق
-let currentUser = null;
-let currentFilter = 'all';
-let allCards = [];
-let userFavorites = new Set();
-let viewedCards = new Set();
-let currentSlide = 0;
-let slidesPerView = 3;
-
-// إنشاء حساب تلقائي للمستخدم
-function createAnonymousUser() {
-    const userId = generateUserId();
-    const userName = `مستخدم_${userId.substring(0, 6)}`;
-    
-    currentUser = {
-        uid: userId,
-        displayName: userName,
-        isAnonymous: true
+  <script>
+    // تهيئة Firebase مع الإعدادات الجديدة
+    const firebaseConfig = {
+        apiKey: "AIzaSyCffrRr-wYBeiAf7GML6Xs3kQg-14mLFhQ",
+        authDomain: "prompat-76c51.firebaseapp.com",
+        projectId: "prompat-76c51",
+        storageBucket: "prompat-76c51.firebasestorage.app",
+        messagingSenderId: "663109200073",
+        appId: "1:663109200073:web:9da9a15649a88028b68518",
+        measurementId: "G-HKL1XTBX6H"
     };
-    
-    localStorage.setItem('anonymousUser', JSON.stringify(currentUser));
-    
-    return currentUser;
-}
 
-// توليد معرف فريد للمستخدم
-function generateUserId() {
-    return 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
-}
+    // تهيئة Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-// تحميل المستخدم من localStorage أو إنشاء جديد
-function loadUser() {
-    const savedUser = localStorage.getItem('anonymousUser');
-    
-    if (savedUser) {
-        currentUser = JSON.parse(savedUser);
-    } else {
-        currentUser = createAnonymousUser();
-    }
-    
-    loadFavoritesFromLocalStorage();
-    loadViewedCardsFromLocalStorage();
-    updateUserUI();
-}
+    // متغيرات التطبيق
+    let currentUser = null;
+    let currentFilter = 'all';
+    let currentHashtag = 'all';
+    let allCards = [];
+    let userFavorites = new Set();
+    let viewedCards = new Set();
+    let currentSlide = 0;
+    let slidesPerView = 3;
+    let titleRotationIndex = 0;
+    let titleRotationInterval;
 
-// تحميل المفضلة من localStorage
-function loadFavoritesFromLocalStorage() {
-    const savedFavorites = localStorage.getItem(`favorites_${currentUser.uid}`);
-    if (savedFavorites) {
-        userFavorites = new Set(JSON.parse(savedFavorites));
-    }
-}
+    // بيانات الهاشتاجات
+    const hashtags = [
+        { id: 'all', name: 'الكل' },
+        { id: 'ورد', name: 'ورد#' },
+        { id: 'سيارات', name: 'سيارات#' },
+        { id: 'كلاسيك', name: 'كلاسيك#' },
+        { id: 'جميلة', name: 'جميلة#' },
+        { id: 'وجه كامل', name: 'وجه كامل# ' },
+        { id: 'خيالى', name: 'خيالى#' },
+        { id: 'حيوانات', name: 'حيوانات#' },
+        { id: 'بورتريه', name: 'بورتريه#' },
+        { id: 'عصرى', name: 'عصرى#' },
+    ];
 
-// تحميل الكروت التي تم مشاهدتها
-function loadViewedCardsFromLocalStorage() {
-    const savedViewed = localStorage.getItem(`viewed_${currentUser.uid}`);
-    if (savedViewed) {
-        viewedCards = new Set(JSON.parse(savedViewed));
-    }
-}
+    // عناوين الدوران
+    const rotatingTitles = [
+        "Gemini Prompts",
+        "هناك صور جديدة يومياً",
+        "جوائز أسبوعية"
+    ];
 
-// حفظ المفضلة في localStorage
-function saveFavoritesToLocalStorage() {
-    localStorage.setItem(`favorites_${currentUser.uid}`, JSON.stringify([...userFavorites]));
-}
-
-// حفظ الكروت التي تم مشاهدتها
-function saveViewedCardsToLocalStorage() {
-    localStorage.setItem(`viewed_${currentUser.uid}`, JSON.stringify([...viewedCards]));
-}
-
-// دالة لتنسيق الأرقام (مثال: 44202 → 44.2K)
-function formatNumber(num) {
-    if (num >= 1000000) {
-        return (num / 1000000).toFixed(1) + 'M';
-    } else if (num >= 1000) {
-        return (num / 1000).toFixed(1) + 'K';
-    }
-    return num.toString();
-}
-
-// تحديث واجهة المستخدم
-function updateUserUI() {
-    const userAvatar = document.getElementById('userMenuBtn');
-    if (currentUser) {
-        userAvatar.innerHTML = `<i class="fas fa-user"></i>`;
-    }
-}
-
-// تهيئة التطبيق
-document.addEventListener('DOMContentLoaded', function() {
-    loadUser();
-    setupEventListeners();
-    loadAndDisplayCards();
-    loadUserFavorites();
-    updateSlidesPerView();
-});
-
-// إعداد مستمعات الأحداث
-function setupEventListeners() {
-    // الفلاتر
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            currentFilter = this.getAttribute('data-filter');
-            filterCards();
-        });
-    });
-    
-    // نافذة البرومبت
-    const promptModal = document.getElementById('promptModal');
-    const closeModal = document.getElementById('closeModal');
-    
-    closeModal.addEventListener('click', function() {
-        promptModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-    
-    // نسخ البرومبت
-    const copyBtn = document.getElementById('copyBtn');
-    copyBtn.addEventListener('click', copyPrompt);
-    
-    // الذهاب إلى Gemini
-    const geminiBtn = document.getElementById('geminiBtn');
-    geminiBtn.addEventListener('click', function() {
-        window.open('https://gemini.google.com', '_blank');
-        showNotification('تم فتح Gemini في نافذة جديدة!');
-    });
-
-    // زر التواصل مع المسؤولين
-    const contactAdminBtn = document.getElementById('contactAdminBtn');
-    contactAdminBtn.addEventListener('click', function() {
-        window.open('https://t.me/M0S7A5E', '_blank');
-        showNotification('جاري فتح Telegram للتواصل مع المسؤولين!');
-    });
-
-    // زر المزيد من المعلومات
-    const moreInfoBtn = document.getElementById('moreInfoBtn');
-    moreInfoBtn.addEventListener('click', function() {
-        window.open('https://support.google.com/gemini/answer/13594961?hl=ar', '_blank');
-        showNotification('جاري فتح صفحة المساعدة!');
-    });
-
-    // نافذة المشاركة
-    const shareModal = document.getElementById('shareModal');
-    const closeShareModal = document.getElementById('closeShareModal');
-    
-    closeShareModal.addEventListener('click', function() {
-        shareModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    // خيارات المشاركة
-    const shareOptions = document.querySelectorAll('.share-option');
-    shareOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const platform = this.getAttribute('data-platform');
-            handleShare(platform);
-        });
-    });
-
-    // زر الاستكشاف في الهيرو
-    const exploreHeroBtn = document.getElementById('exploreHeroBtn');
-    if (exploreHeroBtn) {
-        exploreHeroBtn.addEventListener('click', function() {
-            const filterSection = document.querySelector('.filter-section');
-            if (filterSection) {
-                filterSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    }
-    
-    // زر المفضلة في الهيرو
-    const favoritesHeroBtn = document.getElementById('favoritesHeroBtn');
-    if (favoritesHeroBtn) {
-        favoritesHeroBtn.addEventListener('click', function() {
-            const favoritesSection = document.querySelector('.favorites-section');
-            if (favoritesSection) {
-                favoritesSection.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+    // إنشاء حساب تلقائي للمستخدم
+    function createAnonymousUser() {
+        const userId = generateUserId();
+        const userName = `مستخدم_${userId.substring(0, 6)}`;
+        
+        currentUser = {
+            uid: userId,
+            displayName: userName,
+            isAnonymous: true
+        };
+        
+        localStorage.setItem('anonymousUser', JSON.stringify(currentUser));
+        
+        return currentUser;
     }
 
-    // سلايدر المفضلة
-    const prevSlideBtn = document.getElementById('prevSlide');
-    const nextSlideBtn = document.getElementById('nextSlide');
-    
-    prevSlideBtn.addEventListener('click', function() {
-        navigateSlider('prev');
-    });
-    
-    nextSlideBtn.addEventListener('click', function() {
-        navigateSlider('next');
-    });
-
-    // تحديث عدد الشرائح المعروضة عند تغيير حجم النافذة
-    window.addEventListener('resize', function() {
-        updateSlidesPerView();
-        updateSliderPosition();
-    });
-
-    // أزرار التنقل
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    const scrollToBottomBtn = document.getElementById('scrollToBottom');
-    
-    scrollToTopBtn.addEventListener('click', function() {
-        scrollToTop();
-    });
-    
-    scrollToBottomBtn.addEventListener('click', function() {
-        scrollToBottom();
-    });
-
-    // التحكم في ظهور أزرار التنقل
-    window.addEventListener('scroll', function() {
-        toggleNavigationButtons();
-    });
-}
-
-// تحديث عدد الشرائح المعروضة بناءً على حجم الشاشة
-function updateSlidesPerView() {
-    const width = window.innerWidth;
-    
-    if (width < 480) {
-        slidesPerView = 1;
-    } else if (width < 768) {
-        slidesPerView = 2;
-    } else {
-        slidesPerView = 3;
+    // توليد معرف فريد للمستخدم
+    function generateUserId() {
+        return 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
     }
-}
 
-// التحكم في ظهور أزرار التنقل
-function toggleNavigationButtons() {
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    const scrollToBottomBtn = document.getElementById('scrollToBottom');
-    const scrollPosition = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const documentHeight = document.documentElement.scrollHeight;
-    
-    // زر الصعود للأعلى يظهر عندما يتم التمرير لأسفل
-    if (scrollPosition > 300) {
-        scrollToTopBtn.classList.add('show');
-    } else {
-        scrollToTopBtn.classList.remove('show');
-    }
-    
-    // زر النزول للأسفل يظهر عندما لا يكون المستخدم في أسفل الصفحة
-    if (scrollPosition + windowHeight < documentHeight - 100) {
-        scrollToBottomBtn.classList.add('show');
-    } else {
-        scrollToBottomBtn.classList.remove('show');
-    }
-}
-
-// التمرير إلى الأعلى
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-    
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    scrollToTopBtn.classList.add('pulse');
-    setTimeout(() => {
-        scrollToTopBtn.classList.remove('pulse');
-    }, 1000);
-}
-
-// التمرير إلى الأسفل
-function scrollToBottom() {
-    window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: 'smooth'
-    });
-    
-    const scrollToBottomBtn = document.getElementById('scrollToBottom');
-    scrollToBottomBtn.classList.add('pulse');
-    setTimeout(() => {
-        scrollToBottomBtn.classList.remove('pulse');
-    }, 1000);
-}
-
-// تحميل وعرض البطاقات
-function loadAndDisplayCards() {
-    // دمج بطاقات البنين والبنات
-    allCards = [...boysCardsData, ...girlsCardsData];
-    
-    // خلط البطاقات عشوائياً
-    shuffleArray(allCards);
-    
-    // عرض البطاقات
-    renderFeedCards();
-}
-
-// خلط المصفوفة عشوائياً
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
-// عرض البطاقات في التغذية
-function renderFeedCards() {
-    const feedContainer = document.getElementById('feedContainer');
-    feedContainer.innerHTML = '';
-    
-    const filteredCards = filterCardsByCategory(allCards);
-    
-    filteredCards.forEach(card => {
-        const feedItem = createFeedItem(card);
-        feedContainer.appendChild(feedItem);
-    });
-}
-
-// تصفية البطاقات حسب الفئة
-function filterCardsByCategory(cards) {
-    if (currentFilter === 'all') {
-        return cards;
-    } else if (currentFilter === 'boys') {
-        return cards.filter(card => card.category === 'بنين');
-    } else if (currentFilter === 'girls') {
-        return cards.filter(card => card.category === 'بنات');
-    }
-    return cards;
-}
-
-// تصفية البطاقات
-function filterCards() {
-    renderFeedCards();
-}
-
-// إنشاء عنصر في التغذية
-function createFeedItem(card) {
-    const feedItem = document.createElement('div');
-    feedItem.className = 'feed-item';
-    feedItem.setAttribute('data-id', card.id);
-    feedItem.setAttribute('data-category', card.category);
-    
-    const isFavorite = userFavorites.has(card.id.toString());
-    const isViewed = viewedCards.has(card.id.toString());
-    const favoriteIcon = isFavorite ? 'fas fa-heart' : 'far fa-heart';
-    const favoriteClass = isFavorite ? 'favorite active' : 'favorite';
-    
-    // استخدام بيانات الاستخدام من ملف الصور
-    const usageCount = card.stats?.uses || 0;
-    
-    feedItem.innerHTML = `
-        ${!isViewed ? '<div class="new-badge">جديد</div>' : ''}
-        <img src="${card.image}" alt="${card.title}" class="feed-image" onerror="this.src='https://via.placeholder.com/600x600/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
-        <div class="instagram-actions">
-            <div class="action-group">
-                <button class="instagram-btn ${favoriteClass}" data-id="${card.id}">
-                    <i class="${favoriteIcon}"></i>
-                </button>
-                <button class="instagram-btn view-prompt-btn" data-prompt="${card.prompt}" data-title="${card.title}">
-                    <i class="far fa-eye"></i>
-                </button>
-                <button class="share-btn" data-id="${card.id}" data-title="${card.title}" data-image="${card.image}" data-prompt="${card.prompt}">
-                    <i class="fas fa-share-alt"></i>
-                </button>
-            </div>
-            <div class="action-group">
-                <button class="instagram-btn copy" data-prompt="${card.prompt}">
-                    <i class="far fa-copy"></i>
-                </button>
-                <button class="instagram-btn gemini">
-                    <i class="fab fa-google"></i>
-                </button>
-            </div>
-        </div>
-        <div class="user-count">
-            <i class="fas fa-users"></i>
-            <span>${formatNumber(usageCount)} مستخدم</span>
-        </div>
-        <div class="feed-caption">
-            <strong>${card.title}</strong>
-            <p>${card.description}</p>
-        </div>
-        <div class="feed-prompt">
-            ${card.prompt.substring(0, 100)}...
-        </div>
-    `;
-    
-    // إضافة مستمعات الأحداث
-    const favoriteBtn = feedItem.querySelector('.favorite');
-    const viewPromptBtn = feedItem.querySelector('.view-prompt-btn');
-    const copyBtn = feedItem.querySelector('.copy');
-    const geminiBtn = feedItem.querySelector('.gemini');
-    const shareBtn = feedItem.querySelector('.share-btn');
-    
-    favoriteBtn.addEventListener('click', function() {
-        toggleFavorite(card.id, favoriteBtn);
-    });
-    
-    viewPromptBtn.addEventListener('click', function() {
-        // إضافة البطاقة إلى قائمة المشاهدات
-        if (!viewedCards.has(card.id.toString())) {
-            viewedCards.add(card.id.toString());
-            saveViewedCardsToLocalStorage();
-            
-            // إزالة علامة "جديد"
-            const newBadge = feedItem.querySelector('.new-badge');
-            if (newBadge) {
-                newBadge.remove();
-            }
+    // تحميل المستخدم من localStorage أو إنشاء جديد
+    function loadUser() {
+        const savedUser = localStorage.getItem('anonymousUser');
+        
+        if (savedUser) {
+            currentUser = JSON.parse(savedUser);
+        } else {
+            currentUser = createAnonymousUser();
         }
         
-        openPromptModal(card.title, card.prompt);
+        loadFavoritesFromLocalStorage();
+        loadViewedCardsFromLocalStorage();
+        updateUserUI();
+    }
+
+    // تحميل المفضلة من localStorage
+    function loadFavoritesFromLocalStorage() {
+        const savedFavorites = localStorage.getItem(`favorites_${currentUser.uid}`);
+        if (savedFavorites) {
+            userFavorites = new Set(JSON.parse(savedFavorites));
+        }
+    }
+
+    // تحميل الكروت التي تم مشاهدتها
+    function loadViewedCardsFromLocalStorage() {
+        const savedViewed = localStorage.getItem(`viewed_${currentUser.uid}`);
+        if (savedViewed) {
+            viewedCards = new Set(JSON.parse(savedViewed));
+        }
+    }
+
+    // حفظ المفضلة في localStorage
+    function saveFavoritesToLocalStorage() {
+        localStorage.setItem(`favorites_${currentUser.uid}`, JSON.stringify([...userFavorites]));
+    }
+
+    // حفظ الكروت التي تم مشاهدتها
+    function saveViewedCardsToLocalStorage() {
+        localStorage.setItem(`viewed_${currentUser.uid}`, JSON.stringify([...viewedCards]));
+    }
+
+    // دالة لتنسيق الأرقام (مثال: 44202 → 44.2K)
+    function formatNumber(num) {
+        if (num >= 1000000) {
+            return (num / 1000000).toFixed(1) + 'M';
+        } else if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'K';
+        }
+        return num.toString();
+    }
+
+    // تحديث واجهة المستخدم
+    function updateUserUI() {
+        // تحديث إحصائيات الهيرو
+        document.getElementById('usersCount').textContent = '10K+';
+        document.getElementById('promptsCount').textContent = '500+';
+        document.getElementById('imagesCount').textContent = '5K+';
+    }
+
+    // تهيئة التطبيق
+    document.addEventListener('DOMContentLoaded', function() {
+        loadUser();
+        setupEventListeners();
+        loadAndDisplayCards();
+        loadUserFavorites();
+        updateSlidesPerView();
+        initHashtags();
+        startTitleRotation();
+        setupGiftButton();
     });
-    
-    copyBtn.addEventListener('click', function() {
-        navigator.clipboard.writeText(card.prompt)
-            .then(() => {
-                showNotification('تم نسخ البرومبت بنجاح!');
-            })
-            .catch(err => {
-                console.error('فشل في نسخ النص: ', err);
-                showNotification('فشل في نسخ البرومبت!', 'error');
+
+    // إعداد مستمعات الأحداث
+    function setupEventListeners() {
+        // الفلاتر
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.getAttribute('data-filter');
+                filterCards();
             });
-    });
-    
-    geminiBtn.addEventListener('click', function() {
-        window.open('https://gemini.google.com', '_blank');
-        showNotification('تم فتح Gemini في نافذة جديدة!');
-    });
-    
-    shareBtn.addEventListener('click', function() {
-        openShareModal(card);
-    });
-    
-    return feedItem;
-}
+        });
 
-// فتح نافذة المشاركة
-function openShareModal(card) {
-    const shareModal = document.getElementById('shareModal');
-    const shareUrlInput = document.getElementById('shareUrlInput');
-    
-    // إنشاء رابط المشاركة
-    const shareUrl = `${window.location.origin}${window.location.pathname}?card=${card.id}`;
-    const shareText = `🔥 ${card.title}\n\n${card.prompt}\n\nجرب هذا البرومبت الرائع على Gemini Prompts!`;
-    
-    shareUrlInput.value = shareUrl;
-    
-    // حفظ البيانات للمشاركة
-    shareModal.setAttribute('data-share-url', shareUrl);
-    shareModal.setAttribute('data-share-text', shareText);
-    shareModal.setAttribute('data-share-title', card.title);
-    
-    shareModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
+        // زر البحث
+        const searchBtn = document.getElementById('searchBtn');
+        const searchModal = document.getElementById('searchModal');
+        const closeSearchModal = document.getElementById('closeSearchModal');
+        const searchInput = document.getElementById('searchInput');
 
-// معالجة المشاركة
-function handleShare(platform) {
-    const shareModal = document.getElementById('shareModal');
-    const shareUrl = shareModal.getAttribute('data-share-url');
-    const shareText = shareModal.getAttribute('data-share-text');
-    const shareTitle = shareModal.getAttribute('data-share-title');
-    
-    let shareLink = '';
-    
-    switch(platform) {
-        case 'whatsapp':
-            shareLink = `https://wa.me/?text=${encodeURIComponent(shareText + '\n' + shareUrl)}`;
-            break;
-        case 'telegram':
-            shareLink = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
-            break;
-        case 'twitter':
-            shareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
-            break;
-        case 'facebook':
-            shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
-            break;
-        case 'copy':
-            navigator.clipboard.writeText(shareUrl)
-                .then(() => {
-                    showNotification('تم نسخ الرابط بنجاح!');
-                    shareModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                })
-                .catch(err => {
-                    console.error('فشل في نسخ الرابط: ', err);
-                    showNotification('فشل في نسخ الرابط!', 'error');
-                });
-            return;
-        case 'link':
-            window.open(shareUrl, '_blank');
+        searchBtn.addEventListener('click', function() {
+            searchModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            searchInput.focus();
+        });
+
+        closeSearchModal.addEventListener('click', function() {
+            searchModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        searchInput.addEventListener('input', function() {
+            performSearch(this.value);
+        });
+
+        // زر الهدية
+        const giftBtn = document.getElementById('giftBtn');
+        giftBtn.addEventListener('click', function() {
+            createFloatingText();
+        });
+
+        // زر المستخدم
+        const userMenuBtn = document.getElementById('userMenuBtn');
+        userMenuBtn.addEventListener('click', function() {
+            showNotification('مرحباً ' + currentUser.displayName + '! 👋');
+        });
+
+        // نافذة البرومبت
+        const promptModal = document.getElementById('promptModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        closeModal.addEventListener('click', function() {
+            promptModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // نسخ البرومبت
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.addEventListener('click', copyPrompt);
+        
+        // الذهاب إلى Gemini
+        const geminiBtn = document.getElementById('geminiBtn');
+        geminiBtn.addEventListener('click', function() {
+            window.open('https://gemini.google.com', '_blank');
+            showNotification('تم فتح Gemini في نافذة جديدة!');
+        });
+
+        // زر التواصل مع المسؤولين
+        const contactAdminBtn = document.getElementById('contactAdminBtn');
+        contactAdminBtn.addEventListener('click', function() {
+            window.open('https://t.me/M0S7A5E', '_blank');
+            showNotification('جاري فتح Telegram للتواصل مع المسؤولين!');
+        });
+
+        // زر المزيد من المعلومات
+        const moreInfoBtn = document.getElementById('moreInfoBtn');
+        moreInfoBtn.addEventListener('click', function() {
+            window.open('https://support.google.com/gemini/answer/13594961?hl=ar', '_blank');
+            showNotification('جاري فتح صفحة المساعدة!');
+        });
+
+        // نافذة المشاركة
+        const shareModal = document.getElementById('shareModal');
+        const closeShareModal = document.getElementById('closeShareModal');
+        
+        closeShareModal.addEventListener('click', function() {
             shareModal.style.display = 'none';
             document.body.style.overflow = 'auto';
-            return;
-    }
-    
-    if (shareLink) {
-        window.open(shareLink, '_blank', 'width=600,height=400');
-        shareModal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        showNotification('تم فتح نافذة المشاركة!');
-    }
-}
+        });
 
-// فتح نافذة البرومبت
-function openPromptModal(title, prompt) {
-    const promptModal = document.getElementById('promptModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const promptText = document.getElementById('promptText');
-    
-    modalTitle.textContent = title;
-    promptText.textContent = prompt;
-    
-    promptModal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
+        // خيارات المشاركة
+        const shareOptions = document.querySelectorAll('.share-option');
+        shareOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                const platform = this.getAttribute('data-platform');
+                handleShare(platform);
+            });
+        });
 
-// نسخ البرومبت
-function copyPrompt() {
-    const promptText = document.getElementById('promptText');
-    const textToCopy = promptText.textContent;
-    
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        showNotification('تم نسخ البرومبت بنجاح!');
-    }).catch(err => {
-        console.error('فشل في نسخ النص: ', err);
-        showNotification('فشل في نسخ البرومبت!', 'error');
-    });
-}
-
-// إضافة/إزالة من المفضلة
-function toggleFavorite(cardId, button) {
-    const cardIdStr = cardId.toString();
-    
-    if (userFavorites.has(cardIdStr)) {
-        userFavorites.delete(cardIdStr);
-        showNotification('تم إزالة البرومبت من المفضلة!', 'success');
-        updateFavoriteButton(button, false);
-    } else {
-        userFavorites.add(cardIdStr);
-        showNotification('تم إضافة البرومبت إلى المفضلة!', 'success');
-        updateFavoriteButton(button, true);
-    }
-    
-    saveFavoritesToLocalStorage();
-    loadUserFavorites();
-}
-
-// تحديث زر المفضلة
-function updateFavoriteButton(button, isFavorite) {
-    const icon = button.querySelector('i');
-    if (isFavorite) {
-        icon.className = 'fas fa-heart';
-        button.classList.add('active');
-    } else {
-        icon.className = 'far fa-heart';
-        button.classList.remove('active');
-    }
-}
-
-// تحميل المفضلة للمستخدم
-function loadUserFavorites() {
-    const favoritesTrack = document.getElementById('favoritesTrack');
-    const emptyFavorites = document.getElementById('emptyFavorites');
-    const prevSlideBtn = document.getElementById('prevSlide');
-    const nextSlideBtn = document.getElementById('nextSlide');
-    
-    favoritesTrack.innerHTML = '';
-    
-    if (userFavorites.size === 0) {
-        emptyFavorites.classList.remove('hidden');
-        favoritesTrack.classList.add('hidden');
-        prevSlideBtn.disabled = true;
-        nextSlideBtn.disabled = true;
-        return;
-    }
-    
-    emptyFavorites.classList.add('hidden');
-    favoritesTrack.classList.remove('hidden');
-    
-    userFavorites.forEach(cardId => {
-        const card = allCards.find(c => c.id.toString() === cardId);
-        if (card) {
-            const favoriteElement = createFavoriteSlide(card);
-            favoritesTrack.appendChild(favoriteElement);
+        // زر الاستكشاف في الهيرو
+        const exploreHeroBtn = document.getElementById('exploreHeroBtn');
+        if (exploreHeroBtn) {
+            exploreHeroBtn.addEventListener('click', function() {
+                const filterSection = document.querySelector('.filter-section');
+                if (filterSection) {
+                    filterSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         }
-    });
-    
-    currentSlide = 0;
-    updateSliderPosition();
-    updateSliderButtons();
-}
 
-// إنشاء شريحة المفضلة
-function createFavoriteSlide(favorite) {
-    const element = document.createElement('div');
-    element.className = 'favorite-slide';
-    element.setAttribute('data-id', favorite.id);
-    
-    // استخدام بيانات الاستخدام من ملف الصور
-    const usageCount = favorite.stats?.uses || 0;
-    
-    element.innerHTML = `
-        <img src="${favorite.image || 'https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=Prompt'}" alt="${favorite.title}" class="favorite-slide-image" onerror="this.src='https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=${encodeURIComponent(favorite.title)}'">
-        <div class="favorite-slide-content">
-            <h3 class="favorite-slide-title">${favorite.title}</h3>
-            <div class="favorite-slide-category">${favorite.category || 'عام'}</div>
+        // زر التعلم في الهيرو
+        const learnHeroBtn = document.getElementById('learnHeroBtn');
+        if (learnHeroBtn) {
+            learnHeroBtn.addEventListener('click', function() {
+                const tutorialSection = document.querySelector('.tutorial-section');
+                if (tutorialSection) {
+                    tutorialSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
+
+        // سلايدر المفضلة
+        const prevSlideBtn = document.getElementById('prevSlide');
+        const nextSlideBtn = document.getElementById('nextSlide');
+        
+        prevSlideBtn.addEventListener('click', function() {
+            navigateSlider('prev');
+        });
+        
+        nextSlideBtn.addEventListener('click', function() {
+            navigateSlider('next');
+        });
+
+        // تحديث عدد الشرائح المعروضة عند تغيير حجم النافذة
+        window.addEventListener('resize', function() {
+            updateSlidesPerView();
+            updateSliderPosition();
+        });
+
+        // أزرار التنقل
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        const scrollToBottomBtn = document.getElementById('scrollToBottom');
+        
+        scrollToTopBtn.addEventListener('click', function() {
+            scrollToTop();
+        });
+        
+        scrollToBottomBtn.addEventListener('click', function() {
+            scrollToBottom();
+        });
+
+        // التحكم في ظهور أزرار التنقل
+        window.addEventListener('scroll', function() {
+            toggleNavigationButtons();
+        });
+
+        // إغلاق النوافذ عند النقر خارجها
+        document.addEventListener('click', function(e) {
+            // إغلاق نافذة البحث
+            const searchModal = document.getElementById('searchModal');
+            if (e.target === searchModal) {
+                searchModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            // إغلاق نافذة البرومبت
+            const promptModal = document.getElementById('promptModal');
+            if (e.target === promptModal) {
+                promptModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            // إغلاق نافذة المشاركة
+            const shareModal = document.getElementById('shareModal');
+            if (e.target === shareModal) {
+                shareModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // باقي الدوال الأساسية تبقى كما هي
+    function initHashtags() {
+        const hashtagsContainer = document.getElementById('hashtagsContainer');
+        
+        hashtags.forEach(hashtag => {
+            const hashtagBtn = document.createElement('button');
+            hashtagBtn.className = 'hashtag-btn';
+            if (hashtag.id === 'all') {
+                hashtagBtn.classList.add('active');
+            }
+            hashtagBtn.setAttribute('data-hashtag', hashtag.id);
+            hashtagBtn.textContent = hashtag.name;
+            
+            hashtagBtn.addEventListener('click', function() {
+                document.querySelectorAll('.hashtag-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                currentHashtag = this.getAttribute('data-hashtag');
+                filterCards();
+            });
+            
+            hashtagsContainer.appendChild(hashtagBtn);
+        });
+    }
+
+    function setupGiftButton() {
+        setInterval(() => {
+            if (Math.random() < 0.3) {
+                createRandomFloatingText();
+            }
+        }, 15000);
+    }
+
+    function createFloatingText() {
+        const floatingText = document.createElement('div');
+        floatingText.className = 'floating-text';
+        floatingText.textContent = 'اربح جوائز الآن!';
+        
+        const giftBtn = document.getElementById('giftBtn');
+        const rect = giftBtn.getBoundingClientRect();
+        
+        const randomX = rect.left + (Math.random() * 100 - 50);
+        const randomY = rect.top + (Math.random() * 50 - 25);
+        
+        floatingText.style.left = randomX + 'px';
+        floatingText.style.top = randomY + 'px';
+        
+        document.body.appendChild(floatingText);
+        
+        setTimeout(() => {
+            floatingText.remove();
+        }, 3000);
+    }
+
+    function createRandomFloatingText() {
+        const texts = [
+            'اربح جوائز الآن!',
+            'جوائز أسبوعية!',
+            'احصل على مكافآت!',
+            'فرص رابحة!',
+            'عروض خاصة!'
+        ];
+        
+        const randomText = texts[Math.floor(Math.random() * texts.length)];
+        const floatingText = document.createElement('div');
+        floatingText.className = 'floating-text';
+        floatingText.textContent = randomText;
+        
+        const randomX = Math.random() * (window.innerWidth - 200) + 100;
+        const randomY = Math.random() * (window.innerHeight - 200) + 100;
+        
+        floatingText.style.left = randomX + 'px';
+        floatingText.style.top = randomY + 'px';
+        
+        document.body.appendChild(floatingText);
+        
+        setTimeout(() => {
+            floatingText.remove();
+        }, 3000);
+    }
+
+    function startTitleRotation() {
+        const siteTitle = document.getElementById('siteTitle');
+        
+        titleRotationInterval = setInterval(() => {
+            titleRotationIndex = (titleRotationIndex + 1) % rotatingTitles.length;
+            siteTitle.textContent = rotatingTitles[titleRotationIndex];
+        }, 5000);
+    }
+
+    function performSearch(query) {
+        const searchResults = document.getElementById('searchResults');
+        
+        if (!query.trim()) {
+            searchResults.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">اكتب كلمة للبحث...</p>';
+            return;
+        }
+        
+        const filteredCards = allCards.filter(card => {
+            const searchText = (
+                card.title + ' ' + 
+                card.description + ' ' + 
+                card.prompt + ' ' + 
+                (card.hashtags || []).join(' ') + ' ' +
+                (card.searchDescription || '')
+            ).toLowerCase();
+            
+            return searchText.includes(query.toLowerCase());
+        });
+        
+        displaySearchResults(filteredCards);
+    }
+
+    function displaySearchResults(results) {
+        const searchResults = document.getElementById('searchResults');
+        
+        if (results.length === 0) {
+            searchResults.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">لا توجد نتائج للبحث</p>';
+            return;
+        }
+        
+        searchResults.innerHTML = '';
+        
+        results.forEach(card => {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'search-result-item';
+            
+            resultItem.innerHTML = `
+                <img src="${card.image}" alt="${card.title}" class="search-result-image" onerror="this.src='https://via.placeholder.com/60x60/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
+                <div class="search-result-content">
+                    <div class="search-result-title">${card.title}</div>
+                    <div class="search-result-description">${card.description}</div>
+                    <div style="font-size: 0.8rem; color: var(--primary); margin-top: 5px;">
+                        ${(card.hashtags || []).map(tag => `#${tag}`).join(' ')}
+                    </div>
+                </div>
+            `;
+            
+            resultItem.addEventListener('click', function() {
+                openPromptModal(card.title, card.prompt);
+                document.getElementById('searchModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                if (!viewedCards.has(card.id.toString())) {
+                    viewedCards.add(card.id.toString());
+                    saveViewedCardsToLocalStorage();
+                }
+            });
+            
+            searchResults.appendChild(resultItem);
+        });
+    }
+
+    function updateSlidesPerView() {
+        const width = window.innerWidth;
+        
+        if (width < 480) {
+            slidesPerView = 1;
+        } else if (width < 768) {
+            slidesPerView = 2;
+        } else {
+            slidesPerView = 3;
+        }
+    }
+
+    function toggleNavigationButtons() {
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        const scrollToBottomBtn = document.getElementById('scrollToBottom');
+        const scrollPosition = window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        
+        if (scrollPosition > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+        
+        if (scrollPosition + windowHeight < documentHeight - 100) {
+            scrollToBottomBtn.classList.add('show');
+        } else {
+            scrollToBottomBtn.classList.remove('show');
+        }
+    }
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+        
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        scrollToTopBtn.classList.add('pulse');
+        setTimeout(() => {
+            scrollToTopBtn.classList.remove('pulse');
+        }, 1000);
+    }
+
+    function scrollToBottom() {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: 'smooth'
+        });
+        
+        const scrollToBottomBtn = document.getElementById('scrollToBottom');
+        scrollToBottomBtn.classList.add('pulse');
+        setTimeout(() => {
+            scrollToBottomBtn.classList.remove('pulse');
+        }, 1000);
+    }
+
+    function loadAndDisplayCards() {
+        allCards = [...boysCardsData, ...girlsCardsData];
+        
+        allCards.forEach(card => {
+            if (!card.hashtags) {
+                const randomTags = [];
+                const availableTags = ['#بورتريه', '#خيالى' , '#حب'];
+                
+                const numTags = Math.floor(Math.random() * 3) + 2;
+                for (let i = 0; i < numTags; i++) {
+                    const randomIndex = Math.floor(Math.random() * availableTags.length);
+                    if (!randomTags.includes(availableTags[randomIndex])) {
+                        randomTags.push(availableTags[randomIndex]);
+                    }
+                }
+                
+                card.hashtags = randomTags;
+            }
+            
+            if (!card.searchDescription) {
+                card.searchDescription = card.description + ' ' + card.title + ' ' + card.hashtags.join(' ');
+            }
+        });
+        
+        shuffleArray(allCards);
+        renderFeedCards();
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    function renderFeedCards() {
+        const feedContainer = document.getElementById('feedContainer');
+        feedContainer.innerHTML = '';
+        
+        const filteredCards = filterCardsByCategoryAndHashtag(allCards);
+        
+        if (filteredCards.length === 0) {
+            feedContainer.innerHTML = `
+                <div style="text-align: center; padding: 40px; color: var(--gray);">
+                    <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                    <p>لا توجد صور تطابق معايير البحث</p>
+                </div>
+            `;
+            return;
+        }
+        
+        filteredCards.forEach(card => {
+            const feedItem = createFeedItem(card);
+            feedContainer.appendChild(feedItem);
+        });
+    }
+
+    function filterCardsByCategoryAndHashtag(cards) {
+        let filtered = cards;
+        
+        if (currentFilter === 'boys') {
+            filtered = filtered.filter(card => card.category === 'بنين');
+        } else if (currentFilter === 'girls') {
+            filtered = filtered.filter(card => card.category === 'بنات');
+        }
+        
+        if (currentHashtag !== 'all') {
+            filtered = filtered.filter(card => 
+                card.hashtags && card.hashtags.includes(currentHashtag)
+            );
+        }
+        
+        return filtered;
+    }
+
+    function filterCards() {
+        renderFeedCards();
+    }
+
+    function createFeedItem(card) {
+        const feedItem = document.createElement('div');
+        feedItem.className = 'feed-item';
+        feedItem.setAttribute('data-id', card.id);
+        feedItem.setAttribute('data-category', card.category);
+        
+        const isFavorite = userFavorites.has(card.id.toString());
+        const isViewed = viewedCards.has(card.id.toString());
+        const favoriteIcon = isFavorite ? 'fas fa-heart' : 'far fa-heart';
+        const favoriteClass = isFavorite ? 'favorite active' : 'favorite';
+        
+        const usageCount = card.stats?.uses || 0;
+        
+        const tagsHTML = card.hashtags ? card.hashtags.map(tag => `#${tag}`).join(' ') : '';
+        
+        feedItem.innerHTML = `
+            ${!isViewed ? '<div class="new-badge">جديد</div>' : ''}
+            <img src="${card.image}" alt="${card.title}" class="feed-image" onerror="this.src='https://via.placeholder.com/600x600/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
+            <div class="instagram-actions">
+                <div class="action-group">
+                    <button class="instagram-btn ${favoriteClass}" data-id="${card.id}">
+                        <i class="${favoriteIcon}"></i>
+                    </button>
+                    <button class="instagram-btn view-prompt-btn" data-prompt="${card.prompt}" data-title="${card.title}">
+                        <i class="far fa-eye"></i>
+                    </button>
+                    <button class="share-btn" data-id="${card.id}" data-title="${card.title}" data-image="${card.image}" data-prompt="${card.prompt}">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                </div>
+                <div class="action-group">
+                    <button class="instagram-btn copy" data-prompt="${card.prompt}">
+                        <i class="far fa-copy"></i>
+                    </button>
+                    <button class="instagram-btn gemini">
+                        <i class="fab fa-google"></i>
+                    </button>
+                </div>
+            </div>
             <div class="user-count">
                 <i class="fas fa-users"></i>
                 <span>${formatNumber(usageCount)} مستخدم</span>
             </div>
-            <p class="favorite-slide-description">${favorite.description || ''}</p>
-            <div class="favorite-slide-actions">
-                <button class="favorite-slide-btn favorite-copy-btn" data-prompt="${favorite.prompt}">
-                    <i class="far fa-copy"></i>
-                    <span>نسخ البرومبت</span>
-                </button>
-                <button class="favorite-slide-btn favorite-remove-btn" data-id="${favorite.id}">
-                    <i class="far fa-trash-alt"></i>
-                    <span>إزالة</span>
-                </button>
+            <div class="feed-caption">
+                <strong>${card.title}</strong>
+                <p>${card.description}</p>
+                ${tagsHTML ? `<div style="margin-top: 10px; font-size: 0.8rem; color: var(--primary);">${tagsHTML}</div>` : ''}
             </div>
-        </div>
-    `;
-    
-    const copyBtn = element.querySelector('.favorite-copy-btn');
-    const removeBtn = element.querySelector('.favorite-remove-btn');
-    
-    copyBtn.addEventListener('click', function() {
-        navigator.clipboard.writeText(favorite.prompt)
-            .then(() => {
-                showNotification('تم نسخ البرومبت بنجاح!');
-            })
-            .catch(err => {
-                console.error('فشل في نسخ النص: ', err);
-                showNotification('فشل في نسخ البرومبت!', 'error');
-            });
-    });
-    
-    removeBtn.addEventListener('click', function() {
-        removeFromFavorites(favorite.id, element);
-    });
-    
-    return element;
-}
+            <div class="feed-prompt">
+                ${card.prompt.substring(0, 100)}...
+            </div>
+        `;
+        
+        const favoriteBtn = feedItem.querySelector('.favorite');
+        const viewPromptBtn = feedItem.querySelector('.view-prompt-btn');
+        const copyBtn = feedItem.querySelector('.copy');
+        const geminiBtn = feedItem.querySelector('.gemini');
+        const shareBtn = feedItem.querySelector('.share-btn');
+        
+        favoriteBtn.addEventListener('click', function() {
+            toggleFavorite(card.id, favoriteBtn);
+        });
+        
+        viewPromptBtn.addEventListener('click', function() {
+            if (!viewedCards.has(card.id.toString())) {
+                viewedCards.add(card.id.toString());
+                saveViewedCardsToLocalStorage();
+                
+                const newBadge = feedItem.querySelector('.new-badge');
+                if (newBadge) {
+                    newBadge.remove();
+                }
+            }
+            
+            openPromptModal(card.title, card.prompt);
+        });
+        
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(card.prompt)
+                .then(() => {
+                    showNotification('تم نسخ البرومبت بنجاح!');
+                })
+                .catch(err => {
+                    console.error('فشل في نسخ النص: ', err);
+                    showNotification('فشل في نسخ البرومبت!', 'error');
+                });
+        });
+        
+        geminiBtn.addEventListener('click', function() {
+            window.open('https://gemini.google.com', '_blank');
+            showNotification('تم فتح Gemini في نافذة جديدة!');
+        });
+        
+        shareBtn.addEventListener('click', function() {
+            openShareModal(card);
+        });
+        
+        return feedItem;
+    }
 
-// إزالة من المفضلة
-function removeFromFavorites(favoriteId, element) {
-    userFavorites.delete(favoriteId.toString());
-    saveFavoritesToLocalStorage();
-    
-    element.remove();
-    showNotification('تم إزالة البرومبت من المفضلة!', 'success');
-    
-    updateAllFavoriteButtons();
-    
-    const favoritesTrack = document.getElementById('favoritesTrack');
-    if (favoritesTrack.children.length === 0) {
+    function openShareModal(card) {
+        const shareModal = document.getElementById('shareModal');
+        const shareUrlInput = document.getElementById('shareUrlInput');
+        
+        const shareUrl = `${window.location.origin}${window.location.pathname}?card=${card.id}`;
+        const shareText = `🔥 ${card.title}\n\n${card.description}\n\nجرب هذا البرومبت الرائع على Gemini Prompts!`;
+        
+        shareUrlInput.value = shareUrl;
+        
+        shareModal.setAttribute('data-share-url', shareUrl);
+        shareModal.setAttribute('data-share-text', shareText);
+        shareModal.setAttribute('data-share-title', card.title);
+        
+        shareModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function handleShare(platform) {
+        const shareModal = document.getElementById('shareModal');
+        const shareUrl = shareModal.getAttribute('data-share-url');
+        const shareText = shareModal.getAttribute('data-share-text');
+        const shareTitle = shareModal.getAttribute('data-share-title');
+        
+        let shareLink = '';
+        
+        switch(platform) {
+            case 'whatsapp':
+                shareLink = `https://wa.me/?text=${encodeURIComponent(shareText + '\n' + shareUrl)}`;
+                break;
+            case 'telegram':
+                shareLink = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
+                break;
+            case 'twitter':
+                shareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+                break;
+            case 'facebook':
+                shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+                break;
+            case 'copy':
+                navigator.clipboard.writeText(shareUrl)
+                    .then(() => {
+                        showNotification('تم نسخ الرابط بنجاح!');
+                        shareModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    })
+                    .catch(err => {
+                        console.error('فشل في نسخ الرابط: ', err);
+                        showNotification('فشل في نسخ الرابط!', 'error');
+                    });
+                return;
+            case 'link':
+                window.open(shareUrl, '_blank');
+                shareModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                return;
+        }
+        
+        if (shareLink) {
+            window.open(shareLink, '_blank', 'width=600,height=400');
+            shareModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            showNotification('تم فتح نافذة المشاركة!');
+        }
+    }
+
+    function openPromptModal(title, prompt) {
+        const promptModal = document.getElementById('promptModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const promptText = document.getElementById('promptText');
+        
+        modalTitle.textContent = title;
+        promptText.textContent = prompt;
+        
+        promptModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function copyPrompt() {
+        const promptText = document.getElementById('promptText');
+        const textToCopy = promptText.textContent;
+        
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            showNotification('تم نسخ البرومبت بنجاح!');
+        }).catch(err => {
+            console.error('فشل في نسخ النص: ', err);
+            showNotification('فشل في نسخ البرومبت!', 'error');
+        });
+    }
+
+    function toggleFavorite(cardId, button) {
+        const cardIdStr = cardId.toString();
+        
+        if (userFavorites.has(cardIdStr)) {
+            userFavorites.delete(cardIdStr);
+            showNotification('تم إزالة البرومبت من المفضلة!', 'success');
+            updateFavoriteButton(button, false);
+        } else {
+            userFavorites.add(cardIdStr);
+            showNotification('تم إضافة البرومبت إلى المفضلة!', 'success');
+            updateFavoriteButton(button, true);
+        }
+        
+        saveFavoritesToLocalStorage();
+        loadUserFavorites();
+    }
+
+    function updateFavoriteButton(button, isFavorite) {
+        const icon = button.querySelector('i');
+        if (isFavorite) {
+            icon.className = 'fas fa-heart';
+            button.classList.add('active');
+        } else {
+            icon.className = 'far fa-heart';
+            button.classList.remove('active');
+        }
+    }
+
+    function loadUserFavorites() {
+        const favoritesTrack = document.getElementById('favoritesTrack');
         const emptyFavorites = document.getElementById('emptyFavorites');
-        emptyFavorites.classList.remove('hidden');
-        favoritesTrack.classList.add('hidden');
-    } else {
+        const prevSlideBtn = document.getElementById('prevSlide');
+        const nextSlideBtn = document.getElementById('nextSlide');
+        
+        favoritesTrack.innerHTML = '';
+        
+        if (userFavorites.size === 0) {
+            emptyFavorites.classList.remove('hidden');
+            favoritesTrack.classList.add('hidden');
+            prevSlideBtn.disabled = true;
+            nextSlideBtn.disabled = true;
+            return;
+        }
+        
+        emptyFavorites.classList.add('hidden');
+        favoritesTrack.classList.remove('hidden');
+        
+        userFavorites.forEach(cardId => {
+            const card = allCards.find(c => c.id.toString() === cardId);
+            if (card) {
+                const favoriteElement = createFavoriteSlide(card);
+                favoritesTrack.appendChild(favoriteElement);
+            }
+        });
+        
+        currentSlide = 0;
         updateSliderPosition();
         updateSliderButtons();
     }
-}
 
-// تحديث جميع أزرار المفضلة في التغذية
-function updateAllFavoriteButtons() {
-    const favoriteButtons = document.querySelectorAll('.instagram-btn.favorite');
-    favoriteButtons.forEach(button => {
-        const cardId = button.getAttribute('data-id');
-        const isFavorite = userFavorites.has(cardId);
-        updateFavoriteButton(button, isFavorite);
-    });
-}
-
-// التنقل في السلايدر
-function navigateSlider(direction) {
-    const favoritesTrack = document.getElementById('favoritesTrack');
-    const slides = favoritesTrack.children;
-    const totalSlides = slides.length;
-    
-    if (direction === 'next') {
-        currentSlide = Math.min(currentSlide + 1, Math.max(0, totalSlides - slidesPerView));
-    } else {
-        currentSlide = Math.max(currentSlide - 1, 0);
-    }
-    
-    updateSliderPosition();
-    updateSliderButtons();
-}
-
-// تحديث موضع السلايدر
-function updateSliderPosition() {
-    const favoritesTrack = document.getElementById('favoritesTrack');
-    const slideWidth = favoritesTrack.children[0]?.offsetWidth + 30; // العرض + الهوامش
-    
-    if (slideWidth) {
-        favoritesTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-    }
-}
-
-// تحديث أزرار السلايدر
-function updateSliderButtons() {
-    const favoritesTrack = document.getElementById('favoritesTrack');
-    const slides = favoritesTrack.children;
-    const totalSlides = slides.length;
-    const prevSlideBtn = document.getElementById('prevSlide');
-    const nextSlideBtn = document.getElementById('nextSlide');
-    
-    prevSlideBtn.disabled = currentSlide === 0;
-    nextSlideBtn.disabled = currentSlide >= Math.max(0, totalSlides - slidesPerView);
-}
-
-// إظهار الإشعارات
-function showNotification(message, type = 'success') {
-    const notification = document.getElementById('notification');
-    notification.textContent = message;
-    notification.style.display = 'block';
-    
-    if (type === 'error') {
-        notification.style.background = '#FF6584';
-    } else if (type === 'warning') {
-        notification.style.background = '#FF9E00';
-    } else if (type === 'info') {
-        notification.style.background = '#36D1DC';
-    } else {
-        notification.style.background = '#6C63FF';
-    }
-    
-    setTimeout(() => {
-        notification.style.display = 'none';
-    }, 3000);
-}
-
-// إدارة نافذة الإعلان المنبثقة
-class AdPopupManager {
-    constructor() {
-        this.popup = document.getElementById('adPopup');
-        this.closeBtn = document.getElementById('closeAdPopup');
-        this.timerElement = document.getElementById('adTimer');
-        this.buttonClickCount = 0;
-        this.adShown = false;
-        this.timerInterval = null;
-        this.secondsLeft = 5;
+    function createFavoriteSlide(favorite) {
+        const element = document.createElement('div');
+        element.className = 'favorite-slide';
+        element.setAttribute('data-id', favorite.id);
         
-        this.init();
-    }
-    
-    init() {
-        this.closeBtn.addEventListener('click', () => this.closePopup());
+        const usageCount = favorite.stats?.uses || 0;
         
-        this.popup.addEventListener('click', (e) => {
-            if (e.target === this.popup) {
-                this.closePopup();
-            }
+        element.innerHTML = `
+            <img src="${favorite.image || 'https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=Prompt'}" alt="${favorite.title}" class="favorite-slide-image" onerror="this.src='https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=${encodeURIComponent(favorite.title)}'">
+            <div class="favorite-slide-content">
+                <h3 class="favorite-slide-title">${favorite.title}</h3>
+                <div class="favorite-slide-category">${favorite.category || 'عام'}</div>
+                <div class="user-count">
+                    <i class="fas fa-users"></i>
+                    <span>${formatNumber(usageCount)} مستخدم</span>
+                </div>
+                <p class="favorite-slide-description">${favorite.description || ''}</p>
+                <div class="favorite-slide-actions">
+                    <button class="favorite-slide-btn favorite-copy-btn" data-prompt="${favorite.prompt}">
+                        <i class="far fa-copy"></i>
+                        <span>نسخ البرومبت</span>
+                    </button>
+                    <button class="favorite-slide-btn favorite-remove-btn" data-id="${favorite.id}">
+                        <i class="far fa-trash-alt"></i>
+                        <span>إزالة</span>
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        const copyBtn = element.querySelector('.favorite-copy-btn');
+        const removeBtn = element.querySelector('.favorite-remove-btn');
+        
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(favorite.prompt)
+                .then(() => {
+                    showNotification('تم نسخ البرومبت بنجاح!');
+                })
+                .catch(err => {
+                    console.error('فشل في نسخ النص: ', err);
+                    showNotification('فشل في نسخ البرومبت!', 'error');
+                });
         });
         
-        this.trackButtonClicks();
+        removeBtn.addEventListener('click', function() {
+            removeFromFavorites(favorite.id, element);
+        });
+        
+        return element;
+    }
+
+    function removeFromFavorites(favoriteId, element) {
+        userFavorites.delete(favoriteId.toString());
+        saveFavoritesToLocalStorage();
+        
+        element.remove();
+        showNotification('تم إزالة البرومبت من المفضلة!', 'success');
+        
+        updateAllFavoriteButtons();
+        
+        const favoritesTrack = document.getElementById('favoritesTrack');
+        if (favoritesTrack.children.length === 0) {
+            const emptyFavorites = document.getElementById('emptyFavorites');
+            emptyFavorites.classList.remove('hidden');
+            favoritesTrack.classList.add('hidden');
+        } else {
+            updateSliderPosition();
+            updateSliderButtons();
+        }
+    }
+
+    function updateAllFavoriteButtons() {
+        const favoriteButtons = document.querySelectorAll('.instagram-btn.favorite');
+        favoriteButtons.forEach(button => {
+            const cardId = button.getAttribute('data-id');
+            const isFavorite = userFavorites.has(cardId);
+            updateFavoriteButton(button, isFavorite);
+        });
+    }
+
+    function navigateSlider(direction) {
+        const favoritesTrack = document.getElementById('favoritesTrack');
+        const slides = favoritesTrack.children;
+        const totalSlides = slides.length;
+        
+        if (direction === 'next') {
+            currentSlide = Math.min(currentSlide + 1, Math.max(0, totalSlides - slidesPerView));
+        } else {
+            currentSlide = Math.max(currentSlide - 1, 0);
+        }
+        
+        updateSliderPosition();
+        updateSliderButtons();
+    }
+
+    function updateSliderPosition() {
+        const favoritesTrack = document.getElementById('favoritesTrack');
+        const slideWidth = favoritesTrack.children[0]?.offsetWidth + 30;
+        
+        if (slideWidth) {
+            favoritesTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        }
+    }
+
+    function updateSliderButtons() {
+        const favoritesTrack = document.getElementById('favoritesTrack');
+        const slides = favoritesTrack.children;
+        const totalSlides = slides.length;
+        const prevSlideBtn = document.getElementById('prevSlide');
+        const nextSlideBtn = document.getElementById('nextSlide');
+        
+        prevSlideBtn.disabled = currentSlide === 0;
+        nextSlideBtn.disabled = currentSlide >= Math.max(0, totalSlides - slidesPerView);
+    }
+
+    function showNotification(message, type = 'success') {
+        const notification = document.getElementById('notification');
+        notification.textContent = message;
+        notification.style.display = 'block';
+        
+        if (type === 'error') {
+            notification.style.background = '#FF6584';
+        } else if (type === 'warning') {
+            notification.style.background = '#FF9E00';
+        } else if (type === 'info') {
+            notification.style.background = '#36D1DC';
+        } else {
+            notification.style.background = '#6C63FF';
+        }
         
         setTimeout(() => {
-            this.showPopup();
-        }, 60000);
+            notification.style.display = 'none';
+        }, 3000);
     }
-    
-    trackButtonClicks() {
-        document.addEventListener('click', (e) => {
-            if (e.target.closest('button') || e.target.closest('a')) {
-                this.buttonClickCount++;
-                
-                if (this.buttonClickCount >= 5 && !this.adShown) {
-                    this.showPopup();
+
+    // إدارة نافذة الإعلان المنبثقة
+    class AdPopupManager {
+        constructor() {
+            this.popup = document.getElementById('adPopup');
+            this.closeBtn = document.getElementById('closeAdPopup');
+            this.timerElement = document.getElementById('adTimer');
+            this.buttonClickCount = 0;
+            this.adShown = false;
+            this.timerInterval = null;
+            this.secondsLeft = 5;
+            
+            this.init();
+        }
+        
+        init() {
+            this.closeBtn.addEventListener('click', () => this.closePopup());
+            
+            this.popup.addEventListener('click', (e) => {
+                if (e.target === this.popup) {
+                    this.closePopup();
                 }
-            }
-        });
-    }
-    
-    showPopup() {
-        if (this.adShown) return;
+            });
+            
+            this.trackButtonClicks();
+            
+            setTimeout(() => {
+                this.showPopup();
+            }, 60000);
+        }
         
-        this.adShown = true;
-        this.popup.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        trackButtonClicks() {
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('button') || e.target.closest('a')) {
+                    this.buttonClickCount++;
+                    
+                    if (this.buttonClickCount >= 5 && !this.adShown) {
+                        this.showPopup();
+                    }
+                }
+            });
+        }
         
-        this.closeBtn.disabled = true;
-        this.secondsLeft = 5;
-        this.timerElement.textContent = this.secondsLeft;
-        
-        this.startTimer();
-    }
-    
-    startTimer() {
-        this.timerInterval = setInterval(() => {
-            this.secondsLeft--;
+        showPopup() {
+            if (this.adShown) return;
+            
+            this.adShown = true;
+            this.popup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            this.closeBtn.disabled = true;
+            this.secondsLeft = 5;
             this.timerElement.textContent = this.secondsLeft;
             
-            if (this.secondsLeft <= 0) {
-                this.enableCloseButton();
-            }
-        }, 1000);
-    }
-    
-    enableCloseButton() {
-        clearInterval(this.timerInterval);
-        this.closeBtn.disabled = false;
-        this.timerElement.style.display = 'none';
-        document.querySelector('.ad-note').textContent = 'يمكنك إغلاق النافذة الآن';
-    }
-    
-    closePopup() {
-        if (this.closeBtn.disabled) return;
+            this.startTimer();
+        }
         
-        this.popup.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        startTimer() {
+            this.timerInterval = setInterval(() => {
+                this.secondsLeft--;
+                this.timerElement.textContent = this.secondsLeft;
+                
+                if (this.secondsLeft <= 0) {
+                    this.enableCloseButton();
+                }
+            }, 1000);
+        }
         
-        setTimeout(() => {
+        enableCloseButton() {
+            clearInterval(this.timerInterval);
+            this.closeBtn.disabled = false;
+            this.timerElement.style.display = 'none';
+            document.querySelector('.ad-note').textContent = 'يمكنك إغلاق النافذة الآن';
+        }
+        
+        closePopup() {
+            if (this.closeBtn.disabled) return;
+            
+            this.popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            setTimeout(() => {
+                this.adShown = false;
+                this.buttonClickCount = 0;
+                this.timerElement.style.display = 'flex';
+                document.querySelector('.ad-note').textContent = 'إعلان ممول - يمكنك إغلاق النافذة بعد 5 ثوانٍ';
+            }, 300);
+        }
+        
+        reset() {
             this.adShown = false;
             this.buttonClickCount = 0;
-            this.timerElement.style.display = 'flex';
-            document.querySelector('.ad-note').textContent = 'إعلان ممول - يمكنك إغلاق النافذة بعد 5 ثوانٍ';
-        }, 300);
+            this.closePopup();
+        }
     }
-    
-    reset() {
-        this.adShown = false;
-        this.buttonClickCount = 0;
-        this.closePopup();
+
+    // التهيئة عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', function() {
+        // تهيئة مدير الإعلانات
+        setTimeout(() => {
+            window.adPopupManager = new AdPopupManager();
+        }, 1000);
+
+        // التحقق من ظهور أزرار التنقل
+        toggleNavigationButtons();
+    });
+
+    function showAdPopup() {
+        if (window.adPopupManager) {
+            window.adPopupManager.showPopup();
+        }
     }
-}
 
-// التهيئة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    // تهيئة مدير الإعلانات
-    setTimeout(() => {
-        window.adPopupManager = new AdPopupManager();
-    }, 1000);
-
-    // التحقق من ظهور أزرار التنقل
-    toggleNavigationButtons();
-});
-
-// دالة لعرض الإعلان يدوياً إذا أردت
-function showAdPopup() {
-    if (window.adPopupManager) {
-        window.adPopupManager.showPopup();
+    function resetAdPopup() {
+        if (window.adPopupManager) {
+            window.adPopupManager.reset();
+        }
     }
-}
-
-// دالة لإعادة تعيين العداد
-function resetAdPopup() {
-    if (window.adPopupManager) {
-        window.adPopupManager.reset();
-    }
-}
-    </script>
-
+</script>
     <!-- ملفات البيانات -->
- <script src="boy.js"></script>
- <script src="girl.js"></script>
+    <script src="boy.js"></script>
+    <script src="girl.js"></script>
 </body>
 </html>
