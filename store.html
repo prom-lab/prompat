@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المتجر - Gemini Prompt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Tajawal', sans-serif;
+        }
+
+        :root {
+            --primary: #00b4d8;
+            --primary-light: #48cae4;
+            --primary-dark: #0077b6;
+            --secondary: #00bbf9;
+            --accent: #90e0ef;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --danger: #e17055;
+            --info: #0984e3;
+            --dark: #2d3436;
+            --light: #f8f9fa;
+            --glass-light: rgba(255, 255, 255, 0.25);
+            --glass-dark: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-light: #ffffff;
+            --text-dark: #2d3436;
+            --gradient-primary: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            --gradient-secondary: linear-gradient(135deg, #00bbf9 0%, #48cae4 100%);
+            --gradient-accent: linear-gradient(135deg, #90e0ef 0%, #caf0f8 100%);
+            --gradient-aqua: linear-gradient(135deg, #00b4d8 0%, #90e0ef 100%);
+            --gradient-water: linear-gradient(135deg, #0077b6 0%, #00b4d8 50%, #90e0ef 100%);
+            --shadow: 0 8px 32px rgba(0, 180, 216, 0.15);
+            --shadow-hover: 0 12px 40px rgba(0, 180, 216, 0.25);
+            --border-radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background: var(--gradient-water);
+            min-height: 100vh;
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-info {
+            background: var(--glass-dark);
+            padding: 0.7rem 1.2rem;
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .user-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .user-points {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.6);
+        }
+
+        .btn-success {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 187, 249, 0.4);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 187, 249, 0.6);
+        }
+
+        .btn-warning {
+            background: var(--gradient-aqua);
+            color: white;
+            box-shadow: 0 4px 15px rgba(144, 224, 239, 0.4);
+        }
+
+        .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(144, 224, 239, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--glass-border);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background: var(--glass-light);
+            border-color: var(--primary-light);
+        }
+
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Store Header */
+        .store-header {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .store-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .store-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+
+        /* Balance Card */
+        .balance-card {
+            background: var(--gradient-primary);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .balance-label {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            color: var(--text-light);
+        }
+
+        .balance-amount {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .balance-unit {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            color: var(--text-light);
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 1rem 2rem;
+            background: var(--glass-dark);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-btn.active {
+            background: var(--gradient-primary);
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+        }
+
+        .category-btn:hover {
+            background: var(--glass-light);
+        }
+
+        /* Rewards Grid */
+        .rewards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .reward-card {
+            background: var(--glass-light);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 0;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reward-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .reward-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .reward-card.popular {
+            border: 2px solid var(--accent);
+            transform: scale(1.02);
+        }
+
+        .reward-card.popular::before {
+            background: var(--gradient-aqua);
+        }
+
+        .reward-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gradient-aqua);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .reward-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+        }
+
+        .reward-content {
+            padding: 2rem;
+        }
+
+        .reward-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .reward-description {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        .reward-points {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reward-features {
+            list-style: none;
+            margin-bottom: 2rem;
+            text-align: right;
+        }
+
+        .reward-features li {
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .reward-features li i {
+            color: var(--success);
+        }
+
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: var(--glass-light);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: var(--shadow);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .close-modal {
+            background: var(--glass-dark);
+            border: 1px solid var(--glass-border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-light);
+        }
+
+        .close-modal:hover {
+            background: var(--glass-light);
+            transform: rotate(90deg);
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            background: var(--glass-dark);
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Wallet Options */
+        .wallet-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .wallet-option {
+            padding: 1.5rem 1rem;
+            border: 2px solid var(--glass-border);
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--glass-dark);
+            backdrop-filter: blur(5px);
+        }
+
+        .wallet-option:hover {
+            background: var(--glass-light);
+            border-color: var(--primary-light);
+        }
+
+        .wallet-option.selected {
+            border-color: var(--primary);
+            background: rgba(0, 180, 216, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.3);
+        }
+
+        .wallet-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .wallet-name {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* Reactions Grid */
+        .reactions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .reaction-option {
+            padding: 1.5rem 1rem;
+            border: 2px solid var(--glass-border);
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: var(--glass-dark);
+        }
+
+        .reaction-option:hover {
+            background: var(--glass-light);
+            border-color: var(--primary-light);
+        }
+
+        .reaction-option.selected {
+            border-color: var(--secondary);
+            background: rgba(0, 187, 249, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 187, 249, 0.3);
+        }
+
+        .reaction-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .reaction-name {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Message Toast */
+        .message-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .user-info {
+                width: 100%;
+            }
+
+            .store-title {
+                font-size: 2.2rem;
+            }
+
+            .balance-amount {
+                font-size: 2.5rem;
+            }
+
+            .rewards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reward-card.popular {
+                transform: none;
+            }
+
+            .categories {
+                flex-direction: column;
+            }
+
+            .wallet-options {
+                grid-template-columns: 1fr;
+            }
+
+            .reactions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Firebase Configuration -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCffrRr-wYBeiAf7GML6Xs3kQg-14mLFhQ",
+            authDomain: "prompat-76c51.firebaseapp.com",
+            projectId: "prompat-76c51",
+            storageBucket: "prompat-76c51.firebasestorage.app",
+            messagingSenderId: "663109200073",
+            appId: "1:663109200073:web:9da9a15649a88028b68518",
+            measurementId: "G-HKL1XTBX6H"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">متجر Gemini Prompt</div>
+            <div class="nav-actions">
+                <div class="user-info">
+                    <div class="user-name" id="userName">جار التحميل...</div>
+                    <div class="user-points">النقاط: <span id="userPoints">0</span></div>
+                </div>
+                <a href="rewerd.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-right"></i> العودة للرئيسية
+                </a>
+                <a href="https://prom-lab.github.io/prompat/" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> الموقع الرئيسي
+                </a>
+                <button class="btn btn-warning" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> تسجيل خروج
+                </button>
+            </div>
+        </nav>
+
+        <!-- Store Header -->
+        <section class="store-header">
+            <h1 class="store-title">🏪 متجر الجوائز</h1>
+            <p class="store-subtitle">استبدل نقاطك بمكافآت حقيقية! اختر من بين مجموعة متنوعة من الجوائز القيمة</p>
+        </section>
+
+        <!-- Balance Card -->
+        <div class="balance-card">
+            <div class="balance-label">رصيدك الحالي من النقاط</div>
+            <div class="balance-amount" id="balanceAmount">0</div>
+            <div class="balance-unit">نقطة</div>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories">
+            <button class="category-btn active" onclick="filterRewards('all')">جميع الجوائز</button>
+            <button class="category-btn" onclick="filterRewards('cash')">المكافآت النقدية</button>
+            <button class="category-btn" onclick="filterRewards('facebook')">تفاعلات فيسبوك</button>
+        </div>
+
+        <!-- Rewards Grid -->
+        <div class="rewards-grid" id="rewardsGrid">
+            <!-- Cash Rewards -->
+            <div class="reward-card popular" data-category="cash">
+                <div class="reward-badge">الأكثر طلباً</div>
+                <img src="https://th.bing.com/th/id/OIP.TUWq8Y5D7DUbmfvwyES4yQHaE7?w=260&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="50 جنيه" class="reward-image">
+                <div class="reward-content">
+                    <h3 class="reward-title">50 جنيه مصري</h3>
+                    <p class="reward-description">استرداد نقدي فوري إلى محفظتك الإلكترونية. احصل على مكافأة مالية فورية يمكنك استخدامها في أي وقت!</p>
+                    <div class="reward-points">500 نقطة</div>
+                    <ul class="reward-features">
+                        <li><i class="fas fa-check"></i> تحويل فوري خلال ساعتين</li>
+                        <li><i class="fas fa-check"></i> دعم جميع المحافظ الإلكترونية</li>
+                        <li><i class="fas fa-check"></i> بدون رسوم خفية</li>
+                    </ul>
+                    <button class="btn btn-success btn-block" onclick="openCashRedemption(50, 500)">
+                        <i class="fas fa-shopping-cart"></i> استرداد الآن
+                    </button>
+                </div>
+            </div>
+
+            <div class="reward-card" data-category="cash">
+                <img src="https://th.bing.com/th/id/OIP.QRrnjH5wJY5HdUdw2UwwMQHaDw?w=312&h=177&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="20 جنيه" class="reward-image">
+                <div class="reward-content">
+                    <h3 class="reward-title">20 جنيه مصري</h3>
+                    <p class="reward-description">مكافأة نقدية سريعة لمستخدمينا الجدد. ابدأ رحلتك بمكافأة مالية مناسبة للجميع!</p>
+                    <div class="reward-points">200 نقطة</div>
+                    <ul class="reward-features">
+                        <li><i class="fas fa-check"></i> تحويل خلال ساعة واحدة</li>
+                        <li><i class="fas fa-check"></i> مثالي للمبتدئين</li>
+                        <li><i class="fas fa-check"></i> سهل وسريع</li>
+                    </ul>
+                    <button class="btn btn-success btn-block" onclick="openCashRedemption(20, 200)">
+                        <i class="fas fa-shopping-cart"></i> استرداد الآن
+                    </button>
+                </div>
+            </div>
+
+            <div class="reward-card" data-category="cash">
+                <img src="https://th.bing.com/th/id/OIP.kkLdrsA23N6Ik6qN6-t2lgHaEL?w=322&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="100 جنيه" class="reward-image">
+                <div class="reward-content">
+                    <h3 class="reward-title">100 جنيه مصري</h3>
+                    <p class="reward-description">مكافأة مالية كبيرة لمستخدمينا المتميزين. احصل على مبلغ مميز يستحق التوفير له!</p>
+                    <div class="reward-points">1000 نقطة</div>
+                    <ul class="reward-features">
+                        <li><i class="fas fa-check"></i> مكافأة مميزة</li>
+                        <li><i class="fas fa-check"></i> تحويل مضمون</li>
+                        <li><i class="fas fa-check"></i> دعم على مدار الساعة</li>
+                    </ul>
+                    <button class="btn btn-success btn-block" onclick="openCashRedemption(100, 1000)">
+                        <i class="fas fa-shopping-cart"></i> استرداد الآن
+                    </button>
+                </div>
+            </div>
+
+            <!-- Facebook Rewards -->
+            <div class="reward-card popular" data-category="facebook">
+                <div class="reward-badge">شائع</div>
+                <img src="https://th.bing.com/th/id/OIP.7JtCQTwEguB_3NDt2vAlDgHaD4?w=339&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="100 تفاعل فيسبوك" class="reward-image">
+                <div class="reward-content">
+                    <h3 class="reward-title">100 تفاعل فيسبوك</h3>
+                    <p class="reward-description">زود تفاعل منشوراتك بمائة تفاعل حقيقي. زد من انتشار منشوراتك واجذب انتباه المتابعين!</p>
+                    <div class="reward-points">200 نقطة</div>
+                    <ul class="reward-features">
+                        <li><i class="fas fa-check"></i> تفاعلات حقيقية</li>
+                        <li><i class="fas fa-check"></i> تنفيذ خلال 20 دقيقة</li>
+                        <li><i class="fas fa-check"></i> دعم جميع أنواع التفاعلات</li>
+                    </ul>
+                    <button class="btn btn-warning btn-block" onclick="openFacebookRedemption(100, 200)">
+                        <i class="fas fa-shopping-cart"></i> طلب الآن
+                    </button>
+                </div>
+            </div>
+
+            <div class="reward-card" data-category="facebook">
+                <img src="https://th.bing.com/th/id/OIP.7JtCQTwEguB_3NDt2vAlDgHaD4?w=339&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="50 تفاعل فيسبوك" class="reward-image">
+                <div class="reward-content">
+                    <h3 class="reward-title">50 تفاعل فيسبوك</h3>
+                    <p class="reward-description">حزمة تفاعلات مثالية للمنشورات الجديدة. ابدأ بقوة واجذب الانتباه لمنشوراتك!</p>
+                    <div class="reward-points">100 نقطة</div>
+                    <ul class="reward-features">
+                        <li><i class="fas fa-check"></i> تفاعلات سريعة</li>
+                        <li><i class="fas fa-check"></i> تنفيذ فوري</li>
+                        <li><i class="fas fa-check"></i> زيادة المصداقية</li>
+                    </ul>
+                    <button class="btn btn-warning btn-block" onclick="openFacebookRedemption(50, 100)">
+                        <i class="fas fa-shopping-cart"></i> طلب الآن
+                    </button>
+                </div>
+            </div>
+
+            <div class="reward-card" data-category="facebook">
+                <img src="https://th.bing.com/th/id/OIP.7JtCQTwEguB_3NDt2vAlDgHaD4?w=339&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" alt="250 تفاعل فيسبوك" class="reward-image">
+                <div class="reward-content">
+                    <h3 class="reward-title">250 تفاعل فيسبوك</h3>
+                    <p class="reward-description">حزمة تفاعلات شاملة لتحقيق انتشار واسع. اجعل منشورك يصل لأكبر عدد ممكن!</p>
+                    <div class="reward-points">350 نقطة</div>
+                    <ul class="reward-features">
+                        <li><i class="fas fa-check"></i> تفاعلات مكثفة</li>
+                        <li><i class="fas fa-check"></i> زيادة معدل الانتشار</li>
+                        <li><i class="fas fa-check"></i> نتائج مضمونة</li>
+                    </ul>
+                    <button class="btn btn-warning btn-block" onclick="openFacebookRedemption(250, 350)">
+                        <i class="fas fa-shopping-cart"></i> طلب الآن
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>جاري التحميل...</p>
+        </div>
+    </div>
+
+    <!-- Cash Redemption Modal -->
+    <div class="modal" id="cashModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-money-bill-wave"></i> استرداد أموال</h3>
+                <button class="close-modal" onclick="closeModal('cashModal')">×</button>
+            </div>
+            <div id="cashRedemptionForm">
+                <!-- Form will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Facebook Redemption Modal -->
+    <div class="modal" id="facebookModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fab fa-facebook"></i> تفاعلات فيسبوك</h3>
+                <button class="close-modal" onclick="closeModal('facebookModal')">×</button>
+            </div>
+            <div id="facebookRedemptionForm">
+                <!-- Form will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentUser = null;
+        let userData = null;
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        // Initialize Firebase and auth state listener
+        function initializeApp() {
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    currentUser = user;
+                    await loadUserData();
+                } else {
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+
+        // Load user data
+        async function loadUserData() {
+            if (!currentUser) return;
+
+            const userDoc = await db.collection('users').doc(currentUser.uid).get();
+            if (userDoc.exists) {
+                userData = userDoc.data();
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            document.getElementById('userName').textContent = userData.name;
+            document.getElementById('userPoints').textContent = userData.points || 0;
+            document.getElementById('balanceAmount').textContent = userData.points || 0;
+        }
+
+        // Filter rewards by category
+        function filterRewards(category) {
+            const rewards = document.querySelectorAll('.reward-card');
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            
+            // Update active category button
+            categoryBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter rewards
+            rewards.forEach(reward => {
+                if (category === 'all' || reward.dataset.category === category) {
+                    reward.style.display = 'block';
+                } else {
+                    reward.style.display = 'none';
+                }
+            });
+        }
+
+        // Cash Redemption
+        function openCashRedemption(amount, points) {
+            if ((userData.points || 0) < points) {
+                showMessage('نقاطك غير كافية لهذه المكافأة', 'error');
+                return;
+            }
+
+            const formHTML = `
+                <div style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px;">
+                    <div style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9);">المكافأة المختارة</div>
+                    <div style="font-size: 2.5rem; font-weight: 800; background: var(--gradient-aqua); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0.5rem 0;">${amount} جنيه</div>
+                    <div style="color: var(--accent); font-weight: 600; font-size: 1.1rem;">${points} نقطة</div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-wallet"></i> اختر نوع المحفظة:</label>
+                    <div class="wallet-options">
+                        <div class="wallet-option" onclick="selectWallet(this, 'instapay')">
+                            <div class="wallet-icon">💳</div>
+                            <div class="wallet-name">انستا بي</div>
+                        </div>
+                        <div class="wallet-option" onclick="selectWallet(this, 'vodafone')">
+                            <div class="wallet-icon">📱</div>
+                            <div class="wallet-name">فودافون كاش</div>
+                        </div>
+                        <div class="wallet-option" onclick="selectWallet(this, 'etisalat')">
+                            <div class="wallet-icon">📱</div>
+                            <div class="wallet-name">E&amp; كاش</div>
+                        </div>
+                        <div class="wallet-option" onclick="selectWallet(this, 'orange')">
+                            <div class="wallet-icon">📱</div>
+                            <div class="wallet-name">اورنج كاش</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="walletDetails">
+                    <div class="form-group">
+                        <p style="text-align: center; color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">
+                            <i class="fas fa-info-circle"></i> اختر نوع المحفظة أولاً
+                        </p>
+                    </div>
+                </div>
+
+                <button class="btn btn-success btn-block" onclick="submitCashRedemption(${amount}, ${points})">
+                    <i class="fas fa-check-circle"></i> تأكيد الاسترداد
+                </button>
+
+                <div style="text-align: center; margin-top: 1rem;">
+                    <small style="color: rgba(255, 255, 255, 0.7);">
+                        <i class="fas fa-clock"></i> سيتم إرسال المبلغ خلال 1-2 ساعة
+                    </small>
+                </div>
+            `;
+
+            document.getElementById('cashRedemptionForm').innerHTML = formHTML;
+            openModal('cashModal');
+        }
+
+        function selectWallet(element, type) {
+            document.querySelectorAll('.wallet-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+
+            let detailsHTML = '';
+            const walletNames = {
+                'instapay': 'انستا بي',
+                'vodafone': 'فودافون كاش',
+                'etisalat': 'E&amp; كاش', 
+                'orange': 'اورنج كاش'
+            };
+
+            if (type === 'instapay') {
+                detailsHTML = `
+                    <div class="form-group">
+                        <label><i class="fas fa-credit-card"></i> رقم محفظة انستا بي:</label>
+                        <input type="text" class="form-control" id="walletNumber" placeholder="أدخل رقم المحفظة" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> الاسم المسجل في المحفظة:</label>
+                        <input type="text" class="form-control" id="walletName" placeholder="أدخل الاسم المسجل" required>
+                    </div>
+                `;
+            } else {
+                const prefixes = {
+                    'vodafone': '010',
+                    'etisalat': '011', 
+                    'orange': '012'
+                };
+
+                detailsHTML = `
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> رقم الهاتف (${prefixes[type]}):</label>
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="أدخل رقم الهاتف" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> الاسم المسجل في المحفظة:</label>
+                        <input type="text" class="form-control" id="walletName" placeholder="أدخل الاسم المسجل" required>
+                    </div>
+                `;
+            }
+
+            document.getElementById('walletDetails').innerHTML = detailsHTML;
+        }
+
+        async function submitCashRedemption(amount, points) {
+            const selectedWallet = document.querySelector('.wallet-option.selected');
+            if (!selectedWallet) {
+                showMessage('الرجاء اختيار نوع المحفظة', 'error');
+                return;
+            }
+
+            const walletType = selectedWallet.getAttribute('onclick').split("'")[1];
+            let walletNumber, walletName;
+
+            if (walletType === 'instapay') {
+                walletNumber = document.getElementById('walletNumber').value;
+                walletName = document.getElementById('walletName').value;
+            } else {
+                walletNumber = document.getElementById('phoneNumber').value;
+                walletName = document.getElementById('walletName').value;
+            }
+
+            if (!walletNumber || !walletName) {
+                showMessage('الرجاء ملء جميع الحقول', 'error');
+                return;
+            }
+
+            showLoading();
+            try {
+                // Create redemption record
+                await db.collection('redemptions').add({
+                    userId: currentUser.uid,
+                    type: 'cash',
+                    amount: amount,
+                    points: points,
+                    walletType: walletType,
+                    walletNumber: walletNumber,
+                    walletName: walletName,
+                    status: 'pending',
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                // Deduct points
+                await db.collection('users').doc(currentUser.uid).update({
+                    points: firebase.firestore.FieldValue.increment(-points)
+                });
+
+                // Add transaction record
+                await db.collection('transactions').add({
+                    userId: currentUser.uid,
+                    type: 'redemption',
+                    points: -points,
+                    description: `استرداد نقدي: ${amount} جنيه`,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                showMessage(`تم تقديم طلب الاسترداد بنجاح! سيتم إرسال ${amount} جنيه خلال 1-2 ساعة.`, 'success');
+                
+                userData.points -= points;
+                updateUI();
+                closeModal('cashModal');
+
+            } catch (error) {
+                console.error('Error submitting cash redemption:', error);
+                showMessage('حدث خطأ أثناء تقديم طلب الاسترداد', 'error');
+            }
+            hideLoading();
+        }
+
+        // Facebook Redemption
+        function openFacebookRedemption(interactions, points) {
+            if ((userData.points || 0) < points) {
+                showMessage('نقاطك غير كافية لهذه المكافأة', 'error');
+                return;
+            }
+
+            const formHTML = `
+                <div style="text-align: center; margin-bottom: 2rem; padding: 1.5rem; background: rgba(255, 255, 255, 0.1); border-radius: 15px;">
+                    <div style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9);">المكافأة المختارة</div>
+                    <div style="font-size: 2.5rem; font-weight: 800; background: var(--gradient-aqua); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0.5rem 0;">${interactions} تفاعل</div>
+                    <div style="color: var(--accent); font-weight: 600; font-size: 1.1rem;">${points} نقطة</div>
+                </div>
+
+                <div class="form-group">
+                    <div style="background: rgba(0, 187, 249, 0.2); border: 1px solid var(--secondary); border-radius: 12px; padding: 1rem; text-align: center;">
+                        <i class="fas fa-exclamation-triangle" style="color: var(--secondary);"></i>
+                        <span style="color: var(--secondary); font-weight: bold;"> يجب أن يكون المنشور عاماً</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-link"></i> رابط المنشور على فيسبوك:</label>
+                    <input type="url" class="form-control" id="postUrl" placeholder="https://facebook.com/..." required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-thumbs-up"></i> اختر نوع التفاعل:</label>
+                    <div class="reactions-grid">
+                        <div class="reaction-option" onclick="toggleReaction(this)">
+                            <div class="reaction-icon">👍</div>
+                            <div class="reaction-name">إعجاب</div>
+                        </div>
+                        <div class="reaction-option" onclick="toggleReaction(this)">
+                            <div class="reaction-icon">❤️</div>
+                            <div class="reaction-name">حب</div>
+                        </div>
+                        <div class="reaction-option" onclick="toggleReaction(this)">
+                            <div class="reaction-icon">😲</div>
+                            <div class="reaction-name">دهشة</div>
+                        </div>
+                        <div class="reaction-option" onclick="toggleReaction(this)">
+                            <div class="reaction-icon">😂</div>
+                            <div class="reaction-name">ضحك</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-warning btn-block" onclick="submitFacebookRedemption(${interactions}, ${points})">
+                    <i class="fas fa-play-circle"></i> بدء التفاعلات
+                </button>
+
+                <div style="text-align: center; margin-top: 1rem;">
+                    <small style="color: rgba(255, 255, 255, 0.7);">
+                        <i class="fas fa-clock"></i> سيتم إرسال التفاعلات خلال 20 دقيقة
+                    </small>
+                </div>
+            `;
+
+            document.getElementById('facebookRedemptionForm').innerHTML = formHTML;
+            openModal('facebookModal');
+        }
+
+        function toggleReaction(element) {
+            element.classList.toggle('selected');
+        }
+
+        async function submitFacebookRedemption(interactions, points) {
+            const postUrl = document.getElementById('postUrl').value;
+            const selectedReactions = document.querySelectorAll('.reaction-option.selected');
+
+            if (!postUrl) {
+                showMessage('الرجاء إدخال رابط المنشور', 'error');
+                return;
+            }
+
+            if (selectedReactions.length === 0) {
+                showMessage('الرجاء اختيار نوع التفاعل على الأقل', 'error');
+                return;
+            }
+
+            if (!postUrl.includes('facebook.com')) {
+                showMessage('الرجاء إدخال رابط فيسبوك صحيح', 'error');
+                return;
+            }
+
+            const reactions = Array.from(selectedReactions).map(el => el.querySelector('.reaction-name').textContent);
+
+            showLoading();
+            try {
+                // Create redemption record
+                await db.collection('redemptions').add({
+                    userId: currentUser.uid,
+                    type: 'facebook',
+                    interactions: interactions,
+                    points: points,
+                    postUrl: postUrl,
+                    reactions: reactions,
+                    status: 'pending',
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                // Deduct points
+                await db.collection('users').doc(currentUser.uid).update({
+                    points: firebase.firestore.FieldValue.increment(-points)
+                });
+
+                // Add transaction record
+                await db.collection('transactions').add({
+                    userId: currentUser.uid,
+                    type: 'redemption',
+                    points: -points,
+                    description: `تفاعلات فيسبوك: ${interactions} تفاعل`,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+
+                showMessage(`تم تقديم طلب التفاعلات بنجاح! سيتم إرسال ${interactions} تفاعل خلال 20 دقيقة.`, 'success');
+                
+                userData.points -= points;
+                updateUI();
+                closeModal('facebookModal');
+
+            } catch (error) {
+                console.error('Error submitting facebook redemption:', error);
+                showMessage('حدث خطأ أثناء تقديم طلب التفاعلات', 'error');
+            }
+            hideLoading();
+        }
+
+        // Utility functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        async function logout() {
+            showLoading();
+            try {
+                await auth.signOut();
+                window.location.href = 'index.html';
+            } catch (error) {
+                showMessage('حدث خطأ أثناء تسجيل الخروج', 'error');
+                hideLoading();
+            }
+        }
+
+        // Message system
+        function showMessage(message, type) {
+            const existingMessages = document.querySelectorAll('.message-toast');
+            existingMessages.forEach(msg => msg.remove());
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message-toast`;
+            messageDiv.innerHTML = `
+                <div style="background: ${type === 'success' ? 'var(--success)' : type === 'error' ? 'var(--danger)' : 'var(--warning)'}; 
+                            color: white; padding: 1rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 0.8rem;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+
+            document.body.appendChild(messageDiv);
+
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.parentNode.removeChild(messageDiv);
+                }
+            }, 5000);
+        }
+
+        // Security
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>

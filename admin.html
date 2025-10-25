@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - Gemini Prompt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Tajawal', sans-serif;
+        }
+
+        :root {
+            --primary: #00b4d8;
+            --primary-light: #48cae4;
+            --primary-dark: #0077b6;
+            --secondary: #00bbf9;
+            --accent: #90e0ef;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --danger: #e17055;
+            --info: #0984e3;
+            --dark: #2d3436;
+            --light: #f8f9fa;
+            --glass-light: rgba(255, 255, 255, 0.25);
+            --glass-dark: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-light: #ffffff;
+            --text-dark: #2d3436;
+            --gradient-primary: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            --gradient-secondary: linear-gradient(135deg, #00bbf9 0%, #48cae4 100%);
+            --gradient-accent: linear-gradient(135deg, #90e0ef 0%, #caf0f8 100%);
+            --gradient-aqua: linear-gradient(135deg, #00b4d8 0%, #90e0ef 100%);
+            --gradient-water: linear-gradient(135deg, #0077b6 0%, #00b4d8 50%, #90e0ef 100%);
+            --shadow: 0 8px 32px rgba(0, 180, 216, 0.15);
+            --shadow-hover: 0 12px 40px rgba(0, 180, 216, 0.25);
+            --border-radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background: var(--gradient-water);
+            min-height: 100vh;
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.6);
+        }
+
+        .btn-success {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 187, 249, 0.4);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 187, 249, 0.6);
+        }
+
+        .btn-warning {
+            background: var(--gradient-aqua);
+            color: white;
+            box-shadow: 0 4px 15px rgba(144, 224, 239, 0.4);
+        }
+
+        .btn-warning:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(144, 224, 239, 0.6);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, var(--danger), #d63031);
+            color: white;
+            box-shadow: 0 4px 15px rgba(225, 112, 85, 0.4);
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(225, 112, 85, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--glass-border);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background: var(--glass-light);
+            border-color: var(--primary-light);
+        }
+
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Admin Header */
+        .admin-header {
+            text-align: center;
+            padding: 3rem 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .admin-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .admin-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+
+        /* Dashboard Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--glass-light);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            opacity: 0.9;
+            font-weight: 600;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background: var(--glass-dark);
+            border-radius: var(--border-radius);
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 1rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: var(--transition);
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .tab.active {
+            background: var(--gradient-primary);
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+        }
+
+        .tab:hover:not(.active) {
+            background: var(--glass-light);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Forms */
+        .form-section {
+            background: var(--glass-light);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            background: var(--gradient-aqua);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            background: var(--glass-dark);
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Tables */
+        .table-container {
+            background: var(--glass-light);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: transparent;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: right;
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-light);
+        }
+
+        th {
+            background: var(--glass-dark);
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        tr:hover {
+            background: var(--glass-dark);
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .status-active {
+            background: rgba(0, 184, 148, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+
+        .status-used {
+            background: rgba(225, 112, 85, 0.2);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+
+        .status-pending {
+            background: rgba(253, 203, 110, 0.2);
+            color: var(--warning);
+            border: 1px solid var(--warning);
+        }
+
+        .status-completed {
+            background: rgba(9, 132, 227, 0.2);
+            color: var(--info);
+            border: 1px solid var(--info);
+        }
+
+        /* Code Generator */
+        .code-preview {
+            background: var(--glass-dark);
+            border: 2px dashed var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 1rem 0;
+            font-family: monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Message Toast */
+        .message-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .admin-title {
+                font-size: 2.2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .table-container {
+                padding: 1rem;
+            }
+
+            th, td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Firebase Configuration -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCffrRr-wYBeiAf7GML6Xs3kQg-14mLFhQ",
+            authDomain: "prompat-76c51.firebaseapp.com",
+            projectId: "prompat-76c51",
+            storageBucket: "prompat-76c51.firebasestorage.app",
+            messagingSenderId: "663109200073",
+            appId: "1:663109200073:web:9da9a15649a88028b68518",
+            measurementId: "G-HKL1XTBX6H"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">لوحة تحكم الأدمن</div>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-arrow-right"></i> العودة للرئيسية
+                </a>
+                <a href="store.html" class="btn btn-outline">
+                    <i class="fas fa-store"></i> المتجر
+                </a>
+                <button class="btn btn-danger" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> تسجيل خروج
+                </button>
+            </div>
+        </nav>
+
+        <!-- Admin Header -->
+        <section class="admin-header">
+            <h1 class="admin-title">🛠️ لوحة التحكم</h1>
+            <p class="admin-subtitle">إدارة أكواد الاسترداد والمستخدمين والإحصائيات</p>
+        </section>
+
+        <!-- Dashboard Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-number" id="totalUsers">0</div>
+                <div class="stat-label">إجمالي المستخدمين</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-number" id="totalPoints">0</div>
+                <div class="stat-label">إجمالي النقاط</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎫</div>
+                <div class="stat-number" id="totalCodes">0</div>
+                <div class="stat-label">أكواد تم إنشاؤها</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">✅</div>
+                <div class="stat-number" id="usedCodes">0</div>
+                <div class="stat-label">أكواد مستخدمة</div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('codes')">
+                <i class="fas fa-ticket-alt"></i> إدارة الأكواد
+            </div>
+            <div class="tab" onclick="switchTab('redemptions')">
+                <i class="fas fa-exchange-alt"></i> طلبات الاسترداد
+            </div>
+            <div class="tab" onclick="switchTab('users')">
+                <i class="fas fa-users"></i> إدارة المستخدمين
+            </div>
+        </div>
+
+        <!-- Codes Tab -->
+        <div class="tab-content active" id="codesTab">
+            <!-- Add Code Form -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-plus-circle"></i> إنشاء كود استرداد جديد</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="codePoints">عدد النقاط:</label>
+                        <input type="number" class="form-control" id="codePoints" placeholder="أدخل عدد النقاط" min="10" max="1000">
+                    </div>
+                    <div class="form-group">
+                        <label for="codeCount">عدد الأكواد:</label>
+                        <input type="number" class="form-control" id="codeCount" placeholder="عدد الأكواد المراد إنشاؤها" value="1" min="1" max="50">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>نوع الكود:</label>
+                    <div style="display: flex; gap: 1rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="radio" name="codeType" value="random" checked> 
+                            <span>كود عشوائي</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem;">
+                            <input type="radio" name="codeType" value="custom">
+                            <span>كود مخصص</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group" id="customCodeGroup" style="display: none;">
+                    <label for="customCode">الكود المخصص:</label>
+                    <input type="text" class="form-control" id="customCode" placeholder="أدخل الكود المخصص" style="text-transform: uppercase;">
+                </div>
+                <button class="btn btn-success btn-block" onclick="generateCodes()">
+                    <i class="fas fa-magic"></i> إنشاء الأكواد
+                </button>
+            </div>
+
+            <!-- Generated Codes -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-ticket-alt"></i> الأكواد المُنشأة</h2>
+                <div id="generatedCodes">
+                    <p style="text-align: center; color: rgba(255, 255, 255, 0.7);">سيظهر هنا الأكواد المُنشأة حديثاً</p>
+                </div>
+            </div>
+
+            <!-- All Codes Table -->
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-list"></i> جميع الأكواد</h2>
+                <div class="table-container">
+                    <table id="codesTable">
+                        <thead>
+                            <tr>
+                                <th>الكود</th>
+                                <th>النقاط</th>
+                                <th>الحالة</th>
+                                <th>المستخدم</th>
+                                <th>تاريخ الإنشاء</th>
+                                <th>تاريخ الاستخدام</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="codesTableBody">
+                            <!-- Codes will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Redemptions Tab -->
+        <div class="tab-content" id="redemptionsTab">
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-exchange-alt"></i> طلبات الاسترداد</h2>
+                <div class="table-container">
+                    <table id="redemptionsTable">
+                        <thead>
+                            <tr>
+                                <th>المستخدم</th>
+                                <th>النوع</th>
+                                <th>القيمة</th>
+                                <th>النقاط</th>
+                                <th>الحالة</th>
+                                <th>التاريخ</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="redemptionsTableBody">
+                            <!-- Redemptions will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Tab -->
+        <div class="tab-content" id="usersTab">
+            <div class="form-section">
+                <h2 class="section-title"><i class="fas fa-users"></i> إدارة المستخدمين</h2>
+                <div class="table-container">
+                    <table id="usersTable">
+                        <thead>
+                            <tr>
+                                <th>الاسم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>النقاط</th>
+                                <th>المشاركات</th>
+                                <th>تاريخ التسجيل</th>
+                                <th>آخر دخول</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersTableBody">
+                            <!-- Users will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>جاري التحميل...</p>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentUser = null;
+        let adminData = null;
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        // Initialize Firebase and check admin access
+        function initializeApp() {
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    currentUser = user;
+                    // Check if user is admin (you can implement your own admin check)
+                    await checkAdminAccess();
+                    await loadDashboardData();
+                } else {
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+
+        // Simple admin access check (you should implement proper admin authentication)
+        async function checkAdminAccess() {
+            // For demo purposes, we'll allow access to any logged-in user
+            // In production, you should check if the user is in an admin collection
+            console.log('Admin access granted for:', currentUser.email);
+        }
+
+        // Load dashboard data
+        async function loadDashboardData() {
+            await loadStats();
+            await loadCodes();
+            await loadRedemptions();
+            await loadUsers();
+        }
+
+        // Load statistics
+        async function loadStats() {
+            try {
+                // Total users
+                const usersSnapshot = await db.collection('users').get();
+                document.getElementById('totalUsers').textContent = usersSnapshot.size;
+
+                // Total points
+                let totalPoints = 0;
+                usersSnapshot.forEach(doc => {
+                    totalPoints += doc.data().points || 0;
+                });
+                document.getElementById('totalPoints').textContent = totalPoints;
+
+                // Codes statistics
+                const codesSnapshot = await db.collection('inviteCodes').get();
+                document.getElementById('totalCodes').textContent = codesSnapshot.size;
+
+                let usedCodes = 0;
+                codesSnapshot.forEach(doc => {
+                    if (doc.data().used) usedCodes++;
+                });
+                document.getElementById('usedCodes').textContent = usedCodes;
+
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Load codes
+        async function loadCodes() {
+            try {
+                const codesSnapshot = await db.collection('inviteCodes')
+                    .orderBy('createdAt', 'desc')
+                    .get();
+
+                const tbody = document.getElementById('codesTableBody');
+                tbody.innerHTML = '';
+
+                if (codesSnapshot.empty) {
+                    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.7);">لا توجد أكواد حتى الآن</td></tr>';
+                    return;
+                }
+
+                codesSnapshot.forEach(doc => {
+                    const code = doc.data();
+                    const row = document.createElement('tr');
+                    
+                    const statusClass = code.used ? 'status-used' : 'status-active';
+                    const statusText = code.used ? 'مستخدم' : 'نشط';
+
+                    row.innerHTML = `
+                        <td><strong>${code.code}</strong></td>
+                        <td>${code.points}</td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>${code.usedBy || '-'}</td>
+                        <td>${formatDate(code.createdAt?.toDate())}</td>
+                        <td>${code.usedAt ? formatDate(code.usedAt.toDate()) : '-'}</td>
+                        <td>
+                            ${!code.used ? `
+                                <button class="btn btn-danger" onclick="deleteCode('${doc.id}')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            ` : ''}
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error('Error loading codes:', error);
+            }
+        }
+
+        // Load redemptions
+        async function loadRedemptions() {
+            try {
+                const redemptionsSnapshot = await db.collection('redemptions')
+                    .orderBy('timestamp', 'desc')
+                    .get();
+
+                const tbody = document.getElementById('redemptionsTableBody');
+                tbody.innerHTML = '';
+
+                if (redemptionsSnapshot.empty) {
+                    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.7);">لا توجد طلبات استرداد حتى الآن</td></tr>';
+                    return;
+                }
+
+                // Get user names for redemptions
+                const usersSnapshot = await db.collection('users').get();
+                const usersMap = {};
+                usersSnapshot.forEach(doc => {
+                    usersMap[doc.id] = doc.data().name;
+                });
+
+                redemptionsSnapshot.forEach(doc => {
+                    const redemption = doc.data();
+                    const userName = usersMap[redemption.userId] || 'مستخدم محذوف';
+                    
+                    const statusClass = redemption.status === 'completed' ? 'status-completed' : 
+                                      redemption.status === 'pending' ? 'status-pending' : 'status-used';
+                    const statusText = redemption.status === 'completed' ? 'مكتمل' : 
+                                     redemption.status === 'pending' ? 'قيد الانتظار' : 'ملغي';
+
+                    const value = redemption.type === 'cash' ? 
+                                 `${redemption.amount} جنيه` : 
+                                 `${redemption.interactions} تفاعل`;
+
+                    row.innerHTML = `
+                        <td>${userName}</td>
+                        <td>${redemption.type === 'cash' ? 'نقدي' : 'فيسبوك'}</td>
+                        <td>${value}</td>
+                        <td>${redemption.points}</td>
+                        <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                        <td>${formatDate(redemption.timestamp?.toDate())}</td>
+                        <td>
+                            <button class="btn btn-success" onclick="updateRedemptionStatus('${doc.id}', 'completed')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button class="btn btn-danger" onclick="updateRedemptionStatus('${doc.id}', 'cancelled')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error('Error loading redemptions:', error);
+            }
+        }
+
+        // Load users
+        async function loadUsers() {
+            try {
+                const usersSnapshot = await db.collection('users')
+                    .orderBy('createdAt', 'desc')
+                    .get();
+
+                const tbody = document.getElementById('usersTableBody');
+                tbody.innerHTML = '';
+
+                if (usersSnapshot.empty) {
+                    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.7);">لا توجد مستخدمين حتى الآن</td></tr>';
+                    return;
+                }
+
+                usersSnapshot.forEach(doc => {
+                    const user = doc.data();
+                    
+                    row.innerHTML = `
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                        <td>${user.points || 0}</td>
+                        <td>${user.totalShares || 0}</td>
+                        <td>${formatDate(user.createdAt?.toDate())}</td>
+                        <td>${user.lastLogin ? formatDate(user.lastLogin.toDate()) : '-'}</td>
+                        <td>
+                            <button class="btn btn-warning" onclick="editUserPoints('${doc.id}')" style="padding: 0.4rem 0.8rem; font-size: 0.8rem;">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                });
+
+            } catch (error) {
+                console.error('Error loading users:', error);
+            }
+        }
+
+        // Generate codes
+        async function generateCodes() {
+            const points = parseInt(document.getElementById('codePoints').value);
+            const count = parseInt(document.getElementById('codeCount').value);
+            const codeType = document.querySelector('input[name="codeType"]:checked').value;
+            const customCode = document.getElementById('customCode').value;
+
+            if (!points || points < 10) {
+                showMessage('الرجاء إدخال عدد نقاط صحيح (10 نقطة كحد أدنى)', 'error');
+                return;
+            }
+
+            if (!count || count < 1) {
+                showMessage('الرجاء إدخال عدد أكواد صحيح', 'error');
+                return;
+            }
+
+            if (codeType === 'custom' && !customCode) {
+                showMessage('الرجاء إدخال الكود المخصص', 'error');
+                return;
+            }
+
+            showLoading();
+
+            try {
+                const codesContainer = document.getElementById('generatedCodes');
+                codesContainer.innerHTML = '<p style="text-align: center; color: var(--accent);">جاري إنشاء الأكواد...</p>';
+
+                const codes = [];
+                
+                for (let i = 0; i < count; i++) {
+                    let code;
+                    
+                    if (codeType === 'custom' && i === 0) {
+                        code = customCode.toUpperCase();
+                    } else {
+                        code = generateRandomCode();
+                    }
+
+                    // Check if code already exists
+                    const existingCode = await db.collection('inviteCodes')
+                        .where('code', '==', code)
+                        .get();
+
+                    if (!existingCode.empty) {
+                        i--; // Try again
+                        continue;
+                    }
+
+                    // Add code to database
+                    await db.collection('inviteCodes').add({
+                        code: code,
+                        points: points,
+                        used: false,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        createdBy: currentUser.uid
+                    });
+
+                    codes.push({ code, points });
+                }
+
+                // Display generated codes
+                let codesHTML = '<div style="display: grid; gap: 1rem; margin-top: 1rem;">';
+                codes.forEach(item => {
+                    codesHTML += `
+                        <div class="code-preview">
+                            <div style="font-size: 1.4rem; margin-bottom: 0.5rem;">${item.code}</div>
+                            <div style="color: rgba(255, 255, 255, 0.8);">${item.points} نقطة</div>
+                        </div>
+                    `;
+                });
+                codesHTML += '</div>';
+
+                codesContainer.innerHTML = codesHTML;
+                showMessage(`تم إنشاء ${codes.length} كود بنجاح!`, 'success');
+
+                // Reload codes table
+                await loadCodes();
+                await loadStats();
+
+            } catch (error) {
+                console.error('Error generating codes:', error);
+                showMessage('حدث خطأ أثناء إنشاء الأكواد', 'error');
+            }
+
+            hideLoading();
+        }
+
+        // Generate random code
+        function generateRandomCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 8; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        // Delete code
+        async function deleteCode(codeId) {
+            if (confirm('هل أنت متأكد من حذف هذا الكود؟')) {
+                try {
+                    await db.collection('inviteCodes').doc(codeId).delete();
+                    showMessage('تم حذف الكود بنجاح', 'success');
+                    await loadCodes();
+                    await loadStats();
+                } catch (error) {
+                    console.error('Error deleting code:', error);
+                    showMessage('حدث خطأ أثناء حذف الكود', 'error');
+                }
+            }
+        }
+
+        // Update redemption status
+        async function updateRedemptionStatus(redemptionId, status) {
+            try {
+                await db.collection('redemptions').doc(redemptionId).update({
+                    status: status
+                });
+                showMessage('تم تحديث حالة الطلب بنجاح', 'success');
+                await loadRedemptions();
+            } catch (error) {
+                console.error('Error updating redemption:', error);
+                showMessage('حدث خطأ أثناء تحديث حالة الطلب', 'error');
+            }
+        }
+
+        // Edit user points
+        async function editUserPoints(userId) {
+            const newPoints = prompt('أدخل عدد النقاط الجديد:');
+            if (newPoints !== null && !isNaN(newPoints)) {
+                try {
+                    await db.collection('users').doc(userId).update({
+                        points: parseInt(newPoints)
+                    });
+                    showMessage('تم تحديث نقاط المستخدم بنجاح', 'success');
+                    await loadUsers();
+                    await loadStats();
+                } catch (error) {
+                    console.error('Error updating user points:', error);
+                    showMessage('حدث خطأ أثناء تحديث نقاط المستخدم', 'error');
+                }
+            }
+        }
+
+        // Utility functions
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName + 'Tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function formatDate(date) {
+            if (!date) return '-';
+            return new Date(date).toLocaleDateString('ar-EG', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        async function logout() {
+            showLoading();
+            try {
+                await auth.signOut();
+                window.location.href = 'index.html';
+            } catch (error) {
+                showMessage('حدث خطأ أثناء تسجيل الخروج', 'error');
+                hideLoading();
+            }
+        }
+
+        // Message system
+        function showMessage(message, type) {
+            const existingMessages = document.querySelectorAll('.message-toast');
+            existingMessages.forEach(msg => msg.remove());
+
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message-toast`;
+            messageDiv.innerHTML = `
+                <div style="background: ${type === 'success' ? 'var(--success)' : type === 'error' ? 'var(--danger)' : 'var(--warning)'}; 
+                            color: white; padding: 1rem 1.5rem; border-radius: 12px; display: flex; align-items: center; gap: 0.8rem;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+
+            document.body.appendChild(messageDiv);
+
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.parentNode.removeChild(messageDiv);
+                }
+            }, 5000);
+        }
+
+        // Show/hide custom code input
+        document.querySelectorAll('input[name="codeType"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('customCodeGroup').style.display = 
+                    this.value === 'custom' ? 'block' : 'none';
+            });
+        });
+
+        // Security
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || 
+                (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                (e.ctrlKey && e.shiftKey && e.key === 'J') || 
+                (e.ctrlKey && e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    </script>
+</body>
+</html>
