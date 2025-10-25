@@ -23,7 +23,9 @@
     <!-- أيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-   <style>
+    
+    <!-- سيتم وضع CSS هنا لاحقاً -->
+     <style>
     :root {
         --primary: #6C63FF;
         --primary-light: #8A84FF;
@@ -329,182 +331,7 @@
         box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
     }
 
-    /* باقي الأنماط تبقى كما هي */
-    /* ... */
-
-    /* نافذة البحث */
-    .search-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.9);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        backdrop-filter: blur(10px);
-    }
-
-    .search-modal-content {
-        background: white;
-        width: 100%;
-        max-width: 600px;
-        border-radius: 20px;
-        padding: 25px;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-        position: relative;
-        max-height: 90vh;
-        overflow-y: auto;
-        animation: modalSlideIn 0.3s ease;
-    }
-
-    @keyframes modalSlideIn {
-        from { 
-            opacity: 0; 
-            transform: scale(0.8) translateY(20px); 
-        }
-        to { 
-            opacity: 1; 
-            transform: scale(1) translateY(0); 
-        }
-    }
-
-    .search-modal-title {
-        font-size: 1.4rem;
-        margin-bottom: 20px;
-        text-align: center;
-        color: var(--dark);
-        font-weight: 700;
-        padding: 0 10px;
-    }
-
-    .search-input-container {
-        position: relative;
-        margin-bottom: 20px;
-    }
-
-    .search-input {
-        width: 100%;
-        padding: 15px 50px 15px 20px;
-        border: 2px solid var(--light);
-        border-radius: 15px;
-        font-size: 1rem;
-        transition: all 0.3s;
-        background: var(--light);
-    }
-
-    .search-input:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
-    }
-
-    .search-icon {
-        position: absolute;
-        left: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: var(--gray);
-    }
-
-    .search-results {
-        margin-top: 20px;
-        max-height: 400px;
-        overflow-y: auto;
-    }
-
-    .search-result-item {
-        background: white;
-        border-radius: 12px;
-        padding: 15px;
-        margin-bottom: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        cursor: pointer;
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .search-result-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        border-color: var(--primary);
-    }
-
-    .search-result-image {
-        width: 60px;
-        height: 60px;
-        border-radius: 10px;
-        object-fit: cover;
-    }
-
-    .search-result-content {
-        flex: 1;
-    }
-
-    .search-result-title {
-        font-weight: 600;
-        margin-bottom: 5px;
-        color: var(--dark);
-    }
-
-    .search-result-description {
-        font-size: 0.9rem;
-        color: var(--gray);
-    }
-
-    .close-search-modal {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        background: var(--light);
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.3s;
-        color: var(--dark);
-        border: none;
-    }
-
-    .close-search-modal:hover {
-        background: var(--primary);
-        color: white;
-        transform: rotate(90deg);
-    }
-
-    /* الكلام العائم للهدايا */
-    .floating-text {
-        position: fixed;
-        z-index: 10000;
-        pointer-events: none;
-        animation: floatUp 3s ease-in-out forwards;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--secondary);
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    @keyframes floatUp {
-        0% {
-            transform: translateY(0) scale(0.8);
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-100px) scale(1);
-            opacity: 0;
-        }
-    }
-
-    /* نظام الفلترة الجديد */
+    /* قسم الهشتاجات */
     .hashtags-filter-section {
         background: white;
         padding: 15px 0;
@@ -551,98 +378,168 @@
         box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
     }
 
-    /* باقي الأنماط تبقى كما هي */
-    /* ... */
-
-    /* نافذة الإعلان المنبثقة */
-    .ad-popup-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(5px);
-        justify-content: center;
-        align-items: center;
-        z-index: 10000;
-    }
-
-    .ad-popup-container {
+    /* قسم التخصيص الجديد */
+    .customization-section {
+        padding: 80px 0;
         background: white;
-        border-radius: 20px;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        max-width: 400px;
-        width: 90%;
-        max-height: 90vh;
-        overflow: hidden;
     }
 
-    .ad-popup-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 25px;
-        background: linear-gradient(135deg, #6C63FF, #36D1DC);
-        color: white;
-    }
-
-    .ad-badge {
-        background: rgba(255, 255, 255, 0.2);
-        padding: 6px 15px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        backdrop-filter: blur(10px);
-    }
-
-    .ad-close-btn {
-        background: rgba(255, 255, 255, 0.2);
-        border: none;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-    }
-
-    .ad-close-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-        transform: rotate(90deg);
-    }
-
-    .ad-popup-content {
-        padding: 30px 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 200px;
-    }
-
-    .ad-script-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .ad-popup-footer {
-        padding: 20px 25px;
+    .customization-card {
         background: var(--light);
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        text-align: center;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
     }
 
-    .ad-note {
-        color: var(--gray);
-        font-size: 0.9rem;
+    .customization-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .customization-header h3 {
+        font-size: 1.8rem;
+        color: var(--dark);
         margin-bottom: 10px;
+    }
+
+    .customization-header p {
+        color: var(--gray);
+        font-size: 1.1rem;
+    }
+
+    .customization-options {
+        display: grid;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .option-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .option-label {
+        font-weight: 600;
+        color: var(--dark);
+        font-size: 1.1rem;
+    }
+
+    .custom-select {
+        padding: 12px 15px;
+        border: 2px solid var(--light);
+        border-radius: 10px;
+        font-size: 1rem;
+        background: white;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .custom-select:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+    }
+
+    .sub-option {
+        margin-right: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+        border-right: 3px solid var(--primary);
+    }
+
+    .preview-section, .result-section {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .preview-section h4, .result-section h4 {
+        font-size: 1.3rem;
+        color: var(--dark);
+        margin-bottom: 15px;
+    }
+
+    .preview-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .preview-item {
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .preview-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .preview-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .preview-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.7));
+        padding: 15px;
+        color: white;
+    }
+
+    .preview-info h5 {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .preview-info p {
+        font-size: 0.8rem;
+        opacity: 0.9;
+    }
+
+    .generated-prompt {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px;
+        line-height: 1.6;
+        max-height: 200px;
+        overflow-y: auto;
+    }
+
+    .copy-prompt-btn {
+        width: 100%;
+        padding: 12px;
+        background: var(--gradient);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .copy-prompt-btn:hover {
+        background: var(--gradient-dark);
+        transform: translateY(-2px);
     }
 
     /* قسم الفلاتر */
@@ -693,18 +590,73 @@
         margin: 0 auto;
     }
 
+    /* أنيميشن التدرج اللوني للكروت */
     .feed-item {
+        position: relative;
         background: white;
         border-radius: 15px;
         overflow: hidden;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         margin-bottom: 20px;
         transition: transform 0.3s;
-        position: relative;
+    }
+
+    .feed-item::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, 
+            #ff6b6b, #ee5a24, #fbc531, 
+            #e1b12c, #44bd32, #0097e6, 
+            #8c7ae6, #e84118, #ff6b6b);
+        background-size: 400% 400%;
+        border-radius: 17px;
+        z-index: -1;
+        animation: gradientBorder 3s ease infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes gradientBorder {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .feed-item:hover::before {
+        opacity: 1;
+        animation-duration: 1.5s;
     }
 
     .feed-item:hover {
         transform: translateY(-5px);
+    }
+
+    /* زر عرض المزيد */
+    .load-more-btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--gradient);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .load-more-btn:hover {
+        background: var(--gradient-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
     }
 
     /* علامة جديدة على الكروت */
@@ -1567,6 +1519,12 @@
         animation: pulse 2s infinite;
     }
 
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
     /* الإشعارات */
     .notification {
         position: fixed;
@@ -1594,6 +1552,269 @@
             transform: translateX(0);
             opacity: 1;
         }
+    }
+
+    /* نافذة البحث */
+    .search-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+        backdrop-filter: blur(10px);
+    }
+
+    .search-modal-content {
+        background: white;
+        width: 100%;
+        max-width: 600px;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+        from { 
+            opacity: 0; 
+            transform: scale(0.8) translateY(20px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: scale(1) translateY(0); 
+        }
+    }
+
+    .search-modal-title {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        text-align: center;
+        color: var(--dark);
+        font-weight: 700;
+        padding: 0 10px;
+    }
+
+    .search-input-container {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 15px 50px 15px 20px;
+        border: 2px solid var(--light);
+        border-radius: 15px;
+        font-size: 1rem;
+        transition: all 0.3s;
+        background: var(--light);
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray);
+    }
+
+    .search-results {
+        margin-top: 20px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    .search-result-item {
+        background: white;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .search-result-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary);
+    }
+
+    .search-result-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .search-result-content {
+        flex: 1;
+    }
+
+    .search-result-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: var(--dark);
+    }
+
+    .search-result-description {
+        font-size: 0.9rem;
+        color: var(--gray);
+    }
+
+    .close-search-modal {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--light);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s;
+        color: var(--dark);
+        border: none;
+    }
+
+    .close-search-modal:hover {
+        background: var(--primary);
+        color: white;
+        transform: rotate(90deg);
+    }
+
+    /* الكلام العائم للهدايا */
+    .floating-text {
+        position: fixed;
+        z-index: 10000;
+        pointer-events: none;
+        animation: floatUp 3s ease-in-out forwards;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--secondary);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes floatUp {
+        0% {
+            transform: translateY(0) scale(0.8);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100px) scale(1);
+            opacity: 0;
+        }
+    }
+
+    /* نافذة الإعلان المنبثقة */
+    .ad-popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        align-items: center;
+        z-index: 10000;
+    }
+
+    .ad-popup-container {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        width: 90%;
+        max-height: 90vh;
+        overflow: hidden;
+    }
+
+    .ad-popup-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 25px;
+        background: linear-gradient(135deg, #6C63FF, #36D1DC);
+        color: white;
+    }
+
+    .ad-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+    }
+
+    .ad-close-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .ad-close-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: rotate(90deg);
+    }
+
+    .ad-popup-content {
+        padding: 30px 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+    }
+
+    .ad-script-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ad-popup-footer {
+        padding: 20px 25px;
+        background: var(--light);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .ad-note {
+        color: var(--gray);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
     }
 
     /* الفوتر */
@@ -1850,6 +2071,18 @@
             padding: 20px;
             margin: 10px;
         }
+
+        .customization-card {
+            padding: 20px;
+        }
+
+        .preview-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .customization-options {
+            gap: 15px;
+        }
     }
 
     @media (max-width: 480px) {
@@ -1901,6 +2134,14 @@
             padding: 6px 12px;
             font-size: 0.8rem;
         }
+
+        .customization-header h3 {
+            font-size: 1.5rem;
+        }
+
+        .option-label {
+            font-size: 1rem;
+        }
     }
 
     @media (max-width: 360px) {
@@ -1933,6 +2174,11 @@
 
         .favorite-slide {
             min-width: 220px;
+        }
+
+        .custom-select {
+            padding: 10px 12px;
+            font-size: 0.9rem;
         }
     }
 
@@ -2015,6 +2261,8 @@
         </div>
     </section>
 
+
+
     <!-- قسم الفلاتر -->
     <section class="filter-section">
         <div class="container filter-container">
@@ -2031,6 +2279,91 @@
         </div>
     </section>
 
+
+
+
+        <!-- قسم تخصيص الصور الجديد 
+    <section class="customization-section" id="customizationSection">
+        <div class="container">
+            <h2 class="section-title">تخصيص <span>صورك</span></h2>
+            
+            <div class="customization-card">
+                <div class="customization-header">
+                    <h3>صمم صورتك المثالية</h3>
+                    <p>اختر الملابس والخلفية المناسبة لتحصل على البرومبت المثالي</p>
+                </div>
+                
+                <div class="customization-options">
+                    <div class="option-group">
+                        <label class="option-label">👕 اختر نوع الملابس</label>
+                        <select class="custom-select" id="clothingSelect">
+                            <option value="">-- اختر الملابس --</option>
+                            <option value="jacket_black">جاكيت أسود</option>
+                            <option value="shirt">قميص</option>
+                            <option value="suit">بدلة</option>
+                            <option value="hoodie">هودي</option>
+                        </select>
+                    </div>
+                    
+                    <div class="option-group">
+                        <label class="option-label">🎨 اختر نوع الخلفية</label>
+                        <select class="custom-select" id="backgroundTypeSelect">
+                            <option value="">-- اختر نوع الخلفية --</option>
+                            <option value="solid">خلفية سادة</option>
+                            <option value="nature">خلفية طبيعة</option>
+                            <option value="indoor">خلفية داخلية</option>
+                        </select>
+                    </div>
+                    
+                    <div class="option-group sub-option" id="solidBackgroundGroup" style="display: none;">
+                        <label class="option-label">🎨 اختر اللون</label>
+                        <select class="custom-select" id="solidColorSelect">
+                            <option value="yellow">أصفر</option>
+                            <option value="blue">أزرق</option>
+                            <option value="foggy">ضبابي</option>
+                        </select>
+                    </div>
+                    
+                    <div class="option-group sub-option" id="natureBackgroundGroup" style="display: none;">
+                        <label class="option-label">🌳 اختر الخلفية</label>
+                        <select class="custom-select" id="natureBackgroundSelect">
+                            <option value="forest">غابة</option>
+                            <option value="street">شارع به سيارات</option>
+                            <option value="ocean">وسط بحر</option>
+                        </select>
+                    </div>
+                    
+                    <div class="option-group sub-option" id="indoorBackgroundGroup" style="display: none;">
+                        <label class="option-label">🏠 اختر الخلفية</label>
+                        <select class="custom-select" id="indoorBackgroundSelect">
+                            <option value="apartment">داخل شقة</option>
+                            <option value="office">على مكتب</option>
+                            <option value="wedding">في قاعة أفراح</option>
+                            <option value="garden">في حديقة</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="preview-section" id="previewSection" style="display: none;">
+                    <h4>معاينة النتائج</h4>
+                    <div class="preview-grid" id="previewGrid">
+                    </div>
+                </div>
+                
+                <div class="result-section" id="resultSection" style="display: none;">
+                    <h4>البرومبت المناسب</h4>
+                    <div class="generated-prompt" id="generatedPrompt"></div>
+                    <button class="copy-prompt-btn" id="copyCustomPrompt">
+                        <i class="far fa-copy"></i>
+                        نسخ البرومبت
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+
+    <!-- باقي الأقسام تبقى كما هي -->
     <!-- قسم تعلم كيف تصنع صورتك -->
     <section class="tutorial-section">
         <div class="container">
@@ -2168,6 +2501,7 @@
         </div>
     </section>
 
+    <!-- باقي العناصر (النوافذ المنبثقة، الفوتر، إلخ) تبقى كما هي -->
     <!-- نافذة البحث -->
     <div class="search-modal" id="searchModal">
         <div class="search-modal-content">
@@ -2332,1129 +2666,1285 @@
     <!-- إشعار النسخ -->
     <div class="notification" id="notification">تم نسخ البرومبت بنجاح!</div>
 
-  <script>
-    // تهيئة Firebase مع الإعدادات الجديدة
-    const firebaseConfig = {
-        apiKey: "AIzaSyCffrRr-wYBeiAf7GML6Xs3kQg-14mLFhQ",
-        authDomain: "prompat-76c51.firebaseapp.com",
-        projectId: "prompat-76c51",
-        storageBucket: "prompat-76c51.firebasestorage.app",
-        messagingSenderId: "663109200073",
-        appId: "1:663109200073:web:9da9a15649a88028b68518",
-        measurementId: "G-HKL1XTBX6H"
-    };
-
-    // تهيئة Firebase
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-
-    // متغيرات التطبيق
-    let currentUser = null;
-    let currentFilter = 'all';
-    let currentHashtag = 'all';
-    let allCards = [];
-    let userFavorites = new Set();
-    let viewedCards = new Set();
-    let currentSlide = 0;
-    let slidesPerView = 3;
-    let titleRotationIndex = 0;
-    let titleRotationInterval;
-
-    // بيانات الهاشتاجات
-    const hashtags = [
-        { id: 'all', name: 'الكل' },
-        { id: 'ورد', name: 'ورد#' },
-        { id: 'سيارات', name: 'سيارات#' },
-        { id: 'كلاسيك', name: 'كلاسيك#' },
-        { id: 'جميلة', name: 'جميلة#' },
-        { id: 'وجه كامل', name: 'وجه كامل# ' },
-        { id: 'خيالى', name: 'خيالى#' },
-        { id: 'حيوانات', name: 'حيوانات#' },
-        { id: 'بورتريه', name: 'بورتريه#' },
-        { id: 'عصرى', name: 'عصرى#' },
-    ];
-
-    // عناوين الدوران
-    const rotatingTitles = [
-        "Gemini Prompts",
-        "هناك صور جديدة يومياً",
-        "جوائز أسبوعية"
-    ];
-
-    // إنشاء حساب تلقائي للمستخدم
-    function createAnonymousUser() {
-        const userId = generateUserId();
-        const userName = `مستخدم_${userId.substring(0, 6)}`;
-        
-        currentUser = {
-            uid: userId,
-            displayName: userName,
-            isAnonymous: true
+    <script>
+        // تهيئة Firebase مع الإعدادات الجديدة
+        const firebaseConfig = {
+            apiKey: "AIzaSyCffrRr-wYBeiAf7GML6Xs3kQg-14mLFhQ",
+            authDomain: "prompat-76c51.firebaseapp.com",
+            projectId: "prompat-76c51",
+            storageBucket: "prompat-76c51.firebasestorage.app",
+            messagingSenderId: "663109200073",
+            appId: "1:663109200073:web:9da9a15649a88028b68518",
+            measurementId: "G-HKL1XTBX6H"
         };
+
+        // تهيئة Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // متغيرات التطبيق
+        let currentUser = null;
+        let currentFilter = 'all';
+        let currentHashtag = 'all';
+        let allCards = [];
+        let userFavorites = new Set();
+        let viewedCards = new Set();
+        let currentSlide = 0;
+        let slidesPerView = 3;
         
-        localStorage.setItem('anonymousUser', JSON.stringify(currentUser));
-        
-        return currentUser;
-    }
+        // نظام التحميل التدريجي
+        let currentPage = 0;
+        const cardsPerPage = 5;
 
-    // توليد معرف فريد للمستخدم
-    function generateUserId() {
-        return 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
-    }
+        // بيانات الهاشتاجات
+        const hashtags = [
+            { id: 'all', name: 'الكل' },
+            { id: 'ورد', name: 'ورد#' },
+            { id: 'سيارات', name: 'سيارات#' },
+            { id: 'كلاسيك', name: 'كلاسيك#' },
+            { id: 'جميلة', name: 'جميلة#' },
+            { id: 'وجه كامل', name: 'وجه كامل# ' },
+            { id: 'خيالى', name: 'خيالى#' },
+            { id: 'حيوانات', name: 'حيوانات#' },
+            { id: 'بورتريه', name: 'بورتريه#' },
+            { id: 'عصرى', name: 'عصرى#' },
+        ];
 
-    // تحميل المستخدم من localStorage أو إنشاء جديد
-    function loadUser() {
-        const savedUser = localStorage.getItem('anonymousUser');
-        
-        if (savedUser) {
-            currentUser = JSON.parse(savedUser);
-        } else {
-            currentUser = createAnonymousUser();
-        }
-        
-        loadFavoritesFromLocalStorage();
-        loadViewedCardsFromLocalStorage();
-        updateUserUI();
-    }
+       
 
-    // تحميل المفضلة من localStorage
-    function loadFavoritesFromLocalStorage() {
-        const savedFavorites = localStorage.getItem(`favorites_${currentUser.uid}`);
-        if (savedFavorites) {
-            userFavorites = new Set(JSON.parse(savedFavorites));
-        }
-    }
-
-    // تحميل الكروت التي تم مشاهدتها
-    function loadViewedCardsFromLocalStorage() {
-        const savedViewed = localStorage.getItem(`viewed_${currentUser.uid}`);
-        if (savedViewed) {
-            viewedCards = new Set(JSON.parse(savedViewed));
-        }
-    }
-
-    // حفظ المفضلة في localStorage
-    function saveFavoritesToLocalStorage() {
-        localStorage.setItem(`favorites_${currentUser.uid}`, JSON.stringify([...userFavorites]));
-    }
-
-    // حفظ الكروت التي تم مشاهدتها
-    function saveViewedCardsToLocalStorage() {
-        localStorage.setItem(`viewed_${currentUser.uid}`, JSON.stringify([...viewedCards]));
-    }
-
-    // دالة لتنسيق الأرقام (مثال: 44202 → 44.2K)
-    function formatNumber(num) {
-        if (num >= 1000000) {
-            return (num / 1000000).toFixed(1) + 'M';
-        } else if (num >= 1000) {
-            return (num / 1000).toFixed(1) + 'K';
-        }
-        return num.toString();
-    }
-
-    // تحديث واجهة المستخدم
-    function updateUserUI() {
-        // تحديث إحصائيات الهيرو
-        document.getElementById('usersCount').textContent = '10K+';
-        document.getElementById('promptsCount').textContent = '500+';
-        document.getElementById('imagesCount').textContent = '5K+';
-    }
-
-    // تهيئة التطبيق
-    document.addEventListener('DOMContentLoaded', function() {
-        loadUser();
-        setupEventListeners();
-        loadAndDisplayCards();
-        loadUserFavorites();
-        updateSlidesPerView();
-        initHashtags();
-        startTitleRotation();
-        setupGiftButton();
-    });
-
-    // إعداد مستمعات الأحداث
-    function setupEventListeners() {
-        // الفلاتر
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                currentFilter = this.getAttribute('data-filter');
-                filterCards();
-            });
-        });
-
-        // زر البحث
-        const searchBtn = document.getElementById('searchBtn');
-        const searchModal = document.getElementById('searchModal');
-        const closeSearchModal = document.getElementById('closeSearchModal');
-        const searchInput = document.getElementById('searchInput');
-
-        searchBtn.addEventListener('click', function() {
-            searchModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-            searchInput.focus();
-        });
-
-        closeSearchModal.addEventListener('click', function() {
-            searchModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        searchInput.addEventListener('input', function() {
-            performSearch(this.value);
-        });
-
-        // زر الهدية
-        const giftBtn = document.getElementById('giftBtn');
-        giftBtn.addEventListener('click', function() {
-            createFloatingText();
-        });
-
-        // زر المستخدم
-        const userMenuBtn = document.getElementById('userMenuBtn');
-        userMenuBtn.addEventListener('click', function() {
-            showNotification('مرحباً ' + currentUser.displayName + '! 👋');
-        });
-
-        // نافذة البرومبت
-        const promptModal = document.getElementById('promptModal');
-        const closeModal = document.getElementById('closeModal');
-        
-        closeModal.addEventListener('click', function() {
-            promptModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // نسخ البرومبت
-        const copyBtn = document.getElementById('copyBtn');
-        copyBtn.addEventListener('click', copyPrompt);
-        
-        // الذهاب إلى Gemini
-        const geminiBtn = document.getElementById('geminiBtn');
-        geminiBtn.addEventListener('click', function() {
-            window.open('https://gemini.google.com', '_blank');
-            showNotification('تم فتح Gemini في نافذة جديدة!');
-        });
-
-        // زر التواصل مع المسؤولين
-        const contactAdminBtn = document.getElementById('contactAdminBtn');
-        contactAdminBtn.addEventListener('click', function() {
-            window.open('https://t.me/M0S7A5E', '_blank');
-            showNotification('جاري فتح Telegram للتواصل مع المسؤولين!');
-        });
-
-        // زر المزيد من المعلومات
-        const moreInfoBtn = document.getElementById('moreInfoBtn');
-        moreInfoBtn.addEventListener('click', function() {
-            window.open('https://support.google.com/gemini/answer/13594961?hl=ar', '_blank');
-            showNotification('جاري فتح صفحة المساعدة!');
-        });
-
-        // نافذة المشاركة
-        const shareModal = document.getElementById('shareModal');
-        const closeShareModal = document.getElementById('closeShareModal');
-        
-        closeShareModal.addEventListener('click', function() {
-            shareModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        // خيارات المشاركة
-        const shareOptions = document.querySelectorAll('.share-option');
-        shareOptions.forEach(option => {
-            option.addEventListener('click', function() {
-                const platform = this.getAttribute('data-platform');
-                handleShare(platform);
-            });
-        });
-
-        // زر الاستكشاف في الهيرو
-        const exploreHeroBtn = document.getElementById('exploreHeroBtn');
-        if (exploreHeroBtn) {
-            exploreHeroBtn.addEventListener('click', function() {
-                const filterSection = document.querySelector('.filter-section');
-                if (filterSection) {
-                    filterSection.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // إنشاء حساب تلقائي للمستخدم
+        function createAnonymousUser() {
+            const userId = generateUserId();
+            const userName = `مستخدم_${userId.substring(0, 6)}`;
+            
+            currentUser = {
+                uid: userId,
+                displayName: userName,
+                isAnonymous: true
+            };
+            
+            localStorage.setItem('anonymousUser', JSON.stringify(currentUser));
+            
+            return currentUser;
         }
 
-        // زر التعلم في الهيرو
-        const learnHeroBtn = document.getElementById('learnHeroBtn');
-        if (learnHeroBtn) {
-            learnHeroBtn.addEventListener('click', function() {
-                const tutorialSection = document.querySelector('.tutorial-section');
-                if (tutorialSection) {
-                    tutorialSection.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
+        // توليد معرف فريد للمستخدم
+        function generateUserId() {
+            return 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
         }
 
-        // سلايدر المفضلة
-        const prevSlideBtn = document.getElementById('prevSlide');
-        const nextSlideBtn = document.getElementById('nextSlide');
-        
-        prevSlideBtn.addEventListener('click', function() {
-            navigateSlider('prev');
-        });
-        
-        nextSlideBtn.addEventListener('click', function() {
-            navigateSlider('next');
-        });
+        // تحميل المستخدم من localStorage أو إنشاء جديد
+        function loadUser() {
+            const savedUser = localStorage.getItem('anonymousUser');
+            
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+            } else {
+                currentUser = createAnonymousUser();
+            }
+            
+            loadFavoritesFromLocalStorage();
+            loadViewedCardsFromLocalStorage();
+            updateUserUI();
+        }
 
-        // تحديث عدد الشرائح المعروضة عند تغيير حجم النافذة
-        window.addEventListener('resize', function() {
+        // تحميل المفضلة من localStorage
+        function loadFavoritesFromLocalStorage() {
+            const savedFavorites = localStorage.getItem(`favorites_${currentUser.uid}`);
+            if (savedFavorites) {
+                userFavorites = new Set(JSON.parse(savedFavorites));
+            }
+        }
+
+        // تحميل الكروت التي تم مشاهدتها
+        function loadViewedCardsFromLocalStorage() {
+            const savedViewed = localStorage.getItem(`viewed_${currentUser.uid}`);
+            if (savedViewed) {
+                viewedCards = new Set(JSON.parse(savedViewed));
+            }
+        }
+
+        // حفظ المفضلة في localStorage
+        function saveFavoritesToLocalStorage() {
+            localStorage.setItem(`favorites_${currentUser.uid}`, JSON.stringify([...userFavorites]));
+        }
+
+        // حفظ الكروت التي تم مشاهدتها
+        function saveViewedCardsToLocalStorage() {
+            localStorage.setItem(`viewed_${currentUser.uid}`, JSON.stringify([...viewedCards]));
+        }
+
+        // دالة لتنسيق الأرقام (مثال: 44202 → 44.2K)
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toString();
+        }
+
+        // تحديث واجهة المستخدم
+        function updateUserUI() {
+            // تحديث إحصائيات الهيرو
+            document.getElementById('usersCount').textContent = '10K+';
+            document.getElementById('promptsCount').textContent = '500+';
+            document.getElementById('imagesCount').textContent = '5K+';
+        }
+
+        // تهيئة التطبيق
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUser();
+            setupEventListeners();
+            loadAndDisplayCards();
+            loadUserFavorites();
             updateSlidesPerView();
-            updateSliderPosition();
+            initHashtags();
+            setupGiftButton();
+            initCustomizationSection();
         });
 
-        // أزرار التنقل
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        const scrollToBottomBtn = document.getElementById('scrollToBottom');
-        
-        scrollToTopBtn.addEventListener('click', function() {
-            scrollToTop();
-        });
-        
-        scrollToBottomBtn.addEventListener('click', function() {
-            scrollToBottom();
-        });
+        // إعداد مستمعات الأحداث
+        function setupEventListeners() {
+            // الفلاتر
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-filter');
+                    filterCards();
+                });
+            });
 
-        // التحكم في ظهور أزرار التنقل
-        window.addEventListener('scroll', function() {
-            toggleNavigationButtons();
-        });
-
-        // إغلاق النوافذ عند النقر خارجها
-        document.addEventListener('click', function(e) {
-            // إغلاق نافذة البحث
+            // زر البحث
+            const searchBtn = document.getElementById('searchBtn');
             const searchModal = document.getElementById('searchModal');
-            if (e.target === searchModal) {
+            const closeSearchModal = document.getElementById('closeSearchModal');
+            const searchInput = document.getElementById('searchInput');
+
+            searchBtn.addEventListener('click', function() {
+                searchModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                searchInput.focus();
+            });
+
+            closeSearchModal.addEventListener('click', function() {
                 searchModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
-            }
+            });
 
-            // إغلاق نافذة البرومبت
+            searchInput.addEventListener('input', function() {
+                performSearch(this.value);
+            });
+
+            // زر الهدية
+            const giftBtn = document.getElementById('giftBtn');
+            giftBtn.addEventListener('click', function() {
+                createFloatingText();
+            });
+
+            // زر المستخدم
+            const userMenuBtn = document.getElementById('userMenuBtn');
+            userMenuBtn.addEventListener('click', function() {
+                showNotification('مرحباً ' + currentUser.displayName + '! 👋');
+            });
+
+            // نافذة البرومبت
             const promptModal = document.getElementById('promptModal');
-            if (e.target === promptModal) {
+            const closeModal = document.getElementById('closeModal');
+            
+            closeModal.addEventListener('click', function() {
                 promptModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
-            }
-
-            // إغلاق نافذة المشاركة
-            const shareModal = document.getElementById('shareModal');
-            if (e.target === shareModal) {
-                shareModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
-
-    // باقي الدوال الأساسية تبقى كما هي
-    function initHashtags() {
-        const hashtagsContainer = document.getElementById('hashtagsContainer');
-        
-        hashtags.forEach(hashtag => {
-            const hashtagBtn = document.createElement('button');
-            hashtagBtn.className = 'hashtag-btn';
-            if (hashtag.id === 'all') {
-                hashtagBtn.classList.add('active');
-            }
-            hashtagBtn.setAttribute('data-hashtag', hashtag.id);
-            hashtagBtn.textContent = hashtag.name;
-            
-            hashtagBtn.addEventListener('click', function() {
-                document.querySelectorAll('.hashtag-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                currentHashtag = this.getAttribute('data-hashtag');
-                filterCards();
             });
             
-            hashtagsContainer.appendChild(hashtagBtn);
-        });
-    }
+            // نسخ البرومبت
+            const copyBtn = document.getElementById('copyBtn');
+            copyBtn.addEventListener('click', copyPrompt);
+            
+            // الذهاب إلى Gemini
+            const geminiBtn = document.getElementById('geminiBtn');
+            geminiBtn.addEventListener('click', function() {
+                window.open('https://gemini.google.com', '_blank');
+                showNotification('تم فتح Gemini في نافذة جديدة!');
+            });
 
-    function setupGiftButton() {
-        setInterval(() => {
-            if (Math.random() < 0.3) {
-                createRandomFloatingText();
+            // زر التواصل مع المسؤولين
+            const contactAdminBtn = document.getElementById('contactAdminBtn');
+            contactAdminBtn.addEventListener('click', function() {
+                window.open('https://t.me/M0S7A5E', '_blank');
+                showNotification('جاري فتح Telegram للتواصل مع المسؤولين!');
+            });
+
+            // زر المزيد من المعلومات
+            const moreInfoBtn = document.getElementById('moreInfoBtn');
+            moreInfoBtn.addEventListener('click', function() {
+                window.open('https://support.google.com/gemini/answer/13594961?hl=ar', '_blank');
+                showNotification('جاري فتح صفحة المساعدة!');
+            });
+
+            // نافذة المشاركة
+            const shareModal = document.getElementById('shareModal');
+            const closeShareModal = document.getElementById('closeShareModal');
+            
+            closeShareModal.addEventListener('click', function() {
+                shareModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            // خيارات المشاركة
+            const shareOptions = document.querySelectorAll('.share-option');
+            shareOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const platform = this.getAttribute('data-platform');
+                    handleShare(platform);
+                });
+            });
+
+            // زر الاستكشاف في الهيرو
+            const exploreHeroBtn = document.getElementById('exploreHeroBtn');
+            if (exploreHeroBtn) {
+                exploreHeroBtn.addEventListener('click', function() {
+                    const filterSection = document.querySelector('.filter-section');
+                    if (filterSection) {
+                        filterSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             }
-        }, 15000);
-    }
 
-    function createFloatingText() {
-        const floatingText = document.createElement('div');
-        floatingText.className = 'floating-text';
-        floatingText.textContent = 'اربح جوائز الآن!';
-        
-        const giftBtn = document.getElementById('giftBtn');
-        const rect = giftBtn.getBoundingClientRect();
-        
-        const randomX = rect.left + (Math.random() * 100 - 50);
-        const randomY = rect.top + (Math.random() * 50 - 25);
-        
-        floatingText.style.left = randomX + 'px';
-        floatingText.style.top = randomY + 'px';
-        
-        document.body.appendChild(floatingText);
-        
-        setTimeout(() => {
-            floatingText.remove();
-        }, 3000);
-    }
+            // زر التعلم في الهيرو
+            const learnHeroBtn = document.getElementById('learnHeroBtn');
+            if (learnHeroBtn) {
+                learnHeroBtn.addEventListener('click', function() {
+                    const tutorialSection = document.querySelector('.tutorial-section');
+                    if (tutorialSection) {
+                        tutorialSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
 
-    function createRandomFloatingText() {
-        const texts = [
-            'اربح جوائز الآن!',
-            'جوائز أسبوعية!',
-            'احصل على مكافآت!',
-            'فرص رابحة!',
-            'عروض خاصة!'
-        ];
-        
-        const randomText = texts[Math.floor(Math.random() * texts.length)];
-        const floatingText = document.createElement('div');
-        floatingText.className = 'floating-text';
-        floatingText.textContent = randomText;
-        
-        const randomX = Math.random() * (window.innerWidth - 200) + 100;
-        const randomY = Math.random() * (window.innerHeight - 200) + 100;
-        
-        floatingText.style.left = randomX + 'px';
-        floatingText.style.top = randomY + 'px';
-        
-        document.body.appendChild(floatingText);
-        
-        setTimeout(() => {
-            floatingText.remove();
-        }, 3000);
-    }
-
-    function startTitleRotation() {
-        const siteTitle = document.getElementById('siteTitle');
-        
-        titleRotationInterval = setInterval(() => {
-            titleRotationIndex = (titleRotationIndex + 1) % rotatingTitles.length;
-            siteTitle.textContent = rotatingTitles[titleRotationIndex];
-        }, 5000);
-    }
-
-    function performSearch(query) {
-        const searchResults = document.getElementById('searchResults');
-        
-        if (!query.trim()) {
-            searchResults.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">اكتب كلمة للبحث...</p>';
-            return;
-        }
-        
-        const filteredCards = allCards.filter(card => {
-            const searchText = (
-                card.title + ' ' + 
-                card.description + ' ' + 
-                card.prompt + ' ' + 
-                (card.hashtags || []).join(' ') + ' ' +
-                (card.searchDescription || '')
-            ).toLowerCase();
+            // سلايدر المفضلة
+            const prevSlideBtn = document.getElementById('prevSlide');
+            const nextSlideBtn = document.getElementById('nextSlide');
             
-            return searchText.includes(query.toLowerCase());
-        });
-        
-        displaySearchResults(filteredCards);
-    }
-
-    function displaySearchResults(results) {
-        const searchResults = document.getElementById('searchResults');
-        
-        if (results.length === 0) {
-            searchResults.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">لا توجد نتائج للبحث</p>';
-            return;
-        }
-        
-        searchResults.innerHTML = '';
-        
-        results.forEach(card => {
-            const resultItem = document.createElement('div');
-            resultItem.className = 'search-result-item';
+            prevSlideBtn.addEventListener('click', function() {
+                navigateSlider('prev');
+            });
             
-            resultItem.innerHTML = `
-                <img src="${card.image}" alt="${card.title}" class="search-result-image" onerror="this.src='https://via.placeholder.com/60x60/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
-                <div class="search-result-content">
-                    <div class="search-result-title">${card.title}</div>
-                    <div class="search-result-description">${card.description}</div>
-                    <div style="font-size: 0.8rem; color: var(--primary); margin-top: 5px;">
-                        ${(card.hashtags || []).map(tag => `#${tag}`).join(' ')}
+            nextSlideBtn.addEventListener('click', function() {
+                navigateSlider('next');
+            });
+
+            // تحديث عدد الشرائح المعروضة عند تغيير حجم النافذة
+            window.addEventListener('resize', function() {
+                updateSlidesPerView();
+                updateSliderPosition();
+            });
+
+            // أزرار التنقل
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            const scrollToBottomBtn = document.getElementById('scrollToBottom');
+            
+            scrollToTopBtn.addEventListener('click', function() {
+                scrollToTop();
+            });
+            
+            scrollToBottomBtn.addEventListener('click', function() {
+                scrollToBottom();
+            });
+
+            // التحكم في ظهور أزرار التنقل
+            window.addEventListener('scroll', function() {
+                toggleNavigationButtons();
+            });
+
+            // إغلاق النوافذ عند النقر خارجها
+            document.addEventListener('click', function(e) {
+                // إغلاق نافذة البحث
+                const searchModal = document.getElementById('searchModal');
+                if (e.target === searchModal) {
+                    searchModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+
+                // إغلاق نافذة البرومبت
+                const promptModal = document.getElementById('promptModal');
+                if (e.target === promptModal) {
+                    promptModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+
+                // إغلاق نافذة المشاركة
+                const shareModal = document.getElementById('shareModal');
+                if (e.target === shareModal) {
+                    shareModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // نظام التحميل التدريجي
+        function renderFeedCards() {
+            const feedContainer = document.getElementById('feedContainer');
+            
+            // إزالة زر "عرض المزيد" السابق إذا كان موجوداً
+            const existingLoadMore = document.getElementById('loadMoreBtn');
+            if (existingLoadMore) {
+                existingLoadMore.remove();
+            }
+            
+            const filteredCards = filterCardsByCategoryAndHashtag(allCards);
+            const startIndex = currentPage * cardsPerPage;
+            const endIndex = startIndex + cardsPerPage;
+            const cardsToShow = filteredCards.slice(0, endIndex);
+            
+            feedContainer.innerHTML = '';
+            
+            if (cardsToShow.length === 0) {
+                feedContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: var(--gray);">
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
+                        <p>لا توجد صور تطابق معايير البحث</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            cardsToShow.forEach(card => {
+                const feedItem = createFeedItem(card);
+                feedContainer.appendChild(feedItem);
+            });
+            
+            // إضافة زر "عرض المزيد" إذا كان هناك المزيد من الكروت
+            if (endIndex < filteredCards.length) {
+                const loadMoreBtn = document.createElement('button');
+                loadMoreBtn.id = 'loadMoreBtn';
+                loadMoreBtn.className = 'load-more-btn';
+                loadMoreBtn.innerHTML = `
+                    <i class="fas fa-plus"></i>
+                    عرض المزيد (${filteredCards.length - endIndex} باقي)
+                `;
+                loadMoreBtn.addEventListener('click', loadMoreCards);
+                feedContainer.appendChild(loadMoreBtn);
+            }
+        }
+
+        // دالة تحميل المزيد من الكروت
+        function loadMoreCards() {
+            currentPage++;
+            renderFeedCards();
+            
+            // التمرير لأسفل قليلاً لرؤية الكروت الجديدة
+            setTimeout(() => {
+                const feedContainer = document.getElementById('feedContainer');
+                feedContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }, 300);
+        }
+
+        // إعادة تعيين الصفحة عند تغيير الفلتر
+        function filterCards() {
+            currentPage = 0;
+            renderFeedCards();
+        }
+
+        // باقي الدوال الأساسية تبقى كما هي
+        function initHashtags() {
+            const hashtagsContainer = document.getElementById('hashtagsContainer');
+            
+            hashtags.forEach(hashtag => {
+                const hashtagBtn = document.createElement('button');
+                hashtagBtn.className = 'hashtag-btn';
+                if (hashtag.id === 'all') {
+                    hashtagBtn.classList.add('active');
+                }
+                hashtagBtn.setAttribute('data-hashtag', hashtag.id);
+                hashtagBtn.textContent = hashtag.name;
+                
+                hashtagBtn.addEventListener('click', function() {
+                    document.querySelectorAll('.hashtag-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    currentHashtag = this.getAttribute('data-hashtag');
+                    filterCards();
+                });
+                
+                hashtagsContainer.appendChild(hashtagBtn);
+            });
+        }
+
+        function setupGiftButton() {
+            setInterval(() => {
+                if (Math.random() < 0.3) {
+                    createRandomFloatingText();
+                }
+            }, 15000);
+        }
+
+        function createFloatingText() {
+            const floatingText = document.createElement('div');
+            floatingText.className = 'floating-text';
+            floatingText.textContent = 'اربح جوائز الآن!';
+            
+            const giftBtn = document.getElementById('giftBtn');
+            const rect = giftBtn.getBoundingClientRect();
+            
+            const randomX = rect.left + (Math.random() * 100 - 50);
+            const randomY = rect.top + (Math.random() * 50 - 25);
+            
+            floatingText.style.left = randomX + 'px';
+            floatingText.style.top = randomY + 'px';
+            
+            document.body.appendChild(floatingText);
+            
+            setTimeout(() => {
+                floatingText.remove();
+            }, 3000);
+        }
+
+        function createRandomFloatingText() {
+            const texts = [
+                'اربح جوائز الآن!',
+                'جوائز أسبوعية!',
+                'احصل على مكافآت!',
+                'فرص رابحة!',
+                'عروض خاصة!'
+            ];
+            
+            const randomText = texts[Math.floor(Math.random() * texts.length)];
+            const floatingText = document.createElement('div');
+            floatingText.className = 'floating-text';
+            floatingText.textContent = randomText;
+            
+            const randomX = Math.random() * (window.innerWidth - 200) + 100;
+            const randomY = Math.random() * (window.innerHeight - 200) + 100;
+            
+            floatingText.style.left = randomX + 'px';
+            floatingText.style.top = randomY + 'px';
+            
+            document.body.appendChild(floatingText);
+            
+            setTimeout(() => {
+                floatingText.remove();
+            }, 3000);
+        }
+
+        function performSearch(query) {
+            const searchResults = document.getElementById('searchResults');
+            
+            if (!query.trim()) {
+                searchResults.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">اكتب كلمة للبحث...</p>';
+                return;
+            }
+            
+            const filteredCards = allCards.filter(card => {
+                const searchText = (
+                    card.title + ' ' + 
+                    card.description + ' ' + 
+                    card.prompt + ' ' + 
+                    (card.hashtags || []).join(' ') + ' ' +
+                    (card.searchDescription || '')
+                ).toLowerCase();
+                
+                return searchText.includes(query.toLowerCase());
+            });
+            
+            displaySearchResults(filteredCards);
+        }
+
+        function displaySearchResults(results) {
+            const searchResults = document.getElementById('searchResults');
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">لا توجد نتائج للبحث</p>';
+                return;
+            }
+            
+            searchResults.innerHTML = '';
+            
+            results.forEach(card => {
+                const resultItem = document.createElement('div');
+                resultItem.className = 'search-result-item';
+                
+                resultItem.innerHTML = `
+                    <img src="${card.image}" alt="${card.title}" class="search-result-image" onerror="this.src='https://via.placeholder.com/60x60/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
+                    <div class="search-result-content">
+                        <div class="search-result-title">${card.title}</div>
+                        <div class="search-result-description">${card.description}</div>
+                        <div style="font-size: 0.8rem; color: var(--primary); margin-top: 5px;">
+                            ${(card.hashtags || []).map(tag => `#${tag}`).join(' ')}
+                        </div>
+                    </div>
+                `;
+                
+                resultItem.addEventListener('click', function() {
+                    openPromptModal(card.title, card.prompt);
+                    document.getElementById('searchModal').style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    
+                    if (!viewedCards.has(card.id.toString())) {
+                        viewedCards.add(card.id.toString());
+                        saveViewedCardsToLocalStorage();
+                    }
+                });
+                
+                searchResults.appendChild(resultItem);
+            });
+        }
+
+        function updateSlidesPerView() {
+            const width = window.innerWidth;
+            
+            if (width < 480) {
+                slidesPerView = 1;
+            } else if (width < 768) {
+                slidesPerView = 2;
+            } else {
+                slidesPerView = 3;
+            }
+        }
+
+        function toggleNavigationButtons() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            const scrollToBottomBtn = document.getElementById('scrollToBottom');
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            if (scrollPosition > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+            
+            if (scrollPosition + windowHeight < documentHeight - 100) {
+                scrollToBottomBtn.classList.add('show');
+            } else {
+                scrollToBottomBtn.classList.remove('show');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            scrollToTopBtn.classList.add('pulse');
+            setTimeout(() => {
+                scrollToTopBtn.classList.remove('pulse');
+            }, 1000);
+        }
+
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.documentElement.scrollHeight,
+                behavior: 'smooth'
+            });
+            
+            const scrollToBottomBtn = document.getElementById('scrollToBottom');
+            scrollToBottomBtn.classList.add('pulse');
+            setTimeout(() => {
+                scrollToBottomBtn.classList.remove('pulse');
+            }, 1000);
+        }
+
+        function loadAndDisplayCards() {
+            allCards = [...boysCardsData, ...girlsCardsData];
+            
+            allCards.forEach(card => {
+                if (!card.hashtags) {
+                    const randomTags = [];
+                    const availableTags = ['#بورتريه', '#خيالى' , '#حب'];
+                    
+                    const numTags = Math.floor(Math.random() * 3) + 2;
+                    for (let i = 0; i < numTags; i++) {
+                        const randomIndex = Math.floor(Math.random() * availableTags.length);
+                        if (!randomTags.includes(availableTags[randomIndex])) {
+                            randomTags.push(availableTags[randomIndex]);
+                        }
+                    }
+                    
+                    card.hashtags = randomTags;
+                }
+                
+                if (!card.searchDescription) {
+                    card.searchDescription = card.description + ' ' + card.title + ' ' + card.hashtags.join(' ');
+                }
+            });
+            
+            shuffleArray(allCards);
+            renderFeedCards();
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function filterCardsByCategoryAndHashtag(cards) {
+            let filtered = cards;
+            
+            if (currentFilter === 'boys') {
+                filtered = filtered.filter(card => card.category === 'بنين');
+            } else if (currentFilter === 'girls') {
+                filtered = filtered.filter(card => card.category === 'بنات');
+            }
+            
+            if (currentHashtag !== 'all') {
+                filtered = filtered.filter(card => 
+                    card.hashtags && card.hashtags.includes(currentHashtag)
+                );
+            }
+            
+            return filtered;
+        }
+
+        function createFeedItem(card) {
+            const feedItem = document.createElement('div');
+            feedItem.className = 'feed-item';
+            feedItem.setAttribute('data-id', card.id);
+            feedItem.setAttribute('data-category', card.category);
+            
+            const isFavorite = userFavorites.has(card.id.toString());
+            const isViewed = viewedCards.has(card.id.toString());
+            const favoriteIcon = isFavorite ? 'fas fa-heart' : 'far fa-heart';
+            const favoriteClass = isFavorite ? 'favorite active' : 'favorite';
+            
+            const usageCount = card.stats?.uses || 0;
+            
+            const tagsHTML = card.hashtags ? card.hashtags.map(tag => `#${tag}`).join(' ') : '';
+            
+            feedItem.innerHTML = `
+                ${!isViewed ? '<div class="new-badge">جديد</div>' : ''}
+                <img src="${card.image}" alt="${card.title}" class="feed-image" onerror="this.src='https://via.placeholder.com/600x600/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
+                <div class="instagram-actions">
+                    <div class="action-group">
+                        <button class="instagram-btn ${favoriteClass}" data-id="${card.id}">
+                            <i class="${favoriteIcon}"></i>
+                        </button>
+                        <button class="instagram-btn view-prompt-btn" data-prompt="${card.prompt}" data-title="${card.title}">
+                            <i class="far fa-eye"></i>
+                        </button>
+                        <button class="share-btn" data-id="${card.id}" data-title="${card.title}" data-image="${card.image}" data-prompt="${card.prompt}">
+                            <i class="fas fa-share-alt"></i>
+                        </button>
+                    </div>
+                    <div class="action-group">
+                        <button class="instagram-btn copy" data-prompt="${card.prompt}">
+                            <i class="far fa-copy"></i>
+                        </button>
+                        <button class="instagram-btn gemini">
+                            <i class="fab fa-google"></i>
+                        </button>
                     </div>
                 </div>
-            `;
-            
-            resultItem.addEventListener('click', function() {
-                openPromptModal(card.title, card.prompt);
-                document.getElementById('searchModal').style.display = 'none';
-                document.body.style.overflow = 'auto';
-                
-                if (!viewedCards.has(card.id.toString())) {
-                    viewedCards.add(card.id.toString());
-                    saveViewedCardsToLocalStorage();
-                }
-            });
-            
-            searchResults.appendChild(resultItem);
-        });
-    }
-
-    function updateSlidesPerView() {
-        const width = window.innerWidth;
-        
-        if (width < 480) {
-            slidesPerView = 1;
-        } else if (width < 768) {
-            slidesPerView = 2;
-        } else {
-            slidesPerView = 3;
-        }
-    }
-
-    function toggleNavigationButtons() {
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        const scrollToBottomBtn = document.getElementById('scrollToBottom');
-        const scrollPosition = window.pageYOffset;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        
-        if (scrollPosition > 300) {
-            scrollToTopBtn.classList.add('show');
-        } else {
-            scrollToTopBtn.classList.remove('show');
-        }
-        
-        if (scrollPosition + windowHeight < documentHeight - 100) {
-            scrollToBottomBtn.classList.add('show');
-        } else {
-            scrollToBottomBtn.classList.remove('show');
-        }
-    }
-
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-        
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        scrollToTopBtn.classList.add('pulse');
-        setTimeout(() => {
-            scrollToTopBtn.classList.remove('pulse');
-        }, 1000);
-    }
-
-    function scrollToBottom() {
-        window.scrollTo({
-            top: document.documentElement.scrollHeight,
-            behavior: 'smooth'
-        });
-        
-        const scrollToBottomBtn = document.getElementById('scrollToBottom');
-        scrollToBottomBtn.classList.add('pulse');
-        setTimeout(() => {
-            scrollToBottomBtn.classList.remove('pulse');
-        }, 1000);
-    }
-
-    function loadAndDisplayCards() {
-        allCards = [...boysCardsData, ...girlsCardsData];
-        
-        allCards.forEach(card => {
-            if (!card.hashtags) {
-                const randomTags = [];
-                const availableTags = ['#بورتريه', '#خيالى' , '#حب'];
-                
-                const numTags = Math.floor(Math.random() * 3) + 2;
-                for (let i = 0; i < numTags; i++) {
-                    const randomIndex = Math.floor(Math.random() * availableTags.length);
-                    if (!randomTags.includes(availableTags[randomIndex])) {
-                        randomTags.push(availableTags[randomIndex]);
-                    }
-                }
-                
-                card.hashtags = randomTags;
-            }
-            
-            if (!card.searchDescription) {
-                card.searchDescription = card.description + ' ' + card.title + ' ' + card.hashtags.join(' ');
-            }
-        });
-        
-        shuffleArray(allCards);
-        renderFeedCards();
-    }
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-    }
-
-    function renderFeedCards() {
-        const feedContainer = document.getElementById('feedContainer');
-        feedContainer.innerHTML = '';
-        
-        const filteredCards = filterCardsByCategoryAndHashtag(allCards);
-        
-        if (filteredCards.length === 0) {
-            feedContainer.innerHTML = `
-                <div style="text-align: center; padding: 40px; color: var(--gray);">
-                    <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
-                    <p>لا توجد صور تطابق معايير البحث</p>
-                </div>
-            `;
-            return;
-        }
-        
-        filteredCards.forEach(card => {
-            const feedItem = createFeedItem(card);
-            feedContainer.appendChild(feedItem);
-        });
-    }
-
-    function filterCardsByCategoryAndHashtag(cards) {
-        let filtered = cards;
-        
-        if (currentFilter === 'boys') {
-            filtered = filtered.filter(card => card.category === 'بنين');
-        } else if (currentFilter === 'girls') {
-            filtered = filtered.filter(card => card.category === 'بنات');
-        }
-        
-        if (currentHashtag !== 'all') {
-            filtered = filtered.filter(card => 
-                card.hashtags && card.hashtags.includes(currentHashtag)
-            );
-        }
-        
-        return filtered;
-    }
-
-    function filterCards() {
-        renderFeedCards();
-    }
-
-    function createFeedItem(card) {
-        const feedItem = document.createElement('div');
-        feedItem.className = 'feed-item';
-        feedItem.setAttribute('data-id', card.id);
-        feedItem.setAttribute('data-category', card.category);
-        
-        const isFavorite = userFavorites.has(card.id.toString());
-        const isViewed = viewedCards.has(card.id.toString());
-        const favoriteIcon = isFavorite ? 'fas fa-heart' : 'far fa-heart';
-        const favoriteClass = isFavorite ? 'favorite active' : 'favorite';
-        
-        const usageCount = card.stats?.uses || 0;
-        
-        const tagsHTML = card.hashtags ? card.hashtags.map(tag => `#${tag}`).join(' ') : '';
-        
-        feedItem.innerHTML = `
-            ${!isViewed ? '<div class="new-badge">جديد</div>' : ''}
-            <img src="${card.image}" alt="${card.title}" class="feed-image" onerror="this.src='https://via.placeholder.com/600x600/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
-            <div class="instagram-actions">
-                <div class="action-group">
-                    <button class="instagram-btn ${favoriteClass}" data-id="${card.id}">
-                        <i class="${favoriteIcon}"></i>
-                    </button>
-                    <button class="instagram-btn view-prompt-btn" data-prompt="${card.prompt}" data-title="${card.title}">
-                        <i class="far fa-eye"></i>
-                    </button>
-                    <button class="share-btn" data-id="${card.id}" data-title="${card.title}" data-image="${card.image}" data-prompt="${card.prompt}">
-                        <i class="fas fa-share-alt"></i>
-                    </button>
-                </div>
-                <div class="action-group">
-                    <button class="instagram-btn copy" data-prompt="${card.prompt}">
-                        <i class="far fa-copy"></i>
-                    </button>
-                    <button class="instagram-btn gemini">
-                        <i class="fab fa-google"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="user-count">
-                <i class="fas fa-users"></i>
-                <span>${formatNumber(usageCount)} مستخدم</span>
-            </div>
-            <div class="feed-caption">
-                <strong>${card.title}</strong>
-                <p>${card.description}</p>
-                ${tagsHTML ? `<div style="margin-top: 10px; font-size: 0.8rem; color: var(--primary);">${tagsHTML}</div>` : ''}
-            </div>
-            <div class="feed-prompt">
-                ${card.prompt.substring(0, 100)}...
-            </div>
-        `;
-        
-        const favoriteBtn = feedItem.querySelector('.favorite');
-        const viewPromptBtn = feedItem.querySelector('.view-prompt-btn');
-        const copyBtn = feedItem.querySelector('.copy');
-        const geminiBtn = feedItem.querySelector('.gemini');
-        const shareBtn = feedItem.querySelector('.share-btn');
-        
-        favoriteBtn.addEventListener('click', function() {
-            toggleFavorite(card.id, favoriteBtn);
-        });
-        
-        viewPromptBtn.addEventListener('click', function() {
-            if (!viewedCards.has(card.id.toString())) {
-                viewedCards.add(card.id.toString());
-                saveViewedCardsToLocalStorage();
-                
-                const newBadge = feedItem.querySelector('.new-badge');
-                if (newBadge) {
-                    newBadge.remove();
-                }
-            }
-            
-            openPromptModal(card.title, card.prompt);
-        });
-        
-        copyBtn.addEventListener('click', function() {
-            navigator.clipboard.writeText(card.prompt)
-                .then(() => {
-                    showNotification('تم نسخ البرومبت بنجاح!');
-                })
-                .catch(err => {
-                    console.error('فشل في نسخ النص: ', err);
-                    showNotification('فشل في نسخ البرومبت!', 'error');
-                });
-        });
-        
-        geminiBtn.addEventListener('click', function() {
-            window.open('https://gemini.google.com', '_blank');
-            showNotification('تم فتح Gemini في نافذة جديدة!');
-        });
-        
-        shareBtn.addEventListener('click', function() {
-            openShareModal(card);
-        });
-        
-        return feedItem;
-    }
-
-    function openShareModal(card) {
-        const shareModal = document.getElementById('shareModal');
-        const shareUrlInput = document.getElementById('shareUrlInput');
-        
-        const shareUrl = `${window.location.origin}${window.location.pathname}?card=${card.id}`;
-        const shareText = `🔥 ${card.title}\n\n${card.description}\n\nجرب هذا البرومبت الرائع على Gemini Prompts!`;
-        
-        shareUrlInput.value = shareUrl;
-        
-        shareModal.setAttribute('data-share-url', shareUrl);
-        shareModal.setAttribute('data-share-text', shareText);
-        shareModal.setAttribute('data-share-title', card.title);
-        
-        shareModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function handleShare(platform) {
-        const shareModal = document.getElementById('shareModal');
-        const shareUrl = shareModal.getAttribute('data-share-url');
-        const shareText = shareModal.getAttribute('data-share-text');
-        const shareTitle = shareModal.getAttribute('data-share-title');
-        
-        let shareLink = '';
-        
-        switch(platform) {
-            case 'whatsapp':
-                shareLink = `https://wa.me/?text=${encodeURIComponent(shareText + '\n' + shareUrl)}`;
-                break;
-            case 'telegram':
-                shareLink = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
-                break;
-            case 'twitter':
-                shareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
-                break;
-            case 'facebook':
-                shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
-                break;
-            case 'copy':
-                navigator.clipboard.writeText(shareUrl)
-                    .then(() => {
-                        showNotification('تم نسخ الرابط بنجاح!');
-                        shareModal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    })
-                    .catch(err => {
-                        console.error('فشل في نسخ الرابط: ', err);
-                        showNotification('فشل في نسخ الرابط!', 'error');
-                    });
-                return;
-            case 'link':
-                window.open(shareUrl, '_blank');
-                shareModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                return;
-        }
-        
-        if (shareLink) {
-            window.open(shareLink, '_blank', 'width=600,height=400');
-            shareModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            showNotification('تم فتح نافذة المشاركة!');
-        }
-    }
-
-    function openPromptModal(title, prompt) {
-        const promptModal = document.getElementById('promptModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const promptText = document.getElementById('promptText');
-        
-        modalTitle.textContent = title;
-        promptText.textContent = prompt;
-        
-        promptModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-
-    function copyPrompt() {
-        const promptText = document.getElementById('promptText');
-        const textToCopy = promptText.textContent;
-        
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            showNotification('تم نسخ البرومبت بنجاح!');
-        }).catch(err => {
-            console.error('فشل في نسخ النص: ', err);
-            showNotification('فشل في نسخ البرومبت!', 'error');
-        });
-    }
-
-    function toggleFavorite(cardId, button) {
-        const cardIdStr = cardId.toString();
-        
-        if (userFavorites.has(cardIdStr)) {
-            userFavorites.delete(cardIdStr);
-            showNotification('تم إزالة البرومبت من المفضلة!', 'success');
-            updateFavoriteButton(button, false);
-        } else {
-            userFavorites.add(cardIdStr);
-            showNotification('تم إضافة البرومبت إلى المفضلة!', 'success');
-            updateFavoriteButton(button, true);
-        }
-        
-        saveFavoritesToLocalStorage();
-        loadUserFavorites();
-    }
-
-    function updateFavoriteButton(button, isFavorite) {
-        const icon = button.querySelector('i');
-        if (isFavorite) {
-            icon.className = 'fas fa-heart';
-            button.classList.add('active');
-        } else {
-            icon.className = 'far fa-heart';
-            button.classList.remove('active');
-        }
-    }
-
-    function loadUserFavorites() {
-        const favoritesTrack = document.getElementById('favoritesTrack');
-        const emptyFavorites = document.getElementById('emptyFavorites');
-        const prevSlideBtn = document.getElementById('prevSlide');
-        const nextSlideBtn = document.getElementById('nextSlide');
-        
-        favoritesTrack.innerHTML = '';
-        
-        if (userFavorites.size === 0) {
-            emptyFavorites.classList.remove('hidden');
-            favoritesTrack.classList.add('hidden');
-            prevSlideBtn.disabled = true;
-            nextSlideBtn.disabled = true;
-            return;
-        }
-        
-        emptyFavorites.classList.add('hidden');
-        favoritesTrack.classList.remove('hidden');
-        
-        userFavorites.forEach(cardId => {
-            const card = allCards.find(c => c.id.toString() === cardId);
-            if (card) {
-                const favoriteElement = createFavoriteSlide(card);
-                favoritesTrack.appendChild(favoriteElement);
-            }
-        });
-        
-        currentSlide = 0;
-        updateSliderPosition();
-        updateSliderButtons();
-    }
-
-    function createFavoriteSlide(favorite) {
-        const element = document.createElement('div');
-        element.className = 'favorite-slide';
-        element.setAttribute('data-id', favorite.id);
-        
-        const usageCount = favorite.stats?.uses || 0;
-        
-        element.innerHTML = `
-            <img src="${favorite.image || 'https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=Prompt'}" alt="${favorite.title}" class="favorite-slide-image" onerror="this.src='https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=${encodeURIComponent(favorite.title)}'">
-            <div class="favorite-slide-content">
-                <h3 class="favorite-slide-title">${favorite.title}</h3>
-                <div class="favorite-slide-category">${favorite.category || 'عام'}</div>
                 <div class="user-count">
                     <i class="fas fa-users"></i>
                     <span>${formatNumber(usageCount)} مستخدم</span>
                 </div>
-                <p class="favorite-slide-description">${favorite.description || ''}</p>
-                <div class="favorite-slide-actions">
-                    <button class="favorite-slide-btn favorite-copy-btn" data-prompt="${favorite.prompt}">
-                        <i class="far fa-copy"></i>
-                        <span>نسخ البرومبت</span>
-                    </button>
-                    <button class="favorite-slide-btn favorite-remove-btn" data-id="${favorite.id}">
-                        <i class="far fa-trash-alt"></i>
-                        <span>إزالة</span>
-                    </button>
+                <div class="feed-caption">
+                    <strong>${card.title}</strong>
+                    <p>${card.description}</p>
+                    ${tagsHTML ? `<div style="margin-top: 10px; font-size: 0.8rem; color: var(--primary);">${tagsHTML}</div>` : ''}
                 </div>
-            </div>
-        `;
-        
-        const copyBtn = element.querySelector('.favorite-copy-btn');
-        const removeBtn = element.querySelector('.favorite-remove-btn');
-        
-        copyBtn.addEventListener('click', function() {
-            navigator.clipboard.writeText(favorite.prompt)
-                .then(() => {
-                    showNotification('تم نسخ البرومبت بنجاح!');
-                })
-                .catch(err => {
-                    console.error('فشل في نسخ النص: ', err);
-                    showNotification('فشل في نسخ البرومبت!', 'error');
-                });
-        });
-        
-        removeBtn.addEventListener('click', function() {
-            removeFromFavorites(favorite.id, element);
-        });
-        
-        return element;
-    }
+                <div class="feed-prompt">
+                    ${card.prompt.substring(0, 100)}...
+                </div>
+            `;
+            
+            const favoriteBtn = feedItem.querySelector('.favorite');
+            const viewPromptBtn = feedItem.querySelector('.view-prompt-btn');
+            const copyBtn = feedItem.querySelector('.copy');
+            const geminiBtn = feedItem.querySelector('.gemini');
+            const shareBtn = feedItem.querySelector('.share-btn');
+            
+            favoriteBtn.addEventListener('click', function() {
+                toggleFavorite(card.id, favoriteBtn);
+            });
+            
+            viewPromptBtn.addEventListener('click', function() {
+                if (!viewedCards.has(card.id.toString())) {
+                    viewedCards.add(card.id.toString());
+                    saveViewedCardsToLocalStorage();
+                    
+                    const newBadge = feedItem.querySelector('.new-badge');
+                    if (newBadge) {
+                        newBadge.remove();
+                    }
+                }
+                
+                openPromptModal(card.title, card.prompt);
+            });
+            
+            copyBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(card.prompt)
+                    .then(() => {
+                        showNotification('تم نسخ البرومبت بنجاح!');
+                    })
+                    .catch(err => {
+                        console.error('فشل في نسخ النص: ', err);
+                        showNotification('فشل في نسخ البرومبت!', 'error');
+                    });
+            });
+            
+            geminiBtn.addEventListener('click', function() {
+                window.open('https://gemini.google.com', '_blank');
+                showNotification('تم فتح Gemini في نافذة جديدة!');
+            });
+            
+            shareBtn.addEventListener('click', function() {
+                openShareModal(card);
+            });
+            
+            return feedItem;
+        }
 
-    function removeFromFavorites(favoriteId, element) {
-        userFavorites.delete(favoriteId.toString());
-        saveFavoritesToLocalStorage();
-        
-        element.remove();
-        showNotification('تم إزالة البرومبت من المفضلة!', 'success');
-        
-        updateAllFavoriteButtons();
-        
-        const favoritesTrack = document.getElementById('favoritesTrack');
-        if (favoritesTrack.children.length === 0) {
+        function openShareModal(card) {
+            const shareModal = document.getElementById('shareModal');
+            const shareUrlInput = document.getElementById('shareUrlInput');
+            
+            const shareUrl = `${window.location.origin}${window.location.pathname}?card=${card.id}`;
+            const shareText = `🔥 ${card.title}\n\n${card.description}\n\nجرب هذا البرومبت الرائع على Gemini Prompts!`;
+            
+            shareUrlInput.value = shareUrl;
+            
+            shareModal.setAttribute('data-share-url', shareUrl);
+            shareModal.setAttribute('data-share-text', shareText);
+            shareModal.setAttribute('data-share-title', card.title);
+            
+            shareModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function handleShare(platform) {
+            const shareModal = document.getElementById('shareModal');
+            const shareUrl = shareModal.getAttribute('data-share-url');
+            const shareText = shareModal.getAttribute('data-share-text');
+            const shareTitle = shareModal.getAttribute('data-share-title');
+            
+            let shareLink = '';
+            
+            switch(platform) {
+                case 'whatsapp':
+                    shareLink = `https://wa.me/?text=${encodeURIComponent(shareText + '\n' + shareUrl)}`;
+                    break;
+                case 'telegram':
+                    shareLink = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'twitter':
+                    shareLink = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+                    break;
+                case 'facebook':
+                    shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+                    break;
+                case 'copy':
+                    navigator.clipboard.writeText(shareUrl)
+                        .then(() => {
+                            showNotification('تم نسخ الرابط بنجاح!');
+                            shareModal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        })
+                        .catch(err => {
+                            console.error('فشل في نسخ الرابط: ', err);
+                            showNotification('فشل في نسخ الرابط!', 'error');
+                        });
+                    return;
+                case 'link':
+                    window.open(shareUrl, '_blank');
+                    shareModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    return;
+            }
+            
+            if (shareLink) {
+                window.open(shareLink, '_blank', 'width=600,height=400');
+                shareModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                showNotification('تم فتح نافذة المشاركة!');
+            }
+        }
+
+        function openPromptModal(title, prompt) {
+            const promptModal = document.getElementById('promptModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const promptText = document.getElementById('promptText');
+            
+            modalTitle.textContent = title;
+            promptText.textContent = prompt;
+            
+            promptModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('promptText');
+            const textToCopy = promptText.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showNotification('تم نسخ البرومبت بنجاح!');
+            }).catch(err => {
+                console.error('فشل في نسخ النص: ', err);
+                showNotification('فشل في نسخ البرومبت!', 'error');
+            });
+        }
+
+        function toggleFavorite(cardId, button) {
+            const cardIdStr = cardId.toString();
+            
+            if (userFavorites.has(cardIdStr)) {
+                userFavorites.delete(cardIdStr);
+                showNotification('تم إزالة البرومبت من المفضلة!', 'success');
+                updateFavoriteButton(button, false);
+            } else {
+                userFavorites.add(cardIdStr);
+                showNotification('تم إضافة البرومبت إلى المفضلة!', 'success');
+                updateFavoriteButton(button, true);
+            }
+            
+            saveFavoritesToLocalStorage();
+            loadUserFavorites();
+        }
+
+        function updateFavoriteButton(button, isFavorite) {
+            const icon = button.querySelector('i');
+            if (isFavorite) {
+                icon.className = 'fas fa-heart';
+                button.classList.add('active');
+            } else {
+                icon.className = 'far fa-heart';
+                button.classList.remove('active');
+            }
+        }
+
+        function loadUserFavorites() {
+            const favoritesTrack = document.getElementById('favoritesTrack');
             const emptyFavorites = document.getElementById('emptyFavorites');
-            emptyFavorites.classList.remove('hidden');
-            favoritesTrack.classList.add('hidden');
-        } else {
+            const prevSlideBtn = document.getElementById('prevSlide');
+            const nextSlideBtn = document.getElementById('nextSlide');
+            
+            favoritesTrack.innerHTML = '';
+            
+            if (userFavorites.size === 0) {
+                emptyFavorites.classList.remove('hidden');
+                favoritesTrack.classList.add('hidden');
+                prevSlideBtn.disabled = true;
+                nextSlideBtn.disabled = true;
+                return;
+            }
+            
+            emptyFavorites.classList.add('hidden');
+            favoritesTrack.classList.remove('hidden');
+            
+            userFavorites.forEach(cardId => {
+                const card = allCards.find(c => c.id.toString() === cardId);
+                if (card) {
+                    const favoriteElement = createFavoriteSlide(card);
+                    favoritesTrack.appendChild(favoriteElement);
+                }
+            });
+            
+            currentSlide = 0;
             updateSliderPosition();
             updateSliderButtons();
         }
-    }
 
-    function updateAllFavoriteButtons() {
-        const favoriteButtons = document.querySelectorAll('.instagram-btn.favorite');
-        favoriteButtons.forEach(button => {
-            const cardId = button.getAttribute('data-id');
-            const isFavorite = userFavorites.has(cardId);
-            updateFavoriteButton(button, isFavorite);
-        });
-    }
-
-    function navigateSlider(direction) {
-        const favoritesTrack = document.getElementById('favoritesTrack');
-        const slides = favoritesTrack.children;
-        const totalSlides = slides.length;
-        
-        if (direction === 'next') {
-            currentSlide = Math.min(currentSlide + 1, Math.max(0, totalSlides - slidesPerView));
-        } else {
-            currentSlide = Math.max(currentSlide - 1, 0);
-        }
-        
-        updateSliderPosition();
-        updateSliderButtons();
-    }
-
-    function updateSliderPosition() {
-        const favoritesTrack = document.getElementById('favoritesTrack');
-        const slideWidth = favoritesTrack.children[0]?.offsetWidth + 30;
-        
-        if (slideWidth) {
-            favoritesTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-        }
-    }
-
-    function updateSliderButtons() {
-        const favoritesTrack = document.getElementById('favoritesTrack');
-        const slides = favoritesTrack.children;
-        const totalSlides = slides.length;
-        const prevSlideBtn = document.getElementById('prevSlide');
-        const nextSlideBtn = document.getElementById('nextSlide');
-        
-        prevSlideBtn.disabled = currentSlide === 0;
-        nextSlideBtn.disabled = currentSlide >= Math.max(0, totalSlides - slidesPerView);
-    }
-
-    function showNotification(message, type = 'success') {
-        const notification = document.getElementById('notification');
-        notification.textContent = message;
-        notification.style.display = 'block';
-        
-        if (type === 'error') {
-            notification.style.background = '#FF6584';
-        } else if (type === 'warning') {
-            notification.style.background = '#FF9E00';
-        } else if (type === 'info') {
-            notification.style.background = '#36D1DC';
-        } else {
-            notification.style.background = '#6C63FF';
-        }
-        
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 3000);
-    }
-
-    // إدارة نافذة الإعلان المنبثقة
-    class AdPopupManager {
-        constructor() {
-            this.popup = document.getElementById('adPopup');
-            this.closeBtn = document.getElementById('closeAdPopup');
-            this.timerElement = document.getElementById('adTimer');
-            this.buttonClickCount = 0;
-            this.adShown = false;
-            this.timerInterval = null;
-            this.secondsLeft = 5;
+        function createFavoriteSlide(favorite) {
+            const element = document.createElement('div');
+            element.className = 'favorite-slide';
+            element.setAttribute('data-id', favorite.id);
             
-            this.init();
-        }
-        
-        init() {
-            this.closeBtn.addEventListener('click', () => this.closePopup());
+            const usageCount = favorite.stats?.uses || 0;
             
-            this.popup.addEventListener('click', (e) => {
-                if (e.target === this.popup) {
-                    this.closePopup();
-                }
+            element.innerHTML = `
+                <img src="${favorite.image || 'https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=Prompt'}" alt="${favorite.title}" class="favorite-slide-image" onerror="this.src='https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=${encodeURIComponent(favorite.title)}'">
+                <div class="favorite-slide-content">
+                    <h3 class="favorite-slide-title">${favorite.title}</h3>
+                    <div class="favorite-slide-category">${favorite.category || 'عام'}</div>
+                    <div class="user-count">
+                        <i class="fas fa-users"></i>
+                        <span>${formatNumber(usageCount)} مستخدم</span>
+                    </div>
+                    <p class="favorite-slide-description">${favorite.description || ''}</p>
+                    <div class="favorite-slide-actions">
+                        <button class="favorite-slide-btn favorite-copy-btn" data-prompt="${favorite.prompt}">
+                            <i class="far fa-copy"></i>
+                            <span>نسخ البرومبت</span>
+                        </button>
+                        <button class="favorite-slide-btn favorite-remove-btn" data-id="${favorite.id}">
+                            <i class="far fa-trash-alt"></i>
+                            <span>إزالة</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            const copyBtn = element.querySelector('.favorite-copy-btn');
+            const removeBtn = element.querySelector('.favorite-remove-btn');
+            
+            copyBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(favorite.prompt)
+                    .then(() => {
+                        showNotification('تم نسخ البرومبت بنجاح!');
+                    })
+                    .catch(err => {
+                        console.error('فشل في نسخ النص: ', err);
+                        showNotification('فشل في نسخ البرومبت!', 'error');
+                    });
             });
             
-            this.trackButtonClicks();
+            removeBtn.addEventListener('click', function() {
+                removeFromFavorites(favorite.id, element);
+            });
+            
+            return element;
+        }
+
+        function removeFromFavorites(favoriteId, element) {
+            userFavorites.delete(favoriteId.toString());
+            saveFavoritesToLocalStorage();
+            
+            element.remove();
+            showNotification('تم إزالة البرومبت من المفضلة!', 'success');
+            
+            updateAllFavoriteButtons();
+            
+            const favoritesTrack = document.getElementById('favoritesTrack');
+            if (favoritesTrack.children.length === 0) {
+                const emptyFavorites = document.getElementById('emptyFavorites');
+                emptyFavorites.classList.remove('hidden');
+                favoritesTrack.classList.add('hidden');
+            } else {
+                updateSliderPosition();
+                updateSliderButtons();
+            }
+        }
+
+        function updateAllFavoriteButtons() {
+            const favoriteButtons = document.querySelectorAll('.instagram-btn.favorite');
+            favoriteButtons.forEach(button => {
+                const cardId = button.getAttribute('data-id');
+                const isFavorite = userFavorites.has(cardId);
+                updateFavoriteButton(button, isFavorite);
+            });
+        }
+
+        function navigateSlider(direction) {
+            const favoritesTrack = document.getElementById('favoritesTrack');
+            const slides = favoritesTrack.children;
+            const totalSlides = slides.length;
+            
+            if (direction === 'next') {
+                currentSlide = Math.min(currentSlide + 1, Math.max(0, totalSlides - slidesPerView));
+            } else {
+                currentSlide = Math.max(currentSlide - 1, 0);
+            }
+            
+            updateSliderPosition();
+            updateSliderButtons();
+        }
+
+        function updateSliderPosition() {
+            const favoritesTrack = document.getElementById('favoritesTrack');
+            const slideWidth = favoritesTrack.children[0]?.offsetWidth + 30;
+            
+            if (slideWidth) {
+                favoritesTrack.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            }
+        }
+
+        function updateSliderButtons() {
+            const favoritesTrack = document.getElementById('favoritesTrack');
+            const slides = favoritesTrack.children;
+            const totalSlides = slides.length;
+            const prevSlideBtn = document.getElementById('prevSlide');
+            const nextSlideBtn = document.getElementById('nextSlide');
+            
+            prevSlideBtn.disabled = currentSlide === 0;
+            nextSlideBtn.disabled = currentSlide >= Math.max(0, totalSlides - slidesPerView);
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.display = 'block';
+            
+            if (type === 'error') {
+                notification.style.background = '#FF6584';
+            } else if (type === 'warning') {
+                notification.style.background = '#FF9E00';
+            } else if (type === 'info') {
+                notification.style.background = '#36D1DC';
+            } else {
+                notification.style.background = '#6C63FF';
+            }
             
             setTimeout(() => {
-                this.showPopup();
-            }, 60000);
+                notification.style.display = 'none';
+            }, 3000);
         }
-        
-        trackButtonClicks() {
-            document.addEventListener('click', (e) => {
-                if (e.target.closest('button') || e.target.closest('a')) {
-                    this.buttonClickCount++;
-                    
-                    if (this.buttonClickCount >= 5 && !this.adShown) {
-                        this.showPopup();
-                    }
+
+        // قسم التخصيص الجديد
+        function initCustomizationSection() {
+            const clothingSelect = document.getElementById('clothingSelect');
+            const backgroundTypeSelect = document.getElementById('backgroundTypeSelect');
+            const solidBackgroundGroup = document.getElementById('solidBackgroundGroup');
+            const natureBackgroundGroup = document.getElementById('natureBackgroundGroup');
+            const indoorBackgroundGroup = document.getElementById('indoorBackgroundGroup');
+            const copyCustomPrompt = document.getElementById('copyCustomPrompt');
+            
+            // إظهار/إخفاء خيارات الخلفية الفرعية
+            backgroundTypeSelect.addEventListener('change', function() {
+                solidBackgroundGroup.style.display = 'none';
+                natureBackgroundGroup.style.display = 'none';
+                indoorBackgroundGroup.style.display = 'none';
+                
+                if (this.value === 'solid') {
+                    solidBackgroundGroup.style.display = 'block';
+                } else if (this.value === 'nature') {
+                    natureBackgroundGroup.style.display = 'block';
+                } else if (this.value === 'indoor') {
+                    indoorBackgroundGroup.style.display = 'block';
+                }
+                
+                generateCustomizationPreview();
+            });
+            
+            // تحديث المعاينة عند تغيير أي اختيار
+            clothingSelect.addEventListener('change', generateCustomizationPreview);
+            document.getElementById('solidColorSelect').addEventListener('change', generateCustomizationPreview);
+            document.getElementById('natureBackgroundSelect').addEventListener('change', generateCustomizationPreview);
+            document.getElementById('indoorBackgroundSelect').addEventListener('change', generateCustomizationPreview);
+            
+            // نسخ البرومبت المخصص
+            copyCustomPrompt.addEventListener('click', function() {
+                const promptText = document.getElementById('generatedPrompt').textContent;
+                if (promptText) {
+                    navigator.clipboard.writeText(promptText)
+                        .then(() => {
+                            showNotification('تم نسخ البرومبت المخصص بنجاح!');
+                        })
+                        .catch(err => {
+                            console.error('فشل في نسخ النص: ', err);
+                            showNotification('فشل في نسخ البرومبت!', 'error');
+                        });
                 }
             });
         }
-        
-        showPopup() {
-            if (this.adShown) return;
+
+        function generateCustomizationPreview() {
+            const clothing = document.getElementById('clothingSelect').value;
+            const backgroundType = document.getElementById('backgroundTypeSelect').value;
+            const previewSection = document.getElementById('previewSection');
+            const resultSection = document.getElementById('resultSection');
+            const previewGrid = document.getElementById('previewGrid');
+            const generatedPrompt = document.getElementById('generatedPrompt');
             
-            this.adShown = true;
-            this.popup.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            // إخفاء الأقسام إذا لم يتم اختيار كل شيء
+            if (!clothing || !backgroundType) {
+                previewSection.style.display = 'none';
+                resultSection.style.display = 'none';
+                return;
+            }
             
-            this.closeBtn.disabled = true;
-            this.secondsLeft = 5;
-            this.timerElement.textContent = this.secondsLeft;
+            const clothingData = customizationData.clothing[clothing];
+            if (!clothingData) return;
             
-            this.startTimer();
+            // الحصول على الخلفية المحددة
+            let backgroundValue = '';
+            if (backgroundType === 'solid') {
+                backgroundValue = document.getElementById('solidColorSelect').value;
+            } else if (backgroundType === 'nature') {
+                backgroundValue = document.getElementById('natureBackgroundSelect').value;
+            } else if (backgroundType === 'indoor') {
+                backgroundValue = document.getElementById('indoorBackgroundSelect').value;
+            }
+            
+            // عرض الصور
+            previewGrid.innerHTML = '';
+            
+            const imageData = clothingData.images[backgroundType][backgroundValue];
+            const promptData = clothingData.prompts[backgroundType][backgroundValue];
+            
+            // إنشاء عنصر المعاينة
+            const previewItem = document.createElement('div');
+            previewItem.className = 'preview-item';
+            previewItem.innerHTML = `
+                <img src="${imageData}" alt="${clothingData.name}" class="preview-image" onerror="this.src='https://via.placeholder.com/300x400/6C63FF/FFFFFF?text=${encodeURIComponent(clothingData.name)}'">
+                <div class="preview-overlay">
+                    <div class="preview-info">
+                        <h5>${clothingData.name}</h5>
+                        <p>${getBackgroundName(backgroundType, backgroundValue)}</p>
+                    </div>
+                </div>
+            `;
+            
+            previewGrid.appendChild(previewItem);
+            
+            // عرض البرومبت
+            generatedPrompt.textContent = promptData;
+            
+            // إظهار الأقسام
+            previewSection.style.display = 'block';
+            resultSection.style.display = 'block';
         }
-        
-        startTimer() {
-            this.timerInterval = setInterval(() => {
-                this.secondsLeft--;
+
+        function getBackgroundName(type, value) {
+            const names = {
+                solid: {
+                    yellow: 'خلفية صفراء',
+                    blue: 'خلفية زرقاء', 
+                    foggy: 'خلفية ضبابية'
+                },
+                nature: {
+                    forest: 'خلفية غابة',
+                    street: 'خلفية شارع',
+                    ocean: 'خلفية بحر'
+                },
+                indoor: {
+                    apartment: 'داخل شقة',
+                    office: 'على مكتب',
+                    wedding: 'قاعة أفراح',
+                    garden: 'في حديقة'
+                }
+            };
+            
+            return names[type]?.[value] || value;
+        }
+
+        // إدارة نافذة الإعلان المنبثقة
+        class AdPopupManager {
+            constructor() {
+                this.popup = document.getElementById('adPopup');
+                this.closeBtn = document.getElementById('closeAdPopup');
+                this.timerElement = document.getElementById('adTimer');
+                this.buttonClickCount = 0;
+                this.adShown = false;
+                this.timerInterval = null;
+                this.secondsLeft = 5;
+                
+                this.init();
+            }
+            
+            init() {
+                this.closeBtn.addEventListener('click', () => this.closePopup());
+                
+                this.popup.addEventListener('click', (e) => {
+                    if (e.target === this.popup) {
+                        this.closePopup();
+                    }
+                });
+                
+                this.trackButtonClicks();
+                
+                setTimeout(() => {
+                    this.showPopup();
+                }, 60000);
+            }
+            
+            trackButtonClicks() {
+                document.addEventListener('click', (e) => {
+                    if (e.target.closest('button') || e.target.closest('a')) {
+                        this.buttonClickCount++;
+                        
+                        if (this.buttonClickCount >= 5 && !this.adShown) {
+                            this.showPopup();
+                        }
+                    }
+                });
+            }
+            
+            showPopup() {
+                if (this.adShown) return;
+                
+                this.adShown = true;
+                this.popup.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                this.closeBtn.disabled = true;
+                this.secondsLeft = 5;
                 this.timerElement.textContent = this.secondsLeft;
                 
-                if (this.secondsLeft <= 0) {
-                    this.enableCloseButton();
-                }
-            }, 1000);
-        }
-        
-        enableCloseButton() {
-            clearInterval(this.timerInterval);
-            this.closeBtn.disabled = false;
-            this.timerElement.style.display = 'none';
-            document.querySelector('.ad-note').textContent = 'يمكنك إغلاق النافذة الآن';
-        }
-        
-        closePopup() {
-            if (this.closeBtn.disabled) return;
+                this.startTimer();
+            }
             
-            this.popup.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            startTimer() {
+                this.timerInterval = setInterval(() => {
+                    this.secondsLeft--;
+                    this.timerElement.textContent = this.secondsLeft;
+                    
+                    if (this.secondsLeft <= 0) {
+                        this.enableCloseButton();
+                    }
+                }, 1000);
+            }
             
-            setTimeout(() => {
+            enableCloseButton() {
+                clearInterval(this.timerInterval);
+                this.closeBtn.disabled = false;
+                this.timerElement.style.display = 'none';
+                document.querySelector('.ad-note').textContent = 'يمكنك إغلاق النافذة الآن';
+            }
+            
+            closePopup() {
+                if (this.closeBtn.disabled) return;
+                
+                this.popup.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                setTimeout(() => {
+                    this.adShown = false;
+                    this.buttonClickCount = 0;
+                    this.timerElement.style.display = 'flex';
+                    document.querySelector('.ad-note').textContent = 'إعلان ممول - يمكنك إغلاق النافذة بعد 5 ثوانٍ';
+                }, 300);
+            }
+            
+            reset() {
                 this.adShown = false;
                 this.buttonClickCount = 0;
-                this.timerElement.style.display = 'flex';
-                document.querySelector('.ad-note').textContent = 'إعلان ممول - يمكنك إغلاق النافذة بعد 5 ثوانٍ';
-            }, 300);
+                this.closePopup();
+            }
         }
-        
-        reset() {
-            this.adShown = false;
-            this.buttonClickCount = 0;
-            this.closePopup();
+
+        // التهيئة عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            // تهيئة مدير الإعلانات
+            setTimeout(() => {
+                window.adPopupManager = new AdPopupManager();
+            }, 1000);
+
+            // التحقق من ظهور أزرار التنقل
+            toggleNavigationButtons();
+        });
+
+        function showAdPopup() {
+            if (window.adPopupManager) {
+                window.adPopupManager.showPopup();
+            }
         }
-    }
 
-    // التهيئة عند تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', function() {
-        // تهيئة مدير الإعلانات
-        setTimeout(() => {
-            window.adPopupManager = new AdPopupManager();
-        }, 1000);
-
-        // التحقق من ظهور أزرار التنقل
-        toggleNavigationButtons();
-    });
-
-    function showAdPopup() {
-        if (window.adPopupManager) {
-            window.adPopupManager.showPopup();
+        function resetAdPopup() {
+            if (window.adPopupManager) {
+                window.adPopupManager.reset();
+            }
         }
-    }
+    </script>
 
-    function resetAdPopup() {
-        if (window.adPopupManager) {
-            window.adPopupManager.reset();
-        }
-    }
-</script>
     <!-- ملفات البيانات -->
     <script src="boy.js"></script>
     <script src="girl.js"></script>
+    <script src="custom.js"></script>
 </body>
 </html>
