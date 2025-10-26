@@ -9,7 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
 
     <!-- الصورة الأساسية -->
-    <meta property="og:image" content="https://th.bing.com/th/id/OIP.IqY_ceXnw8J87m0zD4ISlwHaEK?w=330&h=185&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3">
+    <meta property="og:image" content="https://th.bing.com/th/id/OIP.jR0NhEb0RK-dswoFUVdTUQHaFj?w=228&h=180&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
@@ -24,8 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     
-    <!-- سيتم وضع CSS هنا لاحقاً -->
-     <style>
+    <style>
     :root {
         --primary: #6C63FF;
         --primary-light: #8A84FF;
@@ -183,7 +182,7 @@
         box-shadow: 0 8px 20px rgba(255, 101, 132, 0.4);
     }
 
-    /* قسم الهيرو الجديد */
+    /* قسم الهيرو الجديد - عرض الشرائح */
     .hero-section {
         background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%);
         min-height: 100vh;
@@ -193,6 +192,32 @@
         overflow: hidden;
     }
 
+    .hero-slideshow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .hero-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .hero-slide.active {
+        opacity: 1;
+    }
+
     .hero-section::before {
         content: '';
         position: absolute;
@@ -200,13 +225,13 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%236C63FF" fill-opacity="0.05" points="0,1000 1000,0 1000,1000"/></svg>');
-        background-size: cover;
+        background: rgba(0, 0, 0, 0.5); /* طبقة داكنة لتحسين قراءة النص */
+        z-index: 2;
     }
 
     .hero-content {
         position: relative;
-        z-index: 2;
+        z-index: 3;
         text-align: center;
         color: white;
         padding: 80px 20px;
@@ -272,6 +297,7 @@
         gap: 20px;
         justify-content: center;
         flex-wrap: wrap;
+        position: relative;
     }
 
     .hero-btn {
@@ -331,6 +357,182 @@
         box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
     }
 
+    /* زر دعم المطور العائم */
+    .support-float-btn {
+        position: absolute;
+        bottom: 30px;
+        left: 80%;
+        transform: translateX(-50%);
+        background: var(--gradient);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+        animation: pulse 2s infinite;
+    }
+
+    .support-float-btn:hover {
+        background: var(--gradient-dark);
+        transform: translateX(-50%) translateY(-3px);
+        box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
+    }
+
+    /* زر الشات العائم */
+    .chat-float-btn {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        width: 70px;
+        height: 70px;
+        background: var(--gradient);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+        transition: all 0.3s ease;
+        z-index: 999;
+        animation: pulse 2s infinite;
+    }
+
+    .chat-float-btn:hover {
+        background: var(--gradient-dark);
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 12px 30px rgba(108, 99, 255, 0.6);
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* قسم المطورين الجديد */
+    .developers-section {
+        padding: 80px 0;
+        background: white;
+        border-radius: 30px;
+        margin: 60px 0;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .developers-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .developers-icon {
+        font-size: 4rem;
+        color: var(--primary);
+        margin-bottom: 30px;
+    }
+
+    .developers-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--dark);
+        font-weight: 800;
+    }
+
+    .developers-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: var(--gray);
+        margin-bottom: 30px;
+    }
+
+    .developers-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+    }
+
+    .developers-feature {
+        background: var(--light);
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .developers-feature:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(108, 99, 255, 0.2);
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        color: var(--primary);
+        margin-bottom: 20px;
+    }
+
+    .feature-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--dark);
+    }
+
+    .feature-description {
+        color: var(--gray);
+        line-height: 1.6;
+    }
+
+    .developers-price {
+        background: var(--gradient);
+        color: white;
+        padding: 30px;
+        border-radius: 20px;
+        margin: 40px 0;
+    }
+
+    .price-amount {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    .price-text {
+        font-size: 1.2rem;
+        opacity: 0.9;
+    }
+
+    .developers-btn {
+        background: white;
+        color: var(--primary);
+        border: none;
+        padding: 18px 40px;
+        border-radius: 50px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .developers-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* باقي الأنماط تبقى كما هي */
     /* قسم الهشتاجات */
     .hashtags-filter-section {
         background: white;
@@ -376,170 +578,6 @@
     .hashtag-btn:hover {
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
-    }
-
-    /* قسم التخصيص الجديد */
-    .customization-section {
-        padding: 80px 0;
-        background: white;
-    }
-
-    .customization-card {
-        background: var(--light);
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .customization-header {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    .customization-header h3 {
-        font-size: 1.8rem;
-        color: var(--dark);
-        margin-bottom: 10px;
-    }
-
-    .customization-header p {
-        color: var(--gray);
-        font-size: 1.1rem;
-    }
-
-    .customization-options {
-        display: grid;
-        gap: 20px;
-        margin-bottom: 30px;
-    }
-
-    .option-group {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .option-label {
-        font-weight: 600;
-        color: var(--dark);
-        font-size: 1.1rem;
-    }
-
-    .custom-select {
-        padding: 12px 15px;
-        border: 2px solid var(--light);
-        border-radius: 10px;
-        font-size: 1rem;
-        background: white;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-
-    .custom-select:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
-    }
-
-    .sub-option {
-        margin-right: 20px;
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 10px;
-        border-right: 3px solid var(--primary);
-    }
-
-    .preview-section, .result-section {
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .preview-section h4, .result-section h4 {
-        font-size: 1.3rem;
-        color: var(--dark);
-        margin-bottom: 15px;
-    }
-
-    .preview-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-
-    .preview-item {
-        position: relative;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition: transform 0.3s;
-    }
-
-    .preview-item:hover {
-        transform: translateY(-5px);
-    }
-
-    .preview-image {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-    }
-
-    .preview-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0,0,0,0.7));
-        padding: 15px;
-        color: white;
-    }
-
-    .preview-info h5 {
-        font-size: 1rem;
-        margin-bottom: 5px;
-    }
-
-    .preview-info p {
-        font-size: 0.8rem;
-        opacity: 0.9;
-    }
-
-    .generated-prompt {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        margin-bottom: 15px;
-        line-height: 1.6;
-        max-height: 200px;
-        overflow-y: auto;
-    }
-
-    .copy-prompt-btn {
-        width: 100%;
-        padding: 12px;
-        background: var(--gradient);
-        color: white;
-        border: none;
-        border-radius: 10px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .copy-prompt-btn:hover {
-        background: var(--gradient-dark);
-        transform: translateY(-2px);
     }
 
     /* قسم الفلاتر */
@@ -590,7 +628,7 @@
         margin: 0 auto;
     }
 
-    /* أنيميشن التدرج اللوني للكروت */
+    /* إزالة الأنيميشن من الكروت */
     .feed-item {
         position: relative;
         background: white;
@@ -599,64 +637,12 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         margin-bottom: 20px;
         transition: transform 0.3s;
-    }
-
-    .feed-item::before {
-        content: '';
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        right: -2px;
-        bottom: -2px;
-        background: linear-gradient(45deg, 
-            #ff6b6b, #ee5a24, #fbc531, 
-            #e1b12c, #44bd32, #0097e6, 
-            #8c7ae6, #e84118, #ff6b6b);
-        background-size: 400% 400%;
-        border-radius: 17px;
-        z-index: -1;
-        animation: gradientBorder 3s ease infinite;
-        opacity: 0.7;
-    }
-
-    @keyframes gradientBorder {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    .feed-item:hover::before {
-        opacity: 1;
-        animation-duration: 1.5s;
+        border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
     .feed-item:hover {
         transform: translateY(-5px);
-    }
-
-    /* زر عرض المزيد */
-    .load-more-btn {
-        width: 100%;
-        padding: 15px;
-        background: var(--gradient);
-        color: white;
-        border: none;
-        border-radius: 12px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .load-more-btn:hover {
-        background: var(--gradient-dark);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     }
 
     /* علامة جديدة على الكروت */
@@ -811,12 +797,66 @@
         color: var(--primary);
     }
 
-    /* ==================== */
-    /* تحسينات التجاوب للنوافذ */
-    /* ==================== */
+    /* أزرار عرض الكروت */
+    .view-toggle-section {
+        background: white;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 80px;
+        z-index: 98;
+    }
 
-    /* نافذة المشاركة - محسنة للتجاوب */
-    .share-modal {
+    .view-toggle-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .view-toggle-btn {
+        padding: 10px 25px;
+        border-radius: 25px;
+        border: 2px solid var(--primary);
+        background: white;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .view-toggle-btn.active {
+        background: var(--primary);
+        color: white;
+    }
+
+    .view-toggle-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
+    }
+
+    /* نمط عرض الكروت بشكل عمودي (الافتراضي) */
+    .feed-container.vertical-view .feed-item {
+        margin-bottom: 20px;
+    }
+
+    /* نمط عرض الكروت بشكل شبكة */
+    .feed-container.grid-view {
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .feed-container.grid-view .feed-item {
+        margin-bottom: 0;
+    }
+
+    /* نافذة دعم المطور */
+    .support-modal {
         display: none;
         position: fixed;
         top: 0;
@@ -831,12 +871,12 @@
         backdrop-filter: blur(10px);
     }
 
-    .share-modal-content {
+    .support-modal-content {
         background: white;
         width: 100%;
         max-width: 500px;
         border-radius: 20px;
-        padding: 25px;
+        padding: 30px;
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
         position: relative;
         max-height: 90vh;
@@ -844,8 +884,8 @@
         animation: modalSlideIn 0.3s ease;
     }
 
-    .share-modal-title {
-        font-size: 1.4rem;
+    .support-modal-title {
+        font-size: 1.5rem;
         margin-bottom: 20px;
         text-align: center;
         color: var(--dark);
@@ -853,82 +893,100 @@
         padding: 0 10px;
     }
 
-    .share-options {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-bottom: 20px;
+    .support-modal-text {
+        text-align: center;
+        margin-bottom: 25px;
+        color: var(--gray);
+        line-height: 1.6;
     }
 
-    .share-option {
+    .support-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .support-option {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
-        padding: 12px;
+        gap: 10px;
+        padding: 15px;
         border: 2px solid var(--light);
         border-radius: 12px;
         cursor: pointer;
         transition: all 0.3s;
         background: white;
-        min-height: 90px;
-        justify-content: center;
     }
 
-    .share-option:hover {
+    .support-option:hover {
         border-color: var(--primary);
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(108, 99, 255, 0.2);
     }
 
-    .share-icon {
-        width: 45px;
-        height: 45px;
+    .support-option.active {
+        border-color: var(--primary);
+        background: rgba(108, 99, 255, 0.05);
+    }
+
+    .support-icon {
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 1.3rem;
+        font-size: 1.5rem;
         color: white;
     }
 
-    .share-icon.whatsapp { background: #25D366; }
-    .share-icon.telegram { background: #0088cc; }
-    .share-icon.twitter { background: #1DA1F2; }
-    .share-icon.facebook { background: #1877F2; }
-    .share-icon.copy { background: var(--primary); }
-    .share-icon.link { background: var(--accent); }
+    .support-icon.whatsapp { background: #25D366; }
+    .support-icon.phone { background: var(--primary); }
+    .support-icon.instagram { background: #E4405F; }
+    .support-icon.paypal { background: #0070BA; }
 
-    .share-option span {
-        font-size: 0.8rem;
+    .support-option span {
+        font-size: 0.9rem;
         font-weight: 600;
         color: var(--dark);
         text-align: center;
-        line-height: 1.2;
     }
 
-    .share-url {
+    .support-details {
         background: var(--light);
-        padding: 12px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    .share-url input {
-        width: 100%;
-        border: none;
-        background: none;
-        color: var(--dark);
-        font-size: 0.85rem;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 20px;
         text-align: center;
     }
 
-    .share-url input:focus {
-        outline: none;
+    .support-number {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin: 10px 0;
+        direction: ltr;
+        display: block;
     }
 
-    .close-share-modal {
+    .support-email {
+        font-size: 1rem;
+        color: var(--dark);
+        direction: ltr;
+        display: block;
+        margin: 10px 0;
+    }
+
+    .support-note {
+        font-size: 0.9rem;
+        color: var(--gray);
+        margin-top: 15px;
+        line-height: 1.5;
+    }
+
+    .close-support-modal {
         position: absolute;
         top: 15px;
         left: 15px;
@@ -946,45 +1004,16 @@
         border: none;
     }
 
-    .close-share-modal:hover {
+    .close-support-modal:hover {
         background: var(--primary);
         color: white;
         transform: rotate(90deg);
     }
 
-    /* نافذة البرومبت - محسنة للتجاوب */
-    .prompt-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        backdrop-filter: blur(15px);
-    }
-
-    .modal-content {
-        background: white;
-        width: 100%;
-        max-width: 800px;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-        position: relative;
-        max-height: 85vh;
-        overflow-y: auto;
-        animation: modalAppear 0.4s ease;
-    }
-
-    @keyframes modalAppear {
+    @keyframes modalSlideIn {
         from { 
             opacity: 0; 
-            transform: scale(0.85) translateY(30px); 
+            transform: scale(0.8) translateY(20px); 
         }
         to { 
             opacity: 1; 
@@ -992,100 +1021,32 @@
         }
     }
 
-    .close-modal {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        background: var(--light);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        font-size: 1.1rem;
-        transition: all 0.3s;
-        z-index: 1;
-        color: var(--dark);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border: none;
-    }
+    /* باقي الأنماط تبقى كما هي */
+    /* ... */
 
-    .close-modal:hover {
-        background: var(--primary);
-        color: white;
-        transform: rotate(90deg);
-    }
-
-    .modal-title {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-        text-align: center;
-        padding: 0 30px;
-        color: var(--dark);
-        font-weight: 700;
-        line-height: 1.3;
-    }
-
-    .prompt-text {
-        background: var(--light);
-        padding: 20px;
-        border-radius: 15px;
-        margin: 20px 0;
-        line-height: 1.7;
-        max-height: 40vh;
-        overflow-y: auto;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        color: var(--dark);
-        font-size: 1rem;
-        text-align: right;
-        direction: ltr;
-    }
-
-    .modal-actions {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .copy-btn, .gemini-btn {
-        flex: 1;
-        min-width: 140px;
-        padding: 14px 20px;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
-    }
-
-    .copy-btn {
+    /* زر عرض المزيد */
+    .load-more-btn {
+        width: 100%;
+        padding: 15px;
         background: var(--gradient);
         color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
     }
 
-    .copy-btn:hover {
+    .load-more-btn:hover {
         background: var(--gradient-dark);
-        transform: translateY(-3px);
-        box-shadow: 0 12px 25px rgba(108, 99, 255, 0.4);
-    }
-
-    .gemini-btn {
-        background: #8e44ad;
-        color: white;
-    }
-
-    .gemini-btn:hover {
-        background: #7d3c98;
-        transform: translateY(-3px);
-        box-shadow: 0 12px 25px rgba(142, 68, 173, 0.4);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
     }
 
     /* قسم تعلم كيف تصنع صورتك */
@@ -1469,18 +1430,11 @@
         color: var(--primary);
     }
 
-    /* أزرار التنقل */
-    .navigation-buttons {
+    /* زر الصعود فقط */
+    .scroll-to-top {
         position: fixed;
         bottom: 30px;
-        left: 30px;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        z-index: 999;
-    }
-
-    .scroll-to-top, .scroll-to-bottom {
+        right: 30px;
         width: 60px;
         height: 60px;
         background: var(--gradient);
@@ -1494,35 +1448,30 @@
         font-size: 1.3rem;
         box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
         transition: all 0.3s ease;
+        z-index: 999;
         opacity: 0;
         transform: translateY(20px);
     }
 
-    .scroll-to-top.show, .scroll-to-bottom.show {
+    .scroll-to-top.show {
         display: flex;
         opacity: 1;
         transform: translateY(0);
     }
 
-    .scroll-to-top:hover, .scroll-to-bottom:hover {
+    .scroll-to-top:hover {
         background: var(--gradient-dark);
         transform: translateY(-5px);
         box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
     }
 
-    .scroll-to-top:active, .scroll-to-bottom:active {
+    .scroll-to-top:active {
         transform: translateY(-2px);
     }
 
     /* تأثير النبض */
-    .scroll-to-top.pulse, .scroll-to-bottom.pulse {
+    .scroll-to-top.pulse {
         animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.1); }
-        100% { transform: scale(1); }
     }
 
     /* الإشعارات */
@@ -1581,17 +1530,6 @@
         max-height: 90vh;
         overflow-y: auto;
         animation: modalSlideIn 0.3s ease;
-    }
-
-    @keyframes modalSlideIn {
-        from { 
-            opacity: 0; 
-            transform: scale(0.8) translateY(20px); 
-        }
-        to { 
-            opacity: 1; 
-            transform: scale(1) translateY(0); 
-        }
     }
 
     .search-modal-title {
@@ -1961,6 +1899,14 @@
             justify-content: center;
         }
 
+        .developers-title {
+            font-size: 2rem;
+        }
+
+        .developers-features {
+            grid-template-columns: 1fr;
+        }
+
         .filter-container {
             gap: 10px;
         }
@@ -2051,15 +1997,20 @@
             min-width: 280px;
         }
 
-        .navigation-buttons {
+        .scroll-to-top {
             bottom: 20px;
-            left: 20px;
-        }
-
-        .scroll-to-top, .scroll-to-bottom {
+            right: 20px;
             width: 50px;
             height: 50px;
             font-size: 1.1rem;
+        }
+
+        .chat-float-btn {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            bottom: 20px;
+            left: 20px;
         }
 
         .hashtag-btn {
@@ -2083,6 +2034,33 @@
         .customization-options {
             gap: 15px;
         }
+
+        /* دعم المطور للجوال */
+        .support-float-btn {
+            bottom: 150px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+
+        .support-modal-content {
+            padding: 20px;
+            margin: 10px;
+        }
+
+        .support-options {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .support-option {
+            padding: 12px;
+        }
+
+        .support-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
     }
 
     @media (max-width: 480px) {
@@ -2092,6 +2070,10 @@
         
         .hero-subtitle {
             font-size: 1.1rem;
+        }
+        
+        .developers-title {
+            font-size: 1.8rem;
         }
         
         .share-options {
@@ -2141,6 +2123,17 @@
 
         .option-label {
             font-size: 1rem;
+        }
+
+        /* دعم المطور للشاشات الصغيرة */
+        .support-options {
+            grid-template-columns: 1fr;
+        }
+
+        .support-option {
+            flex-direction: row;
+            justify-content: flex-start;
+            min-height: 60px;
         }
     }
 
@@ -2215,8 +2208,13 @@
         </div>
     </nav>
 
-    <!-- قسم الهيرو الجديد -->
+    <!-- قسم الهيرو الجديد مع عرض الشرائح -->
     <section class="hero-section">
+        <!-- عرض الشرائح -->
+        <div class="hero-slideshow" id="heroSlideshow">
+            <!-- سيتم إضافة الشرائح ديناميكياً -->
+        </div>
+        
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">اكتشف عالم الصور الإبداعية</h1>
@@ -2247,7 +2245,39 @@
                         <i class="fas fa-graduation-cap"></i>
                         تعلم كيفية الاستخدام
                     </button>
+                    
+                    <!-- زر دعم المطور العائم -->
+                    <button class="support-float-btn" id="supportFloatBtn">
+                        <i class="fas fa-heart"></i>
+                        دعم المطور 
+                    </button>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- زر الشات العائم -->
+    <button class="chat-float-btn" id="chatFloatBtn">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <!-- زر الصعود للأعلى -->
+    <button class="scroll-to-top" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- قسم أزرار عرض الكروت -->
+    <section class="view-toggle-section">
+        <div class="container">
+            <div class="view-toggle-container">
+                <button class="view-toggle-btn active" id="verticalViewBtn">
+                    <i class="fas fa-list"></i>
+                    عرض عمودي
+                </button>
+                <button class="view-toggle-btn" id="gridViewBtn">
+                    <i class="fas fa-th"></i>
+                    عرض شبكي
+                </button>
             </div>
         </div>
     </section>
@@ -2261,8 +2291,6 @@
         </div>
     </section>
 
-
-
     <!-- قسم الفلاتر -->
     <section class="filter-section">
         <div class="container filter-container">
@@ -2274,96 +2302,11 @@
     
     <!-- قسم التغذية (Instagram Style) -->
     <section class="feed-section">
-        <div class="feed-container" id="feedContainer">
+        <div class="feed-container vertical-view" id="feedContainer">
             <!-- سيتم إضافة البطاقات ديناميكياً -->
         </div>
     </section>
 
-
-
-
-        <!-- قسم تخصيص الصور الجديد 
-    <section class="customization-section" id="customizationSection">
-        <div class="container">
-            <h2 class="section-title">تخصيص <span>صورك</span></h2>
-            
-            <div class="customization-card">
-                <div class="customization-header">
-                    <h3>صمم صورتك المثالية</h3>
-                    <p>اختر الملابس والخلفية المناسبة لتحصل على البرومبت المثالي</p>
-                </div>
-                
-                <div class="customization-options">
-                    <div class="option-group">
-                        <label class="option-label">👕 اختر نوع الملابس</label>
-                        <select class="custom-select" id="clothingSelect">
-                            <option value="">-- اختر الملابس --</option>
-                            <option value="jacket_black">جاكيت أسود</option>
-                            <option value="shirt">قميص</option>
-                            <option value="suit">بدلة</option>
-                            <option value="hoodie">هودي</option>
-                        </select>
-                    </div>
-                    
-                    <div class="option-group">
-                        <label class="option-label">🎨 اختر نوع الخلفية</label>
-                        <select class="custom-select" id="backgroundTypeSelect">
-                            <option value="">-- اختر نوع الخلفية --</option>
-                            <option value="solid">خلفية سادة</option>
-                            <option value="nature">خلفية طبيعة</option>
-                            <option value="indoor">خلفية داخلية</option>
-                        </select>
-                    </div>
-                    
-                    <div class="option-group sub-option" id="solidBackgroundGroup" style="display: none;">
-                        <label class="option-label">🎨 اختر اللون</label>
-                        <select class="custom-select" id="solidColorSelect">
-                            <option value="yellow">أصفر</option>
-                            <option value="blue">أزرق</option>
-                            <option value="foggy">ضبابي</option>
-                        </select>
-                    </div>
-                    
-                    <div class="option-group sub-option" id="natureBackgroundGroup" style="display: none;">
-                        <label class="option-label">🌳 اختر الخلفية</label>
-                        <select class="custom-select" id="natureBackgroundSelect">
-                            <option value="forest">غابة</option>
-                            <option value="street">شارع به سيارات</option>
-                            <option value="ocean">وسط بحر</option>
-                        </select>
-                    </div>
-                    
-                    <div class="option-group sub-option" id="indoorBackgroundGroup" style="display: none;">
-                        <label class="option-label">🏠 اختر الخلفية</label>
-                        <select class="custom-select" id="indoorBackgroundSelect">
-                            <option value="apartment">داخل شقة</option>
-                            <option value="office">على مكتب</option>
-                            <option value="wedding">في قاعة أفراح</option>
-                            <option value="garden">في حديقة</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="preview-section" id="previewSection" style="display: none;">
-                    <h4>معاينة النتائج</h4>
-                    <div class="preview-grid" id="previewGrid">
-                    </div>
-                </div>
-                
-                <div class="result-section" id="resultSection" style="display: none;">
-                    <h4>البرومبت المناسب</h4>
-                    <div class="generated-prompt" id="generatedPrompt"></div>
-                    <button class="copy-prompt-btn" id="copyCustomPrompt">
-                        <i class="far fa-copy"></i>
-                        نسخ البرومبت
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
--->
-
-    <!-- باقي الأقسام تبقى كما هي -->
     <!-- قسم تعلم كيف تصنع صورتك -->
     <section class="tutorial-section">
         <div class="container">
@@ -2521,6 +2464,55 @@
         </div>
     </div>
 
+    <!-- نافذة دعم المطور -->
+    <div class="support-modal" id="supportModal">
+        <div class="support-modal-content">
+            <div class="close-support-modal" id="closeSupportModal">✕</div>
+            <h2 class="support-modal-title">دعم المطور</h2>
+            <p class="support-modal-text">شكراً لدعمك! يمكنك الدفع عبر أي من الطرق التالية بمبلغ 10 جنيه مصري</p>
+            
+            <div class="support-options">
+                <div class="support-option active" data-platform="whatsapp">
+                    <div class="support-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <span>واتساب</span>
+                </div>
+                
+                <div class="support-option" data-platform="phone">
+                    <div class="support-icon phone">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <span>رقم الهاتف</span>
+                </div>
+                
+                <div class="support-option" data-platform="instagram">
+                    <div class="support-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <span>انستجرام</span>
+                </div>
+                
+                <div class="support-option" data-platform="paypal">
+                    <div class="support-icon paypal">
+                        <i class="fab fa-paypal"></i>
+                    </div>
+                    <span>PayPal</span>
+                </div>
+            </div>
+            
+            <div class="support-details">
+                <p>رقم الهاتف / انستجرام:</p>
+                <span class="support-number">01148179176</span>
+                
+                <p>PayPal:</p>
+                <span class="support-email">mostafefareg3@gmail.com</span>
+                
+                <p class="support-note">بعد الدفع، سيتم إرسال رسالة شكر وتقدير لك. شكراً لدعمك المستمر!</p>
+            </div>
+        </div>
+    </div>
+
     <!-- نافذة الإعلان المنبثقة -->
     <div class="ad-popup-overlay" id="adPopup">
         <div class="ad-popup-container">
@@ -2550,16 +2542,6 @@
                 <div class="ad-timer" id="adTimer">5</div>
             </div>
         </div>
-    </div>
-
-    <!-- أزرار التنقل -->
-    <div class="navigation-buttons">
-        <button class="scroll-to-top" id="scrollToTop">
-            <i class="fas fa-chevron-up"></i>
-        </button>
-        <button class="scroll-to-bottom" id="scrollToBottom">
-            <i class="fas fa-chevron-down"></i>
-        </button>
     </div>
     
     <!-- الفوتر -->
@@ -2691,6 +2673,7 @@
         let viewedCards = new Set();
         let currentSlide = 0;
         let slidesPerView = 3;
+        let currentViewMode = 'vertical'; // 'vertical' أو 'grid'
         
         // نظام التحميل التدريجي
         let currentPage = 0;
@@ -2710,7 +2693,13 @@
             { id: 'عصرى', name: 'عصرى#' },
         ];
 
-       
+        // بيانات صور الهيرو - استخدم صور محلية
+        const heroImages = [
+            'hero1.jpg',
+            'hero2.jpg', 
+            'hero3.jpg',
+            'hero4.jpg'
+        ];
 
         // إنشاء حساب تلقائي للمستخدم
         function createAnonymousUser() {
@@ -2801,11 +2790,34 @@
             updateSlidesPerView();
             initHashtags();
             setupGiftButton();
-            initCustomizationSection();
+            initHeroSlideshow();
+            initSupportSystem();
+            
+            // التحقق من ظهور أزرار التنقل
+            toggleNavigationButtons();
+            
+            // إضافة مستمع لحدث التمرير
+            window.addEventListener('scroll', function() {
+                toggleNavigationButtons();
+            });
         });
 
-        // إعداد مستمعات الأحداث
+        // إعداد مستمعات الأحداث مع التحقق من وجود العناصر
         function setupEventListeners() {
+            // زر الشات العائم
+            const chatFloatBtn = document.getElementById('chatFloatBtn');
+            if (chatFloatBtn) {
+                chatFloatBtn.addEventListener('click', function() {
+                    window.open('https://wa.me/ais/2934750676712120?s=5', '_blank');
+                });
+            }
+
+            // زر الصعود للأعلى
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (scrollToTopBtn) {
+                scrollToTopBtn.addEventListener('click', scrollToTop);
+            }
+
             // الفلاتر
             const filterButtons = document.querySelectorAll('.filter-btn');
             filterButtons.forEach(button => {
@@ -2817,81 +2829,115 @@
                 });
             });
 
+            // أزرار عرض الكروت
+            const verticalViewBtn = document.getElementById('verticalViewBtn');
+            const gridViewBtn = document.getElementById('gridViewBtn');
+            
+            if (verticalViewBtn) {
+                verticalViewBtn.addEventListener('click', function() {
+                    setViewMode('vertical');
+                });
+            }
+            
+            if (gridViewBtn) {
+                gridViewBtn.addEventListener('click', function() {
+                    setViewMode('grid');
+                });
+            }
+
             // زر البحث
             const searchBtn = document.getElementById('searchBtn');
             const searchModal = document.getElementById('searchModal');
             const closeSearchModal = document.getElementById('closeSearchModal');
             const searchInput = document.getElementById('searchInput');
 
-            searchBtn.addEventListener('click', function() {
-                searchModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                searchInput.focus();
-            });
+            if (searchBtn && searchModal && closeSearchModal && searchInput) {
+                searchBtn.addEventListener('click', function() {
+                    searchModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    searchInput.focus();
+                });
 
-            closeSearchModal.addEventListener('click', function() {
-                searchModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
+                closeSearchModal.addEventListener('click', function() {
+                    searchModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
 
-            searchInput.addEventListener('input', function() {
-                performSearch(this.value);
-            });
+                searchInput.addEventListener('input', function() {
+                    performSearch(this.value);
+                });
+            }
 
             // زر الهدية
             const giftBtn = document.getElementById('giftBtn');
-            giftBtn.addEventListener('click', function() {
-                createFloatingText();
-            });
+            if (giftBtn) {
+                giftBtn.addEventListener('click', function() {
+                    createFloatingText();
+                });
+            }
 
             // زر المستخدم
             const userMenuBtn = document.getElementById('userMenuBtn');
-            userMenuBtn.addEventListener('click', function() {
-                showNotification('مرحباً ' + currentUser.displayName + '! 👋');
-            });
+            if (userMenuBtn) {
+                userMenuBtn.addEventListener('click', function() {
+                    showNotification('مرحباً ' + currentUser.displayName + '! 👋');
+                });
+            }
 
             // نافذة البرومبت
             const promptModal = document.getElementById('promptModal');
             const closeModal = document.getElementById('closeModal');
             
-            closeModal.addEventListener('click', function() {
-                promptModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
+            if (closeModal) {
+                closeModal.addEventListener('click', function() {
+                    promptModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
             
             // نسخ البرومبت
             const copyBtn = document.getElementById('copyBtn');
-            copyBtn.addEventListener('click', copyPrompt);
+            if (copyBtn) {
+                copyBtn.addEventListener('click', copyPrompt);
+            }
             
             // الذهاب إلى Gemini
             const geminiBtn = document.getElementById('geminiBtn');
-            geminiBtn.addEventListener('click', function() {
-                window.open('https://gemini.google.com', '_blank');
-                showNotification('تم فتح Gemini في نافذة جديدة!');
-            });
+            if (geminiBtn) {
+                geminiBtn.addEventListener('click', function() {
+                    window.open('https://gemini.google.com', '_blank');
+                    showNotification('تم فتح Gemini في نافذة جديدة!');
+                });
+            }
 
             // زر التواصل مع المسؤولين
             const contactAdminBtn = document.getElementById('contactAdminBtn');
-            contactAdminBtn.addEventListener('click', function() {
-                window.open('https://t.me/M0S7A5E', '_blank');
-                showNotification('جاري فتح Telegram للتواصل مع المسؤولين!');
-            });
+            if (contactAdminBtn) {
+                contactAdminBtn.addEventListener('click', function() {
+                    window.open('https://t.me/M0S7A5E', '_blank');
+                    showNotification('جاري فتح Telegram للتواصل مع المسؤولين!');
+                });
+            }
 
             // زر المزيد من المعلومات
             const moreInfoBtn = document.getElementById('moreInfoBtn');
-            moreInfoBtn.addEventListener('click', function() {
-                window.open('https://support.google.com/gemini/answer/13594961?hl=ar', '_blank');
-                showNotification('جاري فتح صفحة المساعدة!');
-            });
+            if (moreInfoBtn) {
+                moreInfoBtn.addEventListener('click', function() {
+                    window.open('https://support.google.com/gemini/answer/13594961?hl=ar', '_blank');
+                    showNotification('جاري فتح صفحة المساعدة!');
+                });
+            }
 
             // نافذة المشاركة
             const shareModal = document.getElementById('shareModal');
             const closeShareModal = document.getElementById('closeShareModal');
             
-            closeShareModal.addEventListener('click', function() {
-                shareModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
+            if (closeShareModal) {
+                closeShareModal.addEventListener('click', function() {
+                    shareModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
 
             // خيارات المشاركة
             const shareOptions = document.querySelectorAll('.share-option');
@@ -2934,36 +2980,17 @@
             const prevSlideBtn = document.getElementById('prevSlide');
             const nextSlideBtn = document.getElementById('nextSlide');
             
-            prevSlideBtn.addEventListener('click', function() {
-                navigateSlider('prev');
-            });
+            if (prevSlideBtn) {
+                prevSlideBtn.addEventListener('click', function() {
+                    navigateSlider('prev');
+                });
+            }
             
-            nextSlideBtn.addEventListener('click', function() {
-                navigateSlider('next');
-            });
-
-            // تحديث عدد الشرائح المعروضة عند تغيير حجم النافذة
-            window.addEventListener('resize', function() {
-                updateSlidesPerView();
-                updateSliderPosition();
-            });
-
-            // أزرار التنقل
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            const scrollToBottomBtn = document.getElementById('scrollToBottom');
-            
-            scrollToTopBtn.addEventListener('click', function() {
-                scrollToTop();
-            });
-            
-            scrollToBottomBtn.addEventListener('click', function() {
-                scrollToBottom();
-            });
-
-            // التحكم في ظهور أزرار التنقل
-            window.addEventListener('scroll', function() {
-                toggleNavigationButtons();
-            });
+            if (nextSlideBtn) {
+                nextSlideBtn.addEventListener('click', function() {
+                    navigateSlider('next');
+                });
+            }
 
             // إغلاق النوافذ عند النقر خارجها
             document.addEventListener('click', function(e) {
@@ -2987,12 +3014,185 @@
                     shareModal.style.display = 'none';
                     document.body.style.overflow = 'auto';
                 }
+
+                // إغلاق نافذة دعم المطور
+                const supportModal = document.getElementById('supportModal');
+                if (e.target === supportModal) {
+                    supportModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
             });
+        }
+
+        // تهيئة نظام دعم المطور
+        function initSupportSystem() {
+            // زر دعم المطور العائم
+            const supportFloatBtn = document.getElementById('supportFloatBtn');
+            const supportModal = document.getElementById('supportModal');
+            const closeSupportModal = document.getElementById('closeSupportModal');
+            
+            if (supportFloatBtn && supportModal && closeSupportModal) {
+                supportFloatBtn.addEventListener('click', function() {
+                    supportModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                closeSupportModal.addEventListener('click', function() {
+                    supportModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+                
+                // خيارات الدفع
+                const supportOptions = document.querySelectorAll('.support-option');
+                supportOptions.forEach(option => {
+                    option.addEventListener('click', function() {
+                        supportOptions.forEach(opt => opt.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        const platform = this.getAttribute('data-platform');
+                        handleSupportPayment(platform);
+                    });
+                });
+            }
+            
+            // ظهور نافذة الدعم كل 8 دقائق
+            setInterval(function() {
+                if (supportModal) {
+                    supportModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 8 * 60 * 1000); // 8 دقائق
+        }
+
+        // معالجة الدفع لدعم المطور
+        function handleSupportPayment(platform) {
+            let url = '';
+            let message = '';
+            
+            switch(platform) {
+                case 'whatsapp':
+                    url = `https://wa.me/201148179176?text=${encodeURIComponent('مرحباً، أريد دعم المطور بمبلغ 10 جنيه مصري')}`;
+                    message = 'جاري فتح واتساب للتواصل مع المطور!';
+                    break;
+                case 'phone':
+                    message = 'يمكنك إرسال المبلغ عبر فودافون كاش أو أي محفظة رقمية أخرى إلى الرقم: 01148179176';
+                    showNotification(message);
+                    return;
+                case 'instagram':
+                    url = 'https://www.instagram.com/01148179176/';
+                    message = 'جاري فتح انستجرام للتواصل مع المطور!';
+                    break;
+                case 'paypal':
+                    url = 'https://www.paypal.com/paypalme/mostafefareg3';
+                    message = 'جاري فتح PayPal لإرسال الدعم!';
+                    break;
+            }
+            
+            if (url) {
+                window.open(url, '_blank');
+                showNotification(message);
+                
+                // إغلاق النافذة بعد ثانية
+                setTimeout(function() {
+                    const supportModal = document.getElementById('supportModal');
+                    if (supportModal) {
+                        supportModal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                }, 1000);
+            }
+        }
+
+        // تهيئة عرض الشرائح للهيرو مع التحقق من الصور
+        function initHeroSlideshow() {
+            const slideshowContainer = document.getElementById('heroSlideshow');
+            if (!slideshowContainer) return;
+            
+            let currentSlideIndex = 0;
+            
+            // إنشاء الشرائح مع التحقق من وجود الصور
+            heroImages.forEach((image, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'hero-slide';
+                if (index === 0) {
+                    slide.classList.add('active');
+                }
+                slide.style.backgroundImage = `url('${image}')`;
+                slideshowContainer.appendChild(slide);
+            });
+            
+            // تغيير الشريحة كل 30 ثانية
+            setInterval(() => {
+                const slides = document.querySelectorAll('.hero-slide');
+                if (slides.length === 0) return;
+                
+                slides[currentSlideIndex].classList.remove('active');
+                
+                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+                
+                slides[currentSlideIndex].classList.add('active');
+            }, 30000); // 30 ثانية
+        }
+
+        // تعيين نمط العرض للكروت
+        function setViewMode(mode) {
+            const feedContainer = document.getElementById('feedContainer');
+            const verticalViewBtn = document.getElementById('verticalViewBtn');
+            const gridViewBtn = document.getElementById('gridViewBtn');
+            
+            if (!feedContainer || !verticalViewBtn || !gridViewBtn) return;
+            
+            currentViewMode = mode;
+            
+            // تحديث الأزرار
+            verticalViewBtn.classList.remove('active');
+            gridViewBtn.classList.remove('active');
+            
+            if (mode === 'vertical') {
+                feedContainer.className = 'feed-container vertical-view';
+                verticalViewBtn.classList.add('active');
+            } else {
+                feedContainer.className = 'feed-container grid-view';
+                gridViewBtn.classList.add('active');
+            }
+            
+            // إعادة عرض الكروت
+            renderFeedCards();
+        }
+
+        // باقي الدوال الأساسية مع التحقق من العناصر
+        function toggleNavigationButtons() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (!scrollToTopBtn) return;
+            
+            const scrollPosition = window.pageYOffset;
+            
+            if (scrollPosition > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (scrollToTopBtn) {
+                scrollToTopBtn.classList.add('pulse');
+                setTimeout(() => {
+                    scrollToTopBtn.classList.remove('pulse');
+                }, 1000);
+            }
         }
 
         // نظام التحميل التدريجي
         function renderFeedCards() {
             const feedContainer = document.getElementById('feedContainer');
+            if (!feedContainer) return;
             
             // إزالة زر "عرض المزيد" السابق إذا كان موجوداً
             const existingLoadMore = document.getElementById('loadMoreBtn');
@@ -3044,7 +3244,9 @@
             // التمرير لأسفل قليلاً لرؤية الكروت الجديدة
             setTimeout(() => {
                 const feedContainer = document.getElementById('feedContainer');
-                feedContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                if (feedContainer) {
+                    feedContainer.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }
             }, 300);
         }
 
@@ -3054,9 +3256,10 @@
             renderFeedCards();
         }
 
-        // باقي الدوال الأساسية تبقى كما هي
+        // تهيئة الهاشتاجات
         function initHashtags() {
             const hashtagsContainer = document.getElementById('hashtagsContainer');
+            if (!hashtagsContainer) return;
             
             hashtags.forEach(hashtag => {
                 const hashtagBtn = document.createElement('button');
@@ -3080,6 +3283,7 @@
             });
         }
 
+        // إعداد زر الهدايا
         function setupGiftButton() {
             setInterval(() => {
                 if (Math.random() < 0.3) {
@@ -3094,6 +3298,8 @@
             floatingText.textContent = 'اربح جوائز الآن!';
             
             const giftBtn = document.getElementById('giftBtn');
+            if (!giftBtn) return;
+            
             const rect = giftBtn.getBoundingClientRect();
             
             const randomX = rect.left + (Math.random() * 100 - 50);
@@ -3136,8 +3342,10 @@
             }, 3000);
         }
 
+        // البحث
         function performSearch(query) {
             const searchResults = document.getElementById('searchResults');
+            if (!searchResults) return;
             
             if (!query.trim()) {
                 searchResults.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">اكتب كلمة للبحث...</p>';
@@ -3161,6 +3369,7 @@
 
         function displaySearchResults(results) {
             const searchResults = document.getElementById('searchResults');
+            if (!searchResults) return;
             
             if (results.length === 0) {
                 searchResults.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 20px;">لا توجد نتائج للبحث</p>';
@@ -3186,7 +3395,10 @@
                 
                 resultItem.addEventListener('click', function() {
                     openPromptModal(card.title, card.prompt);
-                    document.getElementById('searchModal').style.display = 'none';
+                    const searchModal = document.getElementById('searchModal');
+                    if (searchModal) {
+                        searchModal.style.display = 'none';
+                    }
                     document.body.style.overflow = 'auto';
                     
                     if (!viewedCards.has(card.id.toString())) {
@@ -3199,6 +3411,7 @@
             });
         }
 
+        // تحديث عدد الشرائح المعروضة
         function updateSlidesPerView() {
             const width = window.innerWidth;
             
@@ -3211,53 +3424,14 @@
             }
         }
 
-        function toggleNavigationButtons() {
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            const scrollToBottomBtn = document.getElementById('scrollToBottom');
-            const scrollPosition = window.pageYOffset;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            
-            if (scrollPosition > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
-            
-            if (scrollPosition + windowHeight < documentHeight - 100) {
-                scrollToBottomBtn.classList.add('show');
-            } else {
-                scrollToBottomBtn.classList.remove('show');
-            }
-        }
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            scrollToTopBtn.classList.add('pulse');
-            setTimeout(() => {
-                scrollToTopBtn.classList.remove('pulse');
-            }, 1000);
-        }
-
-        function scrollToBottom() {
-            window.scrollTo({
-                top: document.documentElement.scrollHeight,
-                behavior: 'smooth'
-            });
-            
-            const scrollToBottomBtn = document.getElementById('scrollToBottom');
-            scrollToBottomBtn.classList.add('pulse');
-            setTimeout(() => {
-                scrollToBottomBtn.classList.remove('pulse');
-            }, 1000);
-        }
-
+        // تحميل وعرض البطاقات
         function loadAndDisplayCards() {
+            // تأكد من وجود البيانات
+            if (typeof boysCardsData === 'undefined' || typeof girlsCardsData === 'undefined') {
+                console.error('بيانات البطاقات غير محملة');
+                return;
+            }
+            
             allCards = [...boysCardsData, ...girlsCardsData];
             
             allCards.forEach(card => {
@@ -3370,43 +3544,53 @@
             const geminiBtn = feedItem.querySelector('.gemini');
             const shareBtn = feedItem.querySelector('.share-btn');
             
-            favoriteBtn.addEventListener('click', function() {
-                toggleFavorite(card.id, favoriteBtn);
-            });
+            if (favoriteBtn) {
+                favoriteBtn.addEventListener('click', function() {
+                    toggleFavorite(card.id, favoriteBtn);
+                });
+            }
             
-            viewPromptBtn.addEventListener('click', function() {
-                if (!viewedCards.has(card.id.toString())) {
-                    viewedCards.add(card.id.toString());
-                    saveViewedCardsToLocalStorage();
-                    
-                    const newBadge = feedItem.querySelector('.new-badge');
-                    if (newBadge) {
-                        newBadge.remove();
+            if (viewPromptBtn) {
+                viewPromptBtn.addEventListener('click', function() {
+                    if (!viewedCards.has(card.id.toString())) {
+                        viewedCards.add(card.id.toString());
+                        saveViewedCardsToLocalStorage();
+                        
+                        const newBadge = feedItem.querySelector('.new-badge');
+                        if (newBadge) {
+                            newBadge.remove();
+                        }
                     }
-                }
-                
-                openPromptModal(card.title, card.prompt);
-            });
+                    
+                    openPromptModal(card.title, card.prompt);
+                });
+            }
             
-            copyBtn.addEventListener('click', function() {
-                navigator.clipboard.writeText(card.prompt)
-                    .then(() => {
-                        showNotification('تم نسخ البرومبت بنجاح!');
-                    })
-                    .catch(err => {
-                        console.error('فشل في نسخ النص: ', err);
-                        showNotification('فشل في نسخ البرومبت!', 'error');
-                    });
-            });
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    navigator.clipboard.writeText(card.prompt)
+                        .then(() => {
+                            showNotification('تم نسخ البرومبت بنجاح!');
+                        })
+                        .catch(err => {
+                            console.error('فشل في نسخ النص: ', err);
+                            showNotification('فشل في نسخ البرومبت!', 'error');
+                        });
+                });
+            }
             
-            geminiBtn.addEventListener('click', function() {
-                window.open('https://gemini.google.com', '_blank');
-                showNotification('تم فتح Gemini في نافذة جديدة!');
-            });
+            if (geminiBtn) {
+                geminiBtn.addEventListener('click', function() {
+                    window.open('https://gemini.google.com', '_blank');
+                    showNotification('تم فتح Gemini في نافذة جديدة!');
+                });
+            }
             
-            shareBtn.addEventListener('click', function() {
-                openShareModal(card);
-            });
+            if (shareBtn) {
+                shareBtn.addEventListener('click', function() {
+                    openShareModal(card);
+                });
+            }
             
             return feedItem;
         }
@@ -3414,6 +3598,8 @@
         function openShareModal(card) {
             const shareModal = document.getElementById('shareModal');
             const shareUrlInput = document.getElementById('shareUrlInput');
+            
+            if (!shareModal || !shareUrlInput) return;
             
             const shareUrl = `${window.location.origin}${window.location.pathname}?card=${card.id}`;
             const shareText = `🔥 ${card.title}\n\n${card.description}\n\nجرب هذا البرومبت الرائع على Gemini Prompts!`;
@@ -3430,6 +3616,8 @@
 
         function handleShare(platform) {
             const shareModal = document.getElementById('shareModal');
+            if (!shareModal) return;
+            
             const shareUrl = shareModal.getAttribute('data-share-url');
             const shareText = shareModal.getAttribute('data-share-text');
             const shareTitle = shareModal.getAttribute('data-share-title');
@@ -3481,6 +3669,8 @@
             const modalTitle = document.getElementById('modalTitle');
             const promptText = document.getElementById('promptText');
             
+            if (!promptModal || !modalTitle || !promptText) return;
+            
             modalTitle.textContent = title;
             promptText.textContent = prompt;
             
@@ -3490,6 +3680,8 @@
 
         function copyPrompt() {
             const promptText = document.getElementById('promptText');
+            if (!promptText) return;
+            
             const textToCopy = promptText.textContent;
             
             navigator.clipboard.writeText(textToCopy).then(() => {
@@ -3518,13 +3710,17 @@
         }
 
         function updateFavoriteButton(button, isFavorite) {
+            if (!button) return;
+            
             const icon = button.querySelector('i');
-            if (isFavorite) {
-                icon.className = 'fas fa-heart';
-                button.classList.add('active');
-            } else {
-                icon.className = 'far fa-heart';
-                button.classList.remove('active');
+            if (icon) {
+                if (isFavorite) {
+                    icon.className = 'fas fa-heart';
+                    button.classList.add('active');
+                } else {
+                    icon.className = 'far fa-heart';
+                    button.classList.remove('active');
+                }
             }
         }
 
@@ -3534,13 +3730,15 @@
             const prevSlideBtn = document.getElementById('prevSlide');
             const nextSlideBtn = document.getElementById('nextSlide');
             
+            if (!favoritesTrack || !emptyFavorites) return;
+            
             favoritesTrack.innerHTML = '';
             
             if (userFavorites.size === 0) {
                 emptyFavorites.classList.remove('hidden');
                 favoritesTrack.classList.add('hidden');
-                prevSlideBtn.disabled = true;
-                nextSlideBtn.disabled = true;
+                if (prevSlideBtn) prevSlideBtn.disabled = true;
+                if (nextSlideBtn) nextSlideBtn.disabled = true;
                 return;
             }
             
@@ -3593,20 +3791,24 @@
             const copyBtn = element.querySelector('.favorite-copy-btn');
             const removeBtn = element.querySelector('.favorite-remove-btn');
             
-            copyBtn.addEventListener('click', function() {
-                navigator.clipboard.writeText(favorite.prompt)
-                    .then(() => {
-                        showNotification('تم نسخ البرومبت بنجاح!');
-                    })
-                    .catch(err => {
-                        console.error('فشل في نسخ النص: ', err);
-                        showNotification('فشل في نسخ البرومبت!', 'error');
-                    });
-            });
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    navigator.clipboard.writeText(favorite.prompt)
+                        .then(() => {
+                            showNotification('تم نسخ البرومبت بنجاح!');
+                        })
+                        .catch(err => {
+                            console.error('فشل في نسخ النص: ', err);
+                            showNotification('فشل في نسخ البرومبت!', 'error');
+                        });
+                });
+            }
             
-            removeBtn.addEventListener('click', function() {
-                removeFromFavorites(favorite.id, element);
-            });
+            if (removeBtn) {
+                removeBtn.addEventListener('click', function() {
+                    removeFromFavorites(favorite.id, element);
+                });
+            }
             
             return element;
         }
@@ -3621,10 +3823,13 @@
             updateAllFavoriteButtons();
             
             const favoritesTrack = document.getElementById('favoritesTrack');
-            if (favoritesTrack.children.length === 0) {
-                const emptyFavorites = document.getElementById('emptyFavorites');
-                emptyFavorites.classList.remove('hidden');
-                favoritesTrack.classList.add('hidden');
+            const emptyFavorites = document.getElementById('emptyFavorites');
+            
+            if (favoritesTrack && favoritesTrack.children.length === 0) {
+                if (emptyFavorites) {
+                    emptyFavorites.classList.remove('hidden');
+                    favoritesTrack.classList.add('hidden');
+                }
             } else {
                 updateSliderPosition();
                 updateSliderButtons();
@@ -3642,6 +3847,8 @@
 
         function navigateSlider(direction) {
             const favoritesTrack = document.getElementById('favoritesTrack');
+            if (!favoritesTrack) return;
+            
             const slides = favoritesTrack.children;
             const totalSlides = slides.length;
             
@@ -3657,6 +3864,8 @@
 
         function updateSliderPosition() {
             const favoritesTrack = document.getElementById('favoritesTrack');
+            if (!favoritesTrack) return;
+            
             const slideWidth = favoritesTrack.children[0]?.offsetWidth + 30;
             
             if (slideWidth) {
@@ -3666,10 +3875,13 @@
 
         function updateSliderButtons() {
             const favoritesTrack = document.getElementById('favoritesTrack');
-            const slides = favoritesTrack.children;
-            const totalSlides = slides.length;
             const prevSlideBtn = document.getElementById('prevSlide');
             const nextSlideBtn = document.getElementById('nextSlide');
+            
+            if (!favoritesTrack || !prevSlideBtn || !nextSlideBtn) return;
+            
+            const slides = favoritesTrack.children;
+            const totalSlides = slides.length;
             
             prevSlideBtn.disabled = currentSlide === 0;
             nextSlideBtn.disabled = currentSlide >= Math.max(0, totalSlides - slidesPerView);
@@ -3677,6 +3889,8 @@
 
         function showNotification(message, type = 'success') {
             const notification = document.getElementById('notification');
+            if (!notification) return;
+            
             notification.textContent = message;
             notification.style.display = 'block';
             
@@ -3695,134 +3909,6 @@
             }, 3000);
         }
 
-        // قسم التخصيص الجديد
-        function initCustomizationSection() {
-            const clothingSelect = document.getElementById('clothingSelect');
-            const backgroundTypeSelect = document.getElementById('backgroundTypeSelect');
-            const solidBackgroundGroup = document.getElementById('solidBackgroundGroup');
-            const natureBackgroundGroup = document.getElementById('natureBackgroundGroup');
-            const indoorBackgroundGroup = document.getElementById('indoorBackgroundGroup');
-            const copyCustomPrompt = document.getElementById('copyCustomPrompt');
-            
-            // إظهار/إخفاء خيارات الخلفية الفرعية
-            backgroundTypeSelect.addEventListener('change', function() {
-                solidBackgroundGroup.style.display = 'none';
-                natureBackgroundGroup.style.display = 'none';
-                indoorBackgroundGroup.style.display = 'none';
-                
-                if (this.value === 'solid') {
-                    solidBackgroundGroup.style.display = 'block';
-                } else if (this.value === 'nature') {
-                    natureBackgroundGroup.style.display = 'block';
-                } else if (this.value === 'indoor') {
-                    indoorBackgroundGroup.style.display = 'block';
-                }
-                
-                generateCustomizationPreview();
-            });
-            
-            // تحديث المعاينة عند تغيير أي اختيار
-            clothingSelect.addEventListener('change', generateCustomizationPreview);
-            document.getElementById('solidColorSelect').addEventListener('change', generateCustomizationPreview);
-            document.getElementById('natureBackgroundSelect').addEventListener('change', generateCustomizationPreview);
-            document.getElementById('indoorBackgroundSelect').addEventListener('change', generateCustomizationPreview);
-            
-            // نسخ البرومبت المخصص
-            copyCustomPrompt.addEventListener('click', function() {
-                const promptText = document.getElementById('generatedPrompt').textContent;
-                if (promptText) {
-                    navigator.clipboard.writeText(promptText)
-                        .then(() => {
-                            showNotification('تم نسخ البرومبت المخصص بنجاح!');
-                        })
-                        .catch(err => {
-                            console.error('فشل في نسخ النص: ', err);
-                            showNotification('فشل في نسخ البرومبت!', 'error');
-                        });
-                }
-            });
-        }
-
-        function generateCustomizationPreview() {
-            const clothing = document.getElementById('clothingSelect').value;
-            const backgroundType = document.getElementById('backgroundTypeSelect').value;
-            const previewSection = document.getElementById('previewSection');
-            const resultSection = document.getElementById('resultSection');
-            const previewGrid = document.getElementById('previewGrid');
-            const generatedPrompt = document.getElementById('generatedPrompt');
-            
-            // إخفاء الأقسام إذا لم يتم اختيار كل شيء
-            if (!clothing || !backgroundType) {
-                previewSection.style.display = 'none';
-                resultSection.style.display = 'none';
-                return;
-            }
-            
-            const clothingData = customizationData.clothing[clothing];
-            if (!clothingData) return;
-            
-            // الحصول على الخلفية المحددة
-            let backgroundValue = '';
-            if (backgroundType === 'solid') {
-                backgroundValue = document.getElementById('solidColorSelect').value;
-            } else if (backgroundType === 'nature') {
-                backgroundValue = document.getElementById('natureBackgroundSelect').value;
-            } else if (backgroundType === 'indoor') {
-                backgroundValue = document.getElementById('indoorBackgroundSelect').value;
-            }
-            
-            // عرض الصور
-            previewGrid.innerHTML = '';
-            
-            const imageData = clothingData.images[backgroundType][backgroundValue];
-            const promptData = clothingData.prompts[backgroundType][backgroundValue];
-            
-            // إنشاء عنصر المعاينة
-            const previewItem = document.createElement('div');
-            previewItem.className = 'preview-item';
-            previewItem.innerHTML = `
-                <img src="${imageData}" alt="${clothingData.name}" class="preview-image" onerror="this.src='https://via.placeholder.com/300x400/6C63FF/FFFFFF?text=${encodeURIComponent(clothingData.name)}'">
-                <div class="preview-overlay">
-                    <div class="preview-info">
-                        <h5>${clothingData.name}</h5>
-                        <p>${getBackgroundName(backgroundType, backgroundValue)}</p>
-                    </div>
-                </div>
-            `;
-            
-            previewGrid.appendChild(previewItem);
-            
-            // عرض البرومبت
-            generatedPrompt.textContent = promptData;
-            
-            // إظهار الأقسام
-            previewSection.style.display = 'block';
-            resultSection.style.display = 'block';
-        }
-
-        function getBackgroundName(type, value) {
-            const names = {
-                solid: {
-                    yellow: 'خلفية صفراء',
-                    blue: 'خلفية زرقاء', 
-                    foggy: 'خلفية ضبابية'
-                },
-                nature: {
-                    forest: 'خلفية غابة',
-                    street: 'خلفية شارع',
-                    ocean: 'خلفية بحر'
-                },
-                indoor: {
-                    apartment: 'داخل شقة',
-                    office: 'على مكتب',
-                    wedding: 'قاعة أفراح',
-                    garden: 'في حديقة'
-                }
-            };
-            
-            return names[type]?.[value] || value;
-        }
-
         // إدارة نافذة الإعلان المنبثقة
         class AdPopupManager {
             constructor() {
@@ -3838,6 +3924,8 @@
             }
             
             init() {
+                if (!this.popup || !this.closeBtn || !this.timerElement) return;
+                
                 this.closeBtn.addEventListener('click', () => this.closePopup());
                 
                 this.popup.addEventListener('click', (e) => {
@@ -3866,7 +3954,7 @@
             }
             
             showPopup() {
-                if (this.adShown) return;
+                if (this.adShown || !this.popup) return;
                 
                 this.adShown = true;
                 this.popup.style.display = 'flex';
@@ -3892,13 +3980,20 @@
             
             enableCloseButton() {
                 clearInterval(this.timerInterval);
-                this.closeBtn.disabled = false;
-                this.timerElement.style.display = 'none';
-                document.querySelector('.ad-note').textContent = 'يمكنك إغلاق النافذة الآن';
+                if (this.closeBtn) {
+                    this.closeBtn.disabled = false;
+                }
+                if (this.timerElement) {
+                    this.timerElement.style.display = 'none';
+                }
+                const adNote = document.querySelector('.ad-note');
+                if (adNote) {
+                    adNote.textContent = 'يمكنك إغلاق النافذة الآن';
+                }
             }
             
             closePopup() {
-                if (this.closeBtn.disabled) return;
+                if (!this.popup || (this.closeBtn && this.closeBtn.disabled)) return;
                 
                 this.popup.style.display = 'none';
                 document.body.style.overflow = 'auto';
@@ -3906,8 +4001,13 @@
                 setTimeout(() => {
                     this.adShown = false;
                     this.buttonClickCount = 0;
-                    this.timerElement.style.display = 'flex';
-                    document.querySelector('.ad-note').textContent = 'إعلان ممول - يمكنك إغلاق النافذة بعد 5 ثوانٍ';
+                    if (this.timerElement) {
+                        this.timerElement.style.display = 'flex';
+                    }
+                    const adNote = document.querySelector('.ad-note');
+                    if (adNote) {
+                        adNote.textContent = 'إعلان ممول - يمكنك إغلاق النافذة بعد 5 ثوانٍ';
+                    }
                 }, 300);
             }
             
@@ -3918,15 +4018,21 @@
             }
         }
 
+        // تحديث عدد الشرائح عند تغيير حجم النافذة
+        window.addEventListener('resize', function() {
+            updateSlidesPerView();
+            updateSliderPosition();
+        });
+
         // التهيئة عند تحميل الصفحة
         document.addEventListener('DOMContentLoaded', function() {
             // تهيئة مدير الإعلانات
             setTimeout(() => {
-                window.adPopupManager = new AdPopupManager();
+                const adPopup = document.getElementById('adPopup');
+                if (adPopup) {
+                    window.adPopupManager = new AdPopupManager();
+                }
             }, 1000);
-
-            // التحقق من ظهور أزرار التنقل
-            toggleNavigationButtons();
         });
 
         function showAdPopup() {
@@ -3940,12 +4046,11 @@
                 window.adPopupManager.reset();
             }
         }
+
     </script>
 
     <!-- ملفات البيانات -->
     <script src="boy.js"></script>
     <script src="girl.js"></script>
-    <script src="custom.js"></script>
 </body>
 </html>
-
