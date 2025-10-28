@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Videos - مشاهدة فيديوهات وربح النقاط</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Tajawal', sans-serif;
+        }
+
+        :root {
+            --primary: #7C3AED;
+            --primary-light: #8B5CF6;
+            --primary-dark: #5B21B6;
+            --secondary: #EC4899;
+            --accent: #F59E0B;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --info: #3B82F6;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+            --glass-light: rgba(255, 255, 255, 0.2);
+            --glass-dark: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.25);
+            --text-light: #FFFFFF;
+            --text-dark: #1F2937;
+            --gradient-primary: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+            --gradient-secondary: linear-gradient(135deg, #EC4899 0%, #F59E0B 100%);
+            --gradient-accent: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+            --gradient-dark: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+            --gradient-gold: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.2);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+            --border-radius-lg: 24px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background: var(--gradient-primary);
+            min-height: 100vh;
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 1.2rem 2rem;
+            border-radius: var(--border-radius-lg);
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .navbar:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .nav-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-brand::before {
+            content: '🎬';
+            font-size: 1.5rem;
+        }
+
+        .nav-user {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-info {
+            background: var(--glass-dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 14px;
+            border: 1px solid var(--glass-border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .user-info:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .user-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .user-points {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+
+        .user-points::before {
+            content: '🪙';
+            font-size: 0.8rem;
+        }
+
+        /* Video Feed */
+        .video-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .video-card {
+            background: var(--glass-light);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-player {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 2rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--primary-light);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        .points-progress {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-gold);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .points-progress::before {
+            content: '⏱️';
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .play-pause-btn {
+            background: var(--glass-light);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+
+        .play-pause-btn:hover {
+            background: var(--primary-light);
+            transform: scale(1.1);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .video-description {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .video-stats {
+            display: flex;
+            gap: 1.5rem;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 1rem;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .stat:hover {
+            color: var(--text-light);
+        }
+
+        .stat.active {
+            color: var(--secondary);
+        }
+
+        .like-btn.active {
+            color: var(--danger);
+        }
+
+        /* Points Notification */
+        .points-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--gradient-gold);
+            color: white;
+            padding: 2rem 3rem;
+            border-radius: var(--border-radius-lg);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow-hover);
+            z-index: 1000;
+            animation: bounceIn 0.5s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        /* Daily Limit */
+        .daily-limit {
+            background: var(--glass-light);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 1.5rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .limit-text {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .limit-progress {
+            width: 100%;
+            height: 10px;
+            background: var(--glass-dark);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .limit-progress-bar {
+            height: 100%;
+            background: var(--gradient-accent);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        .limit-count {
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        /* Ads */
+        .ad-container {
+            background: var(--glass-dark);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            backdrop-filter: blur(10px);
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--glass-border);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background: var(--glass-light);
+            border-color: var(--primary-light);
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            display: none;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-user {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .user-info {
+                width: 100%;
+            }
+
+            .video-container {
+                height: 500px;
+            }
+
+            .video-controls {
+                padding: 1.5rem 1rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar" style="display: none;">
+            <div class="nav-brand">Gemini Videos</div>
+            <div class="nav-user">
+                <div class="user-info">
+                    <div class="user-name" id="userName"></div>
+                    <div class="user-points">النقاط: <span id="userPoints">0</span></div>
+                </div>
+                <a href="index.html" class="btn btn-outline">
+                    <i class="fas fa-home"></i> الرئيسية
+                </a>
+                <button class="btn btn-danger" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> تسجيل خروج
+                </button>
+            </div>
+        </nav>
+
+        <!-- Daily Limit -->
+        <div class="daily-limit" id="dailyLimit" style="display: none;">
+            <div class="limit-text">
+                الحد اليومي لكسب النقاط من الفيديوهات: 
+                <span class="limit-count" id="pointsEarned">0</span> / 50 نقطة
+            </div>
+            <div class="limit-progress">
+                <div class="limit-progress-bar" id="limitProgressBar" style="width: 0%"></div>
+            </div>
+            <div class="limit-text" id="limitMessage">
+                يمكنك كسب 50 نقطة يومياً من مشاهدة الفيديوهات
+            </div>
+        </div>
+
+        <!-- Video Feed -->
+        <div class="video-feed" id="videoFeed">
+            <!-- Videos will be loaded here -->
+        </div>
+
+        <!-- Ad Container -->
+        <div class="ad-container">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '1333b27d45848599574868956a16a6ee',
+                    'format' : 'iframe',
+                    'height' : 300,
+                    'width' : 160,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/1333b27d45848599574868956a16a6ee/invoke.js"></script>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>جاري تحميل الفيديوهات...</p>
+        </div>
+    </div>
+
+    <!-- Firebase Configuration -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCffrRr-wYBeiAf7GML6Xs3kQg-14mLFhQ",
+            authDomain: "prompat-76c51.firebaseapp.com",
+            projectId: "prompat-76c51",
+            storageBucket: "prompat-76c51.firebasestorage.app",
+            messagingSenderId: "663109200073",
+            appId: "1:663109200073:web:9da9a15649a88028b68518",
+            measurementId: "G-HKL1XTBX6H"
+        };
+        
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+    </script>
+
+    <script>
+        // Global variables
+        let currentUser = null;
+        let userData = null;
+        let videos = [];
+        let currentVideoIndex = 0;
+        let videoWatchedToday = 0;
+        let pointsEarnedToday = 0;
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        // Initialize Firebase and auth state listener
+        function initializeApp() {
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    currentUser = user;
+                    await loadUserData();
+                    await loadVideos();
+                    showMainContent();
+                } else {
+                    window.location.href = 'index.html';
+                }
+            });
+        }
+
+        // Load user data
+        async function loadUserData() {
+            if (!currentUser) return;
+
+            const userDoc = await db.collection('users').doc(currentUser.uid).get();
+            if (userDoc.exists) {
+                userData = userDoc.data();
+                updateUI();
+                await calculateDailyPoints();
+            }
+        }
+
+        // Load videos from Firestore
+        async function loadVideos() {
+            showLoading();
+            try {
+                const videosSnapshot = await db.collection('videos')
+                    .where('active', '==', true)
+                    .orderBy('createdAt', 'desc')
+                    .get();
+
+                videos = [];
+                videosSnapshot.forEach(doc => {
+                    const video = doc.data();
+                    video.id = doc.id;
+                    videos.push(video);
+                });
+
+                if (videos.length === 0) {
+                    // Add sample videos if none exist
+                    await createSampleVideos();
+                    await loadVideos();
+                } else {
+                    renderVideos();
+                }
+            } catch (error) {
+                console.error('Error loading videos:', error);
+                showMessage('حدث خطأ في تحميل الفيديوهات', 'error');
+            }
+            hideLoading();
+        }
+
+        // Create sample videos
+        async function createSampleVideos() {
+            const sampleVideos = [
+                {
+                    title: "فيديو تعريفي عن المنصة",
+                    description: "تعرف على كيفية كسب النقاط من خلال مشاهدة الفيديوهات",
+                    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    thumbnail: "https://via.placeholder.com/500x800/7C3AED/FFFFFF?text=Video+1",
+                    duration: 30,
+                    pointsReward: 1,
+                    likes: 24,
+                    views: 150,
+                    active: true,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                },
+                {
+                    title: "نصائح لزيادة النقاط",
+                    description: "اكتشف أفضل الطرق لكسب المزيد من النقاط يومياً",
+                    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    thumbnail: "https://via.placeholder.com/500x800/EC4899/FFFFFF?text=Video+2",
+                    duration: 25,
+                    pointsReward: 1,
+                    likes: 18,
+                    views: 120,
+                    active: true,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                },
+                {
+                    title: "الهدايا والمكافآت",
+                    description: "شاهد لتتعرف على الهدايا القيمة التي يمكنك استبدالها بنقاطك",
+                    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    thumbnail: "https://via.placeholder.com/500x800/F59E0B/FFFFFF?text=Video+3",
+                    duration: 35,
+                    pointsReward: 1,
+                    likes: 32,
+                    views: 200,
+                    active: true,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp()
+                }
+            ];
+
+            for (const video of sampleVideos) {
+                await db.collection('videos').add(video);
+            }
+        }
+
+        // Render videos to the feed
+        function renderVideos() {
+            const videoFeed = document.getElementById('videoFeed');
+            videoFeed.innerHTML = '';
+
+            videos.forEach((video, index) => {
+                const videoCard = createVideoCard(video, index);
+                videoFeed.appendChild(videoCard);
+            });
+        }
+
+        // Create video card HTML
+        function createVideoCard(video, index) {
+            const videoCard = document.createElement('div');
+            videoCard.className = 'video-card';
+            videoCard.innerHTML = `
+                <div class="video-container">
+                    <iframe 
+                        class="video-player"
+                        src="${video.videoUrl}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <div class="video-controls">
+                        <div class="points-progress" id="pointsProgress-${index}">
+                            شاهد 15 ثانية لربح نقطة
+                        </div>
+                        <div class="progress-container" onclick="seekVideo(${index}, event)">
+                            <div class="progress-bar" id="progressBar-${index}"></div>
+                        </div>
+                        <div class="control-buttons">
+                            <button class="play-pause-btn" onclick="togglePlayPause(${index})" id="playPauseBtn-${index}">
+                                <i class="fas fa-pause"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">${video.title}</h3>
+                    <p class="video-description">${video.description}</p>
+                    <div class="video-stats">
+                        <div class="stat like-btn" id="likeBtn-${index}" onclick="toggleLike('${video.id}', ${index})">
+                            <i class="fas fa-heart"></i>
+                            <span id="likeCount-${index}">${video.likes}</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-eye"></i>
+                            <span>${video.views}</span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-gift"></i>
+                            <span>${video.pointsReward} نقطة</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return videoCard;
+        }
+
+        // Toggle play/pause for video
+        function togglePlayPause(index) {
+            const iframe = document.querySelectorAll('.video-player')[index];
+            const btn = document.getElementById(`playPauseBtn-${index}`);
+            
+            try {
+                if (iframe.contentWindow.postMessage) {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                    btn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            } catch (error) {
+                console.error('Error controlling video:', error);
+            }
+        }
+
+        // Calculate daily points earned
+        async function calculateDailyPoints() {
+            if (!currentUser) return;
+
+            const today = new Date().toISOString().split('T')[0];
+            const viewsSnapshot = await db.collection('videoViews')
+                .where('userId', '==', currentUser.uid)
+                .where('date', '==', today)
+                .where('pointsEarned', '==', true)
+                .get();
+
+            pointsEarnedToday = viewsSnapshot.size;
+            updateDailyLimitUI();
+        }
+
+        // Update daily limit UI
+        function updateDailyLimitUI() {
+            document.getElementById('pointsEarned').textContent = pointsEarnedToday;
+            document.getElementById('limitProgressBar').style.width = `${(pointsEarnedToday / 50) * 100}%`;
+            
+            if (pointsEarnedToday >= 50) {
+                document.getElementById('limitMessage').innerHTML = 
+                    '<span style="color: var(--danger)">لقد وصلت للحد اليومي! عد غداً</span>';
+            }
+        }
+
+        // Show main content
+        function showMainContent() {
+            document.getElementById('navbar').style.display = 'flex';
+            document.getElementById('dailyLimit').style.display = 'block';
+        }
+
+        // Show loading
+        function showLoading() {
+            document.getElementById('loading').style.display = 'block';
+        }
+
+        // Hide loading
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        // Logout function
+        async function logout() {
+            showLoading();
+            try {
+                await auth.signOut();
+                window.location.href = 'index.html';
+            } catch (error) {
+                showMessage('حدث خطأ أثناء تسجيل الخروج', 'error');
+            }
+            hideLoading();
+        }
+
+        // Update UI with user data
+        function updateUI() {
+            document.getElementById('userName').textContent = userData.name;
+            document.getElementById('userPoints').textContent = userData.points || 0;
+        }
+
+        // Show message
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'points-notification';
+            messageDiv.style.background = type === 'success' ? 'var(--gradient-accent)' : 'var(--gradient-secondary)';
+            messageDiv.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                ${message}
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                if (messageDiv.parentNode) {
+                    messageDiv.parentNode.removeChild(messageDiv);
+                }
+            }, 3000);
+        }
+
+        // Like/Unlike video
+        async function toggleLike(videoId, index) {
+            if (!currentUser) return;
+
+            const likeBtn = document.getElementById(`likeBtn-${index}`);
+            const likeCount = document.getElementById(`likeCount-${index}`);
+            
+            try {
+                const videoRef = db.collection('videos').doc(videoId);
+                const videoDoc = await videoRef.get();
+                
+                if (videoDoc.exists) {
+                    const videoData = videoDoc.data();
+                    const currentLikes = videoData.likes || 0;
+                    
+                    if (likeBtn.classList.contains('active')) {
+                        // Unlike
+                        await videoRef.update({
+                            likes: currentLikes - 1
+                        });
+                        likeBtn.classList.remove('active');
+                        likeCount.textContent = currentLikes - 1;
+                    } else {
+                        // Like
+                        await videoRef.update({
+                            likes: currentLikes + 1
+                        });
+                        likeBtn.classList.add('active');
+                        likeCount.textContent = currentLikes + 1;
+                    }
+                }
+            } catch (error) {
+                console.error('Error toggling like:', error);
+            }
+        }
+    </script>
+</body>
+</html>
