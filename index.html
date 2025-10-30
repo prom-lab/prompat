@@ -1128,6 +1128,256 @@
         box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* قسم مرمم الصور القديمة */
+.image-restorer-section {
+    padding: 80px 0;
+    background: white;
+    border-radius: 30px;
+    margin: 60px 0;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.image-comparison-container {
+    max-width: 800px;
+    margin: 40px auto;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    cursor: col-resize;
+}
+
+.comparison-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+}
+
+.comparison-before,
+.comparison-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.comparison-before img,
+.comparison-after img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.comparison-after {
+    width: 50%;
+    border-right: 3px solid white;
+}
+
+.comparison-slider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: white;
+    cursor: col-resize;
+    z-index: 10;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.comparison-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.comparison-labels {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.comparison-label {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+.comparison-label.before {
+    background: rgba(108, 99, 255, 0.9);
+}
+
+.comparison-label.after {
+    background: rgba(54, 209, 220, 0.9);
+}
+
+.restorer-prompt-card {
+    background: var(--light);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px auto 0;
+    max-width: 800px;
+    border: 2px solid rgba(108, 99, 255, 0.1);
+}
+
+.restorer-prompt-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.restorer-prompt-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.restorer-prompt-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.restorer-prompt-text {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.6;
+    color: var(--dark);
+    font-size: 0.95rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.restorer-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.restorer-copy-btn,
+.restorer-gemini-btn {
+    flex: 1;
+    min-width: 200px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.restorer-copy-btn {
+    background: var(--gradient);
+    color: white;
+}
+
+.restorer-copy-btn:hover {
+    background: var(--gradient-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
+}
+
+.restorer-gemini-btn {
+    background: #8e44ad;
+    color: white;
+}
+
+.restorer-gemini-btn:hover {
+    background: #7d3c98;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(142, 68, 173, 0.3);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .comparison-wrapper {
+        height: 400px;
+    }
+    
+    .restorer-actions {
+        flex-direction: column;
+    }
+    
+    .restorer-copy-btn,
+    .restorer-gemini-btn {
+        min-width: 100%;
+    }
+    
+    .comparison-labels {
+        padding: 0 10px;
+    }
+    
+    .comparison-label {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .comparison-wrapper {
+        height: 300px;
+    }
+    
+    .comparison-handle {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
     .copy-btn {
         background: var(--gradient);
         color: white;
@@ -2701,6 +2951,74 @@
             </div>
         </div>
     </section>
+
+
+
+
+
+
+
+
+    <!-- قسم مرمم الصور القديمة -->
+<section class="image-restorer-section">
+    <div class="container">
+        <h2 class="section-title">مرمم <span>الصور القديمة</span></h2>
+        
+        <!-- مقارنة الصور -->
+        <div class="image-comparison-container">
+            <div class="comparison-wrapper">
+                <div class="comparison-before">
+                    <img src="rom1.jpg" alt="الصورة القديمة قبل الترميم" onerror="this.src='https://via.placeholder.com/800x500/6C63FF/FFFFFF?text=الصورة+القديمة'">
+                </div>
+                <div class="comparison-after">
+                    <img src="rom2.jpg" alt="الصورة بعد الترميم" onerror="this.src='https://via.placeholder.com/800x500/36D1DC/FFFFFF?text=الصورة+بعد+الترميم'">
+                </div>
+                
+                <div class="comparison-slider">
+                    <div class="comparison-handle">
+                        <i class="fas fa-arrows-left-right"></i>
+                    </div>
+                </div>
+                
+                <div class="comparison-labels">
+                    <div class="comparison-label before">قبل الترميم</div>
+                    <div class="comparison-label after">بعد الترميم</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- كارت البرومبت -->
+        <div class="restorer-prompt-card">
+            <div class="restorer-prompt-header">
+                <div class="restorer-prompt-icon">
+                    <i class="fas fa-magic"></i>
+                </div>
+                <h3 class="restorer-prompt-title">برومبت ترميم الصور</h3>
+            </div>
+            
+            <div class="restorer-prompt-text">
+                Ultra-realistic recreation of an old vintage photo, keeping the
+                same original face (99% likeness, no alteration). Transform into
+                a modern high-quality digital portrait with vibrant updated
+                colors, smooth realistic skin textures, and natural lighting. The
+                outfit and background should be upgraded into a clean, modern
+                aesthetic while preserving the authenticity of the original pose
+                and expression.
+            </div>
+            
+            <div class="restorer-actions">
+                <button class="restorer-copy-btn" id="restorerCopyBtn">
+                    <i class="far fa-copy"></i>
+                    نسخ البرومبت
+                </button>
+                <button class="restorer-gemini-btn" id="restorerGeminiBtn">
+                    <i class="fab fa-google"></i>
+                    الذهاب إلى Gemini
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
     
     <!-- قسم المفضلة - معدل للعمل باللمس -->
     <section class="favorites-section">
@@ -4512,6 +4830,109 @@
                 window.adPopupManager.reset();
             }
         }
+
+
+
+
+
+        // تهيئة مقارنة الصور
+function initImageComparison() {
+    const container = document.querySelector('.image-comparison-container');
+    const slider = document.querySelector('.comparison-slider');
+    const after = document.querySelector('.comparison-after');
+    const handle = document.querySelector('.comparison-handle');
+    
+    if (!container || !slider || !after) return;
+    
+    let isDragging = false;
+    
+    function updateSliderPosition(clientX) {
+        const containerRect = container.getBoundingClientRect();
+        const relativeX = clientX - containerRect.left;
+        const percentage = (relativeX / containerRect.width) * 100;
+        
+        // تحديد الحد الأدنى والحد الأقصى (10% - 90%)
+        const boundedPercentage = Math.max(10, Math.min(90, percentage));
+        
+        after.style.width = `${boundedPercentage}%`;
+        slider.style.left = `${boundedPercentage}%`;
+    }
+    
+    // أحداث الفأرة
+    container.addEventListener('mousedown', function(e) {
+        isDragging = true;
+        container.style.cursor = 'col-resize';
+        updateSliderPosition(e.clientX);
+    });
+    
+    document.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        updateSliderPosition(e.clientX);
+    });
+    
+    document.addEventListener('mouseup', function() {
+        isDragging = false;
+        container.style.cursor = 'col-resize';
+    });
+    
+    // أحداث اللمس
+    container.addEventListener('touchstart', function(e) {
+        isDragging = true;
+        updateSliderPosition(e.touches[0].clientX);
+    });
+    
+    document.addEventListener('touchmove', function(e) {
+        if (!isDragging) return;
+        updateSliderPosition(e.touches[0].clientX);
+    });
+    
+    document.addEventListener('touchend', function() {
+        isDragging = false;
+    });
+    
+    // النقر على المقبض
+    handle.addEventListener('mousedown', function(e) {
+        e.stopPropagation();
+    });
+    
+    handle.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+    });
+}
+
+// نسخ برومبت ترميم الصور
+function setupRestorerButtons() {
+    const copyBtn = document.getElementById('restorerCopyBtn');
+    const geminiBtn = document.getElementById('restorerGeminiBtn');
+    
+    const restorerPrompt = `Ultra-realistic recreation of an old vintage photo, keeping the same original face (99% likeness, no alteration). Transform into a modern high-quality digital portrait with vibrant updated colors, smooth realistic skin textures, and natural lighting. The outfit and background should be upgraded into a clean, modern aesthetic while preserving the authenticity of the original pose and expression.`;
+    
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(restorerPrompt)
+                .then(() => {
+                    showNotification('تم نسخ برومبت ترميم الصور بنجاح!');
+                })
+                .catch(err => {
+                    console.error('فشل في نسخ النص: ', err);
+                    showNotification('فشل في نسخ البرومبت!', 'error');
+                });
+        });
+    }
+    
+    if (geminiBtn) {
+        geminiBtn.addEventListener('click', function() {
+            window.open('https://gemini.google.com', '_blank');
+            showNotification('تم فتح Gemini في نافذة جديدة!');
+        });
+    }
+}
+
+// استدعاء الدوال عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    initImageComparison();
+    setupRestorerButtons();
+});
 
     </script>
 
