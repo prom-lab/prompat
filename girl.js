@@ -386,7 +386,7 @@
                 id: 27,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy27.jpg",
+                image: "girl27.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A candid photo of a woman surrounded by paparazzi, using the provided image as a face reference - the same features, the same eyes, the same hair, the same face, 100% original. She is wearing an oversized black blazer over a modest yet chic black top, giving the look an elegant and luxurious vibe. The shot captures her in the middle of the paparazzi crowd, with cameras and photographers visible in the foreground to enhance the candid effect. Daylight falls from the side, creating a dramatic red- carpet atmosphere. Multiple camera flashes go off around her, adding a sense of glamour, world-class celebrity, and full public attention.",
                 stats: {  uses: 95855 },
@@ -403,7 +403,7 @@
                 id: 28,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy28.jpg",
+                image: "girl28.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Foreground portrait of a young hijabi woman of striking beauty, her face gently resting on her wrists, showing a serene and refined expression. Her makeup is elegant with matte red lips, natural black eyes that match her original features, and well-defined eyebrows. Her luminous skin glows with a warm finish, emphasizing her natural beauty. She is wearing a graceful black hijab styled exactly like in her original photo, paired with a chic all-black outfit that enhances the sophistication of her look. She accessorizes with refined gold jewelry: large round earrings slightly visible under the hijab, delicate rings, and a bracelet of gold pearls. Her hands, posed harmoniously beneath her chin, are adorned with matte black nails, creating a striking balance of elegance and modernity.",
                 stats: {  uses: 95855 },
@@ -420,13 +420,13 @@
                 id: 29,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy29.jpg",
+                image: "girl29.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A portrait of a beautiful young woman holding a large bouquet of vibrant red roses. She poses gracefully, turning slightly over her shoulder, her expression serene and captivating. She wears an elegant black hijab styled smoothly around her face, paired with a luxurious modest gown with long sleeves and a flowing silhouette that enhances her elegance. The background is softly lit with a dramatic circular spotlight, creating depth and a cinematic effect. Her makeup is delicate and refined, with a natural glow and perfectly defined eyes, while her skin appears smooth and radiant. The overall atmosphere is romantic and sophisticated, resembling high-fashion photography with cinematic lighting and a timeless, graceful aura.",
                 stats: {  uses: 95855 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
-                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+                 hashtags: ["", "", "", "عميق", "ورد", "فتاة", ""]
 
             },
 
@@ -437,7 +437,7 @@
                 id: 30,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy30.jpg",
+                image: "girl30.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Edit the photo to show a woman standing casually inside a modern-style elevator with reflective metal walls, using my real face exactly as in the reference photo (100% original features, same eyes, same gaze, same face). She is wearing an all- black outfit styled for a hijabi girl: a sleek black suit jacket with matching black trousers, paired with a modest black hijab. She also wears dark sunglasses and holds a takeaway coffee cup in one hand. The style is elegant and edgy, with a mysterious vibe. Dim lighting from neon lights on the ceiling creates soft shadows, enhancing the cinematic and modern atmosphere.",
                 stats: {  uses: 95855 },
@@ -453,7 +453,7 @@
                 id: 31,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy31.jpg",
+                image: "girl31.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Edit foto dengan make up arabic dan memakai abaya hitam panjang, hijab hitam seperti tertiup angin memakai sorban arabian di kepala, jangan ubah wajah, berikan sedikit efek cahaya matahari di tengah gurun pasir. Dengan gaya kepala bersender ke kuda.",
                 stats: {  uses: 95855 },
@@ -470,7 +470,7 @@
                 id: 32,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy32.jpg",
+                image: "girl32.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Make me look like i'm on a beach where its dark but someone took my picture from a flash and face is a bit glittery and glowing. In the background add the sunset like the sun has 98% set leaving purple red sky and its almost dark. The image is taken from behind my back and i ve been told to turn for the picture. I'm wearing a white dress and flower in my cute",
                 stats: {  uses: 95855 },
@@ -487,7 +487,7 @@
                 id: 33,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy33.jpg",
+                image: "girl33.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A close and emotional moment between the woman from the uploaded photo and a real horse with shiny white fur, taking place on a summer beach. The woman's face is turned toward the camera, her hand resting gently, showing a deep sense of connection and empathy with the horse. She is wearing a hijab, and on her hand she has a Shahmaran accessory. She also holds a small flower that matches the color of her shawl. The lighting is soft and cinematic, close to sunset, creating a warm and poetic atmosphere. The photo should look bright, smooth, and realistic, in large format.",
                 stats: {  uses: 95855 },
@@ -505,7 +505,7 @@
                 id: 34,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy34.jpg",
+                image: "girl34.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Edit to a young woman with my real face preserved exactly as in the reference photo (100% original look, same eyes, same facial features, no changes). She is wearing a loose white and blue baseball jersey with the number '22' on the back, modest-style pants, and simple shoes. She sits alone on the edge of a pool diving board (designed to resemble a white surfboard) that juts out far above the wavy dark blue ocean. Her pose shows both hands resting on the board with a straight back, while she slightly turns her head to the right and looks upward, as if gazing at the sky. The perspective is taken from a slightly higher angle, highlighting the vastness of the ocean and the serene atmosphere. The sky is not visible; the focus remains entirely on the woman and the water. The overall image is cinematic, smooth, and hyperrealistic.",
                 stats: {  uses: 95855 },
@@ -521,7 +521,7 @@
                 id: 35,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy35.jpg",
+                image: "girl35.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Create a stunning ultra-realistic edit of me in Turkey, preserving my real face exactly as in the reference photo (100% original look, same eyes, same gaze, same features). The scene is set in Istanbul, shot in 4K HD, with me standing gracefully on a rooftop overlooking the city. I am wearing a long, flowing hot-pink dress styled for a hijabi woman, paired with my own matching hijab. The fabric of the dress spreads dramatically and beautifully in the wind, creating a cinematic and majestic effect. Around me, pure white pigeons are flying, adding a dreamy and ethereal atmosphere to the composition. The background should show Istanbul's skyline in high detail - domes, minarets, and rooftops - with a magical and enchanting vibe, blending soft golden light with a slightly cinematic tone. The overall mood is elegant, powerful, and dreamlike, capturing both the beauty of the city and my presence as the entral focus.",
                 stats: {  uses: 95855 },
@@ -539,7 +539,7 @@
                 id: 36,
                 title: "  فتاة ",
                 category: "بنات", 
-                image: "boy36.jpg",
+                image: "girl36.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Potret studio hitam putih ultra realistis, vertikal 9:16. Seorang anak muda bergaya duduk di kursi lipat sederhana, men- genakan blazer hitam oversized, kemeja hitam, rok pan- jang, dan sneakers tebal. Pose santai, kaki bersilang, satu tangan bertumpu di kursi, memakai kacamata hitam, ek- spresi percaya diri. Latar belakang studio polos berwarna putih dengan pencahayaan studio lembut, bayangan halus jatuh di lantai sebelah kanan. Di sekitar subjek, ilustrasi doodle graffiti gambar tangan berwarna hitam, putih, dan oranye: kilat, garis zigzag, pusaran, panah, dan kata-kata motivasi: PURPOSE, CREATE YOUR PATH, FAITH BEAT, UNIQUE. Desain kontras tinggi, subjek monokrom bersih dengan sorotan doodle cerah. Ganti wajah dengan foto yang diunggah, detail wajah, dan aksesori konsisten.",
                 stats: {  uses: 95855 },
@@ -548,6 +548,467 @@
                  hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
 
             },
+
+
+
+
+             {
+                id: 37,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl37.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Create a cinematic, highly realistic image of me - a young woman wearing a modern, elegant hijab that matches my formal outfit - sitting across from Cristiano Ronaldo at a luxurious chess table. We are both dressed in formal wear: I am wearing a stylish, dark-toned suit with a perfectly coordinated, soft-colored hijab (such as muted beige, smoky grey, or deep navy), while Cristiano is dressed in a sharp, black tailored suit. Between us is a luxurious, transparent crystal-glass chessboard with elegant chess pieces. The scene is set in a classy, dimly lit room with moody cinematic lighting focused on the table and our faces, casting soft shadows. We both have serious, focused expressions, as if we are deeply engaged in a strategic match. The background is blurred with a soft depth-of field effect, adding elegance and mystery to the moment. Keep the overall tone dramatic, powerful, and cinematic. Do not alter my facial features if a photo is uploaded",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+            {
+                id: 38,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl38.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Create a hyper-realistic cinematic image of me - a young woman wearing a modern, elegant hijab that matches my smart outfit - sitting next to Albert Einstein at a vintage wooden desk filled with scattered papers, books, and chalkboards with physics formulas. I'm wearing a stylish yet modest academic outfit with a hijab in a soft, neutral color (like beige or muted olive). Einstein appears thoughtful, holding a chalk or pen, while I'm engaging with him in deep conversation, pointing at a formula or discussing an idea. The atmosphere is intellectual and cinematic, with warm lighting and dramatic shadows. Background includes bookshelves and old scientific instruments. The image should feel like a historic moment captured in modern style. Keep my face unchanged if a photo is uploaded.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+            {
+                id: 39,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl39.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A hyperrealistic, ultra-detailed full-shot photograph taken with an iPhone 17 Pro Max back camera, featuring a beautiful young woman standing in what appears to be a classical art museum or grand hall. The woman, who has East Asian features, has voluminous, dark brown hair styled in soft, elegant waves that cascade over her shoulders. She is looking slightly upwards and to her right, with a serene and composed expression, her lips slightly parted. She is dressed in a chic, fashion-forward ensemble. She wears a crisp white off-the-shoulder shirt or blouse with long sleeves, over which a black structured corset or bustier is layered. Around her neck, she wears a multi-strand pearl necklace, adding a touch of classic elegance. Her makeup is refined, with defined brows, subtle eyeliner, and a neutral-pink lipstick. Her fingernails are painted red. She is leaning gently against a stone or marble balustrade with ornate carvings, which frames the foreground. The background reveals an opulent interior with dark wooden paneling, classical architectural details, and several framed oil paintings hanging on the walls. These paintings appear to depict historical or mythological scenes in a classical style with rich, dark colors. In the center background, there's a grand wooden doorway. The floor is a distinctive black and white checkered pattern, adding to the sophisticated atmosphere. The lighting is soft and ambient, highlighting her features and the textures of her clothing and the surrounding architecture, contributing to the hyper-realistic and detailed quality of the image. Use photo reference for facial features.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+            {
+                id: 40,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl40.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Use only the face from the uploaded photo as reference (preserve full facial identity and realism). Create a hyper-realistic cinematic portrait of a woman from the 1930s era, photographed with a DSLR 50mm f/1.8 lens, soft film lighting, vintage tone, and ultra-detailed fabric and skin texture. The style must authentically represent 1930s fashion and atmosphere. Randomize between the following outfit, background, and pose sets: · Outfit: bias-cut satin or silk gown, metallic tone (silver, gold, emerald, ruby), fur stole, pearl or diamond jewelry, soft Marcel-wave hairstyle. · Background: art deco ballroom or luxurious hotel interior with golden lights, polished floor reflections. · Pose: sitting gracefully on a vintage sofa / resting one hand on chin / gazing upward in elegant poise / walking toward camera under spotlight.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+             {
+                id: 41,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl41.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Use facial feature of attached photo. A sophisticated fashion portrait of a woman standing in an open sunlit courtyard surrounded by tall, textured stone walls. She wears an exquisite white couture gown adorned with oversized petal-like appliqués and intricate beadwork that cascade from the bodice to the train. The gown's voluminous texture creates a sculptural, ethereal silhouette, glowing softly under the natural sunlight. The atmosphere is serene and regal, emphasizing elegance, artistry, and minimalism. Her posture exudes quiet confidence and timeless grace, while the neutral stone backdrop contrasts beautifully with the purity and luminosity of the gown. Scale Ratio: 9:16 (vertical orientation for full-body fashion composition) Camera Angle: Slightly low angle to accentuate the gown's volume and elongate the subject's form Focal Length: 85mm Aperture: f/2.5 Shutter Speed: 1/400s ISO: 100 Lighting: Direct natural light with soft diffusion, creating gentle shadows and dimensional highlights Color Tone: Warm neutral tone,soft whites, beige, and golden light reflections for a high-fashion editorial look Focus: Sharp on the subject's upper body and gown texture, with gradual softness toward the stone background Environment: Minimalist architectural courtyard with stone textures and golden sunlight creating a modern yet timeless atmosphere.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+               {
+                id: 42,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl42.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Aesthetic portrait-oriented close-up photo teaturing a young Indonesian woman wearing a dark brown chunky knit sweater with a braided pattern. Strong, warm light illuminates from the left side. The focus is sharp on the woman's face and upper body, with a shallow depth of field. Flawless, pale porcelain-like skin. The background is dominated by a dark grey room corner with large, wide-leafed plants (like indoor houseplants) on the left and right, with dim, dramatic lighting, possibly natural light coming from above, highlighting parts of the leaves and contrasting with the surrounding darkness. Sharp focus on the subject, with a soft depth of field. Style: Aesthetic, vintage, moody, cinematic. Subtle rim lighting on hair and body, distinct shadows on the wall, sunset/late afternoon atmosphere. Style/Aesthetics: An aesthetic candid portrait with a soft dark sepia or monochrome color tone, sharp focus, shallow depth of field (bokeh), very high image quality, smooth skin texture (airbrushed/porcelain skin), high detail. With warm dark brown nail art and several rings on her fingers. Composition: Close-up portrait of the woman occupying the right side, with her body angled sideways to the left. With a dark brown plastic cup with a black lid held close to her face.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+
+
+
+
+               {
+                id: 44,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl44.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Edit foto saya menggunakan Pakaian: Hijab/Jilbab: Wanita tersebut mengenakan hijab/jilbab berwarna hitam dengan gaya yang menutupi leher. Atasan: Mengenakan kaos lengan pendek berwarna hitam yang memiliki motif beberapa hati berwarna putih di bagian dada. Terdapat tulisan kecil di bawah motif hati, yang sebagiannya terbaca calistern. Di luarnya, ia mengenakan outer atau kardigan/jaket rajut berlengan panjang berwarna hitam. Kardigan tersebut memiliki detail",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+             {
+                id: 45,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl45.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Kemiripan wajah 100% sama dengan foto yang terlampir,Pertahankan wajah asli jangan merubah bentuk wajah,potret close-up seorang wanita berhijab marun dengan mata abu-abu muda, yang disinari cahaya matahari keemasan secara dramatis oleh sumber cahaya terarah yang kuat, menciptakan bayangan jelas di wajah , ia memakai kalung liontin bintang menggunakan baju kekinian lengan panjang berwarna merah maroon, ia menoleh ke arah kamera dengan wajah misterius, Riasan matanya mencolok, termasuk eyeliner bersayap,.++ Suasananya intens dan artistik, dengan interaksi cahaya dan bayangan. Sekali lagi pertahankan wajah asli jangan merubah bentuk wajah",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+             {
+                id: 46,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl46.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "pease take a photo of this face. don't alter my face significantly. the style should be grunge-style analog photos from around 2025. the setting is in seoul, korea with a supercar. she wears natural makeup and pink lipgloss. she seated in the passenger seat of a car, facing forward. her legs are crossed at the ankles, with her left leg resting on top of her right. her knees are bent and her feet, wearing sneakers, are visible. she is leaning back slightly at the seat looking forward. the woman is wearing black hijab. her hair is completely covered by the shawl. a black hoodie, black baggy jeans, and black-white nike air jordan low shoes, see the body proportions from the inside the car. the body proportions are 3/4 of the image.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "سيارات", "فتاة", ""]
+
+            },
+
+
+
+
+
+             {
+                id: 47,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl47.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Edit foto ini tanpa merubah wajah asli, seorang wanita berhijab yang mengenakan pakaian serba hitam, berpose di depan sebuah bangunan dengan dinding batu abu-abu. Wanita itu mengenakan hijab putih, jaket denim hitam dengan resleting putih, celana panjang hitam, dan sepatu flat lancip berwarna putih. Dia juga memakai kacamata bulat hitam bingkai gold tipis dan membawa tas tangan hitam resleting aksen mutiara kecil. ia memiliki pinggang tinggi. memakai cincin mutiara. Di sekitarnya terdapat meja dan kursi berwarna hitam yang ditata di luar ruangan. Latar belakang menunjukkan jendela dengan tirai horizontal dan pepohonan di kejauhan",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+             {
+                id: 48,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl48.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A stylish young woman (do not change her face) standing in front of a café entrance with glass doors framed in wood. She wears a loose oversized light blue denim shirt with large chest pockets, half-tucked into high-waisted wide-leg light blue jeans. Her black hijab is neatly wrapped, and she wears dark sunglasses. She carries a small dark brown woven leather handbag, holding it with one hand while the other rests in her pocket. She accessorizes with a Cartier gold bracelet, a delicate minimalis",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+
+
+             {
+                id: 49,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl49.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic 8K HDR indoor portrait of a beautiful young woman [use my exact same face 100% identical, no alternate face), standing gracefully beside a white wall and window with soft natural daylight coming in. She is wearing a flowing pastel deep Yellow anarkali suit made of chiffon fabric, with sheer full sleeves and delicate embroidery on the cuffs with Matching button. A heavily embroidered pastel floral dupatta with silver and lavender threadwork drapes elegantly over one shoulder.She",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+
+
+             {
+                id: 50,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl50.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Create an image me. Copy her facial featured. A dreamy studio photoshoot of a woman in a pink layered chiffon long dress with white heels boots, long wavy hair decorated with many pink butterflies. She is sitted kneeling and holding a one-tier pastel pink birthday cake decorated with long spiral lit candles, butterflies and pearl garlands. The background is full pastel pink with floating pink small balloons with some big balloons on white strings. Soft studio lighting, high-resolution, feminine and elegant aesthetic, pastel color palette.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عيد ميلاد", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+
+
+
+             {
+                id: 51,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl51.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A whimsical and playful studio portrait of a young Asian woman (from uploaded image) with dark hair styled in soft waves, wearing an oversized, light mint green suit. She has a delicate small crown perched on her head and a Birthday Queen sash draped elegantly across her chest. She holds a bouquet of yellow tulips and wildflowers in one hand, and with the other, she holds up a simple white picture frame around herself. She's winking at the camera with a confident, charming smile. From the bottom left, a disembodied hand offers her a small white cake topped with strawberries and cream. Tiny blue confetti is scattered in the air. The background is a solid, bright sky blue. Playful, celebratory, high-fashion studio photography, high key lighting, ultra-realistic.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عيد ميلاد", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+
+
+             {
+                id: 52,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl52.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Beautiful young woman (used uploaded photo refernce) in a glamorous purple dress, wearing a sparkling tiara, sitting at a decorated party table with a cute layered birthday cake with number 25 candle. Surrounded by balloons, flowers, and a picnic basket, spotlight shining down on her, confetti falling from above, dreamy pastel purple background, cinematic lighting, soft glow, elegant and playful mood, high detail, ultra realistic, 8K portrait photography.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عيد ميلاد", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+
+             {
+                id: 53,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl53.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Creating a portrait from originals. In a luxurious birthday photo studio. Elegant. Wearing a long, fluffy, elegant pastel pink dress. Driving the look sweet and luxurious. Long, wavy hair. Smooth, glossy, elegant down-the-shoulder. Natural yet luxurious makeup. Smooth, clear complexion with a slight glow. Sultry pink cheek. Glossy, pink- toned lips. Eye area decorated with thin eyeliner and fluffy lashes. She is holding a red and white strawberry cake. Embroidery on top. Lighted up 25 gold number. Posing a little about to blow the cake. The background is a big white round spot light shining her shadows and the cake drops on the wall creating a classy, elegant atmosphere.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عيد ميلاد", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+            
+               {
+                id: 54,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl54.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Preserve the subject's original facial features. No airbrushing. Photorealistic studio shot of a young woman surrounded by pink balloons and confetti. She wears a hot-pink puff-sleeve dress. Makeup is playful with rosy blush, glitter eyelids, and pink gloss. Her hair is in a high ponytail with a pink ribbon tied around it. She's mid- laugh looking at the camera, safety_bounds : do not change face geometry or identity.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عيد ميلاد", "فتاة", ""]
+
+            },
+
+
+
+
+
+             {
+                id: 55,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl55.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A realistic close selfie of the same woman (do not change her exact facial features or identity), holding a large pink lily flower gently touching her face. She is wearing a dark brown hijab and a matching dark brown dress with sheer sleeves decorated with delicate rhinestone trims. Her makeup is soft and elegant, with glowing skin and natural lips with lip gloss. The warm soft light highlights her face and her light brown eyes, making the selfie dreamy, natural, and highly detailed.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "ورد", "فتاة", ""]
+
+            },
+
+
+
+
+
+             {
+                id: 56,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl56.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A dreamy close-up portrait of a young woman seen through a car window, soft natural sunlight casting warm highlights on her face. Gentle reflections on the glass create a hazy, cinematic effect. Warm pastel tones, golden hour lighting, film-like texture, shallow depth of field. The mood feels intimate, nostalgic, and tender, with a soft dreamy atmosphere.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+             {
+                id: 57,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl57.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Elegant woman in tailored brown coat and black turtleneck, standing against a glass skyscraper, oversized sunglasses, holding a coffee cup, powerful confident business chic, sharp urban aesthetic, high- fashion magazine look, cinematic composition don't remove my hijab and make it matched to the outfit",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+             {
+                id: 58,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl58.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Jangan ubah wajah edit seorang wanita muda berhijab phasmina putih dililit rapi, baju rugby oversize lengan panjang dengan gambar kecil di dada kiri o berwarna krem garis garis hitam dikedua tangan. Memakai jins denim longgar. Dia berkulit putih dingin dengan rona pipi yang pink muda, bulu mata pendek lentik, halis tegas dengan lipstik pink glossy ala baddie-",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+            
+
+
+
+
+
+
+             {
+                id: 59,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl59.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Imagem de referência: foto enviada Rosto: mesma mulher, cabeça inclinada para trás, olhos fechados, expressão serena. Pose: sentada elegantemente na grande escadaria, apoiada em um braço, pernas estendidas para baixo. Guarda-roupa: vestido branco com alças, textura de renda, silhueta ajustada; saltos brancos pontudos. Acessórios: colar de pérolas, pulseira, pequena bolsa acolchoada próxima. Fundo: grande escadaria de mármore ornamentada com arquitetura barroca e detalhes dourados. Iluminação: ambiente noturno acolhedor, brilho do lustre criando reflexos dourados no mármore. Câmera: lente de 24-35 mm, ângulo frontal ligeiramente baixo, enquadramento horizontal. Clima: opulência cinematográfica - fantasia nostálgica da alta sociedade.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "فتاة", ""]
+
+            },
+
+
+
+
+
+              {
+                id: 60,
+                title: "  فتاة ",
+                category: "بنات", 
+                image: "girl60.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A photorealistic portrait of ME wearing a modest ancient Egyptian inspired outfit with a hijab designed to blend historically: soft linen fabric, gold trims, traditional Egyptian patterns. The outfit must feel fully ancient style, no modern clothing. She stands by the Nile River at sunset with ancient Egyptian temples in the distance and subtle hieroglyphics on stone. Warm cinematic sunlight reflecting from the water. Sharp realistic details, high-resolution, elegant composition, royal ancient atmosphere",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "فرعونى", "فتاة", ""]
+
+            },
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+            
+
+
+
 
 
 
