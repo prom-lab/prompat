@@ -9,7 +9,6 @@
                 prompt: "Create a vintage 1970s Bollywood-inspired photograph of a stylish man sitting casually on the hood of a classic car. He is dressed in a cream pinstriped blazer, cream bell-bottom trousers, and a dark brown shirt with the top buttons open, paired with brown formal shoes, giving a confident mafia- style look. The car has wide whitewall tires, chrome details, and a polished metallic body, reflecting sunlight. In the background tall green trees and hedges frame the scene. The photograph has the warm, grainy tones of a 1970s film camera, giving it a retro cinematic vibe.",
                 stats: {  uses: 421 },
                 badge: "شخصية",
-                 searchDescription: "زمن قديم سيارة",
                  hashtags: ["", "", "", "كلاسيك", "سيارات", "شاب", ""]
             },
 
@@ -94,19 +93,7 @@
 
 
 
-              {
-                id: 7,
-                title: " رجل بالقهوة",
-                category: "بنين", 
-                image: "boy7.jpg",
-                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
-                prompt: "A cinematic portrait of myself, keeping my exact face unchanged. I am sitting at a wooden table, leaning slightly forward with my right forearm resting on the table. My right hand is relaxed and placed over a dark ceramic mug, fingers long and slightly bent, with a bold silver rectangular ring on my ring finger. My left arm is bent and casually rests on the table. I wear a dark, slightly loose long-sleeve henley shirt with the top buttons undone, revealing part of my chest and a thin chain necklace. My facial hair is light stubble. My gaze is directed to the side, away from the camera, giving a thoughtful and slightly mysterious expression. The background is dark and minimalist, with soft moody lighting highlighting the texture of my hair and face, creating strong contrast and depth. The photo is taken at eye level, with a shallow depth of field and an 85mm portrait lens effect, emphasizing sharp focus on my face and upper body while keeping the background blurred. The overall color grading is muted and cinematic, with cool tones and soft shadows.",
-                stats: {  uses: 8445 },
-                badge: "شخصية",
-                 searchDescription: "  بورتريه رائعة",
-                 hashtags: ["", "", "", "", "بورتريه", "شاب", ""]
-
-            },
+             
             
             
              {
@@ -214,7 +201,7 @@
                 image: "boy14.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Use the model to create a black-and-white studio photo, featuring a young man sitting casually on a metal folding chair with his legs crossed. He is wearing a denim jacket, a dark t- shirt, straight jeans, and black boots. The lighting is soft and minimal, producing sharp shadows and a moody atmosphere. His body pose is relaxed, slightly leaning back with one hand on the chair's armrest, his face turned to the side. The background is plain, with a simple and modern aesthetic.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 9555 },
                 badge: "شخصية",
                  searchDescription: " بورتريه اسود كرسى ",
                  hashtags: ["", "", "", "عميق", "مقعد", "شاب", ""]
@@ -231,7 +218,7 @@
                 image: "boy15.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A cinematic, moody photograph of a young man standing in a lush green field of tall grass under a cloudy, overcast sky. He is wearing a loose, dark button-up shirt and dark trousers. His posture is expressive and dramatic, leaning slightly backward with one arm outstretched and palm open, as if embracing the wind or the moment. His head is tilted back, eyes closed, and he is wearing large, over-ear silver headphones, giving a sense of calm and emotional release. The perspective is slightly low-a",
-                stats: {  uses: 95855 },
+                stats: {  uses: 98855 },
                 badge: "شخصية",
                  searchDescription: " بورتريه  طبيعة ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -247,7 +234,7 @@
                 image: "boy16.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A black-and-white aesthetic portrait of a stylish me(use my image with accurate face 100%) sitting on the floor in dramatic lighting. He is wearing an oversized dark coat. His pose is emotional and introspective, with one hand nea his mouth and his head slightly turned to the side. Shadows from a window fall across the wall behind him, creating a moody and artistic atmosphere. The overall vibe is mysterious, emotional, and cinematic",
-                stats: {  uses: 95855 },
+                stats: {  uses: 5662 },
                 badge: "شخصية",
                  searchDescription: " بورتريه  ظلمة ",
                  hashtags: ["", "", "", "عميق", "مظلم", "شاب", ""]
@@ -264,7 +251,7 @@
                 image: "boy17.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A hyper-realistic cinematic lifestyle portrait of a stylish young Indian man lounging confidently on a modern hanging wicker chair. He is dressed in a trendy all-white-ord set with a casual T-shirt and open shirt, paired with colorful designer sneakers and a luxury wristwatch. His expression is cool and composed as he slightly leans back with a relaxed posture, wearing dark sunglasses that add charisma to his look. The setting is a minimal outdoor terrace with subtle decor, soft natural daylight, and a clean modern vibe. Captured in ultra-detailed 8K resolution with sharp textures, natural skin tones, realistic shadows, and a premium fashion editorial aesthetic.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 5235 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -281,10 +268,10 @@
                 image: "boy18.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A hyper-realistic night portrait of a 5'2 man (same face as reference) leaning on the side of a modified Honda Civic Type R under glowing neon underlights. He rests one arm on the car roof and gazes slightly away from the camera, creating a moody, cinematic tone. The shot is captured from a medium side-angle with a slight downward perspective. Background illuminated by a single streetlight with soft mist and reflections. Camera: Canon EOS R5, 85mm lens, f/1.4, ISO 400, 8K ultra-detailed rendering, rich contrast and color balance.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 2552 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
-                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+                 hashtags: ["", "", "", "عميق", "سيارات", "شاب", ""]
 
             }, 
 
@@ -299,10 +286,10 @@
                 image: "boy19.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Make my photo Overhead high angle 3:4 full-body shot of a man lying relaxed on the hood of an orange Lamborghini Urus in a dim basement garage. Wearing a crisp white open collar shirt, brown trousers, polished shoes, and a leather strap watch. Tattoo visible on forearm. Soft sunbeam lighting with natural reflections on car, cinematic warm color grading, shallow depth of field, creamy bokeh, hyper-realistic 8K detail, billionaire vibe.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 9555 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
-                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+                 hashtags: ["", "", "", "عميق", "سيارت", "شاب", ""]
 
             }, 
 
@@ -317,7 +304,7 @@
                 image: "boy20.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Potret studio hitam putih ultra realistis, vertikal 9:16. Seorang pria muda bergaya duduk di kursi lipat sederhana, men- genakan blazer hitam oversized, kaos hitam, celana jeans cutbray, dan sneakers tebal. Pose santai, kaki sedikit terulur ke depan, satu tangan bertumpu santai di kursi, memakai kacamata hitam, ekspresi percaya diri. Latar belakang studio polos putih dengan pencahayaan studio lembut, bayangan halus jatuh di lantai sebelah kanan. Di sekitar subjek terdapat ilustrasi doodle graffiti gambar tangan berwarna hitam, putih, dan oranye: kilat, garis zigzag, pusa- ran, panah, serta kata-kata motivasi: PURPOSE CREATE YOUR PATH FAITHBEAT UNIQUE Desain kontras tinggi, subjek monokrom bersih dengan sorotan doodle cerah. Ganti wajah dengan foto yang diunggah, tetap menjaga rambut, detail wajah, dan aksesori konsisten.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 58666 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -334,7 +321,7 @@
                 image: "boy21.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Cinematic portrait of the man in the picture (preserve 100% facial details of this man), vintage classroom. The camera is shot from a distance, with a small section of the chair's back visible in front, as if the photographer was taking the portrait discreetly or in a quiet moment. Soft, golden-yellow lighting reflects from a small window or gap in the right wall, forming diagonal lines of light that fall directly on the man's face, creating a dramatic and emotional contrast. The man sits alone in a chair, his feet resting on the desk, with a relaxed and cool expression, as if lost in thought. He wears an oversized army black Sweater, cream-colored cargo pants, Converse sneakers, and red headphones. He has a bag hanging from the chair, but it blends harmoniously with the warm light surrounding him. Behind him is an off-white wall with sticky notes labeled Saarthak notices, duty schedules, and So on, and a photo at the top. There are also a few decorations or furnishings typical of a college classroom. Reinforcing a nostalgic and contemplative feel, like a frozen moment in time. Soft golden hues of light blend with the dark shadows in the room, creating a quiet, warm, and slightly wistful atmosphere, reminiscent of a scene from a Japanese indie film at dusk or early morning. The overall atmosphere suggests an intimate, introspective moment in silence. All image elements are rendered without bokeh with even sharpness from foreground to background. The visual texture contains noticeable noise and grain, reminiscent of the results of analog 35mm film cameras like the Canon AE-1 or retro digital simulations using the Fujifilm X100V with Classic Chrome film simulation. Possible camera settings: ISO 1600, f/5.6 aperture, 1/60s shutter speed, with a warm white balance to maintain the natural golden light in the room. The grain effect can come from ISO 400 film or the digital grain feature intentionally activated to add cinematic character and nostalgia. 3:4.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 686 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -352,7 +339,7 @@
                 image: "boy22.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Make me look like I'm on a beach where it's dark but someone took my picture with a flash and my face is a bit glittery and glowing. In the background add the sunset like the sun has 98% set leaving purple red sky and it's almost dark. The image is taken from behind my back and I've been told to turn for the picture. Im wearing sky blue shirt .The picture is taken from above the waist, that means it showing only the upper part of my body Image.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 86 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -369,10 +356,10 @@
                 image: "boy23.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Create a retro vintage grainy but bright image of the reference picture styled in an old retro shirt, slightly loose and worn, giving a 90s movie vibe. The man is standing and laying casually on a classic white Indian Ambassador car near the headlights, romanticising the windy outdoor environment. The scene must feel cinematic, with deep shadows and contrast drama, warm",
-                stats: {  uses: 95855 },
+                stats: {  uses: 6868 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
-                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+                 hashtags: ["", "", "", "عميق", "سيارات", "شاب", ""]
 
             }, 
 
@@ -386,7 +373,7 @@
                 image: "boy24.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Hands in Pockets - Relaxed Authority A hyper-realistic cinematic editorial portrait of the uploaded person (preserve face 100%). He stands tall in a dark moody studio, surrounded by soft drifting smoke under a dramaticspotlight. Outfit: Oversized slate-blue luxury suit with wide-leg trousers, paired with a slightly unbuttoned white silk shirt. Both hands tucked casually in pockets, shoulders relaxed, confident expression, head tilted slightly upward",
-                stats: {  uses: 95855 },
+                stats: {  uses: 55 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -402,7 +389,7 @@
                 image: "boy25.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A hyper-realistic ultra-detailed 4K portrait of a stylish young Indian man (use reference image face, slim build, height 5'11) standing casually in an outdoor tropical café setting with thatched-roof huts and rustic wooden furniture. He wears an open black button-up shirt with the sleeves rolled up, revealing part of his chest, paired with relaxed-fit black trousers and clean white sneakers. One hand is placed in his pocket while the other holds a decorative brown tiki-style drink cup with a straw. He has a wrist-watch on his left hand, and wears sleek black sunglasses. His hairstyle is voluminous and perfectly styled, adding to his confident summer vibe. The background includes woven rattan chairs, soft sunlight, and cozy outdoor lounge decor, creating a warm, stylish, and modern vacation atmosphere.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 44 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -418,7 +405,7 @@
                 image: "boy26.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "A STYLISH AND HIGHLY DETAILED PORTRAIT OF A HANDSOME YOUNG MAN WITH A WELL-GROOMED BEARD AND DARK HAIR. HE IS WEARING BLACK SUNGLASSES, A BLACK PUFFER JACKET, AND A SILVER CHAIN. THE PHOTO IS TAKEN AT *GOLDEN HOUR/SUNSET* ON A *ROOFTOP* WITH A BLURRED URBAN CITY SKYLINE IN THE BACKGROUND. *DRAMATIC BACKLIGHTING* WITH A STRONG SUN FLARE (RIM LIGHT EFFECT). CINEMATIC, ULTRA-SHARP FOCUS, PROFESSIONAL PHOTOGRAPHY, 8K. AND 100%SAME FACE DON'T CHANGE",
-                stats: {  uses: 95855 },
+                stats: {  uses: 24 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -434,7 +421,7 @@
                 image: "boy27.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Ultra-realistic 8K portrait of a 22years old body, fit body, exact face like reference (hairstyle, eyes, nose, lips). Standing with a VIP suit-case in front of an Emirates airplane at the airport, passengers boarding in background (blurred). Wearing Over-size Black shirt, Cargos pants, White Nike Sneakers shoes, and black round sunglasses. Stylish pose, casual hand in pocket. Realistic lighting, cinematic and natural. With my Original Face and Body Looks.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 8 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -450,7 +437,7 @@
                 image: "boy28.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Ultra-realistic cinematic full-body shot of a stylish South Asian young man walking along a glass balcony overlooking the lower floor of a modern luxury mall. Face and hairstyle exactly match the uploaded reference image, with hairstyle perfectly styled and set. He wears an off-white fleece jacket over a black fitted tee, beige cargo pants with subtle detailing, and pristine white Nike sneakers. Mid-turn motion, body slightly rotated while walking, one hand casually in pocket, other hand lightly touching the glass railing. Neatly groomed beard, rectangular sunglasses reflecting mall lights, and a sleek smart watch. Background: spacious mall interior with glass railings, polished floors, ambient lighting, and soft reflections creating cinematic highlights and shadows. Premium streetwear aesthetic, photorealistic textures, shallow depth of field to keep him sharply in focus while softly blurring the background, giving a high-fashion editorial vibe",
-                stats: {  uses: 95855 },
+                stats: {  uses: 442 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -467,7 +454,7 @@
                 image: "boy29.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Uitra-realistic full-bolshot of a stylish South Asian young man standing near an indoor fountain in a modern luxury mall. Face and hairstyle exactly match the uploaded reference image, with hairstyle perfectly styled and set. He wears an off-white fleece jacket over a black fitted tee, beige cargo pants with subtle detailing, and pristine white Nike sneakers. Body slightly turned toward the camera, looking over his shoulder with a relaxed, stylish expression. One hand casually in pocket, the other lightly touching the railing beside the fountain. Neatly groomed beard, rectangular sunglasses reflecting ambient mall lights, and a sleek smart watch. Bright, airy mall interior with flowing water fountain, reflective surfaces, soft natural sunlight, and cinematic light reflections. Premium streetwear aesthetic, photorealistic textures, shallow depth of field to subtly blur background while keeping him in sharp focus, giving a high-fashion editorial vibe.",
-                stats: {  uses: 95855 },
+                stats: {  uses: 42 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -485,7 +472,7 @@
                 image: "boy30.jpg",
                 description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
                 prompt: "Ultra-realistic full-body fashion portrait of a young man and his beautiful girlfriend standing against a large, modern, minimalistic background with a giant abstract white and black number 'A' design. The young man is leaning slightly against the wall with a relaxed posture, medium-length voluminous wavy black hair. trimmed beard, and a confident yet casual smile. He is wearing an all Mack casual athleisure outfit: relaxed-fit black sweatshirt, black jogger pants, and stylish black and white mixed sneakers. His beautiful girlfriend stands beside him. facing slightly towards him. laughing naturally. She is wearing a fashionable outfit (stylish and modern). with trendy sunglasses covering her face, exuding a chic and confident vibe. The scene captures a candid, joyful interaction between the couple, urban fashion style, soft natural lighting, cinematic A 4K",
-                stats: {  uses: 95855 },
+                stats: {  uses: 42 },
                 badge: "شخصية",
                  searchDescription: " بورتريه   ",
                  hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
@@ -598,6 +585,876 @@
 
 
 
+
+
+            {
+                id: 37,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy37.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Crie uma imagem desse casal em pé no fundo está a torre Eiffel a mulher veste um vestido preto de paetê longo com longo cabelos ondulado e volumoso. O homem uma calça social bege uma camisa de botão social preta e um sapatênis cor de couro: ele é maior bem mais alto que ela e está olhando para ela. Por favor manter os mesmos olhos da pessoa anexada. Eles estão de frente um para o outro. A foto é 4k ela está com uma leve expressão de realizada enquanto segura o buquê de flores vermelhas. Ele é maior que ela. Está de noite a torre está brilhando, ela olha para ele com ar de apaixonada enquanto segura o buquê. Manter as caracterizadas originais das pessoas em anexo",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "ورد", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+
+
+
+
+            {
+                id: 38,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy38.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Você pode criar um retrato do meu rosto e do dele em close-up, com alto contraste e focado na frente, em preto e branco, qualidade 4K e HD Com uma expressão de vaidade e orgulho, sombra preta. Apenas a parte inferior do rosto, vista de perfil, com uma aparência mais definida, o cabelo longo com ondas suaves combina com a foto dela e dele, olhando firmemente um para o outro, de perto, para que você possa ver os rostos de lado e não altere suas características, fazendo- os se abraçarem. Ele é bem mais alto que ela",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+              {
+                id: 39,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy39.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Male my photo Overhead high angle 3:4 full- body shot of a man (24 year old young boy) lying relaxed on the hood of an orange lamborghini Urus in a dim basement garage Wearing a Crisp white open collar shirt, brown trousers, polished shoes, and a leather strap watch. Tattoo visible on forearm. Soft sunbeam lighting with natural reflections on car, cinematic warm color grading, shallow depth of field, creamy bokeh, eh. hyper-realistic 8K detail. billionaire vibe",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "سيارات", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+
+            {
+                id: 40,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy40.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Vitra-realistic photograph of a man, driving a black Lamborghini convertible. The shot is from the passenger side, showing his relaxed pose with one hand on the steering wheel and his arm resting casually. The Lamborghini fogo is clearly visible on the steering wheel. The interior is modern and sleek with red accents. Outside the car, tall palm trees line the street, with some greenery and modern buildings in the badground The sky is slightly overcast, creating a soft, natural light",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+
+            {
+                id: 41,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy41.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Cinematic golden hour portrait of the same person from the original selfie, sitting in the open window of a luxury vehicle (G-Class or Brabus), left arm resting on the door edge. The subject wears black sunglasses and a dark tank top or T-shirt. Warm sunlight floods through the car interior, casting orange flares and soft shadows across the face. Hair slightly tousled by the breeze. The expression is relaxed and confident. Shallow depth of field, lens flare, rich sunset tones. High-resolution editorial aesthetic, shot with a low ISO and prime lens. Instagrammable, moody glow. Don't change my face details",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+            {
+                id: 42,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy42.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "motion blur. I sit still with a thoughtful expression, wearing headphones and a simple hoodie. The aesthetic is nostalgic, reminiscent of 35mm film with soft grain and moody natural lighting. don't change my face details Prompt : Side view of me looking out the interior is dim and warm-toned, while window of a moving train. The the outside world rushes by in soft",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+            {
+                id: 43,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy43.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A highly stylized portrait of same person in image with sharp features, flawless fair skin, wearing a black t-shirt, black sunglasses and standing against a bold red gradient background, confidently. The lighting is dramatic and cinematic, emphasizing his facial structure and giving a luxury fashion magazine vibe. Ultra-realistic, high-detail, editorial photography style. 4K resolution, symmetrical composition, minimal background elements. 4:3 ratio.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+            {
+                id: 44,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy44.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Backlit portrait of me under an overpass at twilight, city lights trailing around me in long exposure streaks. I'm in perfect sharpness, dressed in a leather jacket with hands in pockets. A sense of isolation and focus dominates the frame, with deep shadows and a soft cinematic bloom to the light sources.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+            {
+                id: 45,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy45.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Profile shot of me leaning slightly on the rail of a large steel bridge in the rain. The city glows in the distance. Reflections in puddles ripple from raindrops. I wear a waterproof shell and scarf, looking contemplatively into the distance. Desaturated colors, with only a few warm highlights from distant headlights. don't change my face details please",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+            {
+                id: 46,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy46.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Prompt: A hyper-realistic outdoor portrait of a young male model standing beside a majestic falcon perched confidently on his gloved arm. The man exudes calm strength and sophistication, wearing a tailored beige trench coat layered over a black turtleneck, complemented by dark trousers and leather boots. The falcon's sharp gaze mirrors the man's focused expression, creating a powerful bond between human and creature. The setting is a desert landscape at golden hour, with warm sunlight",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+            {
+                id: 47,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy47.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "thick-knit sweater with a ribbed collar. His arms are crossed, his head tilted slightly to the right, and he smiles spontaneously. A square watch with a metallic bracelet is visible on his left wrist. Intense side lighting creates dramatic shadows and highlights the texture of the wool. Black and white artistic portrait with a classic editorial aesthetic. The man wears a dark,",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+              {
+                id: 48,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy48.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A cinematic, rough closeup portrait of athletic young man [reference man on the photo] sitting in a doorway or large window opening that leads to a small balcony overlooking an urban cityscape. He has dark, curly or tousled hair. He is wearing a classic white ribbed tank top (undershirt) and distressed, light-wash blue denim baggy jeans with a large tear at the knee.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+              {
+                id: 49,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy49.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "16K ultra-realistic full-body cinematic portrait of an 18-year-old handsome South Asian man with the exact same face, hairstyle, and beard style as in the reference image - do not change or edit his He is standing confidently on the deck of a face. luxurious white yacht under bright daylight with the stunning skyline of Dubai and the Burj Khalifa clearly visible in the background. The calm blue sea reflects the soft sunlight, creating a premium vacation vibe. He is wearing a clean white half-sleeve linen shirt, denim shorts, white sneakers, black sunglasses, and a black cap. He is casually holding a red soda can with both hands while leaning slightly against the yacht's railing. Lighting is warm, soft, and natural with cinematic color grading, ultra-detailed skin texture, perfect shadows, and crisp highlights. The photo is captured with a shallow depth of field, bokeh background, and rich contrast - giving a luxurious travel aesthetic. Signature: AmanZaid Creations.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+               {
+                id: 50,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy50.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic celebration portrait of a young man wearing a classic black tuxedo with a white dress shirt and black bow tie, smiling while holding a champagne glass in one hand. Colorful confetti is falling all around him against a dark black background, captured mid-air with sharp clarity and shallow depth of field. Studio-style dramatic lighting highlighting his face and upper body, warm and elegant mood, luxury party atmosphere, high-quality editorial photography, 4K detail, clean dark backdrop with floating confetti accents.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+              {
+                id: 51,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy51.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic night-time birthday celebration portrait of a me (face, hairstyle and person 100% according to reference photo) standing beside a large circular balloon arch decorated with glossy black, gold and silver balloons, with a bright white neon 'Happy Birthday' sign glowing in the Top. A disco ball ornament is placed at the top of the arch. The man is wearing a dark red shimmering blazer with black pants and formal shoes, standing slightly turned to the side and looking toward the camera with a confident expression. Background is dimly lit outdoor garden with soft ambient lights and subtle bokeh. Professional cinematic lighting highlighting the subject from the front, high detail fabric texture, elegant luxury birthday theme, premium editorial 4K shot",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+              {
+                id: 52,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy52.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A 23-year-old Indian Asian man stands at a scenic mountain overlook, gazing out at a breathtaking panorama of rugged peaks and vast valleys. He wears practical yet stylish outdoor gear-a lightweight technical jacket in a muted color, dark hiking pants, and sturdy trail shoes. His hands might be in his pockets, or he could be holding a small pair of binoculars, indicating an appreciative and contemplative mood. The sky is a dramatic mix of soft clouds and clear blue, with the distant mountains shrouded in a gentle haze. The lighting is natural and expansive, highlighting the grandeur of the landscape. The aesthetic is awe-inspiring, adventurous, and reflective, capturing a moment of profound appreciation for nature's scale. Photo taken from slightly behind and to the side, emphasizing the view and his silhouette against it. use the same face as uploaded.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 53,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy53.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A 23-year-old Indian Asian man, dressed in a sharp, dark polo shirt, tailored dark jeans, and clean white sneakers, sits with intense concentration at a booth in a modern, surprisingly well-lit Burger King. His MacBook Pro is open, and his fingers are poised over the keyboard, deeply absorbed in his work. A branded soft drink cup and a small, neatly placed napkin are the only other items on his table. The background shows the contemporary, minimalist interior of the Burger King - clean lines, modern seating, and subtle brand elements, but without any food distractions, maintaining a serious work atmosphere. The aesthetic is unexpected, resilient, and sharp, showcasing productivity in an unconventional space. Photo taken from a slightly low, wide angle to capture the booth and his focused demeanor. use the same face.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 54,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy54.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A CONCEPTUAL FASHION PHOTO, YOUNG MODEL WITH VINTAGE FLORAL BOUQUET, STRAIGHT-ON ANGLE, DRESSED IN ECLECTIC MODERN SUIT OVER DESIGNER TEE. WILD GRASS AND FLOWERS SURROUND HIM. SOFT, GRADIENT SKY FADING FROM LIGHT BLUE TO PEACH. DELICATE LIGHTING WRAPS THE SCENE. CREATED USING: CANON EOS R5, NATURAL BACKLIGHTING, EDITORIAL ART DIRECTION, RUNWAY-INSPIRED ENSEMBLE, SUBTLE HDR, SILK-TEXTURED FABRIC, SPRING- THEMED COLOR PALETTE, MINIMALISM MEETS FASHION",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+              {
+                id: 55,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy55.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "GENERATE A STREETWEAR EDITORIAL CAMPAIGN - MODEL IN THE PICTURE, STANDING AGAINST CONCRETE WALL, DIAGONAL LIGHT SLICING ACROSS CHEEK - WALKING TOWARD LENS, JACKET FLARING BEHIND, BACKGROUND CROWD BLURRED - FLASH-LIT PORTRAIT IN STUDIO, HARSH SHADOW LINE ACROSS JAW - SONY 50MM F1.4, MIXED NATURAL + FLASH LIGHT, VERTICAL CROP - SKIN SHINE, UNEVEN TONE, SHARP COLLAR EDGE - SHADOW NOISE, CLIPPED HIGHLIGHT ON CHEEK, REAL FABRIC GRIT - AR 4:5 - NO BLUR WATERMARK TEXT DISTORTED FACES LOGOS -- S 250 -- RAW",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "طبيعة", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+             {
+                id: 56,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy56.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic high-resolution portrait of a young man in an ancien Egyptian royal outfit. The facial features must perfectly match the attached reference image, maintaining his true identity. He wears a modernized pharaonic king armor-style costume with gold and deep turquoise accents, without any artificial long pharaonic beard. Strong masculine cinematic lighting with dramatic shadow contrast. Background: depth of field. Premium professional fashion photography style, hyper-detailed skin and fabric textures, sharp focus, realistic proportions, no distortion. A confident dominant royal pose that reflects power.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "فرعونى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+
+             {
+                id: 57,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy57.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Hyper-realistic head-to-mid-torso portrait of a young Egyptian man as a New Kingdom royal prince, preserving his real facial features with perfect accuracy from the reference photo. HE wears an authentic pharaonic Nemes crown with bold, well-shaped blue and gold stripes, a prominent golden Uraeus cobra centered at the forehead, no beard at all. His royal attire is made of natural white pleated linen, fitted elegantly around his torso, with a detailed golden broad collar Warm, cinematic sunlight highlighting realistic skin texture and facial structure. Grand ancient Egyptian temple columns behind him slightly blurred with soft shadows. Absolutely no modern elements, no sci-fi influence, no metallic armor. Ultra detailed, premium photorealistic quality, strong confident expression suitable for a true Egyptian prince.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "فرعونى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 58,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy58.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A young man (with same face as the referenced photo) leaning slightly back with a confident and contemplative expression, not smiling. He rests his hand against his face, with fingers near his lips, wearing a silver ring. He is dressed in a black turtleneck sweater paired with wide beige trousers. The perspective is low angle, emphasizing the trousers in the foreground and his face partially turned, looking directly at the camera. The background is minimal, neutral gray, with soft studio lighting creating a refined, fashion editorial look.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+
+               {
+                id: 59,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy59.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A cinematic rooftop scene in the golden age, overlooking a glittering modern city skyline. A young man (pictured) sits casually on the edge of a rusted metal rooftop railing, relaxed and thoughtful, wearing dark, oversized clothes and sunglasses. He holds a cup of tea as cars and streetlights twinkle below. A warm, golden-brown palette with thick grain, the look of vintage $35 \text{mm}$ film, specks of dust, a hint of haze, and natural imperfections. A medium-wide shot, slightly low angle with the subject off-center for cinematic depth; warm urban light, a nostalgic atmosphere of solitude and reflection.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+               {
+                id: 60,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy60.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Hyper-realistic low angle 3:4 half-body portrait of a 25-28 y.o. man in vintage Peaky Blinders gangster style, lighting a cigar inside a grand church-like palace. Sunbeams through stained glass create moody cinematic light; a chandelier overhead adds luxury. Sharp focus on intense gaze, shallow depth with creamy bokeh, natural ambient lighting, rich cinematic color grading, 8K detail",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+            
+
+
+               {
+                id: 61,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy61.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Warm golden hour sunlight streams softly across a modern indoor setting, casting directional light that sculpts both skin and fabric with gentle highlights and rich shadows. A stylish man, appearing Caucasian with an average build and naturally styled hair, stands in a relaxed yet confident pose, leaning slightly against a beige stone ledge. His light champagne silk shirt drapes elegantly with an open collar, tucked precisely into high-waisted muted brown wool trousers featuring soft pleats. The minimalist stone wall behind reflects soft golden hues, enhancing the serene, refined mood. Captured in a medium full-body perspective with an $85\text{mm}$ lens, the composition is clean and balanced, emphasizing tactile silk and wool textures against the understated architectural backdrop. The overall scene exudes a cinematic editorial tone, merging contemporary luxury fashion with quiet modern sophistication.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+             {
+                id: 62,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy62.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A hyperrealistic 8K black and white cinematic portrait of a young man with natural freckles and textured skin, captured with a Dutch tilt camera angle. The composition is dynamic and diagonal, the subject framed from the shoulders up, his head slightly tilted in the opposite direction, enhancing the sense of imbalance and tension. Bright sunlight pours through a textured surface, breaking into glowing wavy lines that sweep diagonally across his face and body. The beams ripple like underwater reflections, refracting into surreal, fluid patterns. Shadows remain in soft mid-gray tones, giving the portrait a smooth tonal balance, while the luminous streaks appear vivid and sharp, dominating the scene. His skin is shown with lifelike detail - visible pores, faint stubble, freckles, and subtle imperfections - catching the light in natural highlights. The wavy rays sculpt his cheekbones, lips, and jawline, creating depth and surreal contrast. The background fades into smoky gray gradients with faint haze that makes the luminous streaks expand softly into the darkness. Fine cinematic grain overlays the frame, adding texture and analog realism. The overall mood is dramatic, surreal, and emotional - a monochrome editorial image where the tilted angle and wave-like light",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+                {
+                id: 63,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy63.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Final act -the same model sits courtside at night on a dimly lit rooftop court, city skyline glowing in the distance. He wears a black Jordan Varsity jacket, . crisp white tee, and Jordan 3 Black Cement sneakers. A soft spotlight hits his face - focused, calm, elevated. Tone: greatness realized - no words, just presence. Camera: Nikon Z9 + 85mm f/1.2, shallow depth, bokeh city lights. Lighting: moody night tone with warm rim light, cinematic fade. Palette: black, cement grey, red highlights, subtle gold warmth. Aspectratio: 4:5",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+               {
+                id: 64,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy64.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A stylish young man wearing a ribbed, deep red quarter-zip sweater and light-colored cargo pants. He is standing outdoors, leaning against a metal railing, with one hand adjusting his dark sunglasses and the other hand in his pocket, showcasing a round smartwatch. The background features soft, dark greenery and a touch of red-orange foliage. Daylight, high- quality professional photography, shallow depth of field, fashion lookbook style.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+              {
+                id: 65,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy65.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Use my face to generate If you were to break down the elements a photographer or a model would consider to create this specific photo, here are the key details: · Subject/Model: A man dressed in a dark, fitted suit (jacket, waistcoat, and trousers) with a black shirt and dark sunglasses. He is posing in a three- quarter profile, looking up and toward the main statue. · Location: An indoor museum hall or Egyptian gallery. The flooring is light",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+               {
+                id: 66,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy66.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Prompt 1/2 Full-body shot of a My picture with facial features preserved sitting directly on the front grille and hood of a black G-Class Mercedes SUV. He is dressed impeccably in a fitted black suit, black button-down shirt, and black leather Oxford shoes. His left leg is bent with his foot flat on the ground, and his right leg is resting across the hood. He's wearing dark sunglasses, multiple silver rings on both hands,",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+             {
+                id: 67,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy67.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-Realistic 8K Portrait of a stylish young man sitting casually on the rear of sky blue Lamborghini car, wear a stylish rectangle shades, featuring black alloy rims and red brake calipers. He is wearing a sky blue suite and Nike air Jordan white sneakers. The man has we'll settle upwards voluminous hairstyle, looking off into the distance with, lots of blossoms of sky blue flowering brogwilley plants looking very cool.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 68,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy68.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "4K Ultra HD Quality Generate A full-body shot of a male with dark brown, boy, stylish dark and slightly brown hair atheletic He is wearing a stylish gradient black-white-shirt and black cargo pants.hand watch He is leaning casually against a stone wall, with his right arm resting on top of it. He is also wearing round, tinted and black and white canvas sneakers. The background is a dark, textured stone wall, with natural outdoor lighting. Real face no change.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+              {
+                id: 69,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy69.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "High-fashion editorial shot of a man leaning casually against the open scissor door of a red supercar. He wears a sleek all- black outfit with modern tailoring and chunky sneakers, exuding confidence and effortless dominance. Minimalist white backdrop by the futuristic luxury aesthetic. Mood: fashion prestige, automotive power, urban cool.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+              {
+                id: 70,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy70.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Sepasang kekasih berbusana serasi dengan warna kalem mengenakan topi baseball, duduk di kursi taman ber warna hijau di tepi kolam air mancur. Latar belakangnya adalah bangunan megah bergaya Eropa dengan arsitektur klasik. Pria mengenakan turtieneck putih dengan jas putihdan celana cream sambil memegang cangkir kopi, wanita berhijab mengenakan oversized blazer putih, dan memegang tas tangan kecill. Cahaya matahari cerah, menciptakan suasana yang tenang dan elegan.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+              {
+                id: 71,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy71.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Potret dua orang (pria dan wanita) sedang duduk di pagar jembatan kayu di tengah padang rumput hijau yang luas. Keduanya mengenakan bucket hat. Pria mengenakan kaos putih, celana pendek, dan sepatu boots. Wanita berhijab mengenakan gaun midi motif bergaris cerah panjang, sepatu boots. Di belakang mereka, terlihat bangunan unik berwarna cokelat yang menyerupai gundukan tanah, dengan langit biru cerah dan awan putih sebagai latar belakang.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 72,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy72.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Potret urban chic dan kasual dua orang berdiri di luar bangunan bata merah. Pria berdiri di sisi kiri, bersandar ke dinding bata. Ia mengenakan mantel panjang gelap di atas turtleneck, celana panjang gelap, dan sepatu bot kulit. Rambutnya gelap dan ia menatap ke kiri atas dengan senyum tipis. Wanita berhijab berdiri di sisi kanan, bersandar ke pagar hitam. Ia mengenakan mantel hitam panjang, turtleneck, legging, dan sepatu bot",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 73,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy73.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Use the reference photos of human dont change their face,create an elegant and gentle couple portrait. Sepasang kekasih pria dan wanita berhijab sedang duduk bersama di dalam sebuah cafe mewah dengan suasana sedikit ramai dan pencahayaan ala cafe. Wanita memakai outfit kemeja elegant warna putih, berhijab putih tulang, inner soft ivory. Pria memakai outfit atasan t-shirt polo putih, celana chinos ivory, smartwatch Apple, dan sneakers New Balance putih. Pose wanita sedang tersenyum melihat priag",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+              {
+                id: 74,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy74.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Use facial feature of attached photo. A stylized fashion portrait in a 4:5 vertical scale ratio, featuring a couple seated against a fuchia pink draped fabric backdrop. (Woman) She rests her head gently against her gloved hand, with her elbow placed on a reflective mirrored surface that captures her reflection below. Her expression is serene yet poised, with slightly parted lips and eyes gazing softly forward.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 75,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy75.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A professional studio portrait of men and women (face hair and body match from uploaded images ) not change real face, posing together against a plain black background. A woman warmly from behind. Both are wearing matching black turtleneck sweaters, creating a minimalist and elegant look. A men has uploaded image face, hair and a gentle smile, while the woman has long, smooth, wavy hair and a calm , confident expression. Their skin is smooth, with soft and natural makeup. The lighting is soft.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 76,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy76.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic 8K cinematic full-body portrait of a 24-year-old Bangladeshi man sitting on a sleek black leather sofa in a modern, stylish lounge, leaning slightly forward with elbows resting on his knees, in an engaged and approachable pose. His face and hairstyle exactly match the uploaded reference image, with perfectly styled hair, and his face looking directly at the camera with a subtle confident smile. He wears a perfectly tailored monochrome blazer over a casual shirt, slim-fit pants, crisp white sneakers, and a smartwatch. In front of him is a large, elegantly decorated birthday cake with 24 candles lit, which emits a soft warm glow illuminating his face. He holds a cake-cutting knife in his hand, ready to slice the cake. Colorful balloons, shimmering confetti, and vibrant festive decorations float around subtly. Neon lights, fairy lights, and reflective surfaces create dynamic colorful reflections on glass, metal, and plush textures, enhancing the celebratory, party atmosphere. Cinematic soft shadows, dynamic depth of field, trendy urban lifestyle vibe, high-fashion smart casual aesthetic, visually captivating, photorealistic textures, ultra-detailed, cheerful and energetic birthday celebration vibe.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+            
+              {
+                id: 77,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy77.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic 8K cinematic full-body portrait of a 24-year-old Bangladeshi man sitting on a sleek black leather sofa in a modern, stylish lounge, leaning slightly forward with elbows resting on his knees, in an engaged and approachable pose. His face and hairstyle exactly match the uploaded reference image, with perfectly styled hair, and his face looking directly at the camera with a subtle confident smile. He wears a perfectly tailored monochrome blazer over a casual shirt, slim-fit pants, crisp white sneakers, and a smartwatch. In front of him is a large, elegantly decorated birthday cake with 24 candles lit. He holds a cake-cutting knife in his hand, ready to slice the cake. Colorful balloons, confetti, and festive decorations subtly surround the scene, creating a lively celebratory atmosphere. Ambient neon lights and soft party lighting cast colorful reflections on polished surfaces, highlighting contemporary decor elements like glass, metal, and plush textures. Cinematic soft shadows, dynamic depth of field, trendy urban lifestyle vibe, high-fashion smart casual aesthetic, visually captivating, photorealistic textures, ultra-detailed, cheerful birthday celebration vibe.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+             {
+                id: 78,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy78.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic 8K cinematic full-body portrait of a 24-year-old Bangladeshi man standing in a modern, stylish lounge, leaning slightly forward in a confident, approachable pose. His face and hairstyle exactly match the uploaded reference image, perfectly styled, looking directly at the camera with a subtle confident smile. He wears a perfectly tailored monochrome blazer over a casual shirt, slim-fit pants, crisp white sneakers, and a smartwatch. Directly in front of him is a large, elaborately decorated birthday cake, prominently placed and glowing warmly with 24 candles lit. He holds a cake-cutting knife in his hand, ready to slice the cake. Colorful balloons, shimmering confetti, and vibrant festive decorations surround the scene. Neon lights, fairy lights, and reflective surfaces create dynamic colorful reflections on glass, metal, and plush textures, enhancing the celebratory, party atmosphere. Cinematic soft shadows, dynamic depth of field, trendy urban lifestyle vibe, high-fashion smart casual aesthetic, visually captivating, photorealistic textures, ultra-detailed, cheerful and energetic birthday celebration vibe.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+
+
+             {
+                id: 79,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy79.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A young man from the reference image, keeping his real facial and body features, walks confidently through a modern, sunlit airport terminal. He wears an oversized sand beige sleeveless T-shirt (muscle tee, raw edges, heavy cotton) and light beige athletic shorts with white stripes. He carries a black backpack and a large black canvas bag printed with CREATIVO. In his left hand, he holds a passport and a boarding pass. He wears white chunky sneakers, white calf-high socks with a logo, and a beige trucker cap. His tattoos cover arms, neck, and legs, adding contrast to the neutral tones. Style: modern athleisure + minimalist streetwear, earthy beige and white tones, clean silhouette. Lighting: strong direct flash, high contrast, cinematic editorial look, realistic skin tones. Camera: Hasselblad X2D, 80mm lens, f/3.2, low-angle composition, hyper-detailed textures. Background: blurred airport scene with people walking, reflections on polished floors, urban and elegant vibe. Mood: 2000s travel fashion editorial, dynamic and cinematic energy.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+
+             {
+                id: 80,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy80.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A stylish young man (from the attached image) takes a selfie in front of a mirror inside an original, eclectic room at night. The scene is reflected in a large round convex mirror with a black frame, creating a distinctive fisheye effect. He sits casually on a white bedspread, striking a relaxed pose inspired by Y2K aesthetics. His outfit consists of a white flannel shirt and black shorts, both fashionable in early-2000s style. The wall behind him features a colorful collage of posters and a disco ball that enhances the retro atmosphere. The lighting is soft and warm, with dominant tones of gray, blue, and black. The overall mood is retro Y2K editorial, with the convex mirror distortion adding a touch of originality, elegance, and playful energy.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+             {
+                id: 81,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy81.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Convert the uploaded photo into a high-quality cinematic studio portrait. The subject is seated in a relaxed, informal pose, captured from a side angle. The setting is a professional photography studio illuminated with warm, soft lighting that reflects the golden glow of sunset, creating dramatic light and shadow contrasts throughout the scene.The subject is dressed entirely in black attire: an oversized black blazer paired with elegant black trousers. In one hand, he holds a to-go coffee cup, adding a modern and casual touch to the composition.The overall atmosphere should be elegant, avant-garde, and slightly mysterious, blending fashion editorial aesthetics with cinematic style. The environment should appear realistic, with great attention to texture, lighting, and reflections. Important: The face must remain exactly the same as in the reference photo. Do not modify or alter the facial structure, skin tone, expression, or features in any way. Only adjust the pose, clothing, and setting, keeping the original face intact.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+
+          
 
 
 
