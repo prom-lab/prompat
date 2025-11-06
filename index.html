@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini Prompts - محول الصور الإبداعي</title>
+    <title> GEAR AI - محول الصور الإبداعي</title>
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
 
+
+    <!-- مكتبات Parallax -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+
     <!-- الصورة الأساسية -->
-    <meta property="og:image" content="https://th.bing.com/th/id/OIP.jR0NhEb0RK-dswoFUVdTUQHaFj?w=228&h=180&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3">
+    <meta property="og:image" content="https://www.facebook.com/share/p/16Upz4Kt3c/">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/jpeg">
@@ -18,7 +24,7 @@
 <meta property="og:url" id="ogUrl" content="https://prom-lab.github.io/prompat/">
 <meta property="og:title" id="ogTitle" content="تريندات Gemini">
 <meta property="og:description" id="ogDescription" content="جميع تريندات لجمناى مجانية">
-<meta property="og:image" id="ogImage" content="https://th.bing.com/th/id/OIP.jR0NhEb0RK-dswoFUVdTUQHaFj?w=228&h=180&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3">
+<meta property="og:image" id="ogImage" content="https://www.facebook.com/share/p/16Upz4Kt3c/">
     
     <!-- أيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -38,7 +44,20 @@
         --accent-gradient: linear-gradient(135deg, #FF6584, #FF3366);
         --glass: rgba(255, 255, 255, 0.1);
         --glass-border: rgba(255, 255, 255, 0.2);
+
+
+    
+    /* متغيرات جديدة للزجاج المائي */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --glass-blur: blur(20px);
+    --glass-backdrop: backdrop-filter: blur(20px) saturate(180%);
+
     }
+
+
+    
     
     * {
         margin: 0;
@@ -60,156 +79,875 @@
         margin: 0 auto;
         padding: 0 20px;
     }
-    
-    /* شريط التنقل */
-    .navbar {
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        padding: 15px 0;
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        transition: all 0.3s ease;
+
+
+
+/* تصميم النافبار المائي التفاعلي */
+.liquid-navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 700px;
+    height: 70px;
+    z-index: 1000;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.liquid-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+/* الخلفية المائية التفاعلية */
+.liquid-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(108, 99, 255, 0.15) 0%,
+        rgba(54, 209, 220, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.6s ease;
+}
+
+/* موجات الماء */
+.water-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: waveMove 6s linear infinite;
+    transform-origin: center bottom;
+}
+
+.wave-1 {
+    animation-delay: 0s;
+    height: 15px;
+    opacity: 0.6;
+}
+
+.wave-2 {
+    animation-delay: -2s;
+    height: 12px;
+    opacity: 0.4;
+}
+
+.wave-3 {
+    animation-delay: -4s;
+    height: 10px;
+    opacity: 0.3;
+}
+
+@keyframes waveMove {
+    0% {
+        transform: translateX(0) scaleY(1);
+    }
+    50% {
+        transform: translateX(-25%) scaleY(1.2);
+    }
+    100% {
+        transform: translateX(-50%) scaleY(1);
+    }
+}
+
+/* محتوى النافبار */
+.nav-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 25px;
+}
+
+.nav-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.left-group {
+    justify-content: flex-start;
+}
+
+.center-group {
+    justify-content: center;
+}
+
+.right-group {
+    justify-content: flex-end;
+}
+
+/* الأزرار المائية */
+.liquid-btn {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    color: var(--dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.liquid-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.liquid-btn:hover::before {
+    opacity: 1;
+}
+
+.liquid-btn:hover {
+    transform: translateY(-3px) scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 10px 25px rgba(108, 99, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* السائل داخل الأزرار */
+.btn-liquid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(108, 99, 255, 0.2) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.6s ease;
+    transform: scale(0.8);
+}
+
+.liquid-btn:hover .btn-liquid {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* تأثير التموجات */
+.btn-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0);
+    opacity: 0;
+}
+
+.liquid-btn:active .btn-ripple {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* زر الإنشاء الرئيسي */
+.create-btn {
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--primary-light) 50%,
+        var(--accent) 100%
+    );
+    border: none;
+    border-radius: 20px;
+    padding: 14px 30px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 25px rgba(108, 99, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.create-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 15px 35px rgba(108, 99, 255, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    padding: 16px 35px;
+}
+
+.liquid-overlay {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.create-btn:hover .liquid-overlay {
+    left: 100%;
+}
+
+.glass-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        transparent 100%
+    );
+    border-radius: 20px 20px 0 0;
+}
+
+/* فقاعات الزر */
+.btn-bubbles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.btn-bubbles::before,
+.btn-bubbles::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: bubbleFloat 3s ease-in-out infinite;
+}
+
+.btn-bubbles::before {
+    width: 8px;
+    height: 8px;
+    bottom: 10px;
+    left: 20px;
+    animation-delay: 0s;
+}
+
+.btn-bubbles::after {
+    width: 6px;
+    height: 6px;
+    bottom: 15px;
+    right: 25px;
+    animation-delay: 1.5s;
+}
+
+@keyframes bubbleFloat {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+}
+
+/* الفقاعات العائمة */
+.floating-bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: floatBubble 15s linear infinite;
+}
+
+.bubble-1 {
+    width: 20px;
+    height: 20px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.bubble-2 {
+    width: 15px;
+    height: 15px;
+    top: 20%;
+    right: 15%;
+    animation-delay: -3s;
+}
+
+.bubble-3 {
+    width: 25px;
+    height: 25px;
+    bottom: 30%;
+    left: 20%;
+    animation-delay: -6s;
+}
+
+.bubble-4 {
+    width: 12px;
+    height: 12px;
+    bottom: 20%;
+    right: 25%;
+    animation-delay: -9s;
+}
+
+.bubble-5 {
+    width: 18px;
+    height: 18px;
+    top: 40%;
+    left: 50%;
+    animation-delay: -12s;
+}
+
+@keyframes floatBubble {
+    0% {
+        transform: translateY(100vh) translateX(0) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* التولتيب */
+.btn-tooltip {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.btn-tooltip::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid rgba(0, 0, 0, 0.8);
+}
+
+.liquid-btn:hover .btn-tooltip {
+    opacity: 1;
+    visibility: visible;
+    bottom: -35px;
+}
+
+/* إخفاء النافبار القديم */
+.navbar {
+    display: none;
+}
+/* قسم الهيرو الجديد - تصميم زجاجي مائي */
+.hero-section {
+    background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(108, 99, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(54, 209, 220, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(255, 101, 132, 0.05) 0%, transparent 50%);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+    width: 100%;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleAppear 1s ease-out 0.5s both;
+}
+
+@keyframes titleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: subtitleAppear 1s ease-out 0.8s both;
+}
+
+@keyframes subtitleAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    animation: statsAppear 1s ease-out 1.1s both;
+}
+
+@keyframes statsAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-stat {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 20px 30px;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.hero-stat:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    text-shadow: 0 2px 10px rgba(54, 209, 220, 0.3);
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: buttonsAppear 1s ease-out 1.4s both;
+}
+
+@keyframes buttonsAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-btn {
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.hero-btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: var(--gradient);
+    color: white;
+    border-color: var(--primary-light);
+}
+
+.btn-primary:hover {
+    background: var(--gradient-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* فقاعات عائمة في الخلفية */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.floating-element {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: floatElement 15s infinite linear;
+}
+
+.floating-element:nth-child(1) {
+    width: 60px;
+    height: 60px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    top: 60%;
+    left: 80%;
+    animation-delay: -5s;
+}
+
+.floating-element:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    top: 80%;
+    left: 20%;
+    animation-delay: -10s;
+}
+
+.floating-element:nth-child(4) {
+    width: 30px;
+    height: 30px;
+    top: 40%;
+    left: 90%;
+    animation-delay: -7s;
+}
+
+@keyframes floatElement {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
     }
     
-    .nav-container {
-        display: flex;
-        justify-content: space-between;
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-stats {
+        gap: 20px;
+    }
+    
+    .hero-stat {
+        padding: 15px 20px;
+        min-width: 120px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
         align-items: center;
     }
     
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.5rem;
-        font-weight: 800;
-        color: var(--primary);
-        text-decoration: none;
+    .hero-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
     }
     
-    .logo-icon {
-        background: var(--gradient);
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-stat {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+/* تأثيرات التفاعل مع التمرير */
+.liquid-navbar.scrolled {
+    top: 10px;
+    transform: translateX(-50%) scale(0.95);
+    opacity: 0.9;
+}
+
+.liquid-navbar.scrolled .liquid-background {
+    backdrop-filter: blur(25px) saturate(180%);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .liquid-navbar {
+        top: 15px;
+        width: 95%;
+        height: 65px;
+    }
+    
+    .nav-content {
+        padding: 0 15px;
+    }
+    
+    .nav-group {
+        gap: 10px;
+    }
+    
+    .liquid-btn {
         width: 45px;
         height: 45px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+        font-size: 1.1rem;
     }
     
-    .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 15px;
+    .create-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
     }
     
-    /* زر المستخدم */
-    .user-menu-btn {
-        background: var(--light);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s;
-        color: var(--primary);
-        font-size: 1.2rem;
-        position: relative;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    .create-btn:hover {
+        padding: 14px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .liquid-navbar {
+        top: 10px;
+        height: 60px;
+        border-radius: 20px;
     }
     
-    .user-menu-btn:hover {
-        background: var(--primary);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
-    }
-
-    /* زر البحث */
-    .search-btn {
-        background: var(--light);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s;
-        color: var(--primary);
-        font-size: 1.2rem;
-        position: relative;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    .nav-content {
+        padding: 0 10px;
     }
     
-    .search-btn:hover {
-        background: var(--primary);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
-    }
-
-    /* زر الهدية */
-    .gift-btn {
-        background: var(--light);
-        border: none;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s;
-        color: var(--secondary);
-        font-size: 1.2rem;
-        position: relative;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    .liquid-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
     
-    .gift-btn:hover {
-        background: var(--secondary);
-        color: white;
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(255, 101, 132, 0.4);
+    .create-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
     }
-
-    /* زر دعم المطور العائم */
-    .support-float-btn {
-        position: fixed;
-        bottom: 110px;
-        left: 30px;
-        width: 70px;
-        height: 70px;
-        background: var(--accent-gradient);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        box-shadow: 0 8px 25px rgba(255, 101, 132, 0.4);
-        transition: all 0.3s ease;
-        z-index: 999;
-        animation: pulse 2s infinite;
+    
+    .create-btn span {
+        display: none;
     }
-
-    .support-float-btn:hover {
-        background: var(--accent-gradient);
-        transform: translateY(-5px) scale(1.1);
-        box-shadow: 0 12px 30px rgba(255, 101, 132, 0.6);
+    
+    .create-btn i {
+        margin: 0;
+        font-size: 1.1rem;
     }
-
+}
     /* قسم الهيرو الجديد - عرض الشرائح */
     .hero-section {
         background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%);
@@ -667,22 +1405,57 @@
         margin: 0 auto;
     }
 
-    /* إزالة أنيميشن التدرج اللوني للكروت */
-    .feed-item {
-        position: relative;
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        margin-bottom: 20px;
-        transition: transform 0.3s;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-    }
+   /* تصميم الزجاج المائي للكروت */
+.feed-item {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+        var(--glass-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(0);
+}
 
-    .feed-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
+.feed-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* تأثير الضوء على الكروت */
+.feed-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.feed-item:hover::before {
+    opacity: 1;
+}
 
     /* عرض الكروت على شكل شبكة */
     .grid-view .feed-container {
@@ -1177,121 +1950,200 @@
     }
 }
 
-    /* نافذة البرومبت - محسنة للتجاوب */
-    .prompt-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        backdrop-filter: blur(15px);
-    }
+   /* نافذة البرومبت بتصميم الزجاج المائي */
+.prompt-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
 
-    .modal-content {
-        background: white;
-        width: 100%;
-        max-width: 800px;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
-        position: relative;
-        max-height: 85vh;
-        overflow-y: auto;
-        animation: modalAppear 0.4s ease;
-    }
+.modal-content {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+    max-width: 800px;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+    animation: modalAppear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-    @keyframes modalAppear {
-        from { 
-            opacity: 0; 
-            transform: scale(0.85) translateY(30px); 
-        }
-        to { 
-            opacity: 1; 
-            transform: scale(1) translateY(0); 
-        }
+@keyframes modalAppear {
+    from { 
+        opacity: 0; 
+        transform: scale(0.9) translateY(30px); 
     }
+    to { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
 
-    .close-modal {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        background: var(--light);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        font-size: 1.1rem;
-        transition: all 0.3s;
-        z-index: 1;
-        color: var(--dark);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border: none;
-    }
+/* تأثير الضوء على النافذة */
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 30%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border-radius: 24px;
+    pointer-events: none;
+}
+   .modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0 30px;
+    color: white;
+    font-weight: 700;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
 
-    .close-modal:hover {
-        background: var(--primary);
-        color: white;
-        transform: rotate(90deg);
-    }
+.close-modal {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    z-index: 1;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
-    .modal-title {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-        text-align: center;
-        padding: 0 30px;
-        color: var(--dark);
-        font-weight: 700;
-        line-height: 1.3;
-    }
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: rotate(90deg) scale(1.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
 
     .prompt-text {
-        background: var(--light);
-        padding: 20px;
-        border-radius: 15px;
-        margin: 20px 0;
-        line-height: 1.7;
-        max-height: 40vh;
-        overflow-y: auto;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        color: var(--dark);
-        font-size: 1rem;
-        text-align: right;
-        direction: ltr;
-    }
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 16px;
+    margin: 20px 0;
+    line-height: 1.7;
+    max-height: 40vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+    text-align: right;
+    direction: ltr;
+    font-family: 'Courier New', monospace;
+}
 
     .modal-actions {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
 
-    .copy-btn, .gemini-btn {
-        flex: 1;
-        min-width: 140px;
-        padding: 14px 20px;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
-    }
+.copy-btn, .gemini-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 16px 24px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
 
+.copy-btn {
+    background: rgba(108, 99, 255, 0.15);
+    color: white;
+    border: 1px solid rgba(108, 99, 255, 0.3);
+}
 
+.gemini-btn {
+    background: rgba(142, 68, 173, 0.15);
+    color: white;
+    border: 1px solid rgba(142, 68, 173, 0.3);
+}
+
+.copy-btn:hover, .gemini-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+.copy-btn:hover {
+    background: rgba(108, 99, 255, 0.25);
+    border-color: rgba(108, 99, 255, 0.5);
+}
+
+.gemini-btn:hover {
+    background: rgba(142, 68, 173, 0.25);
+    border-color: rgba(142, 68, 173, 0.5);
+}
+
+/* تأثير الضوء على الأزرار */
+.copy-btn::before, .gemini-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.copy-btn:hover::before, .gemini-btn:hover::before {
+    left: 100%;
+}
 
 
 
@@ -1462,6 +2314,328 @@
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+}
+
+
+
+/* تأثير Parallax للهيرو */
+.parallax-hero {
+    background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax__visuals {
+    width: 100%;
+    height: 120%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.parallax__black-line-overflow {
+    z-index: 20;
+    background-color: var(--dark);
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.parallax__layers {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.parallax__layer {
+    pointer-events: none;
+    object-fit: cover;
+    width: 100%;
+    max-width: none;
+    height: 117.5%;
+    position: absolute;
+    top: -17.5%;
+    left: 0;
+}
+
+.parallax__layer-1 {
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.parallax__layer-2 {
+    z-index: 2;
+    opacity: 0.6;
+}
+
+.parallax__layer-3 {
+    z-index: 3;
+    opacity: 0.4;
+}
+
+.parallax__layer-4 {
+    z-index: 4;
+    opacity: 0.3;
+}
+
+.parallax__fade {
+    z-index: 30;
+    background: linear-gradient(
+        to top, 
+        var(--dark) 0%, 
+        rgba(45, 43, 85, 0.9) 20%,
+        rgba(45, 43, 85, 0.7) 40%,
+        rgba(45, 43, 85, 0.4) 60%,
+        rgba(45, 43, 85, 0.1) 80%,
+        transparent 100%
+    );
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.parallax__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+    width: 100%;
+}
+
+.parallax__title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.parallax__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.parallax__stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.parallax__stat {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 20px 30px;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.parallax__stat:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.parallax__stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    text-shadow: 0 2px 10px rgba(54, 209, 220, 0.3);
+}
+
+.parallax__stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.parallax__buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.parallax__btn {
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.parallax__btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.parallax__btn:hover::before {
+    left: 100%;
+}
+
+.parallax__btn--primary {
+    background: var(--gradient);
+    color: white;
+    border-color: var(--primary-light);
+}
+
+.parallax__btn--primary:hover {
+    background: var(--gradient-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
+}
+
+.parallax__btn--secondary {
+    background: transparent;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.7);
+}
+
+.parallax__btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .parallax__title {
+        font-size: 2.8rem;
+    }
+    
+    .parallax__subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .parallax__stats {
+        gap: 20px;
+    }
+    
+    .parallax__stat {
+        padding: 15px 20px;
+        min-width: 120px;
+    }
+    
+    .parallax__stat-number {
+        font-size: 2rem;
+    }
+    
+    .parallax__buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .parallax__btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+    
+    .parallax__layer {
+        height: 130%;
+        top: -30%;
+    }
+}
+
+@media (max-width: 480px) {
+    .parallax__title {
+        font-size: 2.2rem;
+    }
+    
+    .parallax__subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .parallax__stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .parallax__stat {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .parallax__layer {
+        height: 140%;
+        top: -40%;
+    }
+}
+
+/* أنيميشن الظهور */
+.parallax__title,
+.parallax__subtitle,
+.parallax__stats,
+.parallax__buttons {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.parallax-hero.loaded .parallax__title {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.parallax-hero.loaded .parallax__subtitle {
+    opacity: 0.9;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.parallax-hero.loaded .parallax__stats {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.parallax-hero.loaded .parallax__buttons {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.8s;
 }
 
 .restorer-copy-btn,
@@ -2458,6 +3632,465 @@
         box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
     }
 
+
+    /* نافذة المفضلة الزجاجية */
+.favorites-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+}
+
+.favorites-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.favorites-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.favorites-modal-content {
+    position: relative;
+    width: 95%;
+    height: 90vh;
+    max-width: 1200px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 25px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    overflow: hidden;
+    animation: modalSlideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* رأس النافذة */
+.favorites-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.favorites-title {
+    color: var(--dark);
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.favorites-title i {
+    color: var(--secondary);
+}
+
+
+
+
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .feed-item {
+        border-radius: 18px;
+        margin-bottom: 15px;
+    }
+    
+    .modal-content {
+        padding: 25px 20px;
+        margin: 10px;
+        border-radius: 20px;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+        padding: 0 20px;
+    }
+    
+    .prompt-text {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+    
+    .modal-actions {
+        gap: 10px;
+    }
+    
+    .copy-btn, .gemini-btn {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 20px 15px;
+        border-radius: 18px;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .copy-btn, .gemini-btn {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .feed-item:hover {
+        transform: translateY(-5px) scale(1.01);
+    }
+}
+
+.close-favorites-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--dark);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-favorites-btn:hover {
+    background: var(--secondary);
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* جسم النافذة */
+.favorites-body {
+    height: calc(100% - 140px);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* شبكة المفضلة */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.favorite-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.favorite-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 
+        0 12px 30px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.favorite-card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.favorite-card-content {
+    padding: 15px;
+}
+
+.favorite-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--dark);
+    line-height: 1.3;
+}
+
+.favorite-card-category {
+    display: inline-block;
+    background: rgba(108, 99, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.favorite-card-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.favorite-card:hover .favorite-card-actions {
+    opacity: 1;
+}
+
+.favorite-action-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.favorite-action-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-action-btn.remove-btn:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+.favorite-action-btn.copy-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* حالة عدم وجود مفضلات */
+.empty-favorites-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray);
+    display: none;
+}
+
+.empty-favorites-state.active {
+    display: block;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-favorites-state h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.empty-favorites-state p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.browse-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.browse-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+}
+
+/* إحصائيات المفضلة */
+.favorites-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+.clear-favorites-btn {
+    background: rgba(255, 101, 132, 0.1);
+    color: var(--secondary);
+    border: 1px solid rgba(255, 101, 132, 0.2);
+    padding: 8px 16px;
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.clear-favorites-btn:hover {
+    background: var(--secondary);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .favorites-modal-content {
+        width: 98%;
+        height: 95vh;
+        border-radius: 20px;
+    }
+    
+    .favorites-header {
+        padding: 15px 20px;
+    }
+    
+    .favorites-title {
+        font-size: 1.3rem;
+    }
+    
+    .favorites-body {
+        padding: 15px;
+        height: calc(100% - 130px);
+    }
+    
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    
+    .favorite-card-image {
+        height: 160px;
+    }
+    
+    .favorites-stats {
+        padding: 12px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .stat-item {
+        flex: 1;
+        min-width: 70px;
+    }
+    
+    .stat-number {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .favorites-header {
+        padding: 12px 15px;
+    }
+    
+    .favorites-title {
+        font-size: 1.2rem;
+    }
+    
+    .close-favorites-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .favorite-card-image {
+        height: 140px;
+    }
+    
+    .empty-favorites-state {
+        padding: 40px 15px;
+    }
+    
+    .empty-icon {
+        font-size: 3rem;
+    }
+    
+    .favorites-stats {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+    }
+}
+
     .search-icon {
         position: absolute;
         left: 15px;
@@ -2650,6 +4283,451 @@
         font-size: 0.9rem;
         margin-bottom: 10px;
     }
+
+
+
+
+    /* نافذة المفضلة الزجاجية */
+.favorites-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.favorites-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.favorites-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.favorites-modal-content {
+    position: relative;
+    width: 95%;
+    height: 90%;
+    max-width: 1200px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: modalSlideIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* رأس النافذة */
+.favorites-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.favorites-title {
+    color: var(--dark);
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+}
+
+.favorites-title i {
+    color: var(--secondary);
+}
+
+.close-favorites-btn {
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--dark);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.close-favorites-btn:hover {
+    background: var(--secondary);
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+}
+
+/* جسم النافذة */
+.favorites-body {
+    height: calc(100% - 180px);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* شبكة المفضلة */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.favorite-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.favorite-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.favorite-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.favorite-card:hover .favorite-card-image {
+    transform: scale(1.05);
+}
+
+.favorite-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.1) 30%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.favorite-card:hover .favorite-card-overlay {
+    opacity: 1;
+}
+
+.favorite-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    color: white;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.favorite-card:hover .favorite-card-content {
+    transform: translateY(0);
+}
+
+.favorite-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.favorite-card-category {
+    display: inline-block;
+    background: rgba(108, 99, 255, 0.8);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.favorite-card-actions {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.favorite-card:hover .favorite-card-actions {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.favorite-action-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--dark);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.favorite-action-btn:hover {
+    transform: scale(1.1);
+}
+
+.favorite-action-btn.remove-btn:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+.favorite-action-btn.copy-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* حالة عدم وجود مفضلات */
+.empty-favorites-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray);
+    display: none;
+}
+
+.empty-favorites-state.active {
+    display: block;
+}
+
+.empty-icon {
+    font-size: 4rem;
+    color: var(--gray);
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-favorites-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.empty-favorites-state p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.browse-btn {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.browse-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.4);
+}
+
+/* إحصائيات المفضلة */
+.favorites-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.clear-favorites-btn {
+    background: rgba(255, 101, 132, 0.1);
+    color: var(--secondary);
+    border: 1px solid rgba(255, 101, 132, 0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.clear-favorites-btn:hover {
+    background: var(--secondary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* شريط التمرير المخصص */
+.favorites-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.favorites-body::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.favorites-body::-webkit-scrollbar-thumb {
+    background: rgba(108, 99, 255, 0.3);
+    border-radius: 10px;
+}
+
+.favorites-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(108, 99, 255, 0.5);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .favorites-modal-content {
+        width: 98%;
+        height: 95%;
+        border-radius: 20px;
+    }
+    
+    .favorites-header {
+        padding: 20px;
+    }
+    
+    .favorites-title {
+        font-size: 1.5rem;
+    }
+    
+    .favorites-body {
+        padding: 15px;
+        height: calc(100% - 160px);
+    }
+    
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 5px;
+    }
+    
+    .favorite-card-image {
+        height: 180px;
+    }
+    
+    .favorites-stats {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .stat-item {
+        flex: 1;
+        min-width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .favorites-header {
+        padding: 15px;
+    }
+    
+    .favorites-title {
+        font-size: 1.3rem;
+    }
+    
+    .close-favorites-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .favorite-card-image {
+        height: 160px;
+    }
+    
+    .empty-favorites-state {
+        padding: 40px 15px;
+    }
+    
+    .empty-icon {
+        font-size: 3rem;
+    }
+}
 
     /* الفوتر الجديد - متناسق وجميل */
     footer {
@@ -3189,83 +5267,150 @@
 </style>
 </head>
 <body>
-    <!-- شريط التنقل -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-gem"></i>
-                </div>
-                <span id="siteTitle">Gemini Prompts</span>
-            </a>
-            
-            <div class="nav-actions">
-                <button class="search-btn" id="searchBtn">
+<!-- شريط التنقل بتأثير الماء والزجاج التفاعلي -->
+<nav class="liquid-navbar" id="liquidNavbar">
+    <div class="liquid-container">
+        <!-- الخلفية المائية التفاعلية -->
+        <div class="liquid-background" id="liquidBackground"></div>
+        
+        <!-- موجات الماء -->
+        <div class="water-waves">
+            <div class="wave wave-1"></div>
+            <div class="wave wave-2"></div>
+            <div class="wave wave-3"></div>
+        </div>
+
+        <!-- محتوى النافبار -->
+        <div class="nav-content">
+            <!-- المجموعة اليسرى -->
+            <div class="nav-group left-group">
+                <button class="liquid-btn search-btn" id="searchBtn">
+                    <div class="btn-liquid"></div>
                     <i class="fas fa-search"></i>
+                    <span class="btn-ripple"></span>
+                    <span class="btn-tooltip">بحث</span>
                 </button>
-            
                 
-                <!-- زر المستخدم المعدل لصفحة الريلز --> 
-                 <a href="insta.html">
-                <button class="user-menu-btn" id="userMenuBtn">
-                    <i class="fas fa-file-video"></i>
+                <button class="liquid-btn favorite-btn" id="favoriteBtn">
+                    <div class="btn-liquid"></div>
+                    <i class="far fa-heart"></i>
+                    <span class="btn-ripple"></span>
+                    <span class="btn-tooltip">المفضلة</span>
                 </button>
+            </div>
+
+            <!-- الزر الأوسط -->
+            <div class="nav-group center-group">
+                <button class="create-btn liquid-glass-btn" id="createFreeBtn">
+                    <div class="liquid-overlay"></div>
+                    <div class="glass-reflection"></div>
+                    <i class="fas fa-plus-circle"></i>
+                    <span>إنشاء مجاني</span>
+                    <div class="btn-bubbles"></div>
+                </button>
+            </div>
+
+            <!-- المجموعة اليمنى -->
+            <div class="nav-group right-group">
+                <button class="liquid-btn support-btn" id="supportBtn">
+                    <div class="btn-liquid"></div>
+                    <i class="fas fa-life-ring"></i>
+                    <span class="btn-ripple"></span>
+                    <span class="btn-tooltip">الدعم</span>
+                </button>
+                
+                <a href="insta.html" class="liquid-btn user-btn">
+                    <div class="btn-liquid"></div>
+                    <i class="fas fa-file-video"></i>
+                    <span class="btn-ripple"></span>
+                    <span class="btn-tooltip">الريلز</span>
                 </a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- زر دعم المطور العائم 
-    <button class="support-float-btn" id="supportFloatBtn">
-        <i class="fas fa-heart"></i>
-    </button>
--->
+<!-- فقاعات عائمة في الخلفية -->
+<div class="floating-bubbles">
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    <div class="bubble bubble-5"></div>
+</div>
 
-    <!-- قسم الهيرو الجديد مع عرض الشرائح -->
-    <section class="hero-section">
-        <!-- عرض الشرائح -->
-        <div class="hero-slideshow" id="heroSlideshow">
-            <!-- سيتم إضافة الشرائح ديناميكياً -->
+
+<!-- قسم الهيرو مع تأثير Parallax -->
+<section class="parallax-hero" id="parallaxHero">
+    <div class="parallax__visuals">
+        <div class="parallax__black-line-overflow"></div>
+        <div class="parallax__layers" data-parallax-layers>
+            <!-- الطبقة 1 - أبعد طبقة -->
+            <img src="parallax-layer-3.webp" 
+                 loading="eager" 
+                 class="parallax__layer parallax__layer-1" 
+                 data-parallax-layer="1" 
+                 alt=""
+                 onerror="this.style.display='none'">
+            
+            <!-- الطبقة 2 -->
+            <img src="parallax-layer-2.webp" 
+                 loading="eager" 
+                 class="parallax__layer parallax__layer-2" 
+                 data-parallax-layer="2" 
+                 alt=""
+                 onerror="this.style.display='none'">
+            
+            <!-- الطبقة 3 - النص -->
+            <div class="parallax__layer-title" data-parallax-layer="3">
+                <!-- النص سيكون في المحتوى الرئيسي -->
+            </div>
+            
+            <!-- الطبقة 4 - أقرب طبقة -->
+            <img src="parallax-layer-1.webp" 
+                 loading="eager" 
+                 class="parallax__layer parallax__layer-4" 
+                 data-parallax-layer="4" 
+                 alt=""
+                 onerror="this.style.display='none'">
         </div>
-        
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">اكتشف عالم الصور الإبداعية</h1>
-                <p class="hero-subtitle">أفضل برومبتات Gemini لتحويل صورك إلى أعمال فنية مذهلة</p>
-                
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="stat-number" id="usersCount">845+</span>
-                        <span class="stat-label">مستخدم نشط</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="stat-number" id="promptsCount">91+</span>
-                        <span class="stat-label">برومبت متميز</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="stat-number" id="imagesCount">1.2K+</span>
-                        <span class="stat-label">صورة منشأة</span>
-                    </div>
+        <div class="parallax__fade"></div>
+    </div>
+    
+    <div class="container">
+        <div class="parallax__content">
+            <h1 class="parallax__title">اكتشف عالم الصور الإبداعية</h1>
+            <p class="parallax__subtitle">أفضل برومبتات Gemini لتحويل صورك إلى أعمال فنية مذهلة</p>
+            
+            <div class="parallax__stats">
+                <div class="parallax__stat">
+                    <span class="parallax__stat-number" id="parallaxUsersCount">845+</span>
+                    <span class="parallax__stat-label">مستخدم نشط</span>
                 </div>
-                
-                <div class="hero-buttons">
-                    <button class="hero-btn btn-primary" id="exploreHeroBtn">
-                        <i class="fas fa-compass"></i>
-                        استكشف البرومبتات
-                    </button>
-                    <button class="hero-btn btn-secondary" id="learnHeroBtn">
-                        <i class="fas fa-graduation-cap"></i>
-                        تعلم كيفية الاستخدام
-                    </button>
+                <div class="parallax__stat">
+                    <span class="parallax__stat-number" id="parallaxPromptsCount">184+</span>
+                    <span class="parallax__stat-label">برومبت متميز</span>
+                </div>
+                <div class="parallax__stat">
+                    <span class="parallax__stat-number" id="parallaxImagesCount">1.2K+</span>
+                    <span class="parallax__stat-label">صورة منشأة</span>
                 </div>
             </div>
+            
+            <div class="parallax__buttons">
+                <button class="parallax__btn parallax__btn--primary" id="parallaxExploreBtn">
+                    <i class="fas fa-compass"></i>
+                    استكشف البرومبتات
+                </button>
+                <button class="parallax__btn parallax__btn--secondary" id="parallaxLearnBtn">
+                    <i class="fas fa-graduation-cap"></i>
+                    تعلم كيفية الاستخدام
+                </button>
+            </div>
         </div>
-    </section>
-
-    <!-- زر الشات العائم -->
-    <button class="chat-float-btn" id="chatFloatBtn">
-        <i class="">انشاء free</i>
-    </button>
+    </div>
+</section>
+   
 
     
 
@@ -3835,30 +5980,58 @@ window.closeAllTutorialSteps = closeAllTutorialSteps;
 
 
 
+<!-- نافذة المفضلة الزجاجية -->
+<div class="favorites-modal" id="favoritesModal">
+    <div class="favorites-modal-overlay" id="favoritesOverlay"></div>
+    <div class="favorites-modal-content">
+        <!-- رأس النافذة -->
+        <div class="favorites-header">
+            <h2 class="favorites-title">
+                <i class="fas fa-heart"></i>
+                الصور المفضلة
+            </h2>
+            <button class="close-favorites-btn" id="closeFavoritesBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
 
-    <!-- قسم المفضلة - سلايدر محسن لللمس -->
-<section class="favorites-section">
-    <div class="container">
-        <h2 class="section-title">الصور <span>المفضلة</span></h2>
-        <div class="favorites-slider">
-            <div class="favorites-track" id="favoritesTrack">
-                <!-- سيتم إضافة العناصر المفضلة هنا -->
+        <!-- محتوى المفضلة -->
+        <div class="favorites-body">
+            <div class="favorites-grid" id="favoritesGrid">
+                <!-- سيتم إضافة العناصر المفضلة هنا ديناميكياً -->
             </div>
-            <div class="slider-controls">
-                <button class="slider-btn" id="prevSlide">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-                <button class="slider-btn" id="nextSlide">
-                    <i class="fas fa-chevron-left"></i>
+            
+            <!-- حالة عدم وجود مفضلات -->
+            <div class="empty-favorites-state" id="emptyFavoritesState">
+                <div class="empty-icon">
+                    <i class="far fa-heart"></i>
+                </div>
+                <h3>لا توجد صور في المفضلة بعد</h3>
+                <p>اضغط على زر القلب في أي صورة لإضافتها إلى المفضلة</p>
+                <button class="browse-btn" id="browseFavoritesBtn">
+                    <i class="fas fa-compass"></i>
+                    استكشاف الصور
                 </button>
             </div>
         </div>
-        <div class="empty-favorites hidden" id="emptyFavorites">
-            <i class="far fa-folder-open"></i>
-            <p>لا توجد عناصر في المفضلة بعد</p>
+
+        <!-- إحصائيات المفضلة -->
+        <div class="favorites-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="favoritesCount">0</span>
+                <span class="stat-label">صورة</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="favoritesViews">0</span>
+                <span class="stat-label">مشاهدة</span>
+            </div>
+            <button class="clear-favorites-btn" id="clearFavoritesBtn">
+                <i class="fas fa-trash"></i>
+                مسح الكل
+            </button>
         </div>
     </div>
-</section>
+</div>
  
     <!-- قسم الإعلان -->
     <section class="ads-section">
@@ -4161,6 +6334,7 @@ window.closeAllTutorialSteps = closeAllTutorialSteps;
             { id: 'all', name: 'الكل' },
             { id: 'ورد', name: 'ورد#' },
             { id: 'سيارات', name: 'سيارات#' },
+            { id: 'فرعونى', name: 'فرعونى#' },
             { id: 'كلاسيك', name: 'كلاسيك#' },
             { id: 'جميلة', name: 'جميلة#' },
             { id: 'عيد ميلاد', name: 'عيد ميلاد#'},
@@ -4173,10 +6347,10 @@ window.closeAllTutorialSteps = closeAllTutorialSteps;
 
         // بيانات صور الهيرو - استخدم صور محلية
         const heroImages = [
-            'boy2.jpg',
-            'boy3.jpg', 
-            'boy10.jpg',
-            'girl54.jpg', 
+            'boy22.jpg',
+            'boy34.jpg', 
+            'boy1.jpg',
+            'girl4.jpg', 
             'boy35.jpg',
             'girl51.jpg',
             'boy39.jpg',
@@ -4219,21 +6393,19 @@ window.closeAllTutorialSteps = closeAllTutorialSteps;
             return 'user_' + Math.random().toString(36).substr(2, 9) + '_' + Date.now().toString(36);
         }
 
-        // تحميل المستخدم من localStorage أو إنشاء جديد
-        function loadUser() {
-            const savedUser = localStorage.getItem('anonymousUser');
-            
-            if (savedUser) {
-                currentUser = JSON.parse(savedUser);
-            } else {
-                currentUser = createAnonymousUser();
-            }
-            
-            loadFavoritesFromLocalStorage();
-            loadViewedCardsFromLocalStorage();
-            updateUserUI();
-        }
-
+       function loadUser() {
+    const savedUser = localStorage.getItem('anonymousUser');
+    
+    if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+    } else {
+        currentUser = createAnonymousUser();
+    }
+    
+    loadFavoritesFromLocalStorage();
+    loadViewedCardsFromLocalStorage();
+    updateUserUI(); // <-- إما احذف هذا السطر أو عدل الدالة
+}
         // تحميل المفضلة من localStorage
         function loadFavoritesFromLocalStorage() {
             const savedFavorites = localStorage.getItem(`favorites_${currentUser.uid}`);
@@ -4271,13 +6443,36 @@ window.closeAllTutorialSteps = closeAllTutorialSteps;
         }
 
         // تحديث واجهة المستخدم
-        function updateUserUI() {
-            // تحديث إحصائيات الهيرو
-            document.getElementById('usersCount').textContent = '845+';
-            document.getElementById('promptsCount').textContent = '113+';
-            document.getElementById('imagesCount').textContent = '1.2K+';
-        }
-
+function updateUserUI() {
+    // تحديث إحصائيات الهيرو الجديدة
+    const parallaxUsersCount = document.getElementById('parallaxUsersCount');
+    const parallaxPromptsCount = document.getElementById('parallaxPromptsCount');
+    const parallaxImagesCount = document.getElementById('parallaxImagesCount');
+    
+    // التحقق من وجود العناصر قبل التحديث
+    if (parallaxUsersCount) {
+        // سيتم تحديث الأرقام من خلال animateParallaxStats()
+        // نضع القيم الابتدائية فقط
+        parallaxUsersCount.textContent = '845+';
+    }
+    
+    if (parallaxPromptsCount) {
+        parallaxPromptsCount.textContent = '184+';
+    }
+    
+    if (parallaxImagesCount) {
+        parallaxImagesCount.textContent = '1.2K+';
+    }
+    
+    // إزالة محاولة تحديث العناصر القديمة التي لم تعد موجودة
+    // const usersCount = document.getElementById('usersCount');
+    // const promptsCount = document.getElementById('promptsCount');
+    // const imagesCount = document.getElementById('imagesCount');
+    
+    // if (usersCount) usersCount.textContent = '918+';
+    // if (promptsCount) promptsCount.textContent = '184+';
+    // if (imagesCount) imagesCount.textContent = '2.2K+';
+}
        // تهيئة التطبيق
 document.addEventListener('DOMContentLoaded', function() {
     loadUser();
@@ -4287,7 +6482,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSlidesPerView();
     initHashtags();
     setupGiftButton();
-    initHeroSlideshow();
+    initParallaxHero();
     initFooterSlideshow();
     initSupportPopup();
     initTouchNavigation();
@@ -4353,6 +6548,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     toggleViewMode();
                 });
             });
+
+
+
+            // إضافة مستمع للأحداث للمشاركة المتقدمة
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.share-option[data-platform="native"]')) {
+        const shareModal = document.getElementById('shareModal');
+        const cardId = shareModal.getAttribute('data-card-id');
+        const card = allCards.find(c => c.id.toString() === cardId);
+        
+        if (card) {
+            shareImageWithPrompt(card);
+            shareModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+});
 
             // زر البحث
             const searchBtn = document.getElementById('searchBtn');
@@ -4563,37 +6775,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
-        // تهيئة عرض الشرائح للهيرو مع التحقق من الصور
-        function initHeroSlideshow() {
-            const slideshowContainer = document.getElementById('heroSlideshow');
-            if (!slideshowContainer) return;
-            
-            let currentSlideIndex = 0;
-            
-            // إنشاء الشرائح مع التحقق من وجود الصور
-            heroImages.forEach((image, index) => {
-                const slide = document.createElement('div');
-                slide.className = 'hero-slide';
-                if (index === 0) {
-                    slide.classList.add('active');
-                }
-                slide.style.backgroundImage = `url('${image}')`;
-                slideshowContainer.appendChild(slide);
-            });
-            
-            // تغيير الشريحة كل 30 ثانية
-            setInterval(() => {
-                const slides = document.querySelectorAll('.hero-slide');
-                if (slides.length === 0) return;
-                
-                slides[currentSlideIndex].classList.remove('active');
-                
-                currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-                
-                slides[currentSlideIndex].classList.add('active');
-            }, 10000); // 10ثانية
-        }
-
+        
         // تهيئة عرض الشرائح للفوتر
         function initFooterSlideshow() {
             const slideshowContainer = document.getElementById('footerSlideshow');
@@ -5162,6 +7344,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     openShareModal(card);
                 });
             }
+
+            // تحديث حدث المشاركة في دالة createFeedItem
+if (shareBtn) {
+    shareBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const cardId = this.getAttribute('data-id');
+        const card = allCards.find(c => c.id.toString() === cardId);
+        
+        if (card) {
+            if (navigator.share) {
+                shareImageWithPrompt(card);
+            } else {
+                openShareModal(card);
+            }
+        }
+    });
+}
             
             return feedItem;
         }
@@ -5799,6 +7998,82 @@ function initImageSharingSystem() {
     }
 }
 
+
+// نظام مشاركة الصور مع البرومبت
+function initImageSharingWithPrompt() {
+    // إعداد مستمع للأحداث على أزرار المشاركة
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.share-btn') || e.target.closest('.instagram-btn.share')) {
+            const shareBtn = e.target.closest('.share-btn') || e.target.closest('.instagram-btn.share');
+            const cardId = shareBtn.getAttribute('data-id');
+            const card = allCards.find(c => c.id.toString() === cardId);
+            
+            if (card) {
+                // استخدام Web Share API إذا كان متاحاً
+                if (navigator.share) {
+                    shareImageWithPrompt(card);
+                } else {
+                    // Fallback: فتح نافذة المشاركة العادية
+                    openShareModal(card);
+                }
+            }
+        }
+    });
+}
+
+// مشاركة الصورة مع البرومبت باستخدام Web Share API
+async function shareImageWithPrompt(card) {
+    try {
+        // تحضير البيانات للمشاركة
+        const shareData = {
+            title: card.title,
+            text: `${card.title}\n\n${card.description}\n\nالبرومبت: ${card.prompt.substring(0, 200)}...\n\nجرب هذا البرومبت على Gemini Prompts!`,
+            url: generateShareUrl(card)
+        };
+
+        // إذا كانت الصورة متاحة، أضفها للمشاركة
+        if (card.image && !card.image.includes('placeholder')) {
+            try {
+                // جلب الصورة وتحويلها إلى blob
+                const response = await fetch(card.image);
+                const blob = await response.blob();
+                const filesArray = [new File([blob], 'gemini-prompt-image.jpg', { type: 'image/jpeg' })];
+                
+                shareData.files = filesArray;
+            } catch (error) {
+                console.log('لا يمكن مشاركة الصورة، سيتم المشاركة بالنص فقط');
+            }
+        }
+
+        // فتح نافذة المشاركة
+        if (navigator.canShare && navigator.canShare(shareData)) {
+            await navigator.share(shareData);
+            showNotification('تم مشاركة الصورة والبرومبت بنجاح! 📤');
+        } else {
+            await navigator.share(shareData);
+            showNotification('تم مشاركة البرومبت بنجاح! 📤');
+        }
+    } catch (error) {
+        console.error('خطأ في المشاركة:', error);
+        // Fallback: فتح نافذة المشاركة العادية
+        openShareModal(card);
+    }
+}
+
+// دالة مساعدة لإنشاء نص مشاركة متكامل
+function createShareText(card) {
+    return `🎨 ${card.title}
+
+📝 ${card.description}
+
+✨ البرومبت:
+${card.prompt}
+
+🔗 ${generateShareUrl(card)}
+
+#GeminiPrompts #ذكاء_اصطناعي #صورة_إبداعية`;
+}
+
 // تحديث وسوم Open Graph ديناميكياً
 function updateOpenGraphTags(card) {
     const ogUrl = document.getElementById('ogUrl');
@@ -6054,253 +8329,1104 @@ function animateElement(element, delayIndex) {
     }, delayIndex * 200);
 }
 
-// صور الهيرو تظهر بشكل عشوائي عند كل زيارة
-function initRandomHeroImages() {
-    const heroSlideshow = document.getElementById('heroSlideshow');
-    if (!heroSlideshow) return;
 
-    // خلط الصور عشوائياً
-    const shuffledImages = [...heroImages].sort(() => Math.random() - 0.5);
-    
-    // إنشاء الشرائح بشكل عشوائي
-    heroSlideshow.innerHTML = '';
-    shuffledImages.forEach((image, index) => {
-        const slide = document.createElement('div');
-        slide.className = 'hero-slide';
-        if (index === 0) {
-            slide.classList.add('active');
-        }
-        slide.style.backgroundImage = `url('${image}')`;
-        heroSlideshow.appendChild(slide);
-    });
 
-    // بدء عرض الشرائح
-    startHeroSlideshow();
-}
+    
 
-// أنيميشن انتقال بين الصور بتأثير الجليتش
-function startHeroSlideshow() {
-    const slides = document.querySelectorAll('.hero-slide');
-    if (slides.length === 0) return;
-    
-    let currentSlideIndex = 0;
-    
-    setInterval(() => {
-        const currentSlide = slides[currentSlideIndex];
-        const nextSlideIndex = (currentSlideIndex + 1) % slides.length;
-        const nextSlide = slides[nextSlideIndex];
-        
-        // تطبيق تأثير الجليتش قبل الانتقال
-        applyGlitchEffect(currentSlide).then(() => {
-            // الانتقال إلى الصورة التالية
-            currentSlide.classList.remove('active');
-            nextSlide.classList.add('active');
-            currentSlideIndex = nextSlideIndex;
+
+
+// إعداد أحداث التاسك بار الجديد
+function setupTaskbarEvents() {
+    // زر البحث
+    const searchBtn = document.getElementById('searchBtn');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function() {
+            const searchModal = document.getElementById('searchModal');
+            if (searchModal) {
+                searchModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) searchInput.focus();
+            }
         });
-        
-    }, 5000); // تغيير الصورة كل 5 ثوانٍ
-}
+    }
 
-// تأثير الجليتش (Glitch Effect)
-function applyGlitchEffect(slide) {
-    return new Promise((resolve) => {
-        if (!slide) {
-            resolve();
-            return;
-        }
+    // زر المفضلة
+    const favoriteBtn = document.getElementById('favoriteBtn');
+    if (favoriteBtn) {
+        favoriteBtn.addEventListener('click', function() {
+            const favoritesSection = document.querySelector('.favorites-section');
+            if (favoritesSection) {
+                favoritesSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                showNotification('انتقلت إلى قسم المفضلة! ❤️');
+            }
+        });
+    }
 
-        // إضافة كلاسات التأثير
-        slide.classList.add('glitch-effect');
-        
-        // إنشاء عناصر تأثير الجليتش
-        createGlitchElements(slide);
-        
-        // إزالة التأثير بعد المدة المحددة
-        setTimeout(() => {
-            slide.classList.remove('glitch-effect');
-            removeGlitchElements(slide);
-            resolve();
-        }, 800); // مدة التأثير 0.8 ثانية
-    });
-}
+    // زر الإنشاء المجاني
+    const createFreeBtn = document.getElementById('createFreeBtn');
+    if (createFreeBtn) {
+        createFreeBtn.addEventListener('click', function() {
+            window.open('https://wa.me/ais/2934750676712120?s=5', '_blank');
+            showNotification('جاري فتح الإنشاء المجاني على واتساب! 🚀');
+        });
+    }
 
-// إنشاء عناصر تأثير الجليتش
-function createGlitchElements(slide) {
-    // تأثيرات التشويش الرقمي مع تغيير الألوان
-    const glitchOverlay = document.createElement('div');
-    glitchOverlay.className = 'glitch-overlay';
-    glitchOverlay.style.cssText = `
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, 
-            rgba(255, 0, 0, 0.1) 0%, 
-            rgba(0, 255, 0, 0.1) 50%, 
-            rgba(0, 0, 255, 0.1) 100%);
-        mix-blend-mode: overlay;
-        animation: colorShift 0.8s infinite;
-    `;
-
-    // خطوط ضوضاء بألوان زرقاء ووردية
-    const noiseLines = document.createElement('div');
-    noiseLines.className = 'noise-lines';
-    noiseLines.style.cssText = `
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 2px,
-            rgba(255, 0, 255, 0.1) 2px,
-            rgba(255, 0, 255, 0.1) 4px
-        );
-        animation: noiseMove 0.8s infinite;
-    `;
-
-    // إضافة العناصر للشريحة
-    slide.appendChild(glitchOverlay);
-    slide.appendChild(noiseLines);
-
-    // تحريك شرائح الصورة بشكل غير متزامن باستخدام clip-path و transform
-    createAsyncSlices(slide);
-}
-
-// إنشاء شرائح غير متزامنة
-function createAsyncSlices(slide) {
-    const sliceCount = 8; // عدد الشرائح
-    
-    for (let i = 0; i < sliceCount; i++) {
-        const slice = document.createElement('div');
-        slice.className = `glitch-slice slice-${i}`;
-        
-        // استخدام clip-path لتقطيع الصورة
-        const sliceHeight = 100 / sliceCount;
-        const startY = i * sliceHeight;
-        const endY = (i + 1) * sliceHeight;
-        
-        slice.style.cssText = `
-            position: absolute;
-            top: ${startY}%;
-            left: 0;
-            width: 100%;
-            height: ${sliceHeight}%;
-            background-image: ${slide.style.backgroundImage};
-            background-size: cover;
-            background-position: center;
-            clip-path: polygon(0% ${startY}%, 100% ${startY}%, 100% ${endY}%, 0% ${endY}%);
-            transform: translateX(${Math.random() * 20 - 10}px);
-            animation: sliceGlitch${i} 0.8s infinite;
-        `;
-
-        // إضافة أنيميشن خاص بكل شريحة
-        addSliceAnimation(i);
-        
-        slide.appendChild(slice);
+    // زر الدعم
+    const supportBtn = document.getElementById('supportBtn');
+    if (supportBtn) {
+        supportBtn.addEventListener('click', function() {
+            openSupportModal();
+        });
     }
 }
 
-// إضافة أنيميشن للشرائح
-function addSliceAnimation(index) {
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes sliceGlitch${index} {
-            0%, 100% {
-                transform: translateX(0) translateY(0);
-                opacity: 1;
+// استدعاء الدالة في التهيئة
+document.addEventListener('DOMContentLoaded', function() {
+    setupTaskbarEvents();
+});
+
+
+
+
+
+
+
+// إعداد أحداث التاسك بار الجديد
+function setupTaskbarEvents() {
+    // زر البحث
+    const searchBtn = document.getElementById('searchBtn');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function() {
+            const searchModal = document.getElementById('searchModal');
+            if (searchModal) {
+                searchModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) searchInput.focus();
             }
-            10%, 30%, 50%, 70%, 90% {
-                transform: translateX(${Math.random() * 10 - 5}px) translateY(${Math.random() * 4 - 2}px);
-                opacity: ${0.8 + Math.random() * 0.2};
+        });
+    }
+
+    // زر المفضلة
+    const favoriteBtn = document.getElementById('favoriteBtn');
+    if (favoriteBtn) {
+        favoriteBtn.addEventListener('click', function() {
+            const favoritesSection = document.querySelector('.favorites-section');
+            if (favoritesSection) {
+                favoritesSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                showNotification('انتقلت إلى قسم المفضلة! ❤️');
             }
-            20%, 40%, 60%, 80% {
-                transform: translateX(${Math.random() * 8 - 4}px) translateY(${Math.random() * 3 - 1.5}px);
-                opacity: ${0.7 + Math.random() * 0.3};
-            }
+        });
+    }
+
+    // زر الإنشاء المجاني
+    const createFreeBtn = document.getElementById('createFreeBtn');
+    if (createFreeBtn) {
+        createFreeBtn.addEventListener('click', function() {
+            window.open('https://wa.me/ais/2934750676712120?s=5', '_blank');
+            showNotification('جاري فتح الإنشاء المجاني على واتساب! 🚀');
+        });
+    }
+
+    // زر الدعم
+    const supportBtn = document.getElementById('supportBtn');
+    if (supportBtn) {
+        supportBtn.addEventListener('click', function() {
+            openSupportModal();
+        });
+    }
+}
+
+// استدعاء الدالة في التهيئة
+document.addEventListener('DOMContentLoaded', function() {
+    setupTaskbarEvents();
+});
+
+
+
+
+// =============================================
+// نظام النافبار المائي التفاعلي - إضافة جديدة
+// =============================================
+
+// نظام التفاعل المائي للنافبار
+class LiquidNavbar {
+    constructor() {
+        this.navbar = document.getElementById('liquidNavbar');
+        this.background = document.getElementById('liquidBackground');
+        this.bubbles = document.querySelector('.floating-bubbles');
+        if (this.navbar && this.background) {
+            this.init();
         }
+    }
+
+    init() {
+        this.setupMouseInteraction();
+        this.setupScrollInteraction();
+        this.createBubbles();
+    }
+
+    // تفاعل الماوس مع الخلفية المائية
+    setupMouseInteraction() {
+        this.navbar.addEventListener('mousemove', (e) => {
+            this.handleMouseMove(e);
+        });
+
+        this.navbar.addEventListener('mouseenter', () => {
+            this.handleMouseEnter();
+        });
+
+        this.navbar.addEventListener('mouseleave', () => {
+            this.handleMouseLeave();
+        });
+    }
+
+    handleMouseMove(e) {
+        const rect = this.navbar.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        // تأثير الموجات مع حركة الماوس
+        this.background.style.background = `
+            radial-gradient(
+                circle at ${x}% ${y}%,
+                rgba(108, 99, 255, 0.2) 0%,
+                rgba(54, 209, 220, 0.15) 30%,
+                rgba(255, 255, 255, 0.05) 70%
+            )
+        `;
+
+        // تأثير اهتزاز الموجات
+        const waves = document.querySelectorAll('.wave');
+        waves.forEach((wave, index) => {
+            const delay = index * 0.1;
+            wave.style.transform = `translateX(${Math.sin(x * 0.1) * 5}px) scaleY(${1 + Math.cos(y * 0.05) * 0.1})`;
+        });
+    }
+
+    handleMouseEnter() {
+        this.navbar.style.transform = 'translateX(-50%) scale(1.02)';
+        this.background.style.backdropFilter = 'blur(25px) saturate(220%)';
+        
+        // تفعيل المزيد من الفقاعات
+        this.createInteractiveBubbles();
+    }
+
+    handleMouseLeave() {
+        this.navbar.style.transform = 'translateX(-50%) scale(1)';
+        this.background.style.backdropFilter = 'blur(20px) saturate(200%)';
+        this.background.style.background = `
+            linear-gradient(
+                135deg,
+                rgba(108, 99, 255, 0.15) 0%,
+                rgba(54, 209, 220, 0.1) 50%,
+                rgba(255, 255, 255, 0.05) 100%
+            )
+        `;
+    }
+
+    // تفاعل التمرير
+    setupScrollInteraction() {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        const updateNavbar = () => {
+            const scrollY = window.scrollY;
+            
+            if (scrollY > 100) {
+                this.navbar.classList.add('scrolled');
+                this.navbar.style.backdropFilter = 'blur(30px)';
+            } else {
+                this.navbar.classList.remove('scrolled');
+                this.navbar.style.backdropFilter = 'blur(20px)';
+            }
+
+            // تأثير الطفو مع التمرير
+            const floatEffect = Math.sin(scrollY * 0.01) * 2;
+            this.navbar.style.transform = `translateX(-50%) translateY(${floatEffect}px)`;
+
+            lastScrollY = scrollY;
+            ticking = false;
+        };
+
+        const onScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', onScroll);
+    }
+
+    // إنشاء فقاعات تفاعلية
+    createBubbles() {
+        if (!this.bubbles) return;
+
+        for (let i = 0; i < 8; i++) {
+            this.createBubble();
+        }
+    }
+
+    createBubble() {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        
+        const size = Math.random() * 15 + 5;
+        const left = Math.random() * 100;
+        const delay = Math.random() * 15;
+        
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${left}%`;
+        bubble.style.animationDelay = `-${delay}s`;
+        
+        this.bubbles.appendChild(bubble);
+    }
+
+    createInteractiveBubbles() {
+        // فقاعات تفاعلية إضافية عند المرور
+        for (let i = 0; i < 3; i++) {
+            setTimeout(() => {
+                this.createBubble();
+            }, i * 300);
+        }
+    }
+}
+
+// إعداد أحداث الأزرار المائية
+function setupLiquidButtons() {
+    // زر البحث
+    const searchBtn = document.getElementById('searchBtn');
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function() {
+            createRippleEffect(this);
+            const searchModal = document.getElementById('searchModal');
+            if (searchModal) {
+                searchModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) searchInput.focus();
+            }
+        });
+    }
+
+    // زر المفضلة
+    const favoriteBtn = document.getElementById('favoriteBtn');
+    if (favoriteBtn) {
+        favoriteBtn.addEventListener('click', function() {
+            createRippleEffect(this);
+            const favoritesSection = document.querySelector('.favorites-section');
+            if (favoritesSection) {
+                favoritesSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                showNotification('انتقلت إلى قسم المفضلة! ❤️');
+            }
+        });
+    }
+
+    // زر الإنشاء المجاني
+    const createFreeBtn = document.getElementById('createFreeBtn');
+    if (createFreeBtn) {
+        createFreeBtn.addEventListener('click', function() {
+            createSplashEffect(this);
+            setTimeout(() => {
+                window.open('https://wa.me/ais/2934750676712120?s=5', '_blank');
+                showNotification('جاري فتح الإنشاء المجاني على واتساب! 🚀');
+            }, 500);
+        });
+    }
+
+    // زر الدعم
+    const supportBtn = document.getElementById('supportBtn');
+    if (supportBtn) {
+        supportBtn.addEventListener('click', function() {
+            createRippleEffect(this);
+            openSupportModal();
+        });
+    }
+}
+
+// تأثير التموجات
+function createRippleEffect(button) {
+    const ripple = button.querySelector('.btn-ripple');
+    if (ripple) {
+        ripple.style.animation = 'none';
+        setTimeout(() => {
+            ripple.style.animation = 'ripple 0.6s ease-out';
+        }, 10);
+    }
+}
+
+// تأثير التناثر المائي
+function createSplashEffect(button) {
+    const splash = document.createElement('div');
+    splash.style.cssText = `
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+        border-radius: 20px;
+        transform: translate(-50%, -50%) scale(0);
+        animation: splash 0.8s ease-out;
+        pointer-events: none;
     `;
-    document.head.appendChild(style);
+    
+    button.appendChild(splash);
+    
+    setTimeout(() => {
+        splash.remove();
+    }, 800);
 }
 
-// إزالة عناصر الجليتش
-function removeGlitchElements(slide) {
-    const glitchElements = slide.querySelectorAll('.glitch-overlay, .noise-lines, .glitch-slice');
-    glitchElements.forEach(el => el.remove());
+// إضافة أنيميشن التناثر
+const splashStyle = document.createElement('style');
+splashStyle.textContent = `
+    @keyframes splash {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(2);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(splashStyle);
+
+// =============================================
+// تهيئة النظام المائي - استبدال التهيئة القديمة
+// =============================================
+
+// تعديل التهيئة الرئيسية لتدعم النظام الجديد
+document.addEventListener('DOMContentLoaded', function() {
+    // التهيئة الأساسية الحالية (لا تحذفها)
+    loadUser();
+    setupEventListeners();
+    loadAndDisplayCards();
+    loadUserFavorites();
+    updateSlidesPerView();
+    initHashtags();
+    setupGiftButton();
+    initParallaxHero();
+    initFooterSlideshow();
+    initSupportPopup();
+    initTouchNavigation();
+    initImageComparison();
+    setupRestorerButtons();
+    setupTutorialDropdown();
+    initImageSharingSystem();
+    
+    // إضافة التهيئة الجديدة للنافبار المائي
+    setTimeout(() => {
+        new LiquidNavbar();
+        setupLiquidButtons();
+    }, 1000);
+    
+    // التحقق من ظهور أزرار التنقل
+    toggleNavigationButtons();
+    
+    // إضافة مستمع لحدث التمرير
+    window.addEventListener('scroll', function() {
+        toggleNavigationButtons();
+    });
+});
+
+// =============================================
+// الحفاظ على الدوال الحالية وإضافة الجديدة فقط
+// =============================================
+
+// دع جميع الدوال الحالية كما هي ولا تحذف أي شيء
+// فقط أضف الكود الجديد في النهاية
+
+
+
+// =============================================
+// نظام نافذة المفضلة الزجاجية - الإصدار المعدل
+// =============================================
+
+class FavoritesModal {
+    constructor() {
+        this.modal = document.getElementById('favoritesModal');
+        this.overlay = document.getElementById('favoritesOverlay');
+        this.closeBtn = document.getElementById('closeFavoritesBtn');
+        this.grid = document.getElementById('favoritesGrid');
+        this.emptyState = document.getElementById('emptyFavoritesState');
+        this.browseBtn = document.getElementById('browseFavoritesBtn');
+        this.clearBtn = document.getElementById('clearFavoritesBtn');
+        this.favoritesCount = document.getElementById('favoritesCount');
+        this.favoritesViews = document.getElementById('favoritesViews');
+        
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+        // إغلاق النافذة
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => this.close());
+        }
+
+        if (this.overlay) {
+            this.overlay.addEventListener('click', () => this.close());
+        }
+
+        // زر الاستكشاف
+        if (this.browseBtn) {
+            this.browseBtn.addEventListener('click', () => {
+                this.close();
+                setTimeout(() => {
+                    this.scrollToFeedSection();
+                }, 300);
+            });
+        }
+
+        // مسح الكل
+        if (this.clearBtn) {
+            this.clearBtn.addEventListener('click', () => this.clearAllFavorites());
+        }
+
+        // إغلاق بالزر Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+                this.close();
+            }
+        });
+    }
+
+    open() {
+        if (this.modal) {
+            this.modal.style.display = 'flex';
+            setTimeout(() => {
+                this.modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+            this.renderFavorites();
+            this.updateStats();
+        }
+    }
+
+    close() {
+        if (this.modal) {
+            this.modal.classList.remove('active');
+            setTimeout(() => {
+                this.modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 400);
+        }
+    }
+
+    renderFavorites() {
+        if (!this.grid || !this.emptyState) return;
+
+        this.grid.innerHTML = '';
+
+        if (userFavorites.size === 0) {
+            this.emptyState.classList.add('active');
+            this.grid.style.display = 'none';
+            return;
+        }
+
+        this.emptyState.classList.remove('active');
+        this.grid.style.display = 'grid';
+
+        userFavorites.forEach(cardId => {
+            const card = allCards.find(c => c.id.toString() === cardId);
+            if (card) {
+                const favoriteElement = this.createFavoriteCard(card);
+                this.grid.appendChild(favoriteElement);
+            }
+        });
+    }
+
+    createFavoriteCard(card) {
+        const element = document.createElement('div');
+        element.className = 'favorite-card';
+        element.setAttribute('data-id', card.id);
+
+        element.innerHTML = `
+            <img src="${card.image}" alt="${card.title}" class="favorite-card-image" 
+                 onerror="this.src='https://via.placeholder.com/400x300/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
+            <div class="favorite-card-content">
+                <h3 class="favorite-card-title">${card.title}</h3>
+                <span class="favorite-card-category">${card.category || 'عام'}</span>
+            </div>
+            <div class="favorite-card-actions">
+                <button class="favorite-action-btn copy-btn" data-prompt="${card.prompt}" title="نسخ البرومبت">
+                    <i class="far fa-copy"></i>
+                </button>
+                <button class="favorite-action-btn remove-btn" data-id="${card.id}" title="إزالة من المفضلة">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+
+        // حدث النقر على الكارت - الانتقال للصورة
+        element.addEventListener('click', (e) => {
+            if (!e.target.closest('.favorite-card-actions')) {
+                this.navigateToCard(card.id);
+            }
+        });
+
+        // حدث نسخ البرومبت
+        const copyBtn = element.querySelector('.copy-btn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.copyPrompt(card.prompt);
+            });
+        }
+
+        // حدث إزالة من المفضلة
+        const removeBtn = element.querySelector('.remove-btn');
+        if (removeBtn) {
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                this.removeFromFavorites(card.id, element);
+            });
+        }
+
+        return element;
+    }
+
+    navigateToCard(cardId) {
+        this.close();
+        
+        setTimeout(() => {
+            // البحث عن العنصر في الشبكة الرئيسية
+            const cardElement = document.querySelector(`.feed-item[data-id="${cardId}"]`);
+            if (cardElement) {
+                // التمرير إلى العنصر
+                cardElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+                // تأثير تمييز
+                this.highlightCard(cardElement);
+
+                // فتح البرومبت تلقائياً بعد التأخير
+                setTimeout(() => {
+                    const cardData = allCards.find(c => c.id.toString() === cardId);
+                    if (cardData) {
+                        openPromptModal(cardData.title, cardData.prompt);
+                    }
+                }, 800);
+            } else {
+                // إذا لم يتم العثور على العنصر، التمرير إلى الأعلى
+                this.scrollToFeedSection();
+                showNotification('جاري البحث عن الصورة...');
+            }
+        }, 400);
+    }
+
+    highlightCard(cardElement) {
+        cardElement.style.transform = 'scale(1.02)';
+        cardElement.style.boxShadow = '0 0 0 3px var(--primary), 0 10px 30px rgba(108, 99, 255, 0.3)';
+        cardElement.style.transition = 'all 0.3s ease';
+        cardElement.style.zIndex = '10';
+        cardElement.style.position = 'relative';
+
+        setTimeout(() => {
+            cardElement.style.transform = '';
+            cardElement.style.boxShadow = '';
+            cardElement.style.zIndex = '';
+            cardElement.style.position = '';
+        }, 3000);
+    }
+
+    scrollToFeedSection() {
+        const feedSection = document.querySelector('.feed-section');
+        if (feedSection) {
+            feedSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+
+    copyPrompt(prompt) {
+        navigator.clipboard.writeText(prompt)
+            .then(() => {
+                showNotification('تم نسخ البرومبت بنجاح! 📋');
+            })
+            .catch(err => {
+                console.error('فشل في نسخ النص: ', err);
+                showNotification('فشل في نسخ البرومبت!', 'error');
+            });
+    }
+
+    removeFromFavorites(cardId, element) {
+        userFavorites.delete(cardId.toString());
+        saveFavoritesToLocalStorage();
+        
+        // أنيميشن الإزالة
+        element.style.transform = 'scale(0.8) rotate(5deg)';
+        element.style.opacity = '0';
+        
+        setTimeout(() => {
+            element.remove();
+            this.updateStats();
+            this.renderFavorites();
+            this.updateAllFavoriteButtons();
+            showNotification('تمت الإزالة من المفضلة! ❤️');
+        }, 300);
+    }
+
+    clearAllFavorites() {
+        if (userFavorites.size === 0) {
+            showNotification('لا توجد صور في المفضلة!', 'info');
+            return;
+        }
+
+        if (confirm('هل أنت متأكد من مسح جميع المفضلة؟ سيتم حذف جميع الصور المفضلة.')) {
+            userFavorites.clear();
+            saveFavoritesToLocalStorage();
+            this.renderFavorites();
+            this.updateStats();
+            this.updateAllFavoriteButtons();
+            showNotification('تم مسح جميع المفضلة! 🗑️');
+        }
+    }
+
+    updateStats() {
+        if (this.favoritesCount) {
+            this.favoritesCount.textContent = userFavorites.size;
+        }
+        
+        if (this.favoritesViews) {
+            const totalViews = Array.from(userFavorites).reduce((total, cardId) => {
+                const card = allCards.find(c => c.id.toString() === cardId);
+                return total + (card?.stats?.uses || 0);
+            }, 0);
+            this.favoritesViews.textContent = totalViews;
+        }
+    }
+
+    updateAllFavoriteButtons() {
+        const favoriteButtons = document.querySelectorAll('.instagram-btn.favorite');
+        favoriteButtons.forEach(button => {
+            const cardId = button.getAttribute('data-id');
+            const isFavorite = userFavorites.has(cardId);
+            this.updateFavoriteButton(button, isFavorite);
+        });
+    }
+
+    updateFavoriteButton(button, isFavorite) {
+        if (!button) return;
+        
+        const icon = button.querySelector('i');
+        if (icon) {
+            if (isFavorite) {
+                icon.className = 'fas fa-heart';
+                button.classList.add('active');
+            } else {
+                icon.className = 'far fa-heart';
+                button.classList.remove('active');
+            }
+        }
+    }
 }
 
-// إضافة أنيميشن الألوان والضوضاء
-function addGlitchAnimations() {
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes colorShift {
-            0%, 100% {
-                filter: hue-rotate(0deg) saturate(100%);
-            }
-            25% {
-                filter: hue-rotate(90deg) saturate(150%);
-            }
-            50% {
-                filter: hue-rotate(180deg) saturate(200%);
-            }
-            75% {
-                filter: hue-rotate(270deg) saturate(150%);
-            }
-        }
-        
-        @keyframes noiseMove {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0.1;
-            }
-            25% {
-                transform: translateY(-1px) translateX(1px);
-                opacity: 0.15;
-            }
-            50% {
-                transform: translateY(1px) translateX(-1px);
-                opacity: 0.2;
-            }
-            75% {
-                transform: translateY(-1px) translateX(-1px);
-                opacity: 0.15;
-            }
-        }
-        
-        .hero-slide {
-            transition: opacity 1s ease-in-out;
-        }
-        
-        .hero-slide.glitch-effect {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .glitch-slice {
-            animation-timing-function: steps(2, end);
-        }
-    `;
-    document.head.appendChild(style);
+// تهيئة نظام المفضلة
+function setupFavoritesModal() {
+    window.favoritesModal = new FavoritesModal();
 }
 
-// تهيئة كل أنيميشن الهيرو
-function initAllHeroAnimations() {
-    addGlitchAnimations();
-    initHeroAnimations();
-    initRandomHeroImages();
+// تعديل دالة toggleFavorite الأساسية
+function toggleFavorite(cardId, button) {
+    const cardIdStr = cardId.toString();
+    
+    if (userFavorites.has(cardIdStr)) {
+        userFavorites.delete(cardIdStr);
+        showNotification('تم إزالة البرومبت من المفضلة!', 'success');
+        updateFavoriteButton(button, false);
+    } else {
+        userFavorites.add(cardIdStr);
+        showNotification('تم إضافة البرومبت إلى المفضلة! ❤️', 'success');
+        updateFavoriteButton(button, true);
+        
+        // تأثير إضافي عند الإضافة
+        if (button) {
+            button.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+                button.style.transform = '';
+            }, 300);
+        }
+    }
+    
+    saveFavoritesToLocalStorage();
+    
+    // تحديث النافذة إذا كانت مفتوحة
+    if (window.favoritesModal) {
+        window.favoritesModal.updateStats();
+        if (window.favoritesModal.modal.classList.contains('active')) {
+            window.favoritesModal.renderFavorites();
+        }
+    }
+}
+
+// تأكد من أن دالة updateFavoriteButton موجودة
+function updateFavoriteButton(button, isFavorite) {
+    if (!button) return;
+    
+    const icon = button.querySelector('i');
+    if (icon) {
+        if (isFavorite) {
+            icon.className = 'fas fa-heart';
+            button.classList.add('active');
+        } else {
+            icon.className = 'far fa-heart';
+            button.classList.remove('active');
+        }
+    }
+}
+
+// تعديل زر المفضلة في النافبار المائي
+function setupLiquidButtons() {
+    // زر المفضلة - فتح النافذة الجديدة
+    const favoriteBtn = document.getElementById('favoriteBtn');
+    if (favoriteBtn) {
+        favoriteBtn.addEventListener('click', function() {
+            createRippleEffect(this);
+            if (window.favoritesModal) {
+                window.favoritesModal.open();
+            } else {
+                // إذا لم يتم تهيئة النافذة بعد، تهيئتها فوراً
+                setupFavoritesModal();
+                setTimeout(() => {
+                    window.favoritesModal.open();
+                }, 100);
+            }
+        });
+    }
+    
+    // ... باقي الأزرار (ابقها كما هي) ...
+}
+
+// التهيئة النهائية
+document.addEventListener('DOMContentLoaded', function() {
+    // ... التهيئة الحالية ...
+    
+    // تهيئة نافذة المفضلة
+    setTimeout(() => {
+        setupFavoritesModal();
+    }, 1000);
+});
+
+// جعل الدوال متاحة globally للاستخدام
+window.openFavoritesModal = function() {
+    if (window.favoritesModal) {
+        window.favoritesModal.open();
+    }
+};
+
+window.closeFavoritesModal = function() {
+    if (window.favoritesModal) {
+        window.favoritesModal.close();
+    }
+};
+
+
+
+// تهيئة الهيرو الجديد
+function initNewHero() {
+    // إحصائيات متحركة
+    animateStats();
+    
+    // إعداد أحداث الأزرار
+    setupHeroButtons();
+    
+    // بدء أنيميشن العناصر العائمة
+    startFloatingAnimation();
+}
+
+// إحصائيات متحركة
+function animateStats() {
+    const stats = [
+        { element: document.getElementById('usersCount'), target: 918, current: 0 },
+        { element: document.getElementById('promptsCount'), target: 184, current: 0 },
+        { element: document.getElementById('imagesCount'), target: 1220, current: 0 }
+    ];
+
+    stats.forEach(stat => {
+        if (stat.element) {
+            const duration = 2000;
+            const increment = stat.target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                stat.current += increment;
+                if (stat.current >= stat.target) {
+                    stat.current = stat.target;
+                    clearInterval(timer);
+                }
+                stat.element.textContent = Math.floor(stat.current) + '+';
+            }, 16);
+        }
+    });
+}
+
+// إعداد أحداث أزرار الهيرو
+function setupHeroButtons() {
+    const exploreBtn = document.getElementById('exploreHeroBtn');
+    const learnBtn = document.getElementById('learnHeroBtn');
+
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function() {
+            const filterSection = document.querySelector('.filter-section');
+            if (filterSection) {
+                filterSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    if (learnBtn) {
+        learnBtn.addEventListener('click', function() {
+            const tutorialSection = document.querySelector('.tutorial-section');
+            if (tutorialSection) {
+                tutorialSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+}
+
+// أنيميشن العناصر العائمة
+function startFloatingAnimation() {
+    const elements = document.querySelectorAll('.floating-element');
+    elements.forEach((element, index) => {
+        // إضافة تأخير عشوائي لكل عنصر
+        element.style.animationDelay = `${Math.random() * 5}s`;
+    });
 }
 
 // استدعاء التهيئة عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(initAllHeroAnimations, 500);
+    setTimeout(initNewHero, 1000);
 });
 
-// إعادة التهيئة عند إعادة تحميل الصفحة
-window.addEventListener('load', initAllHeroAnimations);
 
+
+// نظام Parallax للهيرو
+function initParallaxHero() {
+    // تسجيل plugins GSAP
+    if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+    
+    // تهيئة Lenis للنزول السلس
+    initSmoothScrolling();
+    
+    // إعداد تأثير Parallax
+    setupParallaxEffect();
+    
+    // إحصائيات متحركة
+    animateParallaxStats();
+    
+    // إعداد أحداث الأزرار
+    setupParallaxButtons();
+    
+    // تحميل الصور
+    preloadParallaxImages();
+    
+    // إظهار المحتوى بعد التحميل
+    setTimeout(() => {
+        document.getElementById('parallaxHero').classList.add('loaded');
+    }, 500);
+}
+
+// النزول السلس
+function initSmoothScrolling() {
+    if (typeof Lenis !== 'undefined') {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
+            smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
+        });
+
+        lenis.on('scroll', ScrollTrigger.update);
+
+        if (typeof gsap !== 'undefined') {
+            gsap.ticker.add((time) => {
+                lenis.raf(time * 1000);
+            });
+            gsap.ticker.lagSmoothing(0);
+        }
+    }
+}
+
+// تأثير Parallax
+function setupParallaxEffect() {
+    const triggerElement = document.querySelector('[data-parallax-layers]');
+    if (!triggerElement || typeof gsap === 'undefined') return;
+
+    let tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: triggerElement,
+            start: "0% 0%",
+            end: "100% 0%",
+            scrub: 0.5,
+            markers: false // تغيير إلى true للتdebug
+        }
+    });
+
+    const layers = [
+        { layer: "1", yPercent: 50 },  // أبعد طبقة - تتحرك ببطء
+        { layer: "2", yPercent: 35 },  // طبقة متوسطة
+        { layer: "3", yPercent: 20 },  // طبقة النص
+        { layer: "4", yPercent: 5 }    // أقرب طبقة - تتحرك بسرعة
+    ];
+
+    layers.forEach((layerObj, idx) => {
+        const elements = triggerElement.querySelectorAll(`[data-parallax-layer="${layerObj.layer}"]`);
+        if (elements.length > 0) {
+            tl.to(
+                elements,
+                {
+                    yPercent: layerObj.yPercent,
+                    ease: "none"
+                },
+                idx === 0 ? undefined : "<"
+            );
+        }
+    });
+}
+
+/// إحصائيات متحركة - النسخة المحسنة
+function animateParallaxStats() {
+    const stats = [
+        { 
+            element: document.getElementById('parallaxUsersCount'), 
+            target: 918, 
+            current: 0,
+            initial: '845+'
+        },
+        { 
+            element: document.getElementById('parallaxPromptsCount'), 
+            target: 184, 
+            current: 0,
+            initial: '184+'
+        },
+        { 
+            element: document.getElementById('parallaxImagesCount'), 
+            target: 1220, 
+            current: 0,
+            initial: '1.2K+'
+        }
+    ];
+
+    stats.forEach(stat => {
+        // التحقق من وجود العنصر أولاً
+        if (!stat.element) {
+            console.warn('Element not found for stat:', stat);
+            return;
+        }
+
+        // تعيين القيمة الابتدائية
+        stat.element.textContent = stat.initial;
+
+        const duration = 2000;
+        const increment = stat.target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= stat.target) {
+                current = stat.target;
+                clearInterval(timer);
+                stat.element.textContent = Math.floor(current) + '+';
+            } else {
+                stat.element.textContent = Math.floor(current) + '+';
+            }
+        }, 16);
+    });
+}
+
+// إعداد أحداث الأزرار
+function setupParallaxButtons() {
+    const exploreBtn = document.getElementById('parallaxExploreBtn');
+    const learnBtn = document.getElementById('parallaxLearnBtn');
+
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function() {
+            const filterSection = document.querySelector('.filter-section');
+            if (filterSection) {
+                filterSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    if (learnBtn) {
+        learnBtn.addEventListener('click', function() {
+            const tutorialSection = document.querySelector('.tutorial-section');
+            if (tutorialSection) {
+                tutorialSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+}
+
+// تحميل الصور مسبقاً
+function preloadParallaxImages() {
+    const images = [
+        'https://cdn.prod.website-files.com/671752cd4027f01b1b8f1c7f/6717795be09b462b2e8ebf71_osmo-parallax-layer-3.webp',
+        'https://cdn.prod.website-files.com/671752cd4027f01b1b8f1c7f/6717795b4d5ac529e7d3a562_osmo-parallax-layer-2.webp',
+        'https://cdn.prod.website-files.com/671752cd4027f01b1b8f1c7f/6717795bb5aceca85011ad83_osmo-parallax-layer-1.webp'
+    ];
+
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
+// إعادة تهيئة Parallax عند تغيير حجم النافذة
+function handleResize() {
+    if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.refresh();
+    }
+}
+
+// استدعاء التهيئة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    // انتظر تحميل المكتبات
+    setTimeout(() => {
+        initParallaxHero();
+    }, 1000);
+});
+
+// إعادة التهيئة عند تغيير حجم النافذة
+window.addEventListener('resize', handleResize);
 
 
 
