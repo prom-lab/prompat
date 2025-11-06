@@ -1452,6 +1452,103 @@
 
 
 
+             {
+                id: 82,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy82.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic black and white fashion editorial portrait of the uploaded person (preserve face 100%). Reclined dramatically on a chair, one arm resting over backrest, legs wide apart, exuding bold confidence. Wearing a tailored dark suit with casual knit shirt, polished boots. Expression relaxed but magnetic, playful high-fashion energy. Studio background clean white. Avant-garde GQ editorial style",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+              {
+                id: 83,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy83.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Hyper ultra-realistic 8K cinematic portrait of a rugged man (face exactly like reference) lounging on a white bed with rumpled sheets, wearing pastel green puffer jacket over white tank, baggy white pents, chunky sneakers, and red-orange rectangular sunglasses. Messy spiky hair, pensive look to the right, soft airy lighting, modern clean aesthetic.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 84,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy84.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-detailed full-color cinematic fashion portrait of a stylish man sitting confidently on the studio floor, captured with a low-angle medium shot using a 50mm lens. The lighting is soft directional from the upper left, creating subtle highlights and gentle shadows across his face and outfit. He wears a fitted black ribbed turtleneck knit sweater that contours naturally to his body, paired with tailored gray high-fashion trousers featuring clean pleats and a modern silhouette. On his neck is a minimalist men's silver necklace with a small rectangular pendant, adding a subtle yet refined detail. He completes the look with sleek black leather ankle boots, polished to a smooth shine. His pose is relaxed yet confident - one leg bent upward, the other folded under, with his right hand resting casually on his knee. His expression is calm, masculine, and slightly introspective. The background is a smooth gray gradient studio backdrop, complementing the tone of his outfit. The mood is elegant, modern, and premium, inspired by minimalist luxury editorials. Natural skin texture, visible pores, and realistic sheen under cinematic soft light, 8K resolution, ultra-sharp focus hyper-detailed fabric and leather texture, professional fashion lighting",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+              {
+                id: 85,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy85.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Ultra-realistic modern street-fashion editorial portrait of a stylish man sitting casually on a clean studio floor, captured with a low-angle wide shot using an 85mm lens at f/2.8 aperture. The camera is positioned slightly below knee level and tilted upward about 25 degrees, emphasizing depth and perspective. His legs dominate the foreground while his torso and face stay in sharp focus, creating a cinematic sense of distance and attitude. He wears a sleeveless black tank top lyaered with an oversized washed gray denim jacket, paired with loose black pants and chunky black boots. His posture is spontaneous and confident - leaning back slightly with one hand behind for support while the other touches his hair in a natural, unposed motion. His expression is casual, confident, and slightly playful, emobodying modern Gen-Z fashion energy. Lighting setup: soft diffused studio lighting from above and slightly frontal, minimizing harsh shadows while keeping subtle contrast on fabric texture. The white backgroud fades genlty into soft gradient shadows, producing a minimalist high-fashion tone. Mood: Youthful, modern, and editorial with clean minimalist styling. 8K ultra-detailed studio photography, soft natural lighting, cool neutral palette, cinematic fashion composition, stealer-style magazine aesthetic",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+              {
+                id: 86,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy86.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Capture the raw, candid energy of an early- 2000s paparazzi shot. A young man is illuminated by a harsh camera flash on a city street at night, their hand on a payphone receiver. As they turn to face the camera, their expression is cool and distant. They are styled in loose cargo pants and a baggy tee. The urban background is a blur of streaking car lights, and the image is dated with a classic red digital timestamp. Use the attached image as the subject",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+              
+
+
+
+
 
 
           
