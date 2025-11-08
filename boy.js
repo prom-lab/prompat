@@ -1544,6 +1544,268 @@
 
 
 
+              {
+                id: 87,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy87.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Create an ultra-realistic cinematic portrait of a man standing outdoors under a bright blue sky with scattered clouds, seen from a low-angle close-up perspective. His hands are extended forward toward the camera in focus blur, creating a dy- namic depth-of-field effect. The scene conveys power, style, and confidence - a blend of fashion and cinematic street energy. Use the first reference image as the base for pose, hands, body, outfit, lighting, and background composition. Maintain the same perspective - camera positioned below the subject, hands slightly out of focus in the foreground, face framed natu- rally between them. Preserve the original outdoor environment, sunlight direction, and color balance between skin tones and sky.Use the second reference image for facial integration. Replace the model's face with the one from the second reference photo while keeping the same head orientation, jawline angle, and expression inten- sity. Ensure seamless blending between facial tones, lighting, and the environment - matching the golden sunlight reflections on the glasses and skin. The final result must look as if the person from the second reference was photographed in the same location, with perfect facial integration and natural shadows.Lighting: natural daylight from above, with soft contrast and realistic reflections on sunglasses and skin. Add subtle rim lighting from the sky to separate the subject from the back- ground, enhancing cinematic definition.Outfit: black t-shirt with a modern street- wear logo, casual fit with slight texture. Keep realistic fabric folds, light behavior, and shading.Background: bright blue sky with soft clouds and a blurred metallic fence in the lower portion for context. Maintain depth of field with smooth bokeh and authentic outdoor color tones.Camera: 24mm wide-angle lens, low-angle close-up, shallow depth of field - hands slightly blurred in the foreground, sharp focus on the face for maximum cinematic depth. Mood: confident, cinematic, expressive - like a frame from a fashion editorial or music video. Style: 8K ultra-realistic photo, cinematic HDR lighting, photo face integration, natu- ral daylight, urban streetwear editorial aesthetic, with professional color grading inspired by high-end lifestyle photography.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+            
+              {
+                id: 88,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy88.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Create an ultra-realistic cinematic streetwear portrait of a confident man standing in the middle of a modern city surrounded by tall buildings under a clear blue sky. The image must have a low-angle fisheye perspective, giving a dynamic and powerful composition that makes the subject appear dominant and stylish.Use the first reference image as the base for pose, outfit, lighting, and perspective. Maintain the same body posture, outfit style - cargo pants, headphones around the neck, sunglasses, and the urban cityscape with sky- scrapers converging upward. Keep the same camera angle and framing so that the viewer feels as if they are looking up from street level. Use the second reference image for facial integration. Replace the model's face with the one from the second reference photo, blending it naturally with the lighting, shadow direction, and facial orientation. Ensure perfect skin tone blending and reflection consistency on the sunglasses for a realistic, seamless composition. Maintain proportional accuracy, expression realism, and high fi- delity between both reference sources. Lighting: natural daylight with soft shadows and a high-contrast cinematic tone. Sunlight should reflect subtly on building surfaces and sunglasses, pro- ducing an authentic midday aesthetic. Color palette: a balanced mix of warm skin tones with cool tones from the sky and architecture, emphasizing depth, contrast, and harmony. Outfit: streetwear fashion - loose t-shirt with printed text, beige camouflage cargo pants, and modern sneakers. Keep textures crisp, realistic, and detailed, including fabric weave and stitching visibility. Environment: urban street canyon surrounded by tall modern buildings, ren- dered with slight distortion from the fisheye lens. Emphasize architectural depth and subtle background motion with blurred pedestrians, vehicles, or trees to enhance realism. Camera: 16mm wide-angle lens, low-angle full-body shot, cinematic depth of field, emphasizing the subject's presence against the upward city perspec- tive.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+            
+              {
+                id: 89,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy89.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "8K cinematic portrait of a man moving gently in front of a dim, amber-lit background, captured with motion blur that gives the illusion of fading memories. His loose white shirt and tousled hair glow softly in warm golden light, creating a nostalgic film- like texture. His expression is distant yet calm, as if lost in a memory. Slight grain and light flares enhance the analog aesthetic, evoking a dreamlike, emotional still from a 1970s romantic art film.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+            
+              {
+                id: 90,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy90.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A hyper-realistic cinematic portrait of a young man (use the reference face) walking confidently along a palm-lined boulevard, exuding timeless elegance. He is dressed in an all-white luxury outfit: tailored high- waist trousers, a fitted cable-knit sweater, and a light blazer casually slung over his shoulder. He wears dark sunglasses and polished brown loafers, holding a stylish leather travel bag in his hand. Beside him, a vintage white convertible sports car is parked, its polished chrome details reflecting the sunlight. The background shows tall palm trees stretching into the distance under a clear blue sky, creating a cinematic, luxurious California / Riviera atmosphere. The mood is sophisticated, fashionable, and editorial, like a luxury lifestyle campaign. Ultra-detailed fabrics, natural skin tones, cinematic HDR lighting, DSLR depth of field, 8K ultra-realistic photography style.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+            
+              {
+                id: 91,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy91.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Half-body shot of a stylized individual (face same as reference) in a Grand Theft Auto-esque digital illustration art style. outfit (as uploaded) They gaze subtly upward to the right, with a confident, aloof expression. Background features a vibrant pink and orange sunset sky with a silhouetted palm tree on the left. Dramatic rim and backlighting create strong contrasts and deep shadows, highlighting the retro-futuristic, cool atmosphere.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+            
+              {
+                id: 92,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy92.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Convert this image into A dramatic, stylized portrait (use same face as the uploaded photo) , 9:16 aspect ratio, featuring a dark, almost silhouetted figure in profile looking to the left. The figure has an intense, rugged look with spiky, energetic hair. The background is a vibrant, solid yellow. Dynamic, expressive black and yellow brushstrokes or abstract splatters emanate from around the figure's head and shoulders, blending into the yellow background and creating a sense of motion.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+            
+              {
+                id: 93,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy93.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Edit this image to design a bold, modern art poster of a man immersed in his music - wearing a cap and wireless earbuds, head tilted slightly as he feels the beat. Surround him with energetic doodles in black, orange, and white - arrows, lightning bolts, sound waves, and abstract motion lines bursting from his head. Give the background a clean white or bright orange color, emphasizing contrast and rhythm. Include bold graffiti-style text like Bass Mode,  Sound Rush, Feel It.  His jacket or hoodie can have metallic textures or glowing lines to match the energy of the composition.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+
+            
+              {
+                id: 94,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy94.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Transform the uploaded face photo into highly abstract and chaotic scribble art with very loose, sparse, and extremely random black ink lines. The lines should barely form the face, emphasizing chaos and abstraction over clear definition. Maintain the original expression and proportions as a faint underlying structure.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+            
+              {
+                id: 95,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy95.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Convert this image into a funny sketch cartoon effect, digitally drawn with expressive ink-style outlines, and exaggerated but recognizable facial features. Use vivid digital colors with subtle shading and mild hatching. Maintain a clean [white] background with a few gestural elements to suggest movement. The style should feel lively, energetic, and hand-drawn, capturing the intensity in a playful, caricature-like tone. The overall aesthetic is kinetic and full of personality.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+            
+              {
+                id: 96,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy96.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Create a bold, expressive digital illustration portrait using the uploaded faceS reference, making the facial features 100% identical to the reference photo. The artwork should capture a strong and intense expression with dramatic lighting and heavy contour shadows. Use a hand-painted, comic-style technique with thick, confident linework, angular shading, and bold brush strokes. Emphasize the structure of the face with warm tones - deep browns, oranges, and muted highlights - to give a gritty, powerful, and cinematic mood. The background should be textured with abstract painterly strokes in dark earthy colors to enhance contrast and focus on the face. Style reference: expressive comic illustration, painterly realism, strong outlines, high-contrast warm tones. Composition: close-up headshot, slightly turned angle, upper chest visible, confident expression.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+            
+              {
+                id: 97,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy97.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "8K ultra-realistic cinematic night portrait of a stylish, handsome 18-year-old young man (face 100% identical to reference, unchanged) posing confidently at a Shell gas station under glowing neon lights. He leans casually against a modified red McLaren supercar with scissor doors open upwards. The car features a sleek, glossy finish, custom wheels, and a lowered body, reflecting the ambient station lights on its polished surface. The young man wears modern casual streetwear - a fitted black t-shirt layered with a black jacket, paired with stylish details to enhance his confident urban vibe. Lighting is cinematic with moody highlights, neon reflections on the car's body, and dramatic shadows that enhance depth. The background shows the glowing Shell station lights with a vibrant, urban night atmosphere, slightly blurred for depth of field (bokeh). Camera details: 85mm lens, f/1.4 aperture, shallow depth of field, crisp subject focus, ultra-detailed textures on face, outfit, and car s",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+            
+              {
+                id: 98,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy98.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Generate an editorial portrait of a young man in the picture wearing a green knitted sweater reading a book with glasses on, sitting beside a potted plant in soft golden hour lighting, casting soft shadows on his face, visible pores, skin texture, cinematic DSLR shot in 8k, emotion: gentle contentment and focus, muted green and beige color palette, cozy minimalist tone. keep the background neutral yet woody",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+            
+              {
+                id: 99,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy99.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "A hyper-realistic portrait photo from waist to head of me (use reference photo), wearing a high coat and a formal suit. I'm standing sideways, my right hand raised and opening the fist while wearing black leather gloves. My head is slightly lifted, following the direction of my raised palm. From my palm, a black raven emerges, fully formed from swirling ashes and smoke, with its lower body still composed of dust and smoke. Many other ravens I've created are flying around me, forming a chaotic yet natural swarm with varied wing positions and angles; some even perch on my shoulders. Feathers scatter in the wind. The wind blows from below, lifting my coat collar and slightly tousling my hair. My expression is intense yet calm as I summon the ravens. Apply a subtle grain or texture filter to enhance realism. The composition is seamless, with depth in the background, ensuring all elements - figure, coat, ravens, smoke, and feathers - appear integrated and naturally interacting with light",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+            
+              {
+                id: 100,
+                title: "  شاب ",
+                category: "بنين", 
+                image: "boy100.jpg",
+                description: "حول صورتك إلى صورة جذابة بتصميم عصرى ",
+                prompt: "Portrait of a confident looking person as in the attached image. Realistic with an attitude expression and is sitting on a wooden stool against a dark studio background. He is wearing a well-fitted, all-black suit with a black shirt, and black pant, small silver chain on the neck and small silver watch, slightly unbuttoned at the top, exuding a powerful aura. His posture is relaxed yet dominant, with one arm resting on his leg and the other one in his pant pocket. The lighting is soft but directional.",
+                stats: {  uses: 95855 },
+                badge: "شخصية",
+                 searchDescription: " بورتريه   ",
+                 hashtags: ["", "", "", "عميق", "عصرى", "شاب", ""]
+
+            },
+
+
+
+
+
+            
+
               
 
 
