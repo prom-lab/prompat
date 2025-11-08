@@ -5527,6 +5527,593 @@
     </div>
 </section>
 
+
+
+<!-- قسم تصور مع شخص تحبه -->
+<section class="loved-one-section">
+    <div class="container">
+        <h2 class="section-title">تصور <span>مع شخص تحبه</span></h2>
+        <p class="section-subtitle">اختر شخصاً تحبه واجعل صورتك معه حقيقة باستخدام الذكاء الاصطناعي</p>
+        
+        <div class="slideshow-container glass-card">
+            <div class="slideshow" id="personSlideshow">
+                <!-- سيتم إضافة الشرائح ديناميكياً -->
+            </div>
+            <div class="slideshow-indicator">
+                <span class="slide-counter" id="slideCounter">1 / 5</span>
+            </div>
+        </div>
+        
+        <div class="prompt-card glass-card">
+            <div class="prompt-header">
+                <i class="fas fa-magic"></i>
+                <h3>البرومبت المميز</h3>
+            </div>
+            <div class="prompt-container">
+                <div class="prompt-text" id="personPrompt">
+                    Realistic, high-quality portrait photo of me and my friend standing side by side in a natural outdoor setting.
+
+Core Scene & Composition:
+
+We are standing next to each other in a sunny park during golden hour, with soft sunlight filtering through trees in the background.
+
+Both of us are standing naturally, shoulders relaxed, facing the camera directly. We are standing close enough to show friendship but with natural personal space.
+
+Both of us have warm, genuine smiles on our faces, expressing real friendship and happiness.
+
+Facial Preservation - CRITICAL INSTRUCTION:
+
+My face: You MUST use the exact facial features from my reference image. Do NOT alter, morph, or change any aspect of my face - including the exact shape of eyes, nose, lips, jawline, skin texture, and facial expression.
+
+My friend's face: You MUST use the exact facial features from my friend's reference image. Do NOT alter, morph, or change any aspect of their face - including the exact shape of eyes, nose, lips, jawline, skin texture, and facial expression.
+
+Absolute face preservation: Both faces must remain 100% identical to the reference images. No blending, no merging, no alteration of facial features whatsoever.
+
+Body & Integration:
+
+Generate proportionate, natural-looking bodies for both of us that match our age, skin tone, and the context of the scene.
+
+We are wearing casual, comfortable clothing - simple t-shirts and jeans.
+
+Ensure seamless integration between our preserved faces and the generated bodies, maintaining natural skin tones and lighting consistency.
+
+Technical Quality:
+
+Style: Photorealistic, high-resolution professional photography.
+
+Lighting: Soft natural golden hour lighting with gentle shadows.
+
+Focus: Sharp focus on both faces to highlight the preserved features.
+
+No distortions: Ensure no warping, stretching, or unnatural distortions in either face.
+
+Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep both faces exactly as they appear in the reference images while creating a natural standing side-by-side pose in a pleasant environment.
+                </div>
+                <div class="prompt-actions">
+                    <button class="prompt-btn copy-prompt" id="copyPersonPrompt">
+                        <i class="far fa-copy"></i>
+                        نسخ البرومبت
+                    </button>
+                    <button class="prompt-btn gemini-btn" id="goToGeminiPerson">
+                        <i class="fab fa-google"></i>
+                        الذهاب إلى Gemini
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* قسم تصور مع شخص تحبه */
+.loved-one-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.loved-one-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+    background-size: cover;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-weight: 800;
+    position: relative;
+    z-index: 2;
+}
+
+.section-title span {
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 30%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border-radius: 24px;
+    pointer-events: none;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.slideshow-container {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 0;
+}
+
+.slideshow {
+    position: relative;
+    height: 500px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.person-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.1);
+    filter: brightness(0.9);
+}
+
+.person-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slideshow-indicator {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    z-index: 10;
+}
+
+.prompt-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px;
+}
+
+.prompt-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.prompt-header i {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.prompt-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.prompt-container {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.prompt-text {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    color: var(--dark);
+    max-height: 300px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.92rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.prompt-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.prompt-btn {
+    flex: 1;
+    min-width: 200px;
+    padding: 16px 28px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.prompt-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.prompt-btn:hover::before {
+    left: 100%;
+}
+
+.copy-prompt {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.copy-prompt:hover {
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+}
+
+.gemini-btn {
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gemini-btn:hover {
+    background: linear-gradient(135deg, #7d3c98, #8e44ad);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(142, 68, 173, 0.4);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .loved-one-section {
+        padding: 60px 0;
+        margin: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .slideshow {
+        height: 350px;
+    }
+    
+    .prompt-card {
+        padding: 25px 20px;
+    }
+    
+    .prompt-container {
+        padding: 20px;
+    }
+    
+    .prompt-text {
+        padding: 20px;
+        font-size: 0.85rem;
+        max-height: 250px;
+    }
+    
+    .prompt-actions {
+        flex-direction: column;
+    }
+    
+    .prompt-btn {
+        width: 100%;
+        min-width: auto;
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loved-one-section {
+        padding: 40px 0;
+        margin: 30px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .slideshow {
+        height: 280px;
+    }
+    
+    .prompt-card {
+        padding: 20px 15px;
+        border-radius: 20px;
+    }
+    
+    .prompt-container {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .prompt-text {
+        padding: 15px;
+        font-size: 0.8rem;
+        max-height: 200px;
+    }
+    
+    .prompt-header {
+        margin-bottom: 20px;
+    }
+    
+    .prompt-header h3 {
+        font-size: 1.3rem;
+    }
+    
+    .slideshow-indicator {
+        bottom: 15px;
+        right: 15px;
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+/* شريط التمرير المخصص */
+.prompt-text::-webkit-scrollbar {
+    width: 6px;
+}
+
+.prompt-text::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.prompt-text::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+.prompt-text::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+}
+</style>
+
+<script>
+// بيانات صور العرض التقديمي
+const personImages = [
+    "p1.png",
+     "p2.png",
+    
+    
+];
+
+// البرومبت الثابت
+const personPrompt = 'Realistic high-quality portrait photo in a modern apartment setting. SCENE SETTING: Location: Clean modern apartment with plain white curtain background Lighting: Soft natural light from window Background: Minimalist decor, professional photoshoot style AUTOMATIC POSE SELECTION: IF two males detected: Both standing side by side, natural stance, shoulders relaxed, facing camera IF two females detected: Both sitting comfortably on a modern sofa, facing camera with natural posture IF mixed genders detected: Both sitting on modern sofa, natural friendly distance FACIAL PRESERVATION - ABSOLUTE REQUIREMENT: My Face: MUST remain 100% identical to reference image - zero changes to eyes, nose, lips, jawline, or facial structure Friends Face: MUST remain 100% identical to reference image - zero changes to eyes, nose, lips, jawline, or facial structure No Alterations: Strictly no morphing, blending, or changes to any facial features BODY & INTEGRATION: Generate proportionate bodies matching age, detected gender, and skin tone Create natural body language appropriate for the selected pose Ensure seamless face-body integration with consistent skin tones CLOTHING: Modern casual clothing appropriate for detected gender and apartment setting Age-appropriate and natural-looking outfits TECHNICAL SPECIFICATIONS: Style: Photorealistic professional photography Focus: Sharp on both preserved faces Quality: High-resolution, no distortions Lighting: Consistent and natural across the scene CRITICAL INSTRUCTIONS: Analyze reference images to detect genders accurately Select pose automatically based on gender combination Preserve both faces with 100% accuracy - no exceptions Maintain white curtain background Ensure natural-looking results with perfect face preservation';
+
+// تهيئة قسم تصور مع شخص تحبه
+function initLovedOneSection() {
+    const slideshow = document.getElementById('personSlideshow');
+    const promptText = document.getElementById('personPrompt');
+    const slideCounter = document.getElementById('slideCounter');
+    
+    if (!slideshow || !promptText) return;
+    
+    // إضافة الشرائح
+    personImages.forEach((image, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'person-slide';
+        if (index === 0) {
+            slide.classList.add('active');
+        }
+        slide.style.backgroundImage = `url('${image}')`;
+        slideshow.appendChild(slide);
+    });
+    
+    // تعيين البرومبت الثابت
+    promptText.textContent = personPrompt;
+    
+    // تبديل الشرائح كل 2 ثانية
+    let currentSlide = 0;
+    const totalSlides = personImages.length;
+    
+    const slideInterval = setInterval(() => {
+        const slides = document.querySelectorAll('.person-slide');
+        if (slides.length === 0) return;
+        
+        slides[currentSlide].classList.remove('active');
+        
+        currentSlide = (currentSlide + 1) % totalSlides;
+        
+        slides[currentSlide].classList.add('active');
+        
+        // تحديث العداد
+        if (slideCounter) {
+            slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+        }
+    }, 2000);
+    
+    // إعداد أحداث الأزرار
+    setupPersonButtons();
+}
+
+// إعداد أحداث الأزرار
+function setupPersonButtons() {
+    const copyBtn = document.getElementById('copyPersonPrompt');
+    const geminiBtn = document.getElementById('goToGeminiPerson');
+    
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            const promptText = document.getElementById('personPrompt');
+            if (promptText) {
+                navigator.clipboard.writeText(promptText.textContent)
+                    .then(() => {
+                        showNotification('تم نسخ البرومبت بنجاح! 📋');
+                        
+                        // تأثير مرئي عند النسخ
+                        copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+                        copyBtn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                        
+                        setTimeout(() => {
+                            copyBtn.innerHTML = '<i class="far fa-copy"></i> نسخ البرومبت';
+                            copyBtn.style.background = '';
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('فشل في نسخ النص: ', err);
+                        showNotification('فشل في نسخ البرومبت!', 'error');
+                    });
+            }
+        });
+    }
+    
+    if (geminiBtn) {
+        geminiBtn.addEventListener('click', function() {
+            window.open('https://gemini.google.com', '_blank');
+            showNotification('تم فتح Gemini في نافذة جديدة! 🚀');
+        });
+    }
+}
+
+// دالة مساعدة لعرض الإشعارات
+function showNotification(message, type = 'success') {
+    // يمكنك استبدال هذا بتنفيذ نظام الإشعارات الخاص بك
+    console.log(message);
+    if (typeof showNotification === 'function') {
+        window.showNotification(message, type);
+    } else {
+        // إنشاء إشعار بسيط
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'error' ? '#FF6584' : 'linear-gradient(135deg, #667eea, #764ba2)'};
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            z-index: 10000;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+}
+
+// استدعاء التهيئة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    initLovedOneSection();
+});
+</script>
+
 <!-- قسم تعلم كيف تصنع صورتك - قائمة منسدلة -->
 <section class="tutorial-section">
     <div class="container">
