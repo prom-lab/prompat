@@ -7,6 +7,9 @@
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+    <!-- أضف هذا في قسم head -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 
 
     <!-- مكتبات Parallax -->
@@ -25,6 +28,18 @@
 <meta property="og:title" id="ogTitle" content="تريندات Gemini">
 <meta property="og:description" id="ogDescription" content="جميع تريندات لجمناى مجانية">
 <meta property="og:image" id="ogImage" content="https://www.facebook.com/share/p/16Upz4Kt3c/">
+
+<!-- أضف هذا الكود داخل الـ head -->
+<script type="text/javascript">
+    atOptions = {
+        'key' : '94b7988254d17218fa58675de839229c',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+    };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/94b7988254d17218fa58675de839229c/invoke.js"></script>
     
     <!-- أيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -44,6 +59,16 @@
         --accent-gradient: linear-gradient(135deg, #FF6584, #FF3366);
         --glass: rgba(255, 255, 255, 0.1);
         --glass-border: rgba(255, 255, 255, 0.2);
+        :root {
+    /* المتغيرات الحالية تبقى كما هي */
+    
+    /* إضافة متغيرات جديدة للزجاج المائي مع الإضاءة */
+    --glass-glow: rgba(255, 255, 255, 0.1);
+    --glass-glow-hover: rgba(255, 255, 255, 0.2);
+    --glass-shadow-glow: 0 8px 32px rgba(108, 99, 255, 0.3);
+    --glass-border-glow: rgba(255, 255, 255, 0.3);
+    --neon-glow: 0 0 10px rgba(108, 99, 255, 0.7), 0 0 20px rgba(108, 99, 255, 0.5), 0 0 30px rgba(108, 99, 255, 0.3);
+}
 
 
     
@@ -55,6 +80,1133 @@
     --glass-backdrop: backdrop-filter: blur(20px) saturate(180%);
 
     }
+
+
+    /* ============================================= */
+/* تصميم زجاجي مائي مع إضاءة لجميع الأزرار */
+/* ============================================= */
+
+
+
+
+
+/* ============================================= */
+/* تصميم الكروت الجديد - مشابه لـ Profile Card */
+/* ============================================= */
+
+.feed-item {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+    position: relative;
+}
+
+.feed-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.feed-item:hover::before {
+    opacity: 1;
+}
+
+.feed-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 8px 16px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* تحسين صورة الكارت */
+.feed-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+    border-radius: 0;
+}
+
+.feed-item:hover .feed-image {
+    transform: scale(1.05);
+}
+
+/* تحسين الهيدر */
+.feed-header {
+    padding: 20px 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.feed-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6C63FF, #36D1DC);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+}
+
+.feed-username {
+    font-weight: 700;
+    color: #2D2B55;
+    font-size: 1.1rem;
+}
+
+/* تحسين الأزرار */
+.instagram-actions {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.action-group {
+    display: flex;
+    gap: 16px;
+}
+
+.instagram-btn {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: #2D2B55;
+    font-size: 1.3rem;
+}
+
+.instagram-btn:hover {
+    background: rgba(108, 99, 255, 0.1);
+    border-color: rgba(108, 99, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+}
+
+.instagram-btn.favorite.active {
+    color: #FF6584;
+    background: rgba(255, 101, 132, 0.1);
+}
+
+/* تحسين المحتوى */
+.feed-caption {
+    padding: 20px;
+    background: white;
+}
+
+.feed-caption strong {
+    font-size: 1.2rem;
+    color: #2D2B55;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 700;
+}
+
+.feed-caption p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+/* تحسين البرومبت */
+.feed-prompt {
+    background: linear-gradient(135deg, #f8f9ff, #f0f2ff);
+    padding: 20px;
+    margin: 0 20px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(108, 99, 255, 0.1);
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    position: relative;
+}
+
+.feed-prompt::before {
+    content: '"';
+    font-size: 2rem;
+    color: rgba(108, 99, 255, 0.2);
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+/* العداد */
+.user-count {
+    padding: 0 20px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.user-count i {
+    color: #6C63FF;
+}
+
+/* علامة جديدة */
+.new-badge {
+    background: linear-gradient(135deg, #FF6584, #FF3366);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(255, 101, 132, 0.3);
+}
+
+/* ============================================= */
+/* تحسينات للعرض الشبكي */
+/* ============================================= */
+
+.grid-view .feed-item {
+    margin-bottom: 0;
+}
+
+.grid-view .feed-container {
+    gap: 24px;
+}
+
+/* ============================================= */
+/* تحسينات للشاشات الصغيرة */
+/* ============================================= */
+
+@media (max-width: 768px) {
+    .feed-item {
+        border-radius: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .feed-image {
+        height: 240px;
+    }
+    
+    .feed-header {
+        padding: 16px 16px 0;
+    }
+    
+    .feed-caption {
+        padding: 16px;
+    }
+    
+    .feed-prompt {
+        margin: 0 16px 16px;
+        padding: 16px;
+    }
+    
+    .instagram-actions {
+        padding: 12px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .feed-item {
+        border-radius: 16px;
+        margin-bottom: 12px;
+    }
+    
+    .feed-image {
+        height: 200px;
+    }
+    
+    .feed-header {
+        padding: 12px 12px 0;
+    }
+    
+    .feed-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .feed-username {
+        font-size: 1rem;
+    }
+    
+    .instagram-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+}
+
+/* تصميم Orb AI الجديد */
+.orb-hero {
+    min-height: 100vh;
+    background: 
+        radial-gradient(ellipse at center, rgba(37, 37, 53, 0.8) 0%, rgba(15, 15, 25, 0.9) 70%),
+        linear-gradient(135deg, #0B0B1A 0%, #1A1A2E 50%, #16213E 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', 'Tajawal', sans-serif;
+}
+
+.orb-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+/* الكرة الرئيسية */
+.main-orb {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orb-inner {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.orb-core {
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 30%, 
+            #4F46E5 0%,
+            #6366F1 25%,
+            #818CF8 50%,
+            #A5B4FC 75%,
+            transparent 100%);
+    border-radius: 50%;
+    filter: blur(10px) brightness(1.2);
+    animation: orb-rotate 15s linear infinite;
+    box-shadow: 
+        0 0 80px rgba(79, 70, 229, 0.6),
+        inset 0 0 60px rgba(255, 255, 255, 0.1);
+}
+
+.orb-ring {
+    position: absolute;
+    border: 2px solid;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ring-rotate 20s linear infinite reverse;
+}
+
+.orb-ring-1 {
+    width: 350px;
+    height: 350px;
+    border-color: rgba(79, 70, 229, 0.3);
+    animation-duration: 25s;
+}
+
+.orb-ring-2 {
+    width: 420px;
+    height: 420px;
+    border-color: rgba(99, 102, 241, 0.2);
+    animation-duration: 30s;
+}
+
+.orb-ring-3 {
+    width: 490px;
+    height: 490px;
+    border-color: rgba(129, 140, 248, 0.1);
+    animation-duration: 35s;
+}
+
+.orb-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, 
+        rgba(79, 70, 229, 0.15) 0%,
+        rgba(99, 102, 241, 0.1) 30%,
+        transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes orb-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ring-rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes glow-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+/* المحتوى النصي */
+.orb-content {
+    color: white;
+    max-width: 600px;
+}
+
+.orb-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #E0E7FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title-line {
+    display: block;
+}
+
+.orb-title .title-line:last-child {
+    font-size: 3.8rem;
+    background: linear-gradient(135deg, #818CF8 0%, #4F46E5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.orb-subtitle {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    max-width: 500px;
+}
+
+.orb-stats {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #818CF8;
+    margin-bottom: 0.5rem;
+    font-feature-settings: "tnum";
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+.orb-cta-button {
+    position: relative;
+    background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+    border: none;
+    padding: 18px 45px;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 30px rgba(79, 70, 229, 0.4),
+        0 2px 10px rgba(79, 70, 229, 0.2);
+}
+
+.orb-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 40px rgba(79, 70, 229, 0.6),
+        0 4px 15px rgba(79, 70, 229, 0.3);
+}
+
+.orb-cta-button:active {
+    transform: translateY(0);
+}
+
+.button-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    transition: left 0.6s ease;
+}
+
+.orb-cta-button:hover .button-glow {
+    left: 100%;
+}
+
+/* الخلفية والتأثيرات */
+.orb-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.grid-lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.3;
+}
+
+.floating-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(99, 102, 241, 0.6);
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: float-particle 8s linear infinite;
+}
+
+.p1 { top: 20%; left: 25%; width: 6px; height: 6px; animation-duration: 12s; }
+.p2 { top: 60%; left: 15%; width: 4px; height: 4px; animation-duration: 15s; animation-delay: 2s; }
+.p3 { top: 40%; left: 80%; width: 8px; height: 8px; animation-duration: 10s; animation-delay: 4s; }
+.p4 { top: 70%; left: 60%; width: 5px; height: 5px; animation-duration: 18s; animation-delay: 1s; }
+.p5 { top: 30%; left: 70%; width: 7px; height: 7px; animation-duration: 14s; animation-delay: 3s; }
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(0) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 1200px) {
+    .orb-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+    }
+    
+    .main-orb {
+        width: 400px;
+        height: 400px;
+        margin: 0 auto;
+    }
+    
+    .orb-inner {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .orb-container {
+        padding: 0 20px;
+        gap: 40px;
+    }
+    
+    .main-orb {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .orb-inner {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .orb-title {
+        font-size: 3rem;
+    }
+    
+    .orb-title .title-line:last-child {
+        font-size: 2.5rem;
+    }
+    
+    .orb-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .orb-stats {
+        gap: 2rem;
+        justify-content: center;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-orb {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .orb-inner {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .orb-title {
+        font-size: 2.2rem;
+    }
+    
+    .orb-title .title-line:last-child {
+        font-size: 1.8rem;
+    }
+    
+    .orb-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .orb-cta-button {
+        padding: 16px 35px;
+        font-size: 1.1rem;
+    }
+}
+/* النمط الأساسي لجميع الأزرار الزجاجية */
+.glass-btn {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-glow);
+    border-radius: 15px;
+    color: white;
+    padding: 12px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    overflow: hidden;
+    box-shadow: var(--glass-shadow-glow);
+}
+
+.glass-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.glass-btn:hover::before {
+    left: 100%;
+}
+
+.glass-btn:hover {
+    background: var(--glass-glow-hover);
+    border-color: var(--glass-border-glow);
+    box-shadow: var(--glass-shadow-glow), var(--neon-glow);
+    transform: translateY(-2px);
+}
+
+/* تأثير الإضاءة الداخلية */
+.glass-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 70%
+    );
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glass-btn:hover::after {
+    opacity: 1;
+}
+
+/* أنواع مختلفة من الأزرار الزجاجية */
+.glass-btn-primary {
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.3) 0%, 
+        rgba(54, 209, 220, 0.2) 100%);
+    border: 1px solid rgba(108, 99, 255, 0.4);
+}
+
+.glass-btn-secondary {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.15) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-btn-accent {
+    background: linear-gradient(135deg, 
+        rgba(255, 101, 132, 0.3) 0%, 
+        rgba(255, 51, 102, 0.2) 100%);
+    border: 1px solid rgba(255, 101, 132, 0.4);
+}
+
+/* أحجام مختلفة */
+.glass-btn-small {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+}
+
+.glass-btn-large {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    border-radius: 20px;
+}
+
+/* أزرار خاصة بالشبكات الاجتماعية */
+.glass-btn-social {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 0;
+}
+
+/* تأثير النبض للإضاءة */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: var(--glass-shadow-glow), 0 0 10px rgba(108, 99, 255, 0.5);
+    }
+    50% {
+        box-shadow: var(--glass-shadow-glow), 0 0 20px rgba(108, 99, 255, 0.8), 0 0 30px rgba(108, 99, 255, 0.4);
+    }
+}
+
+.glass-btn-pulse {
+    animation: pulse-glow 2s infinite;
+}
+
+/* ============================================= */
+/* تطبيق التصميم الزجاجي على جميع الأزرار الموجودة */
+/* ============================================= */
+
+/* أزرار الفلاتر */
+.filter-btn {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-glow);
+    border-radius: 25px;
+    padding: 10px 25px;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow: hidden;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.3) 0%, 
+        rgba(54, 209, 220, 0.2) 100%);
+    border-color: var(--glass-border-glow);
+    box-shadow: var(--glass-shadow-glow), var(--neon-glow);
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* أزرار الإنستجرام في الكروت */
+.instagram-btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: var(--dark);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.instagram-btn:hover {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    color: var(--primary);
+    transform: scale(1.1);
+    box-shadow: var(--glass-shadow-glow);
+}
+
+/* أزرار النسخ والجمناي في النوافذ المنبثقة */
+.copy-btn, .gemini-btn {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-glow);
+    border-radius: 16px;
+    padding: 16px 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+    color: white;
+}
+
+.copy-btn {
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.3) 0%, 
+        rgba(54, 209, 220, 0.2) 100%);
+}
+
+.gemini-btn {
+    background: linear-gradient(135deg, 
+        rgba(142, 68, 173, 0.3) 0%, 
+        rgba(123, 60, 152, 0.2) 100%);
+}
+
+.copy-btn:hover, .gemini-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--glass-shadow-glow), var(--neon-glow);
+    border-color: var(--glass-border-glow);
+}
+
+/* أزرار التمرير في السلايدر */
+.slider-btn {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-glow);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: var(--primary);
+    font-size: 1.2rem;
+    box-shadow: var(--glass-shadow-glow);
+}
+
+.slider-btn:hover {
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.3) 0%, 
+        rgba(54, 209, 220, 0.2) 100%);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--glass-shadow-glow), var(--neon-glow);
+}
+
+/* زر تحميل المزيد */
+.load-more-btn {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-glow);
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: white;
+    overflow: hidden;
+}
+
+.load-more-btn:hover {
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.3) 0%, 
+        rgba(54, 209, 220, 0.2) 100%);
+    transform: translateY(-2px);
+    box-shadow: var(--glass-shadow-glow), var(--neon-glow);
+    border-color: var(--glass-border-glow);
+}
+
+/* أزرار المشاركة */
+.share-option {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-glow);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    min-height: 90px;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.share-option:hover {
+    background: var(--glass-glow-hover);
+    border-color: var(--glass-border-glow);
+    transform: translateY(-2px);
+    box-shadow: var(--glass-shadow-glow), var(--neon-glow);
+}
+
+/* أزرار الإجراءات في كروت المفضلة */
+.favorite-slide-btn {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-glow);
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    overflow: hidden;
+    flex: 1;
+}
+
+.favorite-copy-btn {
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.3) 0%, 
+        rgba(54, 209, 220, 0.2) 100%);
+    color: white;
+}
+
+.favorite-remove-btn {
+    background: linear-gradient(135deg, 
+        rgba(255, 101, 132, 0.2) 0%, 
+        rgba(255, 51, 102, 0.1) 100%);
+    color: var(--secondary);
+    border: 1px solid rgba(255, 101, 132, 0.3);
+}
+
+.favorite-slide-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glass-shadow-glow), var(--neon-glow);
+    border-color: var(--glass-border-glow);
+}
+
+/* أزرار الإغلاق في النوافذ */
+.close-modal, 
+.close-share-modal, 
+.close-support-modal,
+.close-favorites-btn,
+.close-search-modal {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border-glow);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: var(--dark);
+    box-shadow: var(--glass-shadow-glow);
+}
+
+.close-modal:hover, 
+.close-share-modal:hover, 
+.close-support-modal:hover,
+.close-favorites-btn:hover,
+.close-search-modal:hover {
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.3) 0%, 
+        rgba(54, 209, 220, 0.2) 100%);
+    color: white;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: var(--glass-shadow-glow), var(--neon-glow);
+    border-color: var(--glass-border-glow);
+}
+
+/* ============================================= */
+/* تأثيرات إضافية للزجاج المائي */
+/* ============================================= */
+
+/* تأثير الضوء المتحرك */
+@keyframes light-sweep {
+    0% {
+        transform: translateX(-100%) skewX(-15deg);
+    }
+    100% {
+        transform: translateX(200%) skewX(-15deg);
+    }
+}
+
+.glass-btn-sweep {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-btn-sweep::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent
+    );
+    transform: skewX(-15deg);
+    animation: light-sweep 3s infinite;
+}
+
+/* تأثير التلألؤ */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.glass-btn-shimmer {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite linear;
+}
+
 
 
     
@@ -1041,6 +2193,285 @@
         margin-bottom: 3rem;
         flex-wrap: wrap;
     }
+
+
+    /* قسم الهيرو الجديد - تصميم عصري بدون Parallax */
+.modern-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, 
+        rgba(102, 126, 234, 0.8) 0%, 
+        rgba(118, 75, 162, 0.7) 50%, 
+        rgba(255, 101, 132, 0.6) 100%);
+}
+
+/* الأشكال الهندسية العصرية */
+.geometric-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.shape-3 {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 4s;
+}
+
+.shape-4 {
+    width: 120px;
+    height: 120px;
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.hero-stat {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 20px 30px;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.hero-stat:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+    display: block;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+.stat-label {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-btn {
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.hero-btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #6C63FF, #36D1DC);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5A52D5, #2DB8C7);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-stats {
+        gap: 20px;
+    }
+    
+    .hero-stat {
+        padding: 15px 20px;
+        min-width: 120px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-stat {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .shape {
+        display: none;
+    }
+}
 
     .hero-stat {
         text-align: center;
@@ -2404,6 +3835,14 @@
     left: 0;
 }
 
+.native-ad-section {
+    padding: 20px 0;
+    background: var(--light);
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+
 .parallax__content {
     position: relative;
     z-index: 10;
@@ -3401,6 +4840,348 @@
         text-align: right;
     }
 
+
+
+    /* قسم الهيرو الجديد - تصميم Orb AI */
+.orb-hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A2E 50%, #16213E 100%);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', 'Tajawal', sans-serif;
+}
+
+.orb-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* الكرة الرئيسية */
+.main-orb {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 400px;
+}
+
+.orb-core {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, 
+        rgba(74, 144, 226, 0.8) 0%,
+        rgba(58, 123, 213, 0.6) 30%,
+        rgba(42, 102, 200, 0.4) 60%,
+        transparent 80%);
+    border-radius: 50%;
+    filter: blur(20px);
+    animation: orb-rotate 20s linear infinite;
+}
+
+.orb-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, 
+        rgba(74, 144, 226, 0.3) 0%,
+        rgba(58, 123, 213, 0.2) 30%,
+        transparent 70%);
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: orb-pulse 4s ease-in-out infinite;
+}
+
+@keyframes orb-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes orb-pulse {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* النجوم */
+.stars-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.star-1 { top: 20%; left: 15%; width: 3px; height: 3px; animation-delay: 0s; }
+.star-2 { top: 30%; left: 80%; width: 2px; height: 2px; animation-delay: 1s; }
+.star-3 { top: 70%; left: 25%; width: 4px; height: 4px; animation-delay: 2s; }
+.star-4 { top: 40%; left: 60%; width: 2px; height: 2px; animation-delay: 1.5s; }
+.star-5 { top: 80%; left: 70%; width: 3px; height: 3px; animation-delay: 0.5s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* الجسيمات المتحركة */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(74, 144, 226, 0.6);
+    border-radius: 50%;
+    filter: blur(2px);
+    animation: float-particle 8s linear infinite;
+}
+
+.particle-1 { 
+    top: 10%; left: 20%; width: 8px; height: 8px; 
+    animation-duration: 12s; animation-delay: 0s;
+}
+.particle-2 { 
+    top: 60%; left: 10%; width: 6px; height: 6px; 
+    animation-duration: 15s; animation-delay: 2s;
+}
+.particle-3 { 
+    top: 30%; left: 85%; width: 10px; height: 10px; 
+    animation-duration: 10s; animation-delay: 4s;
+}
+.particle-4 { 
+    top: 80%; left: 50%; width: 5px; height: 5px; 
+    animation-duration: 18s; animation-delay: 1s;
+}
+.particle-5 { 
+    top: 15%; left: 70%; width: 7px; height: 7px; 
+    animation-duration: 14s; animation-delay: 3s;
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* المحتوى */
+.orb-hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding: 120px 20px 80px;
+    max-width: 600px;
+}
+
+.orb-hero-title {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #FFFFFF 0%, #4A90E2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.title-line {
+    display: block;
+}
+
+.orb-hero-title .title-line:last-child {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, #4A90E2 0%, #6C63FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.orb-hero-subtitle {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 300;
+    max-width: 500px;
+}
+
+.orb-hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.orb-stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #4A90E2;
+    margin-bottom: 0.5rem;
+    font-feature-settings: "tnum";
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+.orb-hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.orb-primary-btn {
+    position: relative;
+    background: linear-gradient(135deg, #4A90E2 0%, #6C63FF 100%);
+    border: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+}
+
+.orb-primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(74, 144, 226, 0.5);
+}
+
+.orb-primary-btn:active {
+    transform: translateY(0);
+}
+
+.btn-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    transition: left 0.6s ease;
+}
+
+.orb-primary-btn:hover .btn-glow {
+    left: 100%;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .main-orb {
+        width: 300px;
+        height: 300px;
+        right: 5%;
+    }
+    
+    .orb-hero-title {
+        font-size: 2.8rem;
+    }
+    
+    .orb-hero-title .title-line:last-child {
+        font-size: 2.5rem;
+    }
+    
+    .orb-hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .orb-hero-stats {
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .orb-primary-btn {
+        padding: 14px 32px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-orb {
+        width: 250px;
+        height: 250px;
+        right: -10%;
+        opacity: 0.7;
+    }
+    
+    .orb-hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .orb-hero-title .title-line:last-child {
+        font-size: 2rem;
+    }
+    
+    .orb-hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .orb-hero-stats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .orb-stat {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .stat-number {
+        margin-bottom: 0;
+    }
+}
+
     /* قسم الإعلانات */
     .ads-section {
         padding: 60px 0;
@@ -3489,49 +5270,6 @@
         color: var(--primary);
     }
 
-    /* زر الصعود فقط */
-    .scroll-to-top {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 60px;
-        height: 60px;
-        background: var(--gradient);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.3rem;
-        box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
-        transition: all 0.3s ease;
-        z-index: 999;
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    .scroll-to-top.show {
-        display: flex;
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .scroll-to-top:hover {
-        background: var(--gradient-dark);
-        transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
-    }
-
-    .scroll-to-top:active {
-        transform: translateY(-2px);
-    }
-
-    /* تأثير النبض */
-    .scroll-to-top.pulse {
-        animation: pulse 2s infinite;
-    }
 
     /* الإشعارات */
     .notification {
@@ -4236,6 +5974,220 @@
         backdrop-filter: blur(10px);
     }
 
+
+
+
+    /* ============================================= */
+/* تصميم زجاجي مائي لأزرار الفلترة الأساسية */
+/* ============================================= */
+/* ============================================= */
+/* أزرار فلترة زجاجية بدون خلفية */
+/* ============================================= */
+
+.filter-section {
+    padding: 20px 0;
+    position: sticky;
+    top: 80px;
+    z-index: 98;
+    margin-bottom: 0;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+/* أزرار الفلترة الزجاجية */
+.glass-btn-filter {
+    position: relative;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 12px 24px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.glass-btn-filter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: left 0.6s ease;
+}
+
+.glass-btn-filter:hover::before {
+    left: 100%;
+}
+
+.glass-btn-filter:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.15),
+        0 0 15px rgba(108, 99, 255, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.glass-btn-filter.active {
+    background: linear-gradient(135deg, 
+        rgba(108, 99, 255, 0.3) 0%, 
+        rgba(54, 209, 220, 0.25) 100%);
+    border-color: rgba(108, 99, 255, 0.5);
+    color: white;
+    box-shadow: 
+        0 6px 20px rgba(108, 99, 255, 0.3),
+        0 0 20px rgba(108, 99, 255, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+/* تأثير التوهج */
+.btn-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(
+        circle,
+        rgba(108, 99, 255, 0.8) 0%,
+        transparent 70%
+    );
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.glass-btn-filter.active .btn-glow {
+    width: 120px;
+    height: 120px;
+    opacity: 0.4;
+}
+
+.glass-btn-filter:hover .btn-glow {
+    width: 100px;
+    height: 100px;
+    opacity: 0.3;
+}
+
+/* أيقونات الأزرار */
+.glass-btn-filter i {
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.glass-btn-filter:hover i {
+    transform: scale(1.1);
+}
+
+.glass-btn-filter.active i {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* تأثير النبض للزر النشط */
+@keyframes button-pulse {
+    0%, 100% {
+        box-shadow: 
+            0 6px 20px rgba(108, 99, 255, 0.3),
+            0 0 20px rgba(108, 99, 255, 0.5);
+    }
+    50% {
+        box-shadow: 
+            0 6px 25px rgba(108, 99, 255, 0.4),
+            0 0 25px rgba(108, 99, 255, 0.6);
+    }
+}
+
+.glass-btn-filter.active {
+    animation: button-pulse 2s infinite;
+}
+
+/* ============================================= */
+/* تحسينات التجاوب للشاشات المختلفة */
+/* ============================================= */
+
+/* أجهزة التابلت */
+@media (max-width: 768px) {
+    .filter-section {
+        top: 70px;
+        padding: 15px 0;
+    }
+    
+    .glass-btn-filter {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        gap: 6px;
+    }
+    
+    .glass-btn-filter i {
+        font-size: 0.9rem;
+    }
+}
+
+/* الهواتف */
+@media (max-width: 480px) {
+    .filter-section {
+        top: 60px;
+        padding: 10px 0;
+    }
+    
+    .filter-container {
+        gap: 10px;
+    }
+    
+    .glass-btn-filter {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        gap: 5px;
+        border-radius: 20px;
+    }
+    
+    .glass-btn-filter i {
+        font-size: 0.8rem;
+    }
+}
+
+/* الهواتف الصغيرة */
+@media (max-width: 360px) {
+    .glass-btn-filter {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .glass-btn-filter i {
+        font-size: 0.75rem;
+    }
+}
     .ad-close-btn {
         background: rgba(255, 255, 255, 0.2);
         border: none;
@@ -5106,13 +7058,6 @@
             min-width: 280px;
         }
 
-        .scroll-to-top {
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            font-size: 1.1rem;
-        }
 
         .chat-float-btn {
             width: 60px;
@@ -5338,121 +7283,270 @@
     <div class="bubble bubble-4"></div>
     <div class="bubble bubble-5"></div>
 </div>
-
-
-<!-- قسم الهيرو مع تأثير Parallax -->
-<section class="parallax-hero" id="parallaxHero">
-    <div class="parallax__visuals">
-        <div class="parallax__black-line-overflow"></div>
-        <div class="parallax__layers" data-parallax-layers>
-            <!-- الطبقة 1 - أبعد طبقة -->
-            <img src="parallax-layer-3.webp" 
-                 loading="eager" 
-                 class="parallax__layer parallax__layer-1" 
-                 data-parallax-layer="1" 
-                 alt=""
-                 onerror="this.style.display='none'">
-            
-            <!-- الطبقة 2 -->
-            <img src="parallax-layer-2.webp" 
-                 loading="eager" 
-                 class="parallax__layer parallax__layer-2" 
-                 data-parallax-layer="2" 
-                 alt=""
-                 onerror="this.style.display='none'">
-            
-            <!-- الطبقة 3 - النص -->
-            <div class="parallax__layer-title" data-parallax-layer="3">
-                <!-- النص سيكون في المحتوى الرئيسي -->
+<!-- قسم الهيرو الجديد - تصميم Orb AI -->
+<section class="orb-hero" id="orbHero">
+    <div class="orb-container">
+        <!-- الكرة الرئيسية -->
+        <div class="main-orb">
+            <div class="orb-inner">
+                <div class="orb-core"></div>
+                <div class="orb-ring orb-ring-1"></div>
+                <div class="orb-ring orb-ring-2"></div>
+                <div class="orb-ring orb-ring-3"></div>
             </div>
-            
-            <!-- الطبقة 4 - أقرب طبقة -->
-            <img src="parallax-layer-1.webp" 
-                 loading="eager" 
-                 class="parallax__layer parallax__layer-4" 
-                 data-parallax-layer="4" 
-                 alt=""
-                 onerror="this.style.display='none'">
+            <div class="orb-glow"></div>
         </div>
-        <div class="parallax__fade"></div>
+
+        <!-- المحتوى النصي -->
+        <div class="orb-content">
+            <h1 class="orb-title">
+                <span class="title-line">GEAR AI</span>
+                <span class="title-line">محول الصور الإبداعي</span>
+            </h1>
+            
+            <p class="orb-subtitle">
+                حوّل أفكارك إلى واقع مذهل باستخدام الذكاء الاصطناعي. أنشئ صوراً إبداعية لا حدود لها.
+            </p>
+
+            <div class="orb-stats">
+                <div class="stat-item">
+                 <span class="stat-number" id="modernUsersCount">845+</span>
+                </div>
+                <div class="stat-item">
+                   <span class="stat-number" id="modernPromptsCount">184+</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="modernImagesCount">1.2K+</span>
+                </div>
+            </div>
+
+            <button class="orb-cta-button" id="orbExploreBtn">
+                <span>ابدأ الاستكشاف</span>
+                <div class="button-glow"></div>
+            </button>
+        </div>
     </div>
-    
-    <div class="container">
-        <div class="parallax__content">
-            <h1 class="parallax__title">اكتشف عالم الصور الإبداعية</h1>
-            <p class="parallax__subtitle">أفضل برومبتات Gemini لتحويل صورك إلى أعمال فنية مذهلة</p>
-            
-            <div class="parallax__stats">
-                <div class="parallax__stat">
-                    <span class="parallax__stat-number" id="parallaxUsersCount">845+</span>
-                    <span class="parallax__stat-label">مستخدم نشط</span>
-                </div>
-                <div class="parallax__stat">
-                    <span class="parallax__stat-number" id="parallaxPromptsCount">184+</span>
-                    <span class="parallax__stat-label">برومبت متميز</span>
-                </div>
-                <div class="parallax__stat">
-                    <span class="parallax__stat-number" id="parallaxImagesCount">1.2K+</span>
-                    <span class="parallax__stat-label">صورة منشأة</span>
-                </div>
-            </div>
-            
-            <div class="parallax__buttons">
-                <button class="parallax__btn parallax__btn--primary" id="parallaxExploreBtn">
-                    <i class="fas fa-compass"></i>
-                    استكشف البرومبتات
-                </button>
-                <button class="parallax__btn parallax__btn--secondary" id="parallaxLearnBtn">
-                    <i class="fas fa-graduation-cap"></i>
-                    تعلم كيفية الاستخدام
-                </button>
-            </div>
+
+    <!-- الخلفية والتأثيرات -->
+    <div class="orb-background">
+        <div class="grid-lines"></div>
+        <div class="floating-particles">
+            <div class="particle p1"></div>
+            <div class="particle p2"></div>
+            <div class="particle p3"></div>
+            <div class="particle p4"></div>
+            <div class="particle p5"></div>
         </div>
     </div>
 </section>
-   
+<!-- زر الصعود للأعلى - تصميم iOS -->
+<button class="ios-scroll-top" id="scrollToTop">
+    <div class="ios-scroll-top-inner">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+</button>
+
+<style>
+/* زر الصعود للأعلى - تصميم iOS حديث */
+.ios-scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 
+        0 4px 24px rgba(0, 0, 0, 0.1),
+        0 1px 2px rgba(255, 255, 255, 0.5) inset,
+        0 -1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.ios-scroll-top.show {
+    display: flex;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+.ios-scroll-top:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        0 2px 4px rgba(255, 255, 255, 0.6) inset;
+}
+
+.ios-scroll-top:active {
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.ios-scroll-top-inner {
+    color: #1C1C1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .ios-scroll-top {
+        background: rgba(44, 44, 46, 0.8);
+        border: 1px solid rgba(84, 84, 88, 0.8);
+        box-shadow: 
+            0 4px 24px rgba(0, 0, 0, 0.3),
+            0 1px 2px rgba(255, 255, 255, 0.1) inset;
+    }
+    
+    .ios-scroll-top:hover {
+        background: rgba(44, 44, 46, 0.9);
+        border-color: rgba(84, 84, 88, 0.9);
+    }
+    
+    .ios-scroll-top-inner {
+        color: #FFFFFF;
+    }
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .ios-scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ios-scroll-top {
+        bottom: 16px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+    }
+    
+    .ios-scroll-top-inner svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* تأثير الظهور والاختفاء */
+@keyframes iosAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.ios-scroll-top.show {
+    animation: iosAppear 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+</style>
+
+<script>
+// وظيفة التحكم في زر الصعود للأعلى - تصميم iOS
+function initIOSScrollTop() {
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    
+    if (!scrollToTopBtn) return;
+    
+    let scrollTimeout;
+    
+    window.addEventListener('scroll', function() {
+        // إلغاء المهلة السابقة
+        clearTimeout(scrollTimeout);
+        
+        // تعيين مهلة جديدة لتجنب التحديث المتكرر
+        scrollTimeout = setTimeout(() => {
+            const scrollPosition = window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // إظهار الزر عند التمرير لأسفل، وإخفاؤه عند الأعلى
+            if (scrollPosition > 200) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        }, 10);
+    });
+    
+    scrollToTopBtn.addEventListener('click', function() {
+        // تأثير النقر
+        this.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+            this.style.transform = '';
+        }, 150);
+        
+        // التمرير السلس للأعلى
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // إضافة تأثير اللمس للأجهزة المحمولة
+    scrollToTopBtn.addEventListener('touchstart', function() {
+        this.style.transform = 'scale(0.95)';
+    });
+    
+    scrollToTopBtn.addEventListener('touchend', function() {
+        this.style.transform = '';
+    });
+}
+
+// استدعاء التهيئة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', initIOSScrollTop);
+</script>
 
     
-
-    <!-- زر الصعود للأعلى -->
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- قسم الهشتاجات -->
-    <section class="hashtags-filter-section">
-        <div class="container">
-            <div class="hashtags-container" id="hashtagsContainer">
-                <!-- سيتم إضافة الهاشتاجات ديناميكياً -->
-            </div>
-        </div>
-    </section>
-
-
-
-
-    <!-- قسم أزرار عرض الكروت -->
-    <section class="view-toggle-section">
-        <div class="container view-toggle-container">
-            <button class="view-toggle-btn active" data-view="list">
-                <i class="fas fa-list"></i>
-                عرض قائمة
+<!-- قسم الفلاتر المحدث - أزرار زجاجية بدون خلفية -->
+<section class="filter-section">
+    <div class="container">
+        <div class="filter-container">
+            <button class="glass-btn-filter active" data-filter="all">
+                <span class="btn-glow"></span>
+                <i class="fas fa-th-large"></i>
+                الكل
             </button>
-            <button class="view-toggle-btn" data-view="grid">
-                <i class="fas fa-th"></i>
-                عرض شبكة
+            
+            <button class="glass-btn-filter" data-filter="boys">
+                <span class="btn-glow"></span>
+                <i class="fas fa-male"></i>
+                الأولاد
+            </button>
+            
+            <button class="glass-btn-filter" data-filter="girls">
+                <span class="btn-glow"></span>
+                <i class="fas fa-female"></i>
+                البنات
             </button>
         </div>
-    </section>
-
-    <!-- قسم الفلاتر -->
-    <section class="filter-section">
-        <div class="container filter-container">
-            <button class="filter-btn active" data-filter="all">الكل</button>
-            <button class="filter-btn" data-filter="boys">الأولاد</button>
-            <button class="filter-btn" data-filter="girls">البنات</button>
-        </div>
-    </section>
+    </div>
+</section>
 
     
     <!-- قسم التغذية (Instagram Style) -->
@@ -5528,7 +7622,6 @@
 </section>
 
 
-
 <!-- قسم تصور مع شخص تحبه -->
 <section class="loved-one-section">
     <div class="container">
@@ -5602,74 +7695,191 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
             </div>
         </div>
     </div>
+    
+    <!-- تأثيرات مائية -->
+    <div class="water-bubble bubble-1"></div>
+    <div class="water-bubble bubble-2"></div>
+    <div class="water-bubble bubble-3"></div>
+    <div class="water-bubble bubble-4"></div>
+    <div class="water-bubble bubble-5"></div>
 </section>
 
 <style>
-/* قسم تصور مع شخص تحبه */
+/* قسم تصور مع شخص تحبه - تصميم زجاج مائي */
 .loved-one-section {
     padding: 80px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, 
+        rgba(96, 165, 250, 0.85) 0%, 
+        rgba(129, 140, 248, 0.85) 50%,
+        rgba(167, 139, 250, 0.85) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="none"><path d="M0,0 Q600,200 1200,0 L1200,800 Q600,600 0,800 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+    background-size: cover, 100% 100%;
     margin: 60px 0;
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
 }
 
-.loved-one-section::before {
-    content: '';
+/* تأثير الفقاعات المائية */
+.water-bubble {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
-    background-size: cover;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: float 8s infinite ease-in-out;
+    z-index: 1;
+}
+
+.bubble-1 {
+    width: 120px;
+    height: 120px;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.bubble-2 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    right: 8%;
+    animation-delay: 2s;
+}
+
+.bubble-3 {
+    width: 150px;
+    height: 150px;
+    bottom: 15%;
+    left: 10%;
+    animation-delay: 4s;
+}
+
+.bubble-4 {
+    width: 60px;
+    height: 60px;
+    bottom: 25%;
+    right: 15%;
+    animation-delay: 6s;
+}
+
+.bubble-5 {
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) scale(1.05);
+    }
+    50% {
+        transform: translateY(-40px) translateX(-5px) scale(1.1);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(-20px) translateX(-10px) scale(1.05);
+    }
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.8rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
     color: white;
     font-weight: 800;
     position: relative;
     z-index: 2;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.5px;
 }
 
 .section-title span {
-    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    background: linear-gradient(135deg, #e0f7fa 0%, #80deea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title span::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #80deea, transparent);
+    border-radius: 3px;
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
 }
 
 .section-subtitle {
     text-align: center;
     font-size: 1.3rem;
     margin-bottom: 3rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     position: relative;
     z-index: 2;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+    line-height: 1.6;
 }
 
+/* تصميم الزجاج المائي المحسن */
 .glass-card {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 28px;
     box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
+    z-index: 2;
 }
 
 .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.glass-card:hover::before {
+    left: 100%;
+}
+
+.glass-card::after {
     content: '';
     position: absolute;
     top: 0;
@@ -5679,20 +7889,22 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     background: linear-gradient(
         135deg,
         rgba(255, 255, 255, 0.1) 0%,
-        transparent 30%,
-        rgba(255, 255, 255, 0.05) 100%
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
     );
-    border-radius: 24px;
+    border-radius: 28px;
     pointer-events: none;
+    z-index: 1;
 }
 
 .glass-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(255, 255, 255, 0.12);
     box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+        0 30px 60px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .slideshow-container {
@@ -5704,8 +7916,9 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
 .slideshow {
     position: relative;
     height: 500px;
-    border-radius: 24px;
+    border-radius: 28px;
     overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .person-slide {
@@ -5715,19 +7928,18 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     transform: scale(1.1);
-    filter: brightness(0.9);
+    filter: brightness(0.9) contrast(1.1) saturate(1.1);
 }
 
 .person-slide.active {
     opacity: 1;
     transform: scale(1);
-    filter: brightness(1);
-    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(1) contrast(1.2) saturate(1.2);
 }
 
 .slideshow-indicator {
@@ -5735,81 +7947,96 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     bottom: 20px;
     right: 20px;
     background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 12px 20px;
+    border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 600;
     z-index: 10;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .prompt-card {
     max-width: 900px;
     margin: 0 auto;
-    padding: 35px;
+    padding: 40px;
 }
 
 .prompt-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 25px;
+    gap: 15px;
+    margin-bottom: 30px;
     color: white;
+    position: relative;
+    z-index: 2;
 }
 
 .prompt-header i {
-    font-size: 1.8rem;
-    background: linear-gradient(135deg, #fff, var(--accent));
+    font-size: 2rem;
+    background: linear-gradient(135deg, #e0f7fa, #80deea);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .prompt-header h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     margin: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .prompt-container {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(15px);
-    border-radius: 18px;
-    padding: 30px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 35px;
     border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    z-index: 2;
+    box-shadow: inset 0 2px 10px rgba(255, 255, 255, 0.1);
 }
 
 .prompt-text {
     background: rgba(255, 255, 255, 0.95);
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 30px;
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 35px;
     line-height: 1.7;
-    color: var(--dark);
+    color: #2d3748;
     max-height: 300px;
     overflow-y: auto;
     font-family: 'Courier New', monospace;
     font-size: 0.92rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 2;
 }
 
 .prompt-actions {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
 }
 
 .prompt-btn {
     flex: 1;
     min-width: 200px;
-    padding: 16px 28px;
+    padding: 18px 32px;
     border: none;
-    border-radius: 16px;
+    border-radius: 20px;
     cursor: pointer;
     font-weight: 700;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     display: flex;
     align-items: center;
@@ -5817,7 +8044,9 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     gap: 12px;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    z-index: 2;
 }
 
 .prompt-btn::before {
@@ -5830,7 +8059,7 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.5),
         transparent
     );
     transition: left 0.6s ease;
@@ -5841,27 +8070,27 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
 }
 
 .copy-prompt {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.9), rgba(129, 140, 248, 0.9));
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .copy-prompt:hover {
-    background: linear-gradient(135deg, #5a6fd8, #6a4190);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, rgba(79, 150, 235, 0.9), rgba(109, 120, 233, 0.9));
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 20px 40px rgba(96, 165, 250, 0.4);
 }
 
 .gemini-btn {
-    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.9), rgba(190, 144, 249, 0.9));
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .gemini-btn:hover {
-    background: linear-gradient(135deg, #7d3c98, #8e44ad);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(142, 68, 173, 0.4);
+    background: linear-gradient(135deg, rgba(151, 124, 235, 0.9), rgba(175, 129, 234, 0.9));
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 20px 40px rgba(167, 139, 250, 0.4);
 }
 
 /* تحسينات للشاشات الصغيرة */
@@ -5872,7 +8101,7 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     }
     
     .section-title {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
     }
     
     .section-subtitle {
@@ -5889,7 +8118,7 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     }
     
     .prompt-container {
-        padding: 20px;
+        padding: 25px;
     }
     
     .prompt-text {
@@ -5905,7 +8134,11 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     .prompt-btn {
         width: 100%;
         min-width: auto;
-        padding: 14px 20px;
+        padding: 16px 24px;
+    }
+    
+    .water-bubble {
+        display: none;
     }
 }
 
@@ -5916,7 +8149,7 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     }
     
     .section-title {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
     
     .section-subtitle {
@@ -5934,7 +8167,7 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
     }
     
     .prompt-container {
-        padding: 15px;
+        padding: 20px;
         border-radius: 15px;
     }
     
@@ -5956,13 +8189,13 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
         bottom: 15px;
         right: 15px;
         font-size: 0.8rem;
-        padding: 6px 12px;
+        padding: 10px 16px;
     }
 }
 
 /* شريط التمرير المخصص */
 .prompt-text::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
 }
 
 .prompt-text::-webkit-scrollbar-track {
@@ -5971,12 +8204,13 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
 }
 
 .prompt-text::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.7), rgba(129, 140, 248, 0.7));
     border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
 .prompt-text::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+    background: linear-gradient(135deg, rgba(79, 150, 235, 0.8), rgba(109, 120, 233, 0.8));
 }
 </style>
 
@@ -5984,13 +8218,11 @@ Final Requirement: This is a FACE PRESERVATION task. The primary goal is to keep
 // بيانات صور العرض التقديمي
 const personImages = [
     "p1.png",
-     "p2.png",
-    
-    
+    "p2.png",
 ];
 
 // البرومبت الثابت
-const personPrompt = 'Realistic high-quality portrait photo in a modern apartment setting. SCENE SETTING: Location: Clean modern apartment with plain white curtain background Lighting: Soft natural light from window Background: Minimalist decor, professional photoshoot style AUTOMATIC POSE SELECTION: IF two males detected: Both standing side by side, natural stance, shoulders relaxed, facing camera IF two females detected: Both sitting comfortably on a modern sofa, facing camera with natural posture IF mixed genders detected: Both sitting on modern sofa, natural friendly distance FACIAL PRESERVATION - ABSOLUTE REQUIREMENT: My Face: MUST remain 100% identical to reference image - zero changes to eyes, nose, lips, jawline, or facial structure Friends Face: MUST remain 100% identical to reference image - zero changes to eyes, nose, lips, jawline, or facial structure No Alterations: Strictly no morphing, blending, or changes to any facial features BODY & INTEGRATION: Generate proportionate bodies matching age, detected gender, and skin tone Create natural body language appropriate for the selected pose Ensure seamless face-body integration with consistent skin tones CLOTHING: Modern casual clothing appropriate for detected gender and apartment setting Age-appropriate and natural-looking outfits TECHNICAL SPECIFICATIONS: Style: Photorealistic professional photography Focus: Sharp on both preserved faces Quality: High-resolution, no distortions Lighting: Consistent and natural across the scene CRITICAL INSTRUCTIONS: Analyze reference images to detect genders accurately Select pose automatically based on gender combination Preserve both faces with 100% accuracy - no exceptions Maintain white curtain background Ensure natural-looking results with perfect face preservation';
+const personPrompt = `Realistic high-quality portrait photo in a modern apartment setting. SCENE SETTING: Location: Clean modern apartment with plain white curtain background Lighting: Soft natural light from window Background: Minimalist decor, professional photoshoot style AUTOMATIC POSE SELECTION: IF two males detected: Both standing side by side, natural stance, shoulders relaxed, facing camera IF two females detected: Both sitting comfortably on a modern sofa, facing camera with natural posture IF mixed genders detected: Both sitting on modern sofa, natural friendly distance FACIAL PRESERVATION - ABSOLUTE REQUIREMENT: My Face: MUST remain 100% identical to reference image - zero changes to eyes, nose, lips, jawline, or facial structure Friends Face: MUST remain 100% identical to reference image - zero changes to eyes, nose, lips, jawline, or facial structure No Alterations: Strictly no morphing, blending, or changes to any facial features BODY & INTEGRATION: Generate proportionate bodies matching age, detected gender, and skin tone Create natural body language appropriate for the selected pose Ensure seamless face-body integration with consistent skin tones CLOTHING: Modern casual clothing appropriate for detected gender and apartment setting Age-appropriate and natural-looking outfits TECHNICAL SPECIFICATIONS: Style: Photorealistic professional photography Focus: Sharp on both preserved faces Quality: High-resolution, no distortions Lighting: Consistent and natural across the scene CRITICAL INSTRUCTIONS: Analyze reference images to detect genders accurately Select pose automatically based on gender combination Preserve both faces with 100% accuracy - no exceptions Maintain white curtain background Ensure natural-looking results with perfect face preservation`;
 
 // تهيئة قسم تصور مع شخص تحبه
 function initLovedOneSection() {
@@ -6053,7 +8285,7 @@ function setupPersonButtons() {
                         
                         // تأثير مرئي عند النسخ
                         copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
-                        copyBtn.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+                        copyBtn.style.background = 'linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(69, 160, 73, 0.9))';
                         
                         setTimeout(() => {
                             copyBtn.innerHTML = '<i class="far fa-copy"></i> نسخ البرومبت';
@@ -6089,15 +8321,15 @@ function showNotification(message, type = 'success') {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: ${type === 'error' ? '#FF6584' : 'linear-gradient(135deg, #667eea, #764ba2)'};
+            background: ${type === 'error' ? 'rgba(255, 101, 132, 0.9)' : 'linear-gradient(135deg, rgba(96, 165, 250, 0.9), rgba(129, 140, 248, 0.9))'};
             color: white;
             padding: 15px 25px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-radius: 15px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
             z-index: 10000;
             font-weight: 600;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.3);
         `;
         notification.textContent = message;
         document.body.appendChild(notification);
@@ -6112,459 +8344,7 @@ function showNotification(message, type = 'success') {
 document.addEventListener('DOMContentLoaded', function() {
     initLovedOneSection();
 });
-</script>
-
-<!-- قسم تعلم كيف تصنع صورتك - قائمة منسدلة -->
-<section class="tutorial-section">
-    <div class="container">
-        <h2 class="section-title">تعلم كيف <span>تصنع صورتك</span></h2>
-        
-        <div class="tutorial-dropdown">
-            <button class="tutorial-dropdown-btn" id="tutorialDropdownBtn">
-                <span>اختر خطوة لمعرفة التفاصيل</span>
-                <i class="fas fa-chevron-down"></i>
-            </button>
-            
-            <div class="tutorial-dropdown-content" id="tutorialDropdownContent">
-                <div class="tutorial-step" data-step="1">
-                    <div class="tutorial-step-header">
-                        <h3 class="tutorial-step-title">الخطوة الأولى: اختيار الصورة المناسبة</h3>
-                        <i class="fas fa-chevron-down step-arrow"></i>
-                    </div>
-                    <div class="tutorial-step-details">
-                        <img src="step1.PNG" alt="الخطوة الأولى" class="tutorial-step-image" onerror="this.style.display='none'">
-                        <div class="tutorial-step-content">
-                            <p class="tutorial-step-description">اختار الصورة التى تريدها من الموقع الخاص بنا ثم اضغط على علامة العين لروية البرومبت الخاص به</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tutorial-step" data-step="2">
-                    <div class="tutorial-step-header">
-                        <h3 class="tutorial-step-title">الخطوة الثانية: نسخ البرومبت المناسب</h3>
-                        <i class="fas fa-chevron-down step-arrow"></i>
-                    </div>
-                    <div class="tutorial-step-details">
-                        <img src="step2.PNG" alt="الخطوة الثانية" class="tutorial-step-image" onerror="this.style.display='none'">
-                        <div class="tutorial-step-content">
-                            <p class="tutorial-step-description">بعد الضغط على علامة العين سيظهر زرين واحد نسخ البومبت كما موضح فى السهم الازرق اضغط عليه والثانى للانتقال الى جمناى لعمل الصورة تاكد اولا من نسخك للبرومبت بنجاح ثم انتقل الى جمناى</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="tutorial-step" data-step="3">
-                    <div class="tutorial-step-header">
-                        <h3 class="tutorial-step-title">الخطوة الثالثة: استخدام Gemini</h3>
-                        <i class="fas fa-chevron-down step-arrow"></i>
-                    </div>
-                    <div class="tutorial-step-details">
-                        <img src="step3.PNG" alt="الخطوة الثالثة" class="tutorial-step-image" onerror="this.style.display='none'">
-                        <div class="tutorial-step-content">
-                            <p class="tutorial-step-description">بعد دخولك الى جمناى الصق البرومبت الذى نسخته فى مكان الادخال كما موضح فى السهم وثم بعد ذالك اختر صورتك من خلال الضغط على علامة + الموضحة فى السهم الاحمر واختر صورتك التى تريد انشاء الصورة مثلها تاكد من ان وجهك ظاهر بوضوح</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tutorial-step" data-step="4">
-                    <div class="tutorial-step-header">
-                        <h3 class="tutorial-step-title">الخطوة الرابعة: انشاء الصورة</h3>
-                        <i class="fas fa-chevron-down step-arrow"></i>
-                    </div>
-                    <div class="tutorial-step-details">
-                        <img src="step4.PNG" alt="الخطوة الرابعة" class="tutorial-step-image" onerror="this.style.display='none'">
-                        <div class="tutorial-step-content">
-                            <p class="tutorial-step-description">بعد اختيار صورتك اضغط على علامة الادوات بجانب ال+ لااضافة التخصيص واختر منها صور بااستخدام imagen ومن ثم اضغط ارسال ومبروك عليك الصورة</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<style>
-/* أنماط القائمة المنسدلة للتعليمات */
-.tutorial-dropdown {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.tutorial-dropdown-btn {
-    width: 100%;
-    padding: 20px;
-    background: var(--gradient);
-    color: white;
-    border: none;
-    border-radius: 15px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(108, 99, 255, 0.3);
-}
-
-.tutorial-dropdown-btn:hover {
-    background: var(--gradient-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(108, 99, 255, 0.4);
-}
-
-.tutorial-dropdown-btn i {
-    transition: transform 0.3s ease;
-}
-
-.tutorial-dropdown-btn.active i {
-    transform: rotate(180deg);
-}
-
-.tutorial-dropdown-content {
-    display: none;
-    margin-top: 15px;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.tutorial-dropdown-content.show {
-    display: block;
-    animation: slideDown 0.3s ease;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.tutorial-step {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.tutorial-step:last-child {
-    border-bottom: none;
-}
-
-.tutorial-step-header {
-    padding: 20px;
-    background: var(--light);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.tutorial-step-header:hover {
-    background: rgba(108, 99, 255, 0.05);
-}
-
-.tutorial-step-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin: 0;
-}
-
-.step-arrow {
-    color: var(--primary);
-    transition: transform 0.3s ease;
-}
-
-.tutorial-step.active .step-arrow {
-    transform: rotate(180deg);
-}
-
-.tutorial-step-details {
-    display: none;
-    padding: 0;
-    background: white;
-}
-
-.tutorial-step.active .tutorial-step-details {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.tutorial-step-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.tutorial-step-content {
-    padding: 20px;
-}
-
-.tutorial-step-description {
-    color: var(--gray);
-    line-height: 1.6;
-    margin: 0;
-    font-size: 1rem;
-}
-
-/* تحسينات للشاشات الصغيرة */
-@media (max-width: 768px) {
-    .tutorial-dropdown-btn {
-        padding: 15px;
-        font-size: 1.1rem;
-    }
-    
-    .tutorial-step-header {
-        padding: 15px;
-    }
-    
-    .tutorial-step-title {
-        font-size: 1rem;
-    }
-    
-    .tutorial-step-content {
-        padding: 15px;
-    }
-    
-    .tutorial-step-image {
-        height: 150px;
-    }
-}
-
-@media (max-width: 480px) {
-    .tutorial-dropdown-btn {
-        font-size: 1rem;
-        padding: 12px 15px;
-    }
-    
-    .tutorial-step-header {
-        padding: 12px 15px;
-    }
-    
-    .tutorial-step-title {
-        font-size: 0.95rem;
-    }
-    
-    .tutorial-step-content {
-        padding: 12px 15px;
-    }
-    
-    .tutorial-step-description {
-        font-size: 0.9rem;
-    }
-}
-</style>
-
-<script>
-// إدارة القائمة المنسدلة للتعليمات
-function setupTutorialDropdown() {
-    const dropdownBtn = document.getElementById('tutorialDropdownBtn');
-    const dropdownContent = document.getElementById('tutorialDropdownContent');
-    const tutorialSteps = document.querySelectorAll('.tutorial-step');
-
-    if (!dropdownBtn || !dropdownContent) {
-        console.error('لم يتم العثور على عناصر القائمة المنسدلة');
-        return;
-    }
-
-    // زر القائمة الرئيسية
-    dropdownBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const isOpen = dropdownContent.classList.contains('show');
-        
-        if (isOpen) {
-            dropdownContent.classList.remove('show');
-            dropdownBtn.classList.remove('active');
-            // إغلاق جميع الخطوات عند إغلاق القائمة الرئيسية
-            tutorialSteps.forEach(step => {
-                step.classList.remove('active');
-            });
-        } else {
-            dropdownContent.classList.add('show');
-            dropdownBtn.classList.add('active');
-        }
-    });
-
-    // إدارة الخطوات الفردية
-    tutorialSteps.forEach(step => {
-        const header = step.querySelector('.tutorial-step-header');
-        const details = step.querySelector('.tutorial-step-details');
-
-        if (header && details) {
-            header.addEventListener('click', function(e) {
-                e.stopPropagation();
-                
-                const isActive = step.classList.contains('active');
-                
-                if (isActive) {
-                    // إذا كانت مفتوحة، أغلقها فقط
-                    step.classList.remove('active');
-                } else {
-                    // إذا كانت مغلقة، افتحها وأغلق الآخرين
-                    tutorialSteps.forEach(otherStep => {
-                        if (otherStep !== step) {
-                            otherStep.classList.remove('active');
-                        }
-                    });
-                    step.classList.add('active');
-                }
-            });
-        }
-    });
-
-    // إغلاق القائمة عند النقر خارجها
-    document.addEventListener('click', function(e) {
-        if (!e.target.closest('.tutorial-dropdown')) {
-            dropdownContent.classList.remove('show');
-            dropdownBtn.classList.remove('active');
-            // إغلاق جميع الخطوات
-            tutorialSteps.forEach(step => {
-                step.classList.remove('active');
-            });
-        }
-    });
-
-    // إغلاق القائمة عند الضغط على زر Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            dropdownContent.classList.remove('show');
-            dropdownBtn.classList.remove('active');
-            tutorialSteps.forEach(step => {
-                step.classList.remove('active');
-            });
-        }
-    });
-
-    // فتح أول خطوة تلقائياً عند فتح القائمة للمرة الأولى
-    let firstOpen = true;
-    dropdownBtn.addEventListener('click', function() {
-        if (firstOpen && dropdownContent.classList.contains('show')) {
-            const firstStep = tutorialSteps[0];
-            if (firstStep) {
-                firstStep.classList.add('active');
-            }
-            firstOpen = false;
-        }
-    });
-}
-
-// تحسين تجربة المستخدم على الأجهزة المحمولة
-function enhanceMobileExperience() {
-    const tutorialSteps = document.querySelectorAll('.tutorial-step');
-    
-    tutorialSteps.forEach(step => {
-        const header = step.querySelector('.tutorial-step-header');
-        
-        if (header) {
-            // إضافة تأثير اللمس
-            header.style.cursor = 'pointer';
-            header.addEventListener('touchstart', function() {
-                this.style.backgroundColor = 'rgba(108, 99, 255, 0.1)';
-            });
-            
-            header.addEventListener('touchend', function() {
-                this.style.backgroundColor = '';
-            });
-        }
-    });
-}
-
-// تهيئة قسم التعليمات عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    setupTutorialDropdown();
-    enhanceMobileExperience();
-    
-    // إضافة تأثير ظهور القسم عند التمرير
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    const tutorialSection = document.querySelector('.tutorial-section');
-    if (tutorialSection) {
-        tutorialSection.style.opacity = '0';
-        tutorialSection.style.transform = 'translateY(30px)';
-        tutorialSection.style.transition = 'all 0.6s ease-out';
-        observer.observe(tutorialSection);
-    }
-});
-
-// دالة مساعدة لفتح خطوة محددة
-function openTutorialStep(stepNumber) {
-    const step = document.querySelector(`.tutorial-step[data-step="${stepNumber}"]`);
-    const dropdownContent = document.getElementById('tutorialDropdownContent');
-    const dropdownBtn = document.getElementById('tutorialDropdownBtn');
-    
-    if (step && dropdownContent && dropdownBtn) {
-        // فتح القائمة الرئيسية إذا كانت مغلقة
-        if (!dropdownContent.classList.contains('show')) {
-            dropdownContent.classList.add('show');
-            dropdownBtn.classList.add('active');
-        }
-        
-        // فتح الخطوة المطلوبة
-        const tutorialSteps = document.querySelectorAll('.tutorial-step');
-        tutorialSteps.forEach(otherStep => {
-            otherStep.classList.remove('active');
-        });
-        step.classList.add('active');
-        
-        // التمرير إلى الخطوة
-        setTimeout(() => {
-            step.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'nearest' 
-            });
-        }, 300);
-    }
-}
-
-// دالة مساعدة لإغلاق جميع الخطوات
-function closeAllTutorialSteps() {
-    const dropdownContent = document.getElementById('tutorialDropdownContent');
-    const dropdownBtn = document.getElementById('tutorialDropdownBtn');
-    const tutorialSteps = document.querySelectorAll('.tutorial-step');
-    
-    if (dropdownContent && dropdownBtn) {
-        dropdownContent.classList.remove('show');
-        dropdownBtn.classList.remove('active');
-    }
-    
-    tutorialSteps.forEach(step => {
-        step.classList.remove('active');
-    });
-}
-
-// جعل الدوال متاحة globally للاستخدام من أي مكان
-window.openTutorialStep = openTutorialStep;
-window.closeAllTutorialSteps = closeAllTutorialSteps;
-</script>
-
+</script>  
 
 
 <!-- نافذة المفضلة الزجاجية -->
@@ -6686,6 +8466,9 @@ window.closeAllTutorialSteps = closeAllTutorialSteps;
                 </div>
             </div>
         </div>
+
+        <!-- أضف هذا الكود قبل إغلاق body -->
+<script type='text/javascript' src='//pl28016523.effectivegatecpm.com/58/68/75/58687584df1ec984ce363d9db09f60b7.js'></script>
         
         <div class="copyright">
             <div class="container">
@@ -6916,21 +8699,6 @@ window.closeAllTutorialSteps = closeAllTutorialSteps;
         let currentPage = 0;
         const cardsPerPage = 5;
 
-        // بيانات الهاشتاجات
-        const hashtags = [
-            { id: 'all', name: 'الكل' },
-            { id: 'ورد', name: 'ورد#' },
-            { id: 'سيارات', name: 'سيارات#' },
-            { id: 'فرعونى', name: 'فرعونى#' },
-            { id: 'كلاسيك', name: 'كلاسيك#' },
-            { id: 'جميلة', name: 'جميلة#' },
-            { id: 'عيد ميلاد', name: 'عيد ميلاد#'},
-            { id: 'وجه كامل', name: 'وجه كامل# ' },
-            { id: 'خيالى', name: 'خيالى#' },
-            { id: 'حيوانات', name: 'حيوانات#' },
-            { id: 'بورتريه', name: 'بورتريه#' },
-            { id: 'عصرى', name: 'عصرى#' },
-        ];
 
         // بيانات صور الهيرو - استخدم صور محلية
         const heroImages = [
@@ -7060,7 +8828,7 @@ function updateUserUI() {
     // if (promptsCount) promptsCount.textContent = '184+';
     // if (imagesCount) imagesCount.textContent = '2.2K+';
 }
-       // تهيئة التطبيق
+    // تهيئة التطبيق
 document.addEventListener('DOMContentLoaded', function() {
     loadUser();
     setupEventListeners();
@@ -7069,7 +8837,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSlidesPerView();
     initHashtags();
     setupGiftButton();
-    initParallaxHero();
+    
     initFooterSlideshow();
     initSupportPopup();
     initTouchNavigation();
@@ -7108,11 +8876,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
 
-            // زر الصعود للأعلى
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            if (scrollToTopBtn) {
-                scrollToTopBtn.addEventListener('click', scrollToTop);
-            }
+           
 
             // الفلاتر
             const filterButtons = document.querySelectorAll('.filter-btn');
@@ -7125,16 +8889,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
 
-            // أزرار عرض الكروت
-            const viewToggleButtons = document.querySelectorAll('.view-toggle-btn');
-            viewToggleButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    viewToggleButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    currentView = this.getAttribute('data-view');
-                    toggleViewMode();
-                });
-            });
+           
 
 
 
@@ -7500,34 +9255,7 @@ document.addEventListener('click', function(e) {
             renderFeedCards();
         }
 
-        // باقي الدوال الأساسية مع التحقق من العناصر
-        function toggleNavigationButtons() {
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            if (!scrollToTopBtn) return;
-            
-            const scrollPosition = window.pageYOffset;
-            
-            if (scrollPosition > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
-        }
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-            
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            if (scrollToTopBtn) {
-                scrollToTopBtn.classList.add('pulse');
-                setTimeout(() => {
-                    scrollToTopBtn.classList.remove('pulse');
-                }, 1000);
-            }
-        }
+       
 
         // نظام التحميل التدريجي
         function renderFeedCards() {
@@ -7596,32 +9324,7 @@ document.addEventListener('click', function(e) {
             renderFeedCards();
         }
 
-        // تهيئة الهاشتاجات
-        function initHashtags() {
-            const hashtagsContainer = document.getElementById('hashtagsContainer');
-            if (!hashtagsContainer) return;
-            
-            hashtags.forEach(hashtag => {
-                const hashtagBtn = document.createElement('button');
-                hashtagBtn.className = 'hashtag-btn';
-                if (hashtag.id === 'all') {
-                    hashtagBtn.classList.add('active');
-                }
-                hashtagBtn.setAttribute('data-hashtag', hashtag.id);
-                hashtagBtn.textContent = hashtag.name;
-                
-                hashtagBtn.addEventListener('click', function() {
-                    document.querySelectorAll('.hashtag-btn').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    currentHashtag = this.getAttribute('data-hashtag');
-                    filterCards();
-                });
-                
-                hashtagsContainer.appendChild(hashtagBtn);
-            });
-        }
+       
 
         // إعداد زر الهدايا
         function setupGiftButton() {
@@ -7826,132 +9529,158 @@ document.addEventListener('click', function(e) {
         }
 
         function createFeedItem(card) {
-            const feedItem = document.createElement('div');
-            feedItem.className = 'feed-item';
-            feedItem.setAttribute('data-id', card.id);
-            feedItem.setAttribute('data-category', card.category);
-            
-            const isFavorite = userFavorites.has(card.id.toString());
-            const isViewed = viewedCards.has(card.id.toString());
-            const favoriteIcon = isFavorite ? 'fas fa-heart' : 'far fa-heart';
-            const favoriteClass = isFavorite ? 'favorite active' : 'favorite';
-            
-            const usageCount = card.stats?.uses || 0;
-            
-            const tagsHTML = card.hashtags ? card.hashtags.map(tag => `#${tag}`).join(' ') : '';
-            
-            feedItem.innerHTML = `
-                ${!isViewed ? '<div class="new-badge">جديد</div>' : ''}
-                <img src="${card.image}" alt="${card.title}" class="feed-image" onerror="this.src='https://via.placeholder.com/600x600/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
-                <div class="instagram-actions">
-                    <div class="action-group">
-                        <button class="instagram-btn ${favoriteClass}" data-id="${card.id}">
-                            <i class="${favoriteIcon}"></i>
-                        </button>
-                        <button class="instagram-btn view-prompt-btn" data-prompt="${card.prompt}" data-title="${card.title}">
-                            <i class="far fa-eye"></i>
-                        </button>
-                        <button class="share-btn" data-id="${card.id}" data-title="${card.title}" data-image="${card.image}" data-prompt="${card.prompt}">
-                            <i class="fas fa-share-alt"></i>
-                        </button>
-                    </div>
-                    <div class="action-group">
-                        <button class="instagram-btn copy" data-prompt="${card.prompt}">
-                            <i class="far fa-copy"></i>
-                        </button>
-                        <button class="instagram-btn gemini">
-                            <i class="fab fa-google"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="user-count">
-                    <i class="fas fa-users"></i>
-                    <span>${formatNumber(usageCount)} مستخدم</span>
-                </div>
-                <div class="feed-caption">
-                    <strong>${card.title}</strong>
-                    <p>${card.description}</p>
-                    ${tagsHTML ? `<div style="margin-top: 10px; font-size: 0.8rem; color: var(--primary);">${tagsHTML}</div>` : ''}
-                </div>
-                <div class="feed-prompt">
-                    ${card.prompt.substring(0, 100)}...
-                </div>
-            `;
-            
-            const favoriteBtn = feedItem.querySelector('.favorite');
-            const viewPromptBtn = feedItem.querySelector('.view-prompt-btn');
-            const copyBtn = feedItem.querySelector('.copy');
-            const geminiBtn = feedItem.querySelector('.gemini');
-            const shareBtn = feedItem.querySelector('.share-btn');
-            
-            if (favoriteBtn) {
-                favoriteBtn.addEventListener('click', function() {
-                    toggleFavorite(card.id, favoriteBtn);
-                });
-            }
-            
-            if (viewPromptBtn) {
-                viewPromptBtn.addEventListener('click', function() {
-                    if (!viewedCards.has(card.id.toString())) {
-                        viewedCards.add(card.id.toString());
-                        saveViewedCardsToLocalStorage();
-                        
-                        const newBadge = feedItem.querySelector('.new-badge');
-                        if (newBadge) {
-                            newBadge.remove();
-                        }
-                    }
-                    
-                    openPromptModal(card.title, card.prompt);
-                });
-            }
-            
-            if (copyBtn) {
-                copyBtn.addEventListener('click', function() {
-                    navigator.clipboard.writeText(card.prompt)
-                        .then(() => {
-                            showNotification('تم نسخ البرومبت بنجاح!');
-                        })
-                        .catch(err => {
-                            console.error('فشل في نسخ النص: ', err);
-                            showNotification('فشل في نسخ البرومبت!', 'error');
-                        });
-                });
-            }
-            
-            if (geminiBtn) {
-                geminiBtn.addEventListener('click', function() {
-                    window.open('https://gemini.google.com', '_blank');
-                    showNotification('تم فتح Gemini في نافذة جديدة!');
-                });
-            }
-            
-            if (shareBtn) {
-                shareBtn.addEventListener('click', function() {
-                    openShareModal(card);
-                });
-            }
+    const feedItem = document.createElement('div');
+    feedItem.className = 'feed-item';
+    feedItem.setAttribute('data-id', card.id);
+    feedItem.setAttribute('data-category', card.category);
+    
+    const isFavorite = userFavorites.has(card.id.toString());
+    const isViewed = viewedCards.has(card.id.toString());
+    const favoriteIcon = isFavorite ? 'fas fa-heart' : 'far fa-heart';
+    const favoriteClass = isFavorite ? 'favorite active' : 'favorite';
+    
+    const usageCount = card.stats?.uses || 0;
+    const tagsHTML = card.hashtags ? card.hashtags.map(tag => `#${tag}`).join(' ') : '';
+    
+    // إنشاء اسم مستخدم عشوائي
+    const usernames = ['مصمم إبداعي', 'فنان رقمي', 'مبدع الذكاء', 'مصمم صور', 'فنان AI'];
+    const randomUsername = usernames[Math.floor(Math.random() * usernames.length)];
+    const avatarLetter = randomUsername.charAt(0);
 
-            // تحديث حدث المشاركة في دالة createFeedItem
-if (shareBtn) {
-    shareBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const cardId = this.getAttribute('data-id');
-        const card = allCards.find(c => c.id.toString() === cardId);
+    feedItem.innerHTML = `
+        ${!isViewed ? '<div class="new-badge">جديد</div>' : ''}
         
-        if (card) {
-            if (navigator.share) {
-                shareImageWithPrompt(card);
-            } else {
-                openShareModal(card);
-            }
+        <!-- الهيدر مع الصورة الشخصية -->
+        <div class="feed-header">
+            <div class="feed-avatar">${avatarLetter}</div>
+            <div class="feed-username">${randomUsername}</div>
+        </div>
+        
+        <!-- الصورة الرئيسية -->
+        <img src="${card.image}" alt="${card.title}" class="feed-image" 
+             onerror="this.src='https://via.placeholder.com/600x400/6C63FF/FFFFFF?text=${encodeURIComponent(card.title)}'">
+        
+        <!-- أزرار التفاعل -->
+        <div class="instagram-actions">
+            <div class="action-group">
+                <button class="instagram-btn ${favoriteClass}" data-id="${card.id}" title="إضافة إلى المفضلة">
+                    <i class="${favoriteIcon}"></i>
+                </button>
+                <button class="instagram-btn view-prompt-btn" data-prompt="${card.prompt}" data-title="${card.title}" title="عرض البرومبت">
+                    <i class="far fa-eye"></i>
+                </button>
+                <button class="instagram-btn share-btn" data-id="${card.id}" data-title="${card.title}" data-image="${card.image}" data-prompt="${card.prompt}" title="مشاركة">
+                    <i class="fas fa-share-alt"></i>
+                </button>
+            </div>
+            <div class="action-group">
+                <button class="instagram-btn copy" data-prompt="${card.prompt}" title="نسخ البرومبت">
+                    <i class="far fa-copy"></i>
+                </button>
+                <button class="instagram-btn gemini" title="الذهاب إلى Gemini">
+                    <i class="fab fa-google"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- العداد -->
+        <div class="user-count">
+            <i class="fas fa-users"></i>
+            <span>${formatNumber(usageCount)} مستخدم</span>
+        </div>
+        
+        <!-- المحتوى -->
+        <div class="feed-caption">
+            <strong>${card.title}</strong>
+            <p>${card.description}</p>
+            ${tagsHTML ? `<div style="margin-top: 12px; font-size: 0.8rem; color: var(--primary); font-weight: 600;">${tagsHTML}</div>` : ''}
+        </div>
+        
+        <!-- البرومبت -->
+        <div class="feed-prompt">
+            ${card.prompt.substring(0, 120)}...
+        </div>
+    `;
+    
+    // إضافة مستمعي الأحداث
+    setupFeedItemEvents(feedItem, card);
+    
+    return feedItem;
+}
+
+// دالة مساعدة لإعداد الأحداث
+function setupFeedItemEvents(feedItem, card) {
+    const favoriteBtn = feedItem.querySelector('.favorite');
+    const viewPromptBtn = feedItem.querySelector('.view-prompt-btn');
+    const copyBtn = feedItem.querySelector('.copy');
+    const geminiBtn = feedItem.querySelector('.gemini');
+    const shareBtn = feedItem.querySelector('.share-btn');
+    
+    if (favoriteBtn) {
+        favoriteBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleFavorite(card.id, favoriteBtn);
+        });
+    }
+    
+    if (viewPromptBtn) {
+        viewPromptBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            handleViewPrompt(card, feedItem);
+        });
+    }
+    
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navigator.clipboard.writeText(card.prompt)
+                .then(() => {
+                    showNotification('تم نسخ البرومبت بنجاح!');
+                })
+                .catch(err => {
+                    console.error('فشل في نسخ النص: ', err);
+                    showNotification('فشل في نسخ البرومبت!', 'error');
+                });
+        });
+    }
+    
+    if (geminiBtn) {
+        geminiBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            window.open('https://gemini.google.com', '_blank');
+            showNotification('تم فتح Gemini في نافذة جديدة!');
+        });
+    }
+    
+    if (shareBtn) {
+        shareBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            openShareModal(card);
+        });
+    }
+    
+    // جعل الكارت كاملاً قابلاً للنقر لعرض البرومبت
+    feedItem.addEventListener('click', function(e) {
+        if (!e.target.closest('.instagram-btn') && !e.target.closest('.feed-prompt')) {
+            handleViewPrompt(card, feedItem);
         }
     });
 }
-            
-            return feedItem;
-        }
 
+// دالة مساعدة لعرض البرومبت
+function handleViewPrompt(card, feedItem) {
+    if (!viewedCards.has(card.id.toString())) {
+        viewedCards.add(card.id.toString());
+        saveViewedCardsToLocalStorage();
+        
+        const newBadge = feedItem.querySelector('.new-badge');
+        if (newBadge) {
+            newBadge.remove();
+        }
+    }
+    
+    openPromptModal(card.title, card.prompt);
+}
         function openShareModal(card) {
             const shareModal = document.getElementById('shareModal');
             const shareUrlInput = document.getElementById('shareUrlInput');
@@ -8725,6 +10454,81 @@ function openShareModal(card) {
     updateOpenGraphTags(card);
 }
 
+// =============================================
+// نظام الفلترة البسيط للأزرار الزجاجية
+// =============================================
+
+function initGlassFilterButtons() {
+    const filterButtons = document.querySelectorAll('.glass-btn-filter');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // إزالة النشاط من جميع الأزرار
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // إضافة النشاط للزر المحدد
+            this.classList.add('active');
+            
+            // تطبيق الفلترة
+            const filter = this.getAttribute('data-filter');
+            currentFilter = filter;
+            currentPage = 0;
+            renderFeedCards();
+            
+            // تأثير النقر
+            createButtonRipple(this);
+        });
+    });
+}
+
+// تأثير الريبل عند النقر
+function createButtonRipple(button) {
+    const ripple = document.createElement('span');
+    ripple.style.cssText = `
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        animation: button-ripple 0.6s ease-out;
+        pointer-events: none;
+    `;
+    
+    button.appendChild(ripple);
+    
+    setTimeout(() => {
+        ripple.remove();
+    }, 600);
+}
+
+// إضافة أنيميشن الريبل
+const buttonRippleStyle = document.createElement('style');
+buttonRippleStyle.textContent = `
+    @keyframes button-ripple {
+        0% {
+            width: 0;
+            height: 0;
+            opacity: 1;
+        }
+        100% {
+            width: 150px;
+            height: 150px;
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(buttonRippleStyle);
+
+// استدعاء التهيئة
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(initGlassFilterButtons, 500);
+});
+
 // تحديث دالة createFeedItem لإضافة نظام المشاركة الجديد
 function createFeedItem(card) {
     const feedItem = document.createElement('div');
@@ -9297,9 +11101,8 @@ document.head.appendChild(splashStyle);
 // تهيئة النظام المائي - استبدال التهيئة القديمة
 // =============================================
 
-// تعديل التهيئة الرئيسية لتدعم النظام الجديد
+// تهيئة التطبيق
 document.addEventListener('DOMContentLoaded', function() {
-    // التهيئة الأساسية الحالية (لا تحذفها)
     loadUser();
     setupEventListeners();
     loadAndDisplayCards();
@@ -9307,20 +11110,18 @@ document.addEventListener('DOMContentLoaded', function() {
     updateSlidesPerView();
     initHashtags();
     setupGiftButton();
-    initParallaxHero();
     initFooterSlideshow();
     initSupportPopup();
     initTouchNavigation();
     initImageComparison();
     setupRestorerButtons();
     setupTutorialDropdown();
+    
+    // تهيئة نظام مشاركة الصور الجديد
     initImageSharingSystem();
     
-    // إضافة التهيئة الجديدة للنافبار المائي
-    setTimeout(() => {
-        new LiquidNavbar();
-        setupLiquidButtons();
-    }, 1000);
+    // تهيئة الهيرو الجديد
+    setTimeout(initOrbHero, 500);
     
     // التحقق من ظهور أزرار التنقل
     toggleNavigationButtons();
@@ -9330,7 +11131,6 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleNavigationButtons();
     });
 });
-
 // =============================================
 // الحفاظ على الدوال الحالية وإضافة الجديدة فقط
 // =============================================
@@ -9814,95 +11614,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// نظام Parallax للهيرو
-function initParallaxHero() {
-    // تسجيل plugins GSAP
-    if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
-        gsap.registerPlugin(ScrollTrigger);
-    }
-    
-    // تهيئة Lenis للنزول السلس
-    initSmoothScrolling();
-    
-    // إعداد تأثير Parallax
-    setupParallaxEffect();
-    
-    // إحصائيات متحركة
-    animateParallaxStats();
-    
-    // إعداد أحداث الأزرار
-    setupParallaxButtons();
-    
-    // تحميل الصور
-    preloadParallaxImages();
-    
-    // إظهار المحتوى بعد التحميل
-    setTimeout(() => {
-        document.getElementById('parallaxHero').classList.add('loaded');
-    }, 500);
-}
-
-// النزول السلس
-function initSmoothScrolling() {
-    if (typeof Lenis !== 'undefined') {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            orientation: 'vertical',
-            gestureOrientation: 'vertical',
-            smoothWheel: true,
-            wheelMultiplier: 1,
-            touchMultiplier: 2,
-        });
-
-        lenis.on('scroll', ScrollTrigger.update);
-
-        if (typeof gsap !== 'undefined') {
-            gsap.ticker.add((time) => {
-                lenis.raf(time * 1000);
-            });
-            gsap.ticker.lagSmoothing(0);
-        }
-    }
-}
-
-// تأثير Parallax
-function setupParallaxEffect() {
-    const triggerElement = document.querySelector('[data-parallax-layers]');
-    if (!triggerElement || typeof gsap === 'undefined') return;
-
-    let tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: triggerElement,
-            start: "0% 0%",
-            end: "100% 0%",
-            scrub: 0.5,
-            markers: false // تغيير إلى true للتdebug
-        }
-    });
-
-    const layers = [
-        { layer: "1", yPercent: 50 },  // أبعد طبقة - تتحرك ببطء
-        { layer: "2", yPercent: 35 },  // طبقة متوسطة
-        { layer: "3", yPercent: 20 },  // طبقة النص
-        { layer: "4", yPercent: 5 }    // أقرب طبقة - تتحرك بسرعة
-    ];
-
-    layers.forEach((layerObj, idx) => {
-        const elements = triggerElement.querySelectorAll(`[data-parallax-layer="${layerObj.layer}"]`);
-        if (elements.length > 0) {
-            tl.to(
-                elements,
-                {
-                    yPercent: layerObj.yPercent,
-                    ease: "none"
-                },
-                idx === 0 ? undefined : "<"
-            );
-        }
-    });
-}
-
 /// إحصائيات متحركة - النسخة المحسنة
 function animateParallaxStats() {
     const stats = [
@@ -10004,17 +11715,371 @@ function handleResize() {
     }
 }
 
-// استدعاء التهيئة عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    // انتظر تحميل المكتبات
-    setTimeout(() => {
-        initParallaxHero();
-    }, 1000);
-});
+
 
 // إعادة التهيئة عند تغيير حجم النافذة
 window.addEventListener('resize', handleResize);
 
+
+
+// =============================================
+// تطبيق التصميم الزجاجي على جميع الأزرار ديناميكياً
+// =============================================
+
+function applyGlassEffectToAllButtons() {
+    // تطبيق على أزرار الفلاتر
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+        if (!btn.classList.contains('glass-btn')) {
+            btn.classList.add('glass-btn', 'glass-btn-secondary');
+        }
+    });
+
+
+    // تطبيق على أزرار الإنستجرام
+    const instagramButtons = document.querySelectorAll('.instagram-btn');
+    instagramButtons.forEach(btn => {
+        if (!btn.classList.contains('glass-btn-social')) {
+            btn.classList.add('glass-btn', 'glass-btn-social', 'glass-btn-secondary');
+        }
+    });
+
+    // تطبيق على أزرار النسخ والجمناي
+    const actionButtons = document.querySelectorAll('.copy-btn, .gemini-btn');
+    actionButtons.forEach(btn => {
+        if (!btn.classList.contains('glass-btn')) {
+            btn.classList.add('glass-btn');
+        }
+    });
+
+    // تطبيق على أزرار التمرير
+    const sliderButtons = document.querySelectorAll('.slider-btn');
+    sliderButtons.forEach(btn => {
+        if (!btn.classList.contains('glass-btn')) {
+            btn.classList.add('glass-btn', 'glass-btn-social', 'glass-btn-secondary');
+        }
+    });
+
+    // تطبيق على زر تحميل المزيد
+    const loadMoreButtons = document.querySelectorAll('.load-more-btn');
+    loadMoreButtons.forEach(btn => {
+        if (!btn.classList.contains('glass-btn')) {
+            btn.classList.add('glass-btn', 'glass-btn-primary');
+        }
+    });
+
+    // تطبيق على أزرار المشاركة
+    const shareOptions = document.querySelectorAll('.share-option');
+    shareOptions.forEach(option => {
+        if (!option.classList.contains('glass-btn')) {
+            option.classList.add('glass-btn', 'glass-btn-secondary');
+        }
+    });
+
+    // تطبيق على أزرار الإغلاق
+    const closeButtons = document.querySelectorAll('.close-modal, .close-share-modal, .close-support-modal, .close-favorites-btn, .close-search-modal');
+    closeButtons.forEach(btn => {
+        if (!btn.classList.contains('glass-btn')) {
+            btn.classList.add('glass-btn', 'glass-btn-social', 'glass-btn-secondary');
+        }
+    });
+
+    // تطبيق على أزرار المفضلة
+    const favoriteButtons = document.querySelectorAll('.favorite-slide-btn');
+    favoriteButtons.forEach(btn => {
+        if (!btn.classList.contains('glass-btn')) {
+            btn.classList.add('glass-btn');
+        }
+    });
+
+    console.log('تم تطبيق التصميم الزجاجي على جميع الأزرار بنجاح!');
+}
+
+// تطبيق التأثير عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        applyGlassEffectToAllButtons();
+    }, 1000);
+});
+
+// إعادة التطبيق عند إضافة محتوى ديناميكي
+function observeDynamicContent() {
+    const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.addedNodes.length) {
+                setTimeout(() => {
+                    applyGlassEffectToAllButtons();
+                }, 100);
+            }
+        });
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}
+
+// بدء المراقبة
+observeDynamicContent();
+
+
+
+// تهيئة الهيرو الجديد بدون Parallax
+function initModernHero() {
+    // إحصائيات متحركة
+    animateModernStats();
+    
+    // إعداد أحداث الأزرار
+    setupModernButtons();
+}
+
+// إحصائيات متحركة للهيرو الجديد
+function animateModernStats() {
+    const stats = [
+        { element: document.getElementById('modernUsersCount'), target: 918 },
+        { element: document.getElementById('modernPromptsCount'), target: 184 },
+        { element: document.getElementById('modernImagesCount'), target: 1220 }
+    ];
+
+    stats.forEach(stat => {
+        if (stat.element) {
+            const duration = 2000;
+            const increment = stat.target / (duration / 16);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= stat.target) {
+                    current = stat.target;
+                    clearInterval(timer);
+                    stat.element.textContent = Math.floor(current) + '+';
+                } else {
+                    stat.element.textContent = Math.floor(current) + '+';
+                }
+            }, 16);
+        }
+    });
+}
+
+// إعداد أحداث أزرار الهيرو الجديد
+function setupModernButtons() {
+    const exploreBtn = document.getElementById('modernExploreBtn');
+    const learnBtn = document.getElementById('modernLearnBtn');
+
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function() {
+            const filterSection = document.querySelector('.filter-section');
+            if (filterSection) {
+                filterSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    if (learnBtn) {
+        learnBtn.addEventListener('click', function() {
+            const tutorialSection = document.querySelector('.tutorial-section');
+            if (tutorialSection) {
+                tutorialSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+}
+
+// استدعاء التهيئة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(initModernHero, 500);
+});
+
+
+
+// تهيئة الهيرو الجديد - Orb AI Design
+function initOrbHero() {
+    // إعداد أحداث الأزرار
+    setupOrbButtons();
+    
+    // بدء أنيميشن إضافية
+    startOrbAnimations();
+}
+
+// إعداد أحداث أزرار الهيرو الجديد
+function setupOrbButtons() {
+    const exploreBtn = document.getElementById('orbExploreBtn');
+
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function() {
+            // تأثير النقر
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            
+            // التمرير إلى قسم الفلاتر
+            const filterSection = document.querySelector('.filter-section');
+            if (filterSection) {
+                filterSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            
+            showNotification('🚀 ابدأ رحلتك الإبداعية!');
+        });
+    }
+}
+
+// أنيميشن إضافية للهيرو
+function startOrbAnimations() {
+    // إضافة جسيمات إضافية بشكل عشوائي
+    setInterval(() => {
+        if (Math.random() < 0.3) {
+            createRandomParticle();
+        }
+    }, 2000);
+}
+
+function createRandomParticle() {
+    const particlesContainer = document.querySelector('.particles');
+    if (!particlesContainer) return;
+    
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    const size = Math.random() * 8 + 3;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 10 + 8;
+    const delay = Math.random() * 5;
+    
+    particle.style.cssText = `
+        width: ${size}px;
+        height: ${size}px;
+        left: ${left}%;
+        top: 100%;
+        animation-duration: ${duration}s;
+        animation-delay: ${delay}s;
+        background: rgba(${Math.random() * 100 + 100}, ${Math.random() * 100 + 150}, 255, 0.6);
+    `;
+    
+    particlesContainer.appendChild(particle);
+    
+    // إزالة الجسيم بعد انتهاء الأنيميشن
+    setTimeout(() => {
+        if (particle.parentNode) {
+            particle.remove();
+        }
+    }, (duration + delay) * 1000);
+}
+
+// استدعاء التهيئة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(initOrbHero, 500);
+});
+
+
+
+
+
+
+// تهيئة Orb Hero
+function initOrbHero() {
+    setupOrbButton();
+    createAdditionalParticles();
+}
+
+// إعداد زر الاستكشاف
+function setupOrbButton() {
+    const exploreBtn = document.getElementById('orbExploreBtn');
+    
+    if (exploreBtn) {
+        exploreBtn.addEventListener('click', function() {
+            // تأثير النقر
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+            
+            // التمرير إلى قسم الفلاتر
+            const filterSection = document.querySelector('.filter-section');
+            if (filterSection) {
+                filterSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            
+            showNotification('🚀 ابدأ رحلتك الإبداعية مع GEAR AI!');
+        });
+    }
+}
+
+// إنشاء جسيمات إضافية
+function createAdditionalParticles() {
+    const particlesContainer = document.querySelector('.floating-particles');
+    if (!particlesContainer) return;
+    
+    // إضافة 5 جسيمات إضافية
+    for (let i = 6; i <= 10; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 6 + 2;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const duration = Math.random() * 10 + 8;
+        const delay = Math.random() * 5;
+        
+        particle.style.cssText = `
+            width: ${size}px;
+            height: ${size}px;
+            left: ${left}%;
+            top: ${top}%;
+            animation-duration: ${duration}s;
+            animation-delay: ${delay}s;
+            background: rgba(${Math.floor(Math.random() * 100 + 100)}, 
+                           ${Math.floor(Math.random() * 100 + 150)}, 
+                           255, 0.4);
+        `;
+        
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// استدعاء التهيئة
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(initOrbHero, 500);
+});
+
+
+// دالة initHashtags المفقودة
+function initHashtags() {
+    // إذا كان لديك قسم هاشتاجات، ضع الكود هنا
+    // إذا لم يكن موجوداً، اتركها فارغة
+    console.log('Hashtags initialized');
+}
+
+// دالة initSupportPopup المفقودة
+function initSupportPopup() {
+    // إذا كان لديك نافذة دعم منبثقة، ضع الكود هنا
+    console.log('Support popup initialized');
+}
+
+// دالة initTouchNavigation المفقودة
+function initTouchNavigation() {
+    // إذا كان لديك تنقل باللمس، ضع الكود هنا
+    console.log('Touch navigation initialized');
+}
+
+// دالة toggleNavigationButtons المفقودة
+function toggleNavigationButtons() {
+    // إذا كان لديك أزرار تنقل، ضع الكود هنا
+    console.log('Navigation buttons toggled');
+}
 
 
 
